@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
+
+.image-form-division {
+    display: grid;
+    grid-template-columns: 60vw auto;
+    
+}
+.form{
+    background-color: #D5E7FB;
+    height: 100vh;
+}
+.sign-up-text{
+    font-family: 'Salsa', cursive; 
+    font-weight: 400;
+    font-size: 55px;
+    text-align: center;
+    color: #445F7A;
+    margin-top: 40px;
+    margin-bottom: 25px;
+
+}
+.image{
+    background: url('../../assets/image 2.png') center no-repeat;
+    background-size: 60vw 110vh;
+}

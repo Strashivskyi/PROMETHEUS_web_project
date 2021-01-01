@@ -1,0 +1,42 @@
+input[type="file"] {
+    height: 50px;
+text-align: center;
+margin-top: 100px;
+}
+
+.form-second-personal-data{
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    height: 100%;
+    margin-left: 19%;
+    margin-right: 20%;}
+          .second_form_submit{    
+            position: absolute;
+            width: 380px;
+            height: 50px;
+            background: #7189BF;
+            border: 2px solid #2A475B;
+            box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 30px;
+            margin-top: 420px;
+            
+            font-family: 'Salsa', cursive; 
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 37px;
+            color: #D5E7FB;
+            
+            
+              }
+              .personal_text_second_page{
+                position: relative;
+              font-family: Segoe UI Historic;
+              font-weight: normal;
+              font-size: 30px;
+              line-height: 48px;
+              text-align: center;
+              color: #7189BF;
+              margin-left: 113px;
+              margin-top: -20px;
+              }

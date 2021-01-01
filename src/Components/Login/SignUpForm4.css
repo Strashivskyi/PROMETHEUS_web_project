@@ -1,0 +1,11 @@
+.contact_text{
+        position: absolute;
+      font-family: Segoe UI Historic;
+      font-weight: normal;
+      font-size: 30px;
+      line-height: 48px;
+      text-align: center;
+      color: #7189BF;
+      margin-left: 113px;
+      margin-top: -20px;
+}

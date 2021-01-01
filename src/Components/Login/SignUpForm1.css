@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
+@import "~fontsource-dm-sans/index.css";
+.number-buttons{
+    display: grid;
+    grid-template-columns: auto 100px auto 100px auto 100px auto;
+    margin-left: 6%;
+    margin-right: 12%;
+    height: 40px;
+    margin-bottom: 50px;
+    
+}
+.number-button{
+    font-family: 'Salsa', cursive; 
+    background-color: #445F7A;
+    border-radius: 50%;
+    border: 2px solid #445F7A;
+    width: 60px;
+    color: #D5E7FB;
+    font-weight: 400;
+    font-size: 48px;
+    text-align: center;
+    z-index: 20;
+    
+
+}
+.number-button:hover{
+  background-color: #7189BF;
+}
+.number-button:active  {
+  background-color: #7189BF;
+}
+/*why active does not work????*/
+
+.line-between-number-buttons{
+    background-color: #445F7A;
+    height: 2px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0px;
+    z-index: 0;
+
+    
+}
+.form-itself{
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    margin-left: 19%;
+    margin-right: 20%;
+}
+input[type=text] {
+    color: #445F7A;
+    width: 100%;
+    padding: 12px 20px;
+    padding-bottom: 0px;
+    margin: 8px 0;
+    margin-top: 20px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #445F7A;
+    background-color: transparent;
+    font-family: 'Salsa', cursive; 
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 47px;
+  }
+
+  input[type=button] {
+    background: rgba(113, 137, 191, 0.1);
+    border: 3px solid #445F7A;
+    box-sizing: border-box;
+    border-radius: 30px;
+    height: 45px;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Salsa', cursive; 
+    font-weight: 400;
+    font-size: 30px;
+    color: #445F7A;
+
+  }
+
+  .gender{
+    font-family: 'Salsa', cursive; 
+    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
+    color: #445F7A;
+    margin-top: 0px;
+    margin-bottom: 20px;
+
+
+  }
+  .container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 40px;
+    width: 120%;
+    margin-left:10%;
+
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  label {
+    position: relative;
+    color: #445F7A;
+    font-family: "DM Sans";
+    font-weight: 700;
+    font-size: 20px;
+  }
+  
+  label::before {
+    content: "";
+    background: url('../../assets/Vector(2).png');
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: -44px;
+    top: -8px;
+  
+    transform: scale(0) rotateZ(180deg);
+    transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+  }
+  
+  input[type="checkbox"]:checked + label::before {
+    transform: scale(1) rotateZ(0deg);
+  }
+
+  label::after {
+    content: "";
+    border: 2px solid #2E3A59;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: -42px;
+    top: -6px;
+    border-radius: 50%;
+  }
+  .first_form_submit{    
+position: absolute;
+width: 380px;
+height: 50px;
+background: #7189BF;
+border: 2px solid #2A475B;
+box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.25);
+border-radius: 30px;
+margin-top: 420px;
+
+font-family: 'Salsa', cursive; 
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 37px;
+color: #D5E7FB;
+
+
+  }
+
+.personal_text{
+  position: absolute;
+font-family: Segoe UI Historic;
+font-weight: normal;
+font-size: 30px;
+line-height: 48px;
+text-align: center;
+color: #7189BF;
+margin-left: 113px;
+margin-top: -20px;
+}
