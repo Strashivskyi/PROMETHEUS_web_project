@@ -46,6 +46,8 @@
     grid-template-rows: auto auto auto auto auto;
     margin-left: 19%;
     margin-right: 20%;
+
+
 }
 input[type=text] {
     color: #445F7A;
@@ -95,16 +97,15 @@ input[type=text] {
   .container {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 40px;
-    width: 120%;
-    margin-left:10%;
-
+    grid-gap: 60px;
+    padding-top: 20px;
   }
-  input[type="checkbox"] {
+  .group input[type="checkbox"] {
     display: none;
   }
   
-  label {
+  
+  .group label {
     position: relative;
     color: #445F7A;
     font-family: "DM Sans";
@@ -112,7 +113,7 @@ input[type=text] {
     font-size: 20px;
   }
   
-  label::before {
+  .group label::before {
     content: "";
     background: url('../../assets/Vector(2).png');
     background-position: center;
@@ -121,24 +122,24 @@ input[type=text] {
     height: 30px;
     position: absolute;
     left: -44px;
-    top: -8px;
+    top: -20px;
   
     transform: scale(0) rotateZ(180deg);
     transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
   }
   
-  input[type="checkbox"]:checked + label::before {
+  .group input[type="checkbox"]:checked + label::before {
     transform: scale(1) rotateZ(0deg);
   }
 
-  label::after {
+  .group label::after {
     content: "";
     border: 2px solid #2E3A59;
     width: 24px;
     height: 24px;
     position: absolute;
     left: -42px;
-    top: -6px;
+    top: -20px;
     border-radius: 50%;
   }
   .first_form_submit{    

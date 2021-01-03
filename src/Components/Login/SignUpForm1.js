@@ -14,9 +14,9 @@ function SignUpForm1() {
     <input type="text" id="lname" name="lastname" placeholder="Last name"/>
     <input type="button" value="Date of birth"/>
     <p className="gender">Gender</p>
-    <div class="container checks">
+    <div class="container">
       <div class="group">
-        <input type="checkbox" id="xd" />
+        <input className="gender_checks" type="checkbox" id="xd" />
         <label for="xd">Male</label>
       </div>
 
