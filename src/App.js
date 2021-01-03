@@ -1,20 +1,28 @@
 import './App.css';
 import SignUp from './Components/Login/SignUp';
 import SignIn from "./Components/SignIn/SignIn";
-import ForgetPassword from "./Components/SignIn/RandomForgetPassword";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import Home from "./Components/Home/Home";
+import ForgetPassword from "./Components/SignIn/ForgetPassword";
+import PrivateRouteToReg from "./Firebase/AuthSetup/PrivateRoute/PrivateRouteToReg";
+
+import { AuthProvider } from "./Firebase/AuthSetup/Auth";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import PrivateRouteToLogin from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToLogin';
 
 function App() {
   return (
     <>
-    <Router>
-  <Switch>
-    <Route exact path="/" component={SignIn}/>
-    <Route exact path="/forgetPassword" component={ForgetPassword}/>
-    <Route exact path="/registration" component={SignUp}/>
-  </Switch>
-  </Router>  
-      </>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={SignIn} />
+            <PrivateRouteToLogin exact path="/home" component={Home} />
+            <Route exact path="/forgetPassword" component={ForgetPassword} />
+            <PrivateRouteToReg path="/registration" component={SignUp} />
+          </Switch>
+        </Router>
+      </AuthProvider>
+    </>
   );
 }
 
