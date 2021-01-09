@@ -1,0 +1,196 @@
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@import "~fontsource-dm-sans/index.css";
+.number-buttons{
+    display: grid;
+    grid-template-columns: auto 100px auto 100px auto 100px auto;
+    margin-left: 6%;
+    margin-right: 12%;
+    height: 40px;
+    margin-bottom: 50px;
+    
+}
+.number-button{
+    font-family: 'Inter', cursive; 
+    background-color: #48535F;
+    border-radius: 50%;
+    border: 2px solid #48535F;
+    width: 60px;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 48px;
+    text-align: center;
+    z-index: 20;
+    
+
+}
+.number-button:hover{
+  background-color: #728fad;
+}
+.number-button:active  {
+  background-color: #728fad;
+}
+/*why active does not work????*/
+
+.line-between-number-buttons{
+    background-color: #445F7A;
+    height: 2px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0px;
+    z-index: 0;
+
+    
+}
+.form-itself{
+    display: inline-block;
+    grid-template-rows: auto auto auto auto auto;
+    margin-left: 19%;
+    margin-right: 20%;
+
+}
+.input-text-name input{
+  color: #222222;
+  width: 100%;
+  padding: 12px 60px;
+  padding-bottom: 0px;
+  margin: 8px 0;
+  margin-top: 60px;
+  box-sizing: border-box;
+  background: url(/src/assets/human.svg) no-repeat left center;
+  border: none;
+  border-bottom: 3px solid #222222;
+  background-color: transparent;
+  font-family: 'Inter', cursive; 
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 47px;
+}
+
+.input-text-passw input{
+  color: #222222;
+  width: 100%;
+  padding: 12px 60px;
+  padding-bottom: 0px;
+  margin: 8px 0;
+  margin-top: 48px;
+  box-sizing: border-box;
+  background: url(/src/assets/human.svg) no-repeat left center;
+  border: none;
+  border-bottom: 3px solid #222222;
+  background-color: transparent;
+  font-family: 'Inter', cursive; 
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 47px;
+}
+
+  input[type=button] {
+    background: #48535F;
+    border: 3px solid #48535F;
+    box-sizing: border-box;
+
+    height: 68px;
+    margin-right: 10%;
+    margin-left: 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    font-family: 'Inter', cursive; 
+    font-weight: 400;
+    font-size: 30px;
+    color: #ffffff;
+
+  }
+
+  .gender{
+    font-family: 'Inter', cursive; 
+    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
+    color: #222222;
+    margin-top: 0px;
+    margin-bottom: 20px;
+
+
+  }
+  .container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 60px;
+    padding-top: 20px;
+  }
+  .group input[type="checkbox"] {
+    display: none;
+  }
+  
+  
+  .group label {
+    position: relative;
+    color: #48535F;
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 20px;
+  }
+  
+  .group label::before {
+    content: "";
+    background: url('../../assets/Vector(2).png');
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: -44px;
+    top: -20px;
+  
+    transform: scale(0) rotateZ(180deg);
+    transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+  }
+  
+  .group input[type="checkbox"]:checked + label::before {
+    transform: scale(1) rotateZ(0deg);
+  }
+
+  .group label::after {
+    content: "";
+    border: 2px solid #222222;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: -42px;
+    top: -20px;
+    border-radius: 50%;
+  }
+  .first_form_submit{    
+position: absolute;
+width: 380px;
+height: 50px;
+background: #48535F;
+border: 2px solid #48535F;
+margin-top: 120px;
+
+font-family: 'Inter', cursive; 
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 37px;
+color: #ffffff;
+
+  }
+
+.personal_text{
+  position: absolute;
+font-family: 'Inter';
+font-weight: normal;
+font-size: 28px;
+line-height: 48px;
+text-align: center;
+color: #222222;
+margin-left: 35px;
+margin-top: 20px;
+}
+.input-text{
+  margin-top: 70px;
+}
+
+/* background: url(/src/assets/pass.svg) no-repeat left center; */

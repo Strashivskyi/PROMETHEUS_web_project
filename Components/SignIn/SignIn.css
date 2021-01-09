@@ -1,0 +1,118 @@
+.login_form{
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    margin-left: 14%;
+    margin-right: 14%;
+    margin-top: 15vh;
+}
+.login_text_input {
+  color: #222222;
+  width: 100%;
+  padding: 12px 60px;
+  padding-bottom: 0px;
+  margin: 8px 0;
+  margin-top: 28px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid #222222;
+  background: url(/src/assets/emmm.svg) no-repeat left center;
+  background-color: transparent;
+  font-family: 'Inter', cursive; 
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 47px;
+  }
+  .login_text_input_second{
+    color: #222222;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 0px;
+    margin: 8px 0;
+    margin-top: 28px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #222222;
+    background-color: transparent;
+    background: url(/src/assets/pass.svg) no-repeat left center;
+    font-family: 'Inter', cursive; 
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 47px;
+  }
+  .login_checkbox {
+    display: none;
+
+  }
+  
+.remember label {
+    top: 30px;
+    color: #222222;
+    position: relative;
+    font-family: 'Inter', cursive; 
+    font-weight: 400;
+    font-size: 25px;
+    padding-left: 140px;
+    padding-top: 65px;
+  }
+  
+ .remember label::before {
+    content: "";
+    background: url('../../assets/Vector(2).png');
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 80px;
+    top: 60px;
+  
+    transform: scale(0) rotateZ(180deg);
+    transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+  }
+  
+  .remember input[type="checkbox"]:checked + label::before {
+    transform: scale(1) rotateZ(0deg);
+  }
+
+  .remember label::after {
+    content: "";
+    border: 2px solid #222222;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 82px;
+    top: 62px;
+    border-radius: 50%;
+  }
+.login_submit{
+        position: absolute;
+        width: 435px;
+        height: 68px;
+        background: #48535F;
+        border: 2px solid #48535F;
+        margin-top: 250px;
+        font-family: 'Inter', cursive; 
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 37px;
+        color: #ffffff;
+}
+.login_link_reg a {
+    padding-top: 230px;
+    display: flex;
+    flex-direction: column;
+    font-family:' Inter';
+    font-weight: 400;
+    font-size: 25px;
+    color: #222222;
+}
+.login_link_pass a {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  font-family:' Inter';
+  font-weight: 400;
+  font-size: 25px;
+  color: #48535F;
+}
