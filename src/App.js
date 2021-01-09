@@ -1,7 +1,7 @@
 import './App.css';
 import SignUp from './Components/Login/SignUp';
 import SignIn from "./Components/SignIn/SignIn";
-import Home from "./Components/Home/Home";
+import Patient from "./Components/Patient/Patient";
 import ForgetPassword from "./Components/SignIn/ForgetPassword";
 import PrivateRouteToReg from "./Firebase/AuthSetup/PrivateRoute/PrivateRouteToReg";
 
@@ -16,7 +16,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={SignIn} />
-            <PrivateRouteToLogin exact path="/home" component={Home} />
+            <PrivateRouteToLogin exact path="/home" component={Patient} />
             <Route exact path="/forgetPassword" component={ForgetPassword} />
             <PrivateRouteToReg path="/registration" component={SignUp} />
           </Switch>
