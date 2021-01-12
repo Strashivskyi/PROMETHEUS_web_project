@@ -6,22 +6,39 @@
     margin-top: 15vh;
 }
 .login_text_input {
-    color: #445F7A;
+  color: #222222;
+  width: 100%;
+  padding: 12px 60px;
+  padding-bottom: 0px;
+  margin: 8px 0;
+  margin-top: 28px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid #222222;
+  background: url(/src/assets/emmm.svg) no-repeat left center;
+  background-color: transparent;
+  font-family: 'Inter', cursive; 
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 47px;
+  }
+  .login_text_input_second{
+    color: #222222;
     width: 100%;
-    padding: 12px 20px;
+    padding: 12px 60px;
     padding-bottom: 0px;
     margin: 8px 0;
-    margin-top: 20px;
+    margin-top: 28px;
     box-sizing: border-box;
     border: none;
-    border-bottom: 3px solid #445F7A;
+    border-bottom: 3px solid #222222;
     background-color: transparent;
-    font-family: 'Salsa', cursive; 
+    background: url(/src/assets/pass.svg) no-repeat left center;
+    font-family: 'Inter', cursive; 
     font-weight: 400;
-    font-size: 30px;
+    font-size: 22px;
     line-height: 47px;
   }
-
   .login_checkbox {
     display: none;
 
@@ -29,9 +46,9 @@
   
 .remember label {
     top: 30px;
-    color: #445F7A;
+    color: #222222;
     position: relative;
-    font-family: 'Salsa', cursive; 
+    font-family: 'Inter', cursive; 
     font-weight: 400;
     font-size: 25px;
     padding-left: 140px;
@@ -59,7 +76,7 @@
 
   .remember label::after {
     content: "";
-    border: 2px solid #2E3A59;
+    border: 2px solid #222222;
     width: 24px;
     height: 24px;
     position: absolute;
@@ -69,26 +86,33 @@
   }
 .login_submit{
         position: absolute;
-        width: 380px;
-        height: 50px;
-        background: #7189BF;
-        border: 2px solid #2A475B;
-        box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 30px;
-        margin-top: 300px;
-        font-family: 'Salsa', cursive; 
+        width: 435px;
+        height: 68px;
+        background: #48535F;
+        border: 2px solid #48535F;
+        margin-top: 250px;
+        font-family: 'Inter', cursive; 
         font-style: normal;
         font-weight: normal;
-        font-size: 24px;
+        font-size: 30px;
         line-height: 37px;
-        color: #D5E7FB;
+        color: #ffffff;
 }
-.login_links{
+.login_link_reg a {
     padding-top: 230px;
     display: flex;
     flex-direction: column;
-    font-family: Salsa;
+    font-family:' Inter';
     font-weight: 400;
     font-size: 25px;
-    color: #445F7A;
+    color: #222222;
+}
+.login_link_pass a {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  font-family:' Inter';
+  font-weight: 400;
+  font-size: 25px;
+  color: #48535F;
 }

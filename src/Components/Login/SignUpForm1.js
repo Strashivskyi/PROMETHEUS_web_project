@@ -9,30 +9,36 @@ function SignUpForm1() {
        <LoginNavigation/>
          <form className="form-itself">
   
-    <p className="personal_text">PERSONAL</p>
-    <input type="text" id="fname" name="firstname" placeholder="First name"/>
-    <input type="text" id="lname" name="lastname" placeholder="Last name"/>
-    <input type="button" value="Date of birth"/>
-    <p className="gender">Gender</p>
+    <p className="personal_text">Особиста інформація</p>
+    <div className="input-text-name">
+    <input type="text" id="fname" name="firstname" placeholder="Ім'я"/>
+    </div>
+    <div className="input-text-passw">
+    <input type="text" id="lname" name="lastname" placeholder="Прізвище"/>
+    </div>
+    <input type="button" value="Дата народження"/>
+    <p className="gender">Стать</p>
     <div class="container">
       <div class="group">
         <input className="gender_checks" type="checkbox" id="xd" />
-        <label for="xd">Male</label>
+        <label for="xd">Чоловіча</label>
       </div>
 
       <div class="group">
       
       <input type="checkbox" id="figma" />
-      <label for="figma">Female</label>
+      <label for="figma">Жіноча</label>
       </div>
 
       <div class="group">
           
         <input type="checkbox" id="sketch" />
-        <label for="sketch">Non-Binary</label>
-      </div>
+        <label for="sketch">Інше</label>
+       
+      </div> 
+       <input className="first_form_submit" type="submit" value="Далі"></input>
     </div>
-    <input className="first_form_submit" type="submit" value="Next"></input>
+   
 
 </form>
 

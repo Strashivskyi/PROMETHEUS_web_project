@@ -9,34 +9,49 @@ margin-top: 100px;
     grid-template-rows: auto auto auto auto auto;
     height: 100%;
     margin-left: 19%;
-    margin-right: 20%;}
+    margin-right: 20%;
+  }
           .second_form_submit{    
             position: absolute;
             width: 380px;
             height: 50px;
-            background: #7189BF;
-            border: 2px solid #2A475B;
-            box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 30px;
-            margin-top: 420px;
-            
-            font-family: 'Salsa', cursive; 
+            background: #48535F;
+            border: 2px solid #48535F;
+            margin-top: 520px;
+            font-family: 'Inter', cursive; 
             font-style: normal;
             font-weight: normal;
             font-size: 24px;
             line-height: 37px;
-            color: #D5E7FB;
+            color: #ffffff;
             
             
               }
               .personal_text_second_page{
-                position: relative;
-              font-family: Segoe UI Historic;
-              font-weight: normal;
-              font-size: 30px;
-              line-height: 48px;
-              text-align: center;
-              color: #7189BF;
-              margin-left: 113px;
-              margin-top: -20px;
+                position: absolute;
+                font-family: 'Inter';
+                font-weight: normal;
+                font-size: 28px;
+                line-height: 48px;
+                text-align: center;
+                color: #222222;
+                margin-left: 28px;
+                margin-top: 20px;
               }
+.input-city input{
+  color: #222222;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 0px;
+    margin: 8px 0;
+    margin-top: 28px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #222222;
+    background-color: transparent;
+    background: url(/src/assets/country.svg) no-repeat left center;
+    font-family: 'Inter', cursive; 
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 47px;
+}

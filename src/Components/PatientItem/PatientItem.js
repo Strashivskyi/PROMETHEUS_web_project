@@ -5,8 +5,6 @@ import {
     Name,
     ButtonItem,
     Amount,
-
-
 } from "./PatientItem.styled";
 
 import kid from '../../assets/boy.png';

@@ -1,11 +1,79 @@
 .contact_text{
         position: absolute;
-      font-family: Segoe UI Historic;
+      font-family: "Inter";
       font-weight: normal;
       font-size: 30px;
       line-height: 48px;
       text-align: center;
-      color: #7189BF;
-      margin-left: 113px;
+      color: #222222;
+      margin-left:120px;
       margin-top: -20px;
+}
+.inputE{
+  color: #222222;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 0px;
+    margin: 8px 0;
+    margin-top: 28px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #222222;
+    background: url(/src/assets/emmm.svg) no-repeat left center;
+    background-color: transparent;
+    font-family: 'Inter', cursive; 
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 47px;
+}
+.inputP{
+  color: #222222;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 0px;
+    margin: 8px 0;
+    margin-top: 28px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #222222;
+    background-color: transparent;
+    background: url(/src/assets/pass.svg) no-repeat left center;
+    font-family: 'Inter', cursive; 
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 47px;
+}
+.inputCp{
+  color: #222222;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 0px;
+    margin: 8px 0;
+    margin-top: 28px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #222222;
+    background: url(/src/assets/pass.svg) no-repeat left center;
+    background-color: transparent;
+    font-family: 'Inter', cursive; 
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 47px;
+}
+.inputPh{
+  color: #222222;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 0px;
+    margin: 8px 0;
+    margin-top: 28px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #222222;
+    background-color: transparent;
+    background: url(/src/assets/phh.svg) no-repeat left center;
+    font-family: 'Inter', cursive; 
+    font-weight: 400;
+    font-size:22px;
+    line-height: 47px;
 }
