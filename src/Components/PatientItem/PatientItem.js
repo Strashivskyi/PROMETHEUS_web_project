@@ -6,8 +6,11 @@ import {
     ButtonItem,
     Amount,
 } from "./PatientItem.styled";
-
+import {Link} from "react-router-dom"
 import kid from '../../assets/boy.png';
+import "../PatientInfo/PatientInfoPage.css";
+
+
 
 function PatientItem () {
 
@@ -23,9 +26,9 @@ function PatientItem () {
         fetchData()
     }, []);
 
-console.log(patients)
     return (
         <>
+            <h2 style={{marginLeft: "4rem"}}>Пацієнти</h2>
             <Amount>Кількість :{patients.length}</Amount>
 
             {
@@ -35,7 +38,7 @@ console.log(patients)
                          <img src={kid}  width="250" style={{ marginLeft: "0.8rem", marginTop: "0.9rem" }} />
 
                             <Name>{patient.Name}</Name>
-                        <ButtonItem>Переглянути</ButtonItem>
+                        <ButtonItem><Link to="/patient" className="viewmore_patient">Переглянути</Link></ButtonItem>
                     </Item>
                 ))
             }

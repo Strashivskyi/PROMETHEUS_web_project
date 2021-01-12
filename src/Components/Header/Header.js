@@ -20,7 +20,6 @@ function Header({handleInput}) {
                  <hr style={{
                      marginLeft: "4rem"
                  }}/>
-                  <h2 style={{marginLeft: "4rem"}}>Пацієнти</h2>
             </HeaderSection>
         </>
     );
