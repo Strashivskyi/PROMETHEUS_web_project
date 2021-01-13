@@ -1,0 +1,126 @@
+@import url('https://rsms.me/inter/inter.css');
+@import url(//db.onlinewebfonts.com/c/4b62ecafef4891c98fcd1e473603fd2a?family=BUIS);
+.patient_grid_container {
+    display: grid;
+    grid-template-columns: 17vw auto auto;
+    gap: 5vw;
+    margin-right: 50px;
+    margin-left: 8rem;
+    margin-top: 1rem;
+}
+.patients_link{
+    color: #222222;
+    text-decoration: none;
+
+
+}
+.patient_upper_flex_container{
+    display: flex;
+    flex-direction: row;
+}
+.column_outer_flex_container{
+    display: flex;
+    flex-direction: column;
+}
+.kid_name{
+    font-family: 'Inter', cursive; 
+    font-weight: 500;
+    line-height: 44px;
+    font-weight: 500;
+    font-size: 36px;
+}
+.diagnosis_flex_container{
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+    line-height: 85px;
+}
+.zebra_rows_flex_container{
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+    line-height: 32px;
+    padding-left: 10px;
+    margin-left: -15px;
+    line-height: 40px; 
+}
+
+.zebra_rows_parents_data{
+    margin-left: 150px;
+}
+.zebra_rows_gender_data{
+    margin-left: 163px;
+}
+.zebra_rows_age_data{
+    margin-left: 189px;
+}
+.zebra_rows_birthday_data{
+    margin-left: 24px;
+}
+.zebra_rows_town_data{
+    margin-left: 157px;
+}
+.zebra_rows_country_data{
+    margin-left: 147px;
+}
+.zebra_rows_blood_data{
+    margin-left: 140px;
+}
+.zebra_rows_height_data{
+    margin-left: 210px;
+
+}
+.zebra_rows_weight_data{
+    margin-left: 220px;
+
+}
+.second_column_outer_flex_container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 128px;
+}
+.patient_page_buttons{
+    display: grid;
+    grid-template-columns: 20vw 20vw;
+    margin-top: 70px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 26vw;
+    text-align: center;
+    gap: 50px;
+
+}
+.patient_page_buttons_therapy{
+    background-color: #48535F;
+    color: white;
+    padding: 0.5em 0.75em;
+    text-decoration: none;
+    min-width: 200px;
+}
+
+.patient_page_buttons_therapy:hover {
+    background-color: black;
+  }
+  
+.patient_page_buttons_therapy:active {
+    background-color: black;
+}
+.patient_page_buttons_program{
+    background-color: #48535F;
+    color: white;
+    padding: 0.5em 0.75em;
+    text-decoration: none;
+    min-width: 200px;
+}
+
+.patient_page_buttons_program:hover {
+    background-color: black;
+  }
+  
+.patient_page_buttons_program:active {
+    background-color: black;
+}
+.viewmore_patient{
+    color: white;
+    text-decoration: none;
+}

@@ -19,7 +19,7 @@ function SignUpForm4({ history }) {
             localStorage.setItem("phoneNumber",phone)
             history.push("/");}
             else{
-                alert("Please check your password")
+                alert("Будь ласка, перевірте ваш пароль")
             }
         } catch (error) {
             alert(error);
@@ -30,12 +30,12 @@ function SignUpForm4({ history }) {
         <div>
            <LoginNavigation/>
             <form className="form-itself" onSubmit={handleSignUp}>
-                <div className="contact_text">CONTACTS</div>
-                <input type="text" id="fname" name="email" placeholder="Email" />
-                <input type="text" id="lname" name="password" placeholder="Password" />
-                <input type="text" id="lname" name="passwordCheck" placeholder="Confirm password" />
-                <input type="text" id="lname" name="phone" placeholder="Phone number" />
-                <input style={{ marginTop: "55px" }} className="third_form_submit" type="submit" value="Next" />
+                <div className="contact_text">Контакти</div>
+                <input className="inputE" type="text" id="fname" name="email" placeholder="Email" />
+                <input className="inputP" type="text" id="lname" name="password" placeholder="Пароль" />
+                <input className="inputCp" type="text" id="lname" name="passwordCheck" placeholder="Підтвердження паролю" />
+                <input className="inputPh" type="text" id="lname" name="phone" placeholder="Номер телефону" />
+                <input style={{ marginTop: "55px" }} className="third_form_submit" type="submit" value="Далі" />
 
             </form>
 
