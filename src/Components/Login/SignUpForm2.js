@@ -10,11 +10,16 @@ function SignUpForm2() {
          <LoginNavigation/>
          <form className="form-second-personal-data">
    
-<p className="personal_text">PERSONAL</p>
+<p className="personal_text">Особиста інформація</p>
+
 <input type="file" size="1000" />
-<input type="text" id="fname" name="firstname" placeholder="Enter your country"/>
-<input type="text" id="fname" name="firstname" placeholder="Enter your city"/>
-<input className="second_form_submit" type="submit" value="Next"></input>
+<div className="input-city">
+<input type="text" id="fname" name="firstname" placeholder="Країна"/>
+</div>
+<div className="input-city">
+<input type="text" id="fname" name="firstname" placeholder="Місто"/>
+</div>
+<input className="second_form_submit" type="submit" value="Далі"></input>
 
 </form>
 

@@ -13,7 +13,7 @@ function SignUp() {
       <div className="image-form-division">
         <div className="image" />
         <div className="form">
-          <div className="sign-up-text"> Sign up</div>
+          <div className="sign-up-text">Реєстрація</div>
           <Router>
             <Switch>
               <PrivateRouteToReg exact path="/registration" component={SignUpForm1} />

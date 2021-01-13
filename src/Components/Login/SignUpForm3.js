@@ -18,16 +18,12 @@ function SignUpForm3() {
         <div>
          <LoginNavigation/>
          <form className="third_form">
-         <div className="work_text">WORK</div>
-         <Select className="third_form_select" options={options} id="bank_name" placeholder="Choose your profession..." required/>
-         <input type="text" id="certificate" name="certificate" placeholder="Enter the id of your certificate"/>
-         <input className="third_form_submit" type="submit" value="Check"/>
-         <input type="text" id="organizationname" name="organizationname" placeholder="Enter the organization name..."/>
-         <div className="therapist_check">
-         <input type="checkbox" id="xd" />
-         <label for="xd">I'm a private therapist</label>
+         <div className="work_text">Робота</div>
+         <Select className="third_form_select" options={options} id="bank_name" placeholder="Спеціальність" required/>
+         <div className="input-work-second">
+         <input type="text" id="organizationname" name="organizationname" placeholder="Назва організації"/>
          </div>
-         <input className="third_form_submit" type="submit" value="Next"/>
+         <input className="third_form_submit" type="submit" value="Далі"/>
          <div>
         
       </div>
