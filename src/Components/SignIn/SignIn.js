@@ -7,6 +7,7 @@ import { AuthContext } from "../../Firebase/AuthSetup/Auth";
 
 
 function SignIn({ history }) {
+    localStorage.setItem("child","patient.id")
     const { currentUser } = useContext(AuthContext);
     const handleLogin = useCallback(
         async event => {
@@ -20,16 +21,18 @@ function SignIn({ history }) {
                     history.push("/home");
                 }
                 else {
-                    alert("please verifie your email")
+                    
                 }
             } catch (error) {
-
+                alert(error)
             }
         },
         [history]
     );
     if (currentUser && currentUser.emailVerified == true) {
         return <Redirect to="/home" />;
+    }else{
+        
     }
 
     return(
