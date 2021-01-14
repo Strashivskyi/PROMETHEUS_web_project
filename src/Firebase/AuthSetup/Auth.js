@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import app from "../firebase";
-
+import "./Loader.css";
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     if (pending) {
-        return <>Loading...</>
+        return <div class="loader">Loading...</div>
     }
 
     return (

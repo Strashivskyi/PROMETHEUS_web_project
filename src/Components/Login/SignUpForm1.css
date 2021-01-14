@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
 @import "~fontsource-dm-sans/index.css";
 .number-buttons{
     display: grid;
@@ -10,12 +11,12 @@
     
 }
 .number-button{
-    font-family: 'Salsa', cursive; 
-    background-color: #445F7A;
+    font-family: 'Inter', cursive; 
+    background-color: #48535F;
     border-radius: 50%;
-    border: 2px solid #445F7A;
+    border: 2px solid #48535F;
     width: 60px;
-    color: #D5E7FB;
+    color: #ffffff;
     font-weight: 400;
     font-size: 48px;
     text-align: center;
@@ -24,10 +25,10 @@
 
 }
 .number-button:hover{
-  background-color: #7189BF;
+  background-color: #728fad;
 }
 .number-button:active  {
-  background-color: #7189BF;
+  background-color: #728fad;
 }
 /*why active does not work????*/
 
@@ -42,53 +43,71 @@
     
 }
 .form-itself{
-    display: grid;
+    display: inline-block;
     grid-template-rows: auto auto auto auto auto;
     margin-left: 19%;
     margin-right: 20%;
 
-
 }
-input[type=text] {
-    color: #445F7A;
-    width: 100%;
-    padding: 12px 20px;
-    padding-bottom: 0px;
-    margin: 8px 0;
-    margin-top: 20px;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 3px solid #445F7A;
-    background-color: transparent;
-    font-family: 'Salsa', cursive; 
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 47px;
-  }
+.input-text-name input{
+  color: #222222;
+  width: 100%;
+  padding: 12px 60px;
+  padding-bottom: 0px;
+  margin: 8px 0;
+  margin-top: 60px;
+  box-sizing: border-box;
+  background: url(/src/assets/human.svg) no-repeat left center;
+  border: none;
+  border-bottom: 3px solid #222222;
+  background-color: transparent;
+  font-family: 'Inter', cursive; 
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 47px;
+}
+
+.input-text-passw input{
+  color: #222222;
+  width: 100%;
+  padding: 12px 60px;
+  padding-bottom: 0px;
+  margin: 8px 0;
+  margin-top: 48px;
+  box-sizing: border-box;
+  background: url(/src/assets/human.svg) no-repeat left center;
+  border: none;
+  border-bottom: 3px solid #222222;
+  background-color: transparent;
+  font-family: 'Inter', cursive; 
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 47px;
+}
 
   input[type=button] {
-    background: rgba(113, 137, 191, 0.1);
-    border: 3px solid #445F7A;
+    background: #48535F;
+    border: 3px solid #48535F;
     box-sizing: border-box;
-    border-radius: 30px;
-    height: 45px;
+
+    height: 68px;
     margin-right: 10%;
-    margin-left: 10%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-family: 'Salsa', cursive; 
+    margin-left: 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    font-family: 'Inter', cursive; 
     font-weight: 400;
     font-size: 30px;
-    color: #445F7A;
+    color: #ffffff;
 
   }
 
   .gender{
-    font-family: 'Salsa', cursive; 
+    font-family: 'Inter', cursive; 
     font-weight: 400;
     font-size: 36px;
     text-align: center;
-    color: #445F7A;
+    color: #222222;
     margin-top: 0px;
     margin-bottom: 20px;
 
@@ -107,8 +126,8 @@ input[type=text] {
   
   .group label {
     position: relative;
-    color: #445F7A;
-    font-family: "DM Sans";
+    color: #48535F;
+    font-family: "Inter";
     font-weight: 700;
     font-size: 20px;
   }
@@ -134,7 +153,7 @@ input[type=text] {
 
   .group label::after {
     content: "";
-    border: 2px solid #2E3A59;
+    border: 2px solid #222222;
     width: 24px;
     height: 24px;
     position: absolute;
@@ -146,30 +165,32 @@ input[type=text] {
 position: absolute;
 width: 380px;
 height: 50px;
-background: #7189BF;
-border: 2px solid #2A475B;
-box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.25);
-border-radius: 30px;
-margin-top: 420px;
+background: #48535F;
+border: 2px solid #48535F;
+margin-top: 120px;
 
-font-family: 'Salsa', cursive; 
+font-family: 'Inter', cursive; 
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
 line-height: 37px;
-color: #D5E7FB;
-
+color: #ffffff;
 
   }
 
 .personal_text{
   position: absolute;
-font-family: Segoe UI Historic;
+font-family: 'Inter';
 font-weight: normal;
-font-size: 30px;
+font-size: 28px;
 line-height: 48px;
 text-align: center;
-color: #7189BF;
-margin-left: 113px;
-margin-top: -20px;
+color: #222222;
+margin-left: 35px;
+margin-top: 20px;
 }
+.input-text{
+  margin-top: 70px;
+}
+
+/* background: url(/src/assets/pass.svg) no-repeat left center; */
