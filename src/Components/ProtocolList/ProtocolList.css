@@ -1,0 +1,39 @@
+.protocol_item_text {
+    width: 78%;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    align-self: center;
+    right: 0%;
+    position: relative;
+    color: #000000;
+}
+
+.protocol_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 87%;
+    height: 3rem;
+    margin: 0.5rem 0rem 0rem 3.3rem;
+ 
+}
+
+.icon_place {
+    width: 18.5%;
+    align-self: center;
+    justify-content: space-around;
+    height: 1.75rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-edit{
+    cursor: pointer;
+    margin:0.2rem;
+}
+.icon {
+    cursor: pointer;
+    margin: 0.5rem;
+}

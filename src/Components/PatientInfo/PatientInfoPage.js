@@ -21,7 +21,7 @@ function PatientInfoPage() {
     }, []);
 
      patients = patients.filter(patient => patient.id.includes(localStorage.getItem("child")))
-
+     localStorage.setItem("childName","")
     console.log(patients)
 
 
@@ -90,7 +90,7 @@ function PatientInfoPage() {
                             </div>
                             <div className="patient_page_buttons">
                                 <Link to="#" className="patient_page_buttons_therapy">Результати терапії</Link>
-                                <Link to="#" className="patient_page_buttons_program">Програма</Link>
+                                <Link to="/protocol-list" onClick={()=>localStorage.setItem("childName",patient.Name)} className="patient_page_buttons_program">Програма</Link>
                             </div>
 
                             </>
