@@ -20,7 +20,7 @@ function PatientInfoPage() {
         fetchData()
     }, []);
 
-     patients = patients.filter(patient => patient.id.includes(localStorage.getItem("child")))
+    patients = patients.filter(patient => patient.id.includes(localStorage.getItem("child")))
 
     console.log(patients)
 
@@ -30,9 +30,9 @@ function PatientInfoPage() {
         <>
             <ul>
                 {
-                   patients.map((patient) => (
-                       <>
-                        <Header/>
+                    patients.map((patient) => (
+                        <>
+                            <Header/>
 
                             <div className="patient_upper_flex_container">
                                 <h2 style={{ marginLeft: "4rem" }}><Link to="/" className="patients_link">Пацієнти</Link></h2>
@@ -74,6 +74,8 @@ function PatientInfoPage() {
                                 </div>
                                 {/* second column */}
                                 <div className="second_column_outer_flex_container">
+
+
                                     <div className="zebra_rows_flex_container" style={{ backgroundColor: "#EEEEEE" }}>
                                         <div>Вага:</div>
                                         <div className="zebra_rows_weight_data">{patient.KidWeight} кг</div>
@@ -90,10 +92,10 @@ function PatientInfoPage() {
                             </div>
                             <div className="patient_page_buttons">
                                 <Link to="#" className="patient_page_buttons_therapy">Результати терапії</Link>
-                                <Link to="#" className="patient_page_buttons_program">Програма</Link>
+                                <Link to="program" className="patient_page_buttons_program">Програма</Link>
                             </div>
 
-                            </>
+                        </>
                     ))}
             </ul>
         </>
