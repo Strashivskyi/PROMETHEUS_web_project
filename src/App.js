@@ -9,6 +9,7 @@ import { AuthProvider } from "./Firebase/AuthSetup/Auth";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import PrivateRouteToLogin from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToLogin';
 import PatientInfoPage from './Components/PatientInfo/PatientInfoPage';
+import SingleProgram from "./Components/Program/Program";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route exact path="/" component={SignIn} />
             <PrivateRouteToLogin exact path="/home" component={Patient} />
             <PrivateRouteToLogin exact path="/patient" component={PatientInfoPage} />
+            <PrivateRouteToLogin exact path="/program" component={SingleProgram} />
             <Route exact path="/forgetPassword" component={ForgetPassword} />
             <PrivateRouteToReg path="/registration" component={SignUp} />
           </Switch>

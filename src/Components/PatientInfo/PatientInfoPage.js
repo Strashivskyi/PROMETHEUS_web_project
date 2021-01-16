@@ -90,7 +90,7 @@ function PatientInfoPage() {
                             </div>
                             <div className="patient_page_buttons">
                                 <Link to="#" className="patient_page_buttons_therapy">Результати терапії</Link>
-                                <Link to="#" className="patient_page_buttons_program">Програма</Link>
+                                <Link to="program" className="patient_page_buttons_program">Програма</Link>
                             </div>
 
                             </>
