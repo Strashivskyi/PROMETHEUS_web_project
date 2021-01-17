@@ -7,17 +7,25 @@ function Step2() {
     let [instructionInput, setInstructionInput] = useState("")
     let [instructions, setInstructions] = useState([]);
 
-
     useEffect(() => {
-        const fetchData = async () => {
-            const db = app.firestore();
-            const data = await db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult2").get();
-            setInstructions(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+        const db = app.firestore();
+        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult2")
+            .onSnapshot(snapshot => {
+                if (snapshot.size) {
+                    
+                    setInstructions(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+                    console.log("Сука ")
+                } else {
+                    console.log("Сука1") 
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
-        };
-        setTimeout(() => { fetchData() }, 2000);
-        console.log("1")
-    }, [instructions, setInstructions]);
+
+
     return (
 
         <>

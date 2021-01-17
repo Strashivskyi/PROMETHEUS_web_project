@@ -7,16 +7,24 @@ function Step3() {
     let [instructions, setInstructions] = useState([]);
 
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const db = app.firestore();
-            const data = await db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult3").get();
-            setInstructions(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
 
-        };
-        setTimeout(() => { fetchData() }, 2000);
-        console.log("1")
-    }, [instructions, setInstructions]);
+    useEffect(() => {
+        const db = app.firestore();
+        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult3")
+            .onSnapshot(snapshot => {
+                if (snapshot.size) {
+                    
+                    setInstructions(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+                    console.log("Сука ")
+                } else {
+                    console.log("Сука1") 
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
+
     return (
 
         <>

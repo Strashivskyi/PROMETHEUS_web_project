@@ -29,33 +29,45 @@ function SingleProgram() {
     let [stimulus, setStimulus] = useState([]);
     let [stimulInput, setStimulInput] = useState("")
 
-
     useEffect(() => {
-        const fetchData = async () => {
-            const db = app.firestore();
-            const data = await db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus").get();
-            setStimulus(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-
-        };
-        setTimeout(() => { fetchData() }, 2000);
-        console.log("1")
-
-    }, [stimulus, setStimulus]);
-
+        const db = app.firestore();
+        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus")
+            .onSnapshot(snapshot => {
+                if (snapshot.size) {
+                    
+                    setStimulus(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+                    console.log("Сука ")
+                } else {
+                    console.log("Сука1") 
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
 
     let [protocols, setProtocols] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const db = app.firestore();
-            const data = await db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").get();
-            setProtocols(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
 
-        };
-        setTimeout(() => { fetchData() }, 2000);
-        console.log("1")
-    }, [protocols, setProtocols]);
+
+    useEffect(() => {
+        const db = app.firestore();
+        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
+            .onSnapshot(snapshot => {
+                if (snapshot.size) {
+                    
+                    setProtocols(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+                    console.log("Сука ")
+                } else {
+                    console.log("Сука1") 
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
+
     protocols = protocols.filter(protocol => protocol.id.includes(localStorage.getItem("program")))
 
 

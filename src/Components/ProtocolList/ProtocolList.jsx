@@ -6,19 +6,27 @@ import Header from "../Header/Header";
 import ArrowHeader from "./PageComponent/ArrowHeader";
 function ProtocolList() {
 
+  
+
     const [protocols, setProtocols] = useState([]);
-
     useEffect(() => {
-        const fetchData = async () => {
-            const db = app.firestore();
-            const data = await db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").get();
-            setProtocols(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+        const db = app.firestore();
+        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
+            .onSnapshot(snapshot => {
+                if (snapshot.size) {
+                    
+                    setProtocols(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+                    console.log("Сука")
+                } else {
+                    console.log("Сука1") 
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
-        };
-        setTimeout(() => { fetchData() }, 2000);
-        console.log("1")
-    }, [protocols, setProtocols]);
-    console.log(protocols)
+
 
     return (
         <>

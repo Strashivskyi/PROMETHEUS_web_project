@@ -8,18 +8,23 @@ function CriteriongenGenerSkill() {
     let [criteriongenGenerSkills, setCriteriongenGenerSkills] = useState([]);
     let [criteriongenGenerSkillInput, setCriteriongenGenerSkillInput] = useState("")
 
+
     useEffect(() => {
-        const fetchData = async () => {
-            const db = app.firestore();
-            const data = await db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("CriteriongenGenerSkill").get();
-            setCriteriongenGenerSkills(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+        const db = app.firestore();
+        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("CriteriongenGenerSkill")
+            .onSnapshot(snapshot => {
+                if (snapshot.size) {
 
-        };
-        setTimeout(() => { fetchData() }, 2000);
-        console.log("1")
-
-    }, [criteriongenGenerSkills, setCriteriongenGenerSkills]);
-
+                    setCriteriongenGenerSkills(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+                    console.log("Сука ")
+                } else {
+                    console.log("Сука1")
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
     return (
         <>
