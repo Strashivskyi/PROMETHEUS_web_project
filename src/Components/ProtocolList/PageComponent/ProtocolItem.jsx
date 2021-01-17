@@ -9,12 +9,14 @@ import { Link } from "react-router-dom";
 
 
 
-function ProtocolItem({ protocolId, protocolName, sphereOfDevelopment, skill, length, statusCopied, isActive }) {
+function ProtocolItem({ protocolId, protocolName, sphereOfDevelopment, skill, length, statusCopied, isActive,interval
+    ,correctionProcedureStep1,correctionProcedureStep2,correctionProcedureStep3, criterionIncrease,desirableReaction,method,methodTakingHint,reductionСriterion,stepDescription}) {
     let [colorItem, setColorItem] = useState('')
     if (+protocolName % 2 != true) {
         colorItem = ("#EEEEEE")
 
     }
+   
     console.log(isActive)
 
     return (
@@ -22,11 +24,12 @@ function ProtocolItem({ protocolId, protocolName, sphereOfDevelopment, skill, le
             <div className="protocol_item" style={{ backgroundColor: colorItem }}>
                 <p className='protocol_item_text '>Протокол {protocolName} {statusCopied}. {sphereOfDevelopment}. {skill}</p>
                 <div className="icon_place">
-                    <Link to="/edit-protocol">
+                    <Link onClick={() => localStorage.setItem("program",protocolId)} to="/program">
                         <img className="icon-edit" src={Edit} />
                     </Link>
 
-                    <img className="icon" onClick={() => CreateDuplicateProtocol(+length + 1, sphereOfDevelopment, skill, protocolName)} src={Duplicate} />
+                    <img className="icon" onClick={() => CreateDuplicateProtocol(+length + 1, sphereOfDevelopment, skill, protocolName,interval
+    ,correctionProcedureStep1,correctionProcedureStep2,correctionProcedureStep3, criterionIncrease,desirableReaction,method,methodTakingHint,reductionСriterion,stepDescription)} src={Duplicate} />
                     <CheckIsActive isActive={isActive} protocolId={protocolId} />
 
                     <img className="icon" onClick={() => DeleteProtocol(protocolId)} src={Delete} />
@@ -37,13 +40,15 @@ function ProtocolItem({ protocolId, protocolName, sphereOfDevelopment, skill, le
 }
 export default ProtocolItem
 
-function CreateDuplicateProtocol(id, sphereOfDevelopment, skill, copiId) {
+function CreateDuplicateProtocol(id, sphereOfDevelopment, skill, copiId,interval
+    ,correctionProcedureStep1,correctionProcedureStep2,correctionProcedureStep3, criterionIncrease,desirableReaction,method,methodTakingHint,reductionСriterion,stepDescription) {
     const db = app.firestore();
     let test = id
     console.log(test)
-    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").add({ ProtocolId: id, SphereOfDevelopment: sphereOfDevelopment, Skill: skill, StatusCopied: "(Копія Протокол " + copiId + ")", IsActive: "0" })
+    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").add({ ProtocolId: id, SphereOfDevelopment: sphereOfDevelopment, Skill: skill, StatusCopied: "(Копія Протокол " + copiId + ")", IsActive: "0",Interval:interval ,CorrectionProcedureStep1: correctionProcedureStep1,CorrectionProcedureStep2:correctionProcedureStep2,CorrectionProcedureStep3:correctionProcedureStep3,CriterionIncrease:criterionIncrease,
+    DesirableReaction:desirableReaction,Method:method,MethodTakingHint:methodTakingHint,ReductionСriterion:reductionСriterion,StepDescription:stepDescription})
 
-    setTimeout(() => { window.location.reload(false); }, 250);
+
 
 }
 function DeleteProtocol(protocolId) {
@@ -51,7 +56,7 @@ function DeleteProtocol(protocolId) {
     const db = app.firestore();
     db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(protocolId).delete()
 
-    setTimeout(() => { window.location.reload(false); }, 250);
+
 }
 function CheckIsActive({ isActive, protocolId }) {
     console.log(isActive)
@@ -71,6 +76,5 @@ function UpdateActiveStatus(protocolId, valueStatus) {
 
     db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(protocolId).update({ IsActive: valueStatus })
 
-    setTimeout(() => { window.location.reload(false); }, 250);
 
 }

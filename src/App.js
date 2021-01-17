@@ -4,7 +4,7 @@ import SignIn from "./Components/SignIn/SignIn";
 import Patient from "./Components/Patient/Patient";
 import ForgetPassword from "./Components/SignIn/ForgetPassword";
 import PrivateRouteToReg from "./Firebase/AuthSetup/PrivateRoute/PrivateRouteToReg";
-
+import SingleProgram from "./Components/Program/Program.jsx";
 import { AuthProvider } from "./Firebase/AuthSetup/Auth";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import PrivateRouteToLogin from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToLogin';
@@ -20,6 +20,7 @@ function App() {
             <Route exact path="/" component={SignIn} />
             <PrivateRouteToLogin exact path="/home" component={Patient} />
             <Route exact path="/forgetPassword" component={ForgetPassword} />
+            <PrivateRouteToLogin exact path="/program" component={SingleProgram} />
             <PrivateRouteToReg path="/registration" component={SignUp} />
             <PrivateRouteToLogin exact path="/protocol-list" component={ProtocolList} />
             <PrivateRouteToLogin exact path="/patient" component={PatientInfoPage} />

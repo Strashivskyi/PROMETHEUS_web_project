@@ -25,7 +25,7 @@ function PatientItem() {
         };
         fetchData()
     }, []);
-
+console.log(patients)
     return (
         <>
             <h2 style={{ marginLeft: "4rem" }}>Пацієнти</h2>
