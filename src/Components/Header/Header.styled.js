@@ -7,11 +7,13 @@ export const HeaderSection = styled.div`
 
 export const Search = styled.input`
   font-color: #6C757D;
+  position: relative;
+  left:10% ;
   font-size:15px;
-  margin-left: 58rem;
+  margin:0rem 0rem 1rem 0rem;
   border: none;
   border-bottom: 2px solid silver;
-  width: 15rem 
+  width: 19.2% 
    
 `;
 

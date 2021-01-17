@@ -3,6 +3,7 @@
 .program_upper_flex_container{
     display: flex;
     flex-direction: row;
+  
 }
 .program_big_flex_container{
     display: flex;

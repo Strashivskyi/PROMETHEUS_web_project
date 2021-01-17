@@ -8,10 +8,10 @@ import Header from "../Header/Header";
 function Patient() {
     return (
         <>
-            <Header/>
+            <Header />
 
-            <PatientItem/>
-            <p onClick={() => app.auth().signOut()} >Logout button</p>
+            <PatientItem />
+
         </>
     )
 }

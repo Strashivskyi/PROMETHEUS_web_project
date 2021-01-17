@@ -16,6 +16,7 @@ function ProtocolList() {
 
         };
         setTimeout(() => { fetchData() }, 2000);
+        console.log("1")
     }, [protocols, setProtocols]);
     console.log(protocols)
 
@@ -23,12 +24,14 @@ function ProtocolList() {
         <>
             <Header />
             <ArrowHeader />
-            {protocols.map((protocol) => (
+            {protocols.sort((a, b) => +a.ProtocolId - (+b.ProtocolId)).map((protocol) => (
                 <ProtocolItem protocolId={protocol.id} protocolName={protocol.ProtocolId}
                     sphereOfDevelopment={protocol.SphereOfDevelopment} skill={protocol.Skill}
                     length={protocols.length} statusCopied={protocol.StatusCopied} isActive={protocol.IsActive}
                     interval={protocol.Interval}
-                    correctionProcedureStep1={protocol.CorrectionProcedureStep1} correctionProcedureStep2={protocol.CorrectionProcedureStep2} correctionProcedureStep3={protocol.CorrectionProcedureStep3} criterionIncrease={protocol.CriterionIncrease} desirableReaction={protocol.DesirableReaction} method={protocol.Method} 
+                    correctionProcedureStep1={protocol.CorrectionProcedureStep1} correctionProcedureStep2={protocol.CorrectionProcedureStep2}
+                    correctionProcedureStep3={protocol.CorrectionProcedureStep3} criterionIncrease={protocol.CriterionIncrease}
+                    desirableReaction={protocol.DesirableReaction} method={protocol.Method}
                     methodTakingHint={protocol.MethodTakingHint} reductionСriterion={protocol.ReductionСriterion} stepDescription={protocol.StepDescription} />))}
 
         </>

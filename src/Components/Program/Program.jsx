@@ -65,7 +65,7 @@ function SingleProgram() {
             <div className="program_upper_flex_container">
                 <ArrowHeader />
             </div>
-            <ul>
+            <ul style={{ position: "relative", right: "4%"}}>
 
 
                 {

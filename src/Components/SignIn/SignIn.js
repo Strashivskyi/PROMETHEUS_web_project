@@ -24,7 +24,7 @@ function SignIn({ history }) {
                     
                 }
             } catch (error) {
-                alert(error)
+                
             }
         },
         [history]

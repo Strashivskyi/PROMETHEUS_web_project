@@ -1,26 +1,24 @@
 import React from "react";
-import {
-    HeaderSection,
-    Search,
-    hr,
+import "./ProgramHeader.css";
+import Logo from "../../assets/Logo.svg";
+import app from "../../Firebase/firebase";
 
 
 
-} from "./Header.styled";
-import Logo from "../../assets/Logo.png";
-
-
-
-function Header({handleInput}) {
+function Header({ handleInput }) {
     return (
         <>
-            <HeaderSection>
-                <img src={Logo} width="250" style={{marginLeft: "3.2rem", marginTop: "0.5rem"}}/>
-                <Search onChange={handleInput} placeholder="Пошук..." style={{}}/>
-                 <hr style={{
-                     marginLeft: "4rem"
-                 }}/>
-            </HeaderSection>
+            <div>
+                <img src={Logo} onClick={() => app.auth().signOut()}  width="14.7%" style={{ position: "relative", left: "4%", marginTop: "1.1%" }} />
+                <input className="search" onChange={handleInput} placeholder="Пошук..." style={{}} />
+                <h1 style={{
+                    border: "none",
+                    borderBottom: " 1px solid #6F6F6F",
+                    position: "relative", top: "8.2%",
+                    left:'3.33%',
+                    width: "93.2%"
+                }} />
+            </div>
         </>
     );
 }
