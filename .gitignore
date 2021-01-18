@@ -18,6 +18,17 @@
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+
+npm-debug.log*	npm-debug.log*
+yarn-debug.log*	yarn-debug.log*
+yarn-error.log*	yarn-error.log*
+api/.idea/api.iml
+api/.idea/misc.xml
+api/.idea/modules.xml
+api/.idea/vcs.xml
+api/.idea/inspectionProfiles/profiles_settings.xml
+api/.idea/.gitignore
+api/firebase/__pycache__/__init__.cpython-38.pyc
+api/firebase/__pycache__/firebase_secret.cpython-38.pyc
+api/firebase/__pycache__/pyrebase.cpython-38.pyc
+api/firebase/__pycache__/storage_controller.cpython-38.pyc

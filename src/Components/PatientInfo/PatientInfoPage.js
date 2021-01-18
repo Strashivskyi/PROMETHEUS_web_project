@@ -20,8 +20,8 @@ function PatientInfoPage() {
         fetchData()
     }, []);
 
-     patients = patients.filter(patient => patient.id.includes(localStorage.getItem("child")))
-     localStorage.setItem("childName","")
+    patients = patients.filter(patient => patient.id.includes(localStorage.getItem("child")))
+    localStorage.setItem("childName", "")
     console.log(patients)
 
 
@@ -30,9 +30,11 @@ function PatientInfoPage() {
         <>
             <ul>
                 {
-                   patients.map((patient) => (
-                       <>
-                        <Header/>
+                    patients.map((patient) => (
+
+                        <>
+                            {localStorage.setItem("childName", patient.Name)}
+                            <Header />
 
                             <div className="patient_upper_flex_container">
                                 <h2 style={{ marginLeft: "4rem" }}><Link to="/" className="patients_link">Пацієнти</Link></h2>
@@ -89,11 +91,22 @@ function PatientInfoPage() {
                                 </div>
                             </div>
                             <div className="patient_page_buttons">
-                                <Link to="#" className="patient_page_buttons_therapy">Результати терапії</Link>
-                                <Link to="/protocol-list" onClick={()=>localStorage.setItem("childName",patient.Name)} className="patient_page_buttons_program">Програма</Link>
+                                <Link
+                                    to={{
+                                        pathname: "/patient/result_of_therapy",
+                                        myCustomProps: { patient },
+                                    }}
+                                    className="patient_page_buttons_therapy"
+                                    onClick={() =>
+                                        localStorage.setItem(
+                                            "telegramUserName",
+                                            patient.TelegramUserName
+                                        )
+                                    }>Результати терапії</Link>
+                                <Link to="/protocol-list" onClick={() => localStorage.setItem("childName", patient.Name)} className="patient_page_buttons_program">Програма</Link>
                             </div>
 
-                            </>
+                        </>
                     ))}
             </ul>
         </>

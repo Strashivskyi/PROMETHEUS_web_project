@@ -1,0 +1,36 @@
+.list-group {
+    list-style: none;
+}
+
+.list-group-item {
+    margin-top: 25px;
+    border: 1px solid whitesmoke;
+    background-color: whitesmoke;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.download-button {
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding: 30px 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.download-button:hover {
+    background-color: rgb(221, 221, 221);
+}
+
+.download-button:active {
+    background-color: white;
+    border: 3px solid rgb(221, 221, 221);
+}
+
+.download-button:focus {
+    border: 3px solid rgb(221, 221, 221);
+}

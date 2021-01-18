@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import PrivateRouteToLogin from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToLogin';
 import PatientInfoPage from './Components/PatientInfo/PatientInfoPage';
 import ProtocolList from "./Components/ProtocolList/ProtocolList"
-
+import TherapyResult from "./Components/TherapyResult/TherapyResult";
 function App() {
   return (
     <>
@@ -24,6 +24,11 @@ function App() {
             <PrivateRouteToReg path="/registration" component={SignUp} />
             <PrivateRouteToLogin exact path="/protocol-list" component={ProtocolList} />
             <PrivateRouteToLogin exact path="/patient" component={PatientInfoPage} />
+            <PrivateRouteToLogin
+                            exact	                            exact
+                            path="/patient/result_of_therapy"	                            path="/patient/result_of_therapy"
+                            component={PatientInfoPage}	                            component={TherapyResult}
+                        />	                        
           </Switch>
         </Router>
       </AuthProvider>
