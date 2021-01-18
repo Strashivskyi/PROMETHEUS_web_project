@@ -1,19 +1,20 @@
 @import url('https://rsms.me/inter/inter.css');
-html { font-family: 'Inter', sans-serif; }
-@import "~fontsource-dm-sans/index.css";
-.number-buttons{
+html {
+    font-family: 'Inter', sans-serif;
+}
+@import '~fontsource-dm-sans/index.css';
+.number-buttons {
     display: grid;
     grid-template-columns: auto 60px auto 60px auto 60px auto;
     margin-left: 23%;
     margin-right: 23%;
     height: 40px;
-    
 }
-.number-button{
-    font-family: 'Inter', cursive; 
-    background-color: #48535F;
+.number-button {
+    font-family: 'Inter', cursive;
+    background-color: #48535f;
     border-radius: 50%;
-    border: 2px solid #48535F;
+    border: 2px solid #48535f;
     width: 55px;
     color: #ffffff;
     font-weight: 400;
@@ -22,100 +23,91 @@ html { font-family: 'Inter', sans-serif; }
     z-index: 20;
     line-height: 50px;
 }
-.number-button:hover{
-  background-color: #FFFFFF;
-  color: #48535F;
-
+.number-button:hover {
+    background-color: #ffffff;
+    color: #48535f;
 }
-.number-button:focus   {
-  background-color: #FFFFFF;
-  color: #48535F;
+.number-button:focus {
+    background-color: #ffffff;
+    color: #48535f;
 }
 /*active does not work*/
-.line-between-number-buttons{
-    background-color: #48535F;
+.line-between-number-buttons {
+    background-color: #48535f;
     height: 2px;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 0px;
     z-index: 0;
-
-    
 }
-.form-itself{
+.form-itself {
     display: flex;
     flex-direction: column;
     margin-left: 25%;
     margin-right: 25%;
-
 }
-.input_text_name input{
-  color: #545454;
-  width: 100%;
-  padding: 12px 60px;
-  padding-bottom: 0px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  background: url(/src/assets/human.svg) no-repeat left center;
-  border: none;
-  border-bottom: 3px solid #222222;
-  background-color: transparent;
-  font-family: 'Inter', cursive; 
-  font-weight: 400;
-  font-size: 25px;
-  line-height: 47px;
+.input_text_name input {
+    color: #545454;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 0px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background: url(/src/assets/human.svg) no-repeat left center;
+    border: none;
+    border-bottom: 3px solid #222222;
+    background-color: transparent;
+    font-family: 'Inter', cursive;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 47px;
 }
 
-  input[type=button] {
-    background: #48535F;
-    border: 3px solid #48535F;
+input[type='button'] {
+    background: #48535f;
+    border: 3px solid #48535f;
     box-sizing: border-box;
     height: 45px;
     margin-left: 15%;
     margin-right: 15%;
     margin-top: 20px;
     margin-bottom: 0px;
-    font-family: 'Inter', cursive; 
+    font-family: 'Inter', cursive;
     font-weight: 400;
     font-size: 25px;
     color: #ffffff;
+}
 
-  }
-
-  .gender{
-    font-family: 'Inter', cursive; 
+.gender {
+    font-family: 'Inter', cursive;
     font-weight: 400;
     font-size: 25px;
     text-align: center;
-    color: #6C757D;
+    color: #6c757d;
     margin-top: 30px;
     padding-bottom: 20px;
-
-
-  }
-  .container {
+}
+.container {
     display: grid;
     grid-template-columns: 100px 100px 100px;
     grid-gap: 60px;
     margin-left: 15%;
     margin-right: 15%;
-
-  }
-  .group input[type="checkbox"] {
+}
+.group input[type='checkbox'] {
     display: none;
-  }
-  
-  
-  .group label {
+}
+
+.group label {
     position: relative;
-    color: #48535F;
-    font-family: "Inter";
+    color: #48535f;
+    font-family: 'Inter';
     font-size: 20px;
     text-transform: lowercase;
-  }
-  
-  .group label::before {
-    content: "";
+}
+
+.group label::before {
+    content: '';
     background: url('../../assets/Vector(4).png');
     color: white;
     background-position: center;
@@ -127,56 +119,55 @@ html { font-family: 'Inter', sans-serif; }
     top: -20px;
     transform: scale(0) rotateZ(180deg);
     transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
-  }
-  
-  .group input[type="checkbox"]:checked + label::before {
-    transform: scale(1) rotateZ(0deg);
-  }
+}
 
-  .group label::after {
-    content: "";
-    border: 5px solid #48535F;
+.group input[type='checkbox']:checked + label::before {
+    transform: scale(1) rotateZ(0deg);
+}
+
+.group label::after {
+    content: '';
+    border: 5px solid #48535f;
     width: 20px;
     height: 20px;
     position: absolute;
     left: -42px;
     top: -20px;
     border-radius: 50%;
-  }
-  .first_form_submit{    
-position: absolute;
-width: 380px;
-height: 50px;
-background: #48535F;
-border: 2px solid #48535F;
-margin-top: 120px;
-
-font-family: 'Inter', cursive; 
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 37px;
-color: #ffffff;
-
-  }
-
-.personal_text{
-position: relative;
-font-family: 'Inter';
-font-weight: normal;
-font-size: 28px;
-color: #222222;
-text-align: center;
 }
-.input-text{
-  margin-top: 70px;
+.first_form_submit {
+    position: absolute;
+    width: 380px;
+    height: 50px;
+    background: #48535f;
+    border: 2px solid #48535f;
+    margin-top: 120px;
+
+    font-family: 'Inter', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 37px;
+    color: #ffffff;
 }
-.birthday_date{
-  font-family: 'Inter', cursive; 
-  font-size: 20px;
-  color: #6C757D;
-  padding-top: 20px;
-  font-size: 18px;
-  margin-left: 12%;
-  margin-bottom: -20px;
+
+.personal_text {
+    position: relative;
+    font-family: 'Inter';
+    font-weight: normal;
+    font-size: 28px;
+    color: #222222;
+    text-align: center;
+}
+.input-text {
+    margin-top: 70px;
+}
+.birthday_date {
+    font-family: 'Inter', cursive;
+    font-size: 20px;
+    color: #6c757d;
+    padding-top: 20px;
+    font-size: 18px;
+    margin-left: 12%;
+    margin-bottom: -20px;
 }

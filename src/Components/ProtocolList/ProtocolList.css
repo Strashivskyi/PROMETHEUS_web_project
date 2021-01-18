@@ -17,7 +17,6 @@
     width: 87%;
     height: 3rem;
     margin: 0.5rem 0rem 0rem 3.3rem;
- 
 }
 
 .icon_place {
@@ -29,9 +28,9 @@
     flex-direction: row;
 }
 
-.icon-edit{
+.icon-edit {
     cursor: pointer;
-    margin:0.2rem;
+    margin: 0.2rem;
 }
 .icon {
     cursor: pointer;

@@ -1,6 +1,6 @@
-.save_button{
+.save_button {
     background: rgba(239, 79, 89, 0.71);
-    border: 1px solid #EF4F59;
+    border: 1px solid #ef4f59;
     width: 306px;
     height: 48px;
     margin-left: 800px;
@@ -9,15 +9,14 @@
     font-weight: 500;
     font-size: 24px;
     line-height: 12px;
-    color: #FFFFFF;
-
+    color: #ffffff;
 }
-.search{
+.search {
     position: relative;
-    left:62.2% ;
-    font-size:15px;
-    margin:0% 0% 0.83% 0%;
+    left: 62.2%;
+    font-size: 15px;
+    margin: 0% 0% 0.83% 0%;
     border: none;
     border-bottom: 2px solid silver;
-    width: 19.2% 
+    width: 19.2%;
 }

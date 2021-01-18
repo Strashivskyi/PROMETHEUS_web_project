@@ -1,23 +1,23 @@
-import React from "react";
-import Header from "../Header/Header";
-import "./TherapyResult.css";
-import Arrow from "../../assets/arrow.png";
-import { Link, useHistory } from "react-router-dom";
-import PaginationRounded from "./Pagination";
+import React from 'react'
+import Header from '../Header/Header'
+import './TherapyResult.css'
+import Arrow from '../../assets/arrow.png'
+import { Link, useHistory } from 'react-router-dom'
+import PaginationRounded from './Pagination'
 
 const TherapyResult = () => {
-    var history = useHistory();
+    var history = useHistory()
 
     return (
         <>
             <Header />
             <div className="patient_upper_flex_container">
-                <h2 style={{ marginLeft: "4rem" }}>
+                <h2 style={{ marginLeft: '4rem' }}>
                     <Link
                         to="/"
                         className="patients_link"
                         onClick={() =>
-                            localStorage.removeItem("telegramUserName")
+                            localStorage.removeItem('telegramUserName')
                         }
                     >
                         Пацієнти
@@ -27,22 +27,22 @@ const TherapyResult = () => {
                     src={Arrow}
                     height="20"
                     style={{
-                        marginLeft: "30px",
-                        marginRight: "30px",
-                        marginTop: "28px",
-                        color: "black",
+                        marginLeft: '30px',
+                        marginRight: '30px',
+                        marginTop: '28px',
+                        color: 'black',
                     }}
                 />
 
                 <button
                     onClick={() => {
-                        history.goBack();
-                        localStorage.removeItem("telegramUserName");
+                        history.goBack()
+                        localStorage.removeItem('telegramUserName')
                     }}
                     class="button_patient"
                 >
-                    <h2 style={{ color: "#6F6F6F" }}>
-                        {localStorage.getItem("childName")}
+                    <h2 style={{ color: '#6F6F6F' }}>
+                        {localStorage.getItem('childName')}
                     </h2>
                 </button>
 
@@ -50,10 +50,10 @@ const TherapyResult = () => {
                     src={Arrow}
                     height="20"
                     style={{
-                        marginLeft: "30px",
-                        marginRight: "30px",
-                        marginTop: "28px",
-                        color: "black",
+                        marginLeft: '30px',
+                        marginRight: '30px',
+                        marginTop: '28px',
+                        color: 'black',
                     }}
                 />
                 <h2>Результати терапії</h2>
@@ -65,7 +65,7 @@ const TherapyResult = () => {
                 <PaginationRounded />
             </div>
         </>
-    );
-};
+    )
+}
 
-export default TherapyResult;
+export default TherapyResult

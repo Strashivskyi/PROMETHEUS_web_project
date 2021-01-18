@@ -1,23 +1,21 @@
 @import url('https://rsms.me/inter/inter.css');
 
-.program_upper_flex_container{
+.program_upper_flex_container {
     display: flex;
     flex-direction: row;
-  
 }
-.program_big_flex_container{
+.program_big_flex_container {
     display: flex;
     flex-direction: column;
     margin-right: 5vw;
     margin-left: 5vw;
     min-width: 90vw;
-
 }
-.each_element_grid_container{
+.each_element_grid_container {
     display: grid;
     grid-template-columns: 34vw auto;
 }
-.element_name{
+.element_name {
     font-family: Inter;
     font-style: normal;
     font-weight: bold;
@@ -25,19 +23,15 @@
     line-height: 50px;
     padding-left: 10px;
     padding-right: 10px;
-    
 }
-.element_value{
+.element_value {
     font-family: Inter;
-font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: 50px;
-
-
-
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 50px;
 }
-.stymul_grid_container{
+.stymul_grid_container {
     display: grid;
     margin-left: -40px;
     grid-template-columns: 5vw 1vw;
@@ -47,11 +41,11 @@ line-height: 50px;
 ul {
     list-style-type: none;
 }
-.step_grid_container{
+.step_grid_container {
     display: grid;
     grid-template-columns: 50vw 1vw;
 }
-.transparent_input input{
+.transparent_input input {
     color: #222222;
     width: 100%;
     padding: 6px 10px;
@@ -59,21 +53,17 @@ ul {
     border: black;
     box-sizing: border-box;
     background-color: transparent;
-    font-family: 'Inter', cursive; 
+    font-family: 'Inter', cursive;
     font-weight: 400;
     font-size: 22px;
     line-height: 30px;
 }
-.transparent_input input:focus{
+.transparent_input input:focus {
     padding: 6px 10px;
     border: black;
     background-color: transparent;
-    
-    
-
-
 }
-.add_button{
+.add_button {
     margin-left: -40px;
     background-color: transparent;
     border: none;
@@ -81,10 +71,8 @@ ul {
     margin-top: 8px;
     height: 45px;
     margin-right: 5px;
-
-
 }
-.add_button:hover{
+.add_button:hover {
     margin-left: -40px;
     background-color: whitesmoke;
 }

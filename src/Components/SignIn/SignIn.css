@@ -1,97 +1,94 @@
 @import url('https://rsms.me/inter/inter.css');
 
-.login_form{
-  display: flex;
-flex-direction: column; 
- margin-left: 22%;
-  margin-right: 22%;
-  margin-top: 5vh;
+.login_form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 22%;
+    margin-right: 22%;
+    margin-top: 5vh;
 }
 .login_text_input {
-color: #222222;
-width: 100%;
-padding: 12px 60px;
-padding-bottom: 0px;
-margin: 8px 0;
-margin-top: 28px;
-box-sizing: border-box;
-border: none;
-border-bottom: 3px solid #222222;
-background: url(/src/assets/emmm.svg) no-repeat left center;
-background-color: transparent;
-font-family: 'Inter', cursive; 
-font-weight: 400;
-font-size: 22px;
-line-height: 47px;
+    color: #222222;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 0px;
+    margin: 8px 0;
+    margin-top: 28px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #222222;
+    background: url(/src/assets/emmm.svg) no-repeat left center;
+    background-color: transparent;
+    font-family: 'Inter', cursive;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 47px;
 }
-.login_text_input_second{
-  color: #222222;
-  width: 100%;
-  padding: 12px 60px;
-  padding-bottom: 0px;
-  margin: 8px 0;
-  margin-top: 28px;
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 3px solid #222222;
-  background-color: transparent;
-  background: url(/src/assets/pass.svg) no-repeat left center;
-  font-family: 'Inter', cursive; 
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 47px;
+.login_text_input_second {
+    color: #222222;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 0px;
+    margin: 8px 0;
+    margin-top: 28px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #222222;
+    background-color: transparent;
+    background: url(/src/assets/pass.svg) no-repeat left center;
+    font-family: 'Inter', cursive;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 47px;
 }
 .login_checkbox {
-  display: none;
-
+    display: none;
 }
-.login_submit{
-  position: relative;
-  width: 377px;
-  height: 50px;
-  background: #48535F;
-  border: 2px solid #48535F;
-  margin-top: 70px;
-  padding-top: 1px;
-  margin-right: auto;
-  margin-left: auto;  
-  font-family: 'Inter', cursive; 
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 37px;
-  color: #ffffff;
+.login_submit {
+    position: relative;
+    width: 377px;
+    height: 50px;
+    background: #48535f;
+    border: 2px solid #48535f;
+    margin-top: 70px;
+    padding-top: 1px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Inter', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 37px;
+    color: #ffffff;
 }
-.login_submit:hover{
-  cursor: pointer;
-
+.login_submit:hover {
+    cursor: pointer;
 }
-.still_no_acc{
-  margin-left: 22%;
-  padding-top: 70px;
-  padding-bottom: 10px;
+.still_no_acc {
+    margin-left: 22%;
+    padding-top: 70px;
+    padding-bottom: 10px;
 
-  color: #48535F;
-  font-weight: 300;
-  display: flex;
-  font-family: 'Inter';
-  font-size: 20px;
+    color: #48535f;
+    font-weight: 300;
+    display: flex;
+    font-family: 'Inter';
+    font-size: 20px;
 }
 .login_link_reg {
-  flex-direction: column;
-  font-weight: 500;
-  color: grey;
-  text-decoration: none;
+    flex-direction: column;
+    font-weight: 500;
+    color: grey;
+    text-decoration: none;
 }
 .login_link_reg:hover {
-  color: #48535F;
-
+    color: #48535f;
 }
-.forgot_password{
-  margin-left: 22%;
-  display: flex;
-  color: #48535F;
-  font-weight: 300;
-  font-family: 'Inter';
-  font-size: 20px;
+.forgot_password {
+    margin-left: 22%;
+    display: flex;
+    color: #48535f;
+    font-weight: 300;
+    font-family: 'Inter';
+    font-size: 20px;
 }

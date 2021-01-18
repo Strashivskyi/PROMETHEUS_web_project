@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "prettier": "2.2.1",
     "react-firebase-hooks": "^2.2.0"
   }
 }
