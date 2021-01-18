@@ -103,7 +103,7 @@ function PatientInfoPage() {
                                             patient.TelegramUserName
                                         )
                                     }>Результати терапії</Link>
-                                <Link to="/protocol-list" onClick={() => localStorage.setItem("childName", patient.Name)} className="patient_page_buttons_program">Програма</Link>
+                                <Link to="/protocol-list" onClick={() => localStorage.setItem("program", "ok")} className="patient_page_buttons_program">Програма</Link>
                             </div>
 
                         </>
