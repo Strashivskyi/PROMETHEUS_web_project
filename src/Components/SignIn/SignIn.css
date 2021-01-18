@@ -1,9 +1,11 @@
+@import url('https://rsms.me/inter/inter.css');
+
 .login_form{
-  display: grid;
-  grid-template-rows: auto auto auto auto auto;
-  margin-left: 14%;
-  margin-right: 14%;
-  margin-top: 15vh;
+  display: flex;
+flex-direction: column; 
+ margin-left: 22%;
+  margin-right: 22%;
+  margin-top: 5vh;
 }
 .login_text_input {
 color: #222222;
@@ -43,76 +45,53 @@ line-height: 47px;
   display: none;
 
 }
-
-.remember label {
-  top: 30px;
-  color: #222222;
-  position: relative;
-  font-family: 'Inter', cursive; 
-  font-weight: 400;
-  font-size: 25px;
-  padding-left: 140px;
-  padding-top: 65px;
-}
-
-.remember label::before {
-  content: "";
-  background: url('../../assets/Vector(2).png');
-  background-position: center;
-  background-size: contain;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  left: 80px;
-  top: 60px;
-
-  transform: scale(0) rotateZ(180deg);
-  transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
-}
-
-.remember input[type="checkbox"]:checked + label::before {
-  transform: scale(1) rotateZ(0deg);
-}
-
-.remember label::after {
-  content: "";
-  border: 2px solid #222222;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  left: 82px;
-  top: 62px;
-  border-radius: 50%;
-}
 .login_submit{
-      position: absolute;
-      width: 435px;
-      height: 68px;
-      background: #48535F;
-      border: 2px solid #48535F;
-      margin-top: 250px;
-      font-family: 'Inter', cursive; 
-      font-style: normal;
-      font-weight: normal;
-      font-size: 30px;
-      line-height: 37px;
-      color: #ffffff;
+  position: relative;
+  width: 377px;
+  height: 50px;
+  background: #48535F;
+  border: 2px solid #48535F;
+  margin-top: 70px;
+  padding-top: 1px;
+  margin-right: auto;
+  margin-left: auto;  
+  font-family: 'Inter', cursive; 
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 37px;
+  color: #ffffff;
 }
-.login_link_reg a {
-  padding-top: 230px;
+.login_submit:hover{
+  cursor: pointer;
+
+}
+.still_no_acc{
+  margin-left: 22%;
+  padding-top: 70px;
+  padding-bottom: 10px;
+
+  color: #48535F;
+  font-weight: 300;
   display: flex;
-  flex-direction: column;
-  font-family:' Inter';
-  font-weight: 400;
-  font-size: 25px;
-  color: #222222;
+  font-family: 'Inter';
+  font-size: 20px;
 }
-.login_link_pass a {
-padding-top: 20px;
-display: flex;
-flex-direction: column;
-font-family:' Inter';
-font-weight: 400;
-font-size: 25px;
-color: #48535F;
+.login_link_reg {
+  flex-direction: column;
+  font-weight: 500;
+  color: grey;
+  text-decoration: none;
+}
+.login_link_reg:hover {
+  color: #48535F;
+
+}
+.forgot_password{
+  margin-left: 22%;
+  display: flex;
+  color: #48535F;
+  font-weight: 300;
+  font-family: 'Inter';
+  font-size: 20px;
 }

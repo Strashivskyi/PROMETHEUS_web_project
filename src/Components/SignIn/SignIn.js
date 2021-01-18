@@ -4,7 +4,7 @@ import app from "../../Firebase/firebase";
 import "../Login/Login1.css";
 import "./SignIn.css";
 import { AuthContext } from "../../Firebase/AuthSetup/Auth";
-
+import {Link} from "react-router-dom"
 
 function SignIn({ history }) {
     const { currentUser } = useContext(AuthContext);
@@ -20,7 +20,7 @@ function SignIn({ history }) {
                     history.push("/home");
                 }
                 else {
-                    alert("please verifie your email")
+                    alert("please verify your email")
                 }
             } catch (error) {
 
@@ -42,14 +42,11 @@ function SignIn({ history }) {
             <input className="login_text_input" type="text" id="fname" name="email" placeholder="Email"/>
             <input className="login_text_input_second" type="text" id="lname" name="password" placeholder="Пароль"/>
             <input className="login_submit" type="submit" value="Увійти"/>
-            <div className="login_link_reg">
-            <a href="/registration">Зареєстуватися</a>
-            </div>
-            <div className="login_link_pass">
-            <a href="/forgetPassword">Забули пароль?</a>
-            </div>
-           
+
             </form>
+            <div className="still_no_acc"><span className="still_no_acc_text">Досі немає акаунту? &nbsp;&nbsp;&nbsp;</span> <Link className="login_link_reg" to="/registration">Зареєстуватись</Link></div>
+            <div className="forgot_password"><span className="forgot_password_text">Забули пароль? &nbsp;&nbsp;&nbsp;</span> <Link className="login_link_reg" to="/forgetPassword">Відновити пароль</Link></div>
+           
         </div>
     </div>
 
