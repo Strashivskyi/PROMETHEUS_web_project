@@ -1,79 +1,105 @@
 .contact_text{
-        position: absolute;
-      font-family: "Inter";
-      font-weight: normal;
-      font-size: 30px;
-      line-height: 48px;
-      text-align: center;
-      color: #222222;
-      margin-left:120px;
-      margin-top: -20px;
+    position: relative;
+    font-family: 'Inter';
+    font-weight: normal;
+    font-size: 28px;
+    margin-top: 25px;
+
+    color: #222222;
+    text-align: center;
+}
+.forth_form{
+    margin-left: 25%;
+    margin-right: 25%;
+
 }
 .inputE{
-  color: #222222;
-    width: 100%;
-    padding: 12px 60px;
-    padding-bottom: 0px;
-    margin: 8px 0;
-    margin-top: 28px;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 3px solid #222222;
-    background: url(/src/assets/emmm.svg) no-repeat left center;
-    background-color: transparent;
-    font-family: 'Inter', cursive; 
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 47px;
+color: #222222;
+width: 100%;
+padding: 12px 60px;
+padding-right: 0px;
+padding-bottom: 0px;
+margin: 8px 0;
+margin-top: 7px;
+box-sizing: border-box;
+border: none;
+border-bottom: 3px solid #222222;
+background: url(/src/assets/emmm.svg) no-repeat left center;
+background-color: transparent;
+font-family: 'Inter', cursive; 
+font-weight: 400;
+font-size: 22px;
+line-height: 47px;
 }
 .inputP{
-  color: #222222;
-    width: 100%;
-    padding: 12px 60px;
-    padding-bottom: 0px;
-    margin: 8px 0;
-    margin-top: 28px;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 3px solid #222222;
-    background-color: transparent;
-    background: url(/src/assets/pass.svg) no-repeat left center;
-    font-family: 'Inter', cursive; 
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 47px;
+color: #222222;
+width: 100%;
+padding: 12px 60px;
+padding-right: 0px;
+padding-bottom: 0px;
+margin: 8px 0;
+margin-top: 7px;
+box-sizing: border-box;
+border: none;
+border-bottom: 3px solid #222222;
+background-color: transparent;
+background: url(/src/assets/pass.svg) no-repeat left center;
+font-family: 'Inter', cursive; 
+font-weight: 400;
+font-size: 22px;
+line-height: 47px;
 }
 .inputCp{
-  color: #222222;
-    width: 100%;
-    padding: 12px 60px;
-    padding-bottom: 0px;
-    margin: 8px 0;
-    margin-top: 28px;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 3px solid #222222;
-    background: url(/src/assets/pass.svg) no-repeat left center;
-    background-color: transparent;
-    font-family: 'Inter', cursive; 
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 47px;
+color: #222222;
+width: 100%;
+padding: 12px 60px;
+padding-right: 0px;
+padding-bottom: 0px;
+margin: 8px 0;
+margin-top: 7px;
+box-sizing: border-box;
+border: none;
+border-bottom: 3px solid #222222;
+background: url(/src/assets/pass.svg) no-repeat left center;
+background-color: transparent;
+font-family: 'Inter', cursive; 
+font-weight: 400;
+font-size: 22px;
+line-height: 47px;
 }
 .inputPh{
-  color: #222222;
-    width: 100%;
-    padding: 12px 60px;
-    padding-bottom: 0px;
-    margin: 8px 0;
-    margin-top: 28px;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 3px solid #222222;
-    background-color: transparent;
-    background: url(/src/assets/phh.svg) no-repeat left center;
-    font-family: 'Inter', cursive; 
-    font-weight: 400;
-    font-size:22px;
-    line-height: 47px;
+color: #222222;
+width: 100%;
+padding: 12px 60px;
+padding-bottom: 0px;
+padding-right: 0px;
+margin: 8px 0;
+margin-top: 7px;
+box-sizing: border-box;
+border: none;
+border-bottom: 3px solid #222222;
+background-color: transparent;
+background: url(/src/assets/phh.svg) no-repeat left center;
+font-family: 'Inter', cursive; 
+font-weight: 400;
+font-size:22px;
+line-height: 47px;
 }
+.forth_form_submit {    
+  position: relative;
+  width: 377px;
+  height: 50px;
+  background: #48535F;
+  border: 2px solid #48535F;
+  margin-top: 95px;
+  padding-top: 1px;
+  margin-right: auto;
+  margin-left: auto;  
+  font-family: 'Inter', cursive; 
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 37px;
+  color: #ffffff;
+  
+    }

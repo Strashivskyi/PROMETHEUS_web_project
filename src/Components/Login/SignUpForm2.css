@@ -1,57 +1,98 @@
 input[type="file"] {
-    height: 50px;
-text-align: center;
-margin-top: 100px;
+  height: 50px;
+  display: none;
+
 }
 
+
+.custom_image_input label{
+  font-size: 20px;
+
+}
+.custom_image_input hr{
+  height: 1.1px;
+  background-color: black;
+}
 .form-second-personal-data{
-    display: grid;
-    grid-template-rows: auto auto auto auto auto;
-    height: 100%;
-    margin-left: 19%;
-    margin-right: 20%;
-  }
-          .second_form_submit{    
-            position: absolute;
-            width: 380px;
-            height: 50px;
-            background: #48535F;
-            border: 2px solid #48535F;
-            margin-top: 520px;
-            font-family: 'Inter', cursive; 
-            font-style: normal;
-            font-weight: normal;
-            font-size: 24px;
-            line-height: 37px;
-            color: #ffffff;
-            
-            
-              }
-              .personal_text_second_page{
-                position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+        .second_form_submit{    
+          position: absolute;
+          width: 380px;
+          height: 50px;
+          background: #48535F;
+          border: 2px solid #48535F;
+          margin-top: 520px;
+          font-family: 'Inter', cursive; 
+          font-style: normal;
+          font-weight: normal;
+          font-size: 24px;
+          line-height: 37px;
+          color: #ffffff;
+          
+          
+            }
+            .personal_text_second_page{
+                position: relative;
                 font-family: 'Inter';
                 font-weight: normal;
                 font-size: 28px;
-                line-height: 48px;
-                text-align: center;
                 color: #222222;
-                margin-left: 28px;
-                margin-top: 20px;
-              }
+                text-align: center;
+            }
+            .download_image{
+  font-family: 'Inter', cursive; 
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: grey;
+            }
 .input-city input{
-  color: #222222;
-    width: 100%;
-    padding: 12px 60px;
-    padding-bottom: 0px;
-    margin: 8px 0;
-    margin-top: 28px;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 3px solid #222222;
-    background-color: transparent;
-    background: url(/src/assets/country.svg) no-repeat left center;
-    font-family: 'Inter', cursive; 
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 47px;
+color: #222222;
+  width: 100%;
+  padding: 12px 60px;
+  padding-bottom: 0px;
+  margin-top: 10px;
+  padding-right: 40%;
+
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid #222222;
+  background-color: transparent;
+  background: url(/src/assets/country.svg) no-repeat left center;
+  font-family: 'Inter', cursive; 
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 47px;
+}
+
+.custom-file-upload {
+  border-bottom: 3px solid #222222;
+  padding: 6px 12px;
+}
+.input_image{
+  padding-top: -100px;
+  min-width: 200px;
+  min-height: 170px;
+  max-width: 200px;
+  max-height: 170px;
+  margin-left: 300px;
+}
+.image_container_simulator{
+  background-color: #EFF6FB;
+  border: 1px solid #000000;
+  min-width: 200px;
+  min-height: 100px;
+  max-width: 200px;
+  max-height: 100px;
+  padding-top: 70px;
+  text-align: center;
+  margin-left: 300px;
+  font-size: 19px;
+
+
 }

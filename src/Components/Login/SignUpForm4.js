@@ -29,14 +29,14 @@ function SignUpForm4({ history }) {
     return (
         <div>
            <LoginNavigation/>
-            <form className="form-itself" onSubmit={handleSignUp}>
+            <form className="forth_form" onSubmit={handleSignUp}>
                 <div className="contact_text">Контакти</div>
                 <input className="inputE" type="text" id="fname" name="email" placeholder="Email" />
                 <input className="inputP" type="text" id="lname" name="password" placeholder="Пароль" />
                 <input className="inputCp" type="text" id="lname" name="passwordCheck" placeholder="Підтвердження паролю" />
                 <input className="inputPh" type="text" id="lname" name="phone" placeholder="Номер телефону" />
-                <input style={{ marginTop: "55px" }} className="third_form_submit" type="submit" value="Далі" />
-
+                <input style={{marginTop: "50px"}} className="forth_form_submit" type="submit" value="Зареєструватись" />
+                
             </form>
 
         </div>
