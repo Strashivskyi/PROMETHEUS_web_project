@@ -26,7 +26,7 @@ const DataPicker = () => {
             <TextField
                 id="date"
                 type="date"
-                defaultValue="2017-05-24"
+                defaultValue="1990-05-24"
                 className={classes.textField}
                 color="secondary"
                 size="medium"
