@@ -1,3 +1,8 @@
+@import url('https://rsms.me/inter/inter.css');
+html {
+    font-family: 'Inter', sans-serif;
+}
+
 .contact_text {
     position: relative;
     font-family: 'Inter';

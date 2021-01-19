@@ -38,7 +38,7 @@ function Step1(){
                             {instructions.map((instruction) => (<InstructionItem text={instruction.Text} instructionId={instruction.id} />))}
 
                             <div style={{ display: "flex", flexDirection: "row" }}>
-                                <button onClick={() => addInstruction(instructionInput)} className="add_button"><h1 style={{ marginTop: "5px", marginBottom: "5px", textAlign: "center", width: "30px", color: "#4d4d4d" }}>+</h1></button>
+                                <button onClick={() => addInstruction(instructionInput)} className="add_button">                                                <h1 style={{ marginTop: "5px", marginBottom: "5px", textAlign: "center", width: "22px", height: "20px", color: "#4d4d4d", fontSize:"20px" }}>+</h1></button>
                                 <div className="transparent_input">
                                     <input  type="text" onChange={(event) => setInstructionInput(event.target.value)} type="text" name="name" placeholder="Додати інструкцію...." />
                                 </div>

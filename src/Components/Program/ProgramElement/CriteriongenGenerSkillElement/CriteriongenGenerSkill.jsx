@@ -2,6 +2,7 @@ import Delete from "../../../../assets/delete.png";
 import CriteriongenGenerSkillItem from "./CriteriongenGenerSkillItem";
 import React, { useEffect, useState } from "react";
 import app from "../../../../Firebase/firebase";
+import "../../Program.css"
 
 function CriteriongenGenerSkill() {
 
@@ -35,16 +36,17 @@ function CriteriongenGenerSkill() {
                         fontFamily: "Inter", marginTop: "0.3rem", marginLeft: "-0.9rem",
                         fontStyle: "normal",
                         fontWeight: "normal",
-                        fontSize: "24px",
+                        fontSize: "20px",
                         lineHeight: "29px"
                     }}>
                         {criteriongenGenerSkills.map((criteriongenGenerSkill) => (<CriteriongenGenerSkillItem text={criteriongenGenerSkill.Text} criteriongenGenerSkillId={criteriongenGenerSkill.id} />))}
 
                     </ol>
 
-                    <div style={{ display: "flex", flexDirection: "row", marginLeft: "20px" }}>
-                        <button onClick={() => addCriteriongenGenerSkill(criteriongenGenerSkillInput)} className="add_button"><h1 style={{ marginTop: "5px", marginBottom: "5px", textAlign: "center", width: "30px", color: "#4d4d4d" }}>+</h1></button>
+                    <div style={{ display: "flex", flexDirection: "row", marginLeft: "30px" }}>
+                        <button onClick={() => addCriteriongenGenerSkill(criteriongenGenerSkillInput)} className="add_button">                                                <h1 style={{ marginTop: "5px", marginBottom: "5px", textAlign: "center", width: "22px", height: "20px", color: "#4d4d4d", fontSize: "20px" }}>+</h1></button>
                         <div className="transparent_input">
+
                             <input type="text" onChange={(event) => setCriteriongenGenerSkillInput(event.target.value)} name="name" placeholder="Додати критерій...." />
                         </div>
                     </div>

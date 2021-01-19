@@ -1,9 +1,9 @@
 .save_button {
     background: rgba(239, 79, 89, 0.71);
     border: 1px solid #ef4f59;
-    width: 306px;
-    height: 48px;
-    margin-left: 800px;
+    width: 260px;
+    height: 40px;
+    margin-left: 880px;
     margin-right: 30px;
     font-family: Inter;
     font-weight: 500;
@@ -11,12 +11,29 @@
     line-height: 12px;
     color: #ffffff;
 }
+.header{
+    margin-right: 3%;
+}
 .search {
     position: relative;
     left: 62.2%;
     font-size: 15px;
-    margin: 0% 0% 0.83% 0%;
     border: none;
     border-bottom: 2px solid silver;
     width: 19.2%;
+    background: url(/src/assets/searcher.svg) no-repeat left center;
+    background-size: 20px 20px;
+
+    width: 290px;
+    padding: 10px 30px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+
+
+    background-color: transparent;
+    font-family: 'Inter', cursive;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
 }

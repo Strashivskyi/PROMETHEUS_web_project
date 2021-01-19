@@ -4,13 +4,14 @@
     display: grid;
     grid-template-columns: 17vw auto auto;
     gap: 5vw;
-    margin-right: 50px;
+    margin-right: 70px;
     margin-left: 8rem;
     margin-top: 1rem;
 }
 .patients_link {
     color: #222222;
     text-decoration: none;
+    font-size: 25px;
 }
 .patient_upper_flex_container {
     display: flex;
@@ -44,30 +45,39 @@
 }
 
 .zebra_rows_parents_data {
+    color: #48535F;
     margin-left: 150px;
 }
 .zebra_rows_gender_data {
+    color: #48535F;
     margin-left: 163px;
 }
 .zebra_rows_age_data {
+    color: #48535F;
     margin-left: 189px;
 }
 .zebra_rows_birthday_data {
+    color: #48535F;
     margin-left: 24px;
 }
 .zebra_rows_town_data {
+    color: #48535F;
     margin-left: 157px;
 }
 .zebra_rows_country_data {
+    color: #48535F;
     margin-left: 147px;
 }
 .zebra_rows_blood_data {
+    color: #48535F;
     margin-left: 140px;
 }
 .zebra_rows_height_data {
+    color: #48535F;
     margin-left: 210px;
 }
 .zebra_rows_weight_data {
+    color: #48535F;
     margin-left: 220px;
 }
 .second_column_outer_flex_container {
@@ -78,7 +88,7 @@
 .patient_page_buttons {
     display: grid;
     grid-template-columns: 20vw 20vw;
-    margin-top: 70px;
+    margin-top: 40px;
     font-size: 20px;
     font-weight: 600;
     margin-left: 26vw;

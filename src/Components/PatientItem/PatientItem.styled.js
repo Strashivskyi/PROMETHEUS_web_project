@@ -4,7 +4,7 @@ export const Item = styled.div`
     display: inline-block;
     background: #ffffff;
     margin: 25px;
-    margin-left: 65px;
+    margin-left: 6rem;
     width: 275px;
     height: 370px;
     box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24),
@@ -18,9 +18,12 @@ export const Name = styled.h2`
     font-family: Inter;
     font-style: normal;
 `
+export const Patient = styled.h2`
+   font-family: Inter, sans-serif;
+`
 
 export const Amount = styled.h2`
-    padding-left: 4rem;
+    padding-left: 105px;
     color: #6e6e6e;
     font-family: Segoe UI Historic;
     font-style: normal;

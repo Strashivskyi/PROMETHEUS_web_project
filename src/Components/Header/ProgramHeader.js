@@ -12,11 +12,11 @@ function ProgramHeader() {
                     <img
                         src={Logo}
                         onClick={() => app.auth().signOut()}
-                        width="250"
-                        style={{ marginLeft: '3.2rem', marginTop: '0.5rem' }}
+                        width="220"
+                        style={{ marginLeft: '3.4rem', marginTop: '0.4rem' }}
                     />
-                    <div style={{ marginTop: '27px', marginBottom: '27px' }}>
-                        <button className="save_button" style={{ top: '1rem' }}>
+                    <div style={{ marginTop: '40px', marginBottom: '15px' }}>
+                        <button className="save_button" style={{ top: '1rem' , cursor: "pointer"}}>
                             Зберегти
                         </button>
                     </div>

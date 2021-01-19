@@ -6,7 +6,7 @@ import app from '../../Firebase/firebase'
 function Header({ handleInput }) {
     return (
         <>
-            <div>
+            <div className="header">
                 <img
                     src={Logo}
                     onClick={() => app.auth().signOut()}
@@ -15,13 +15,13 @@ function Header({ handleInput }) {
                         position: 'relative',
                         left: '4%',
                         marginTop: '1.1%',
+                        marginBottom: "-20px"
                     }}
                 />
                 <input
                     className="search"
                     onChange={handleInput}
                     placeholder="Пошук..."
-                    style={{}}
                 />
                 <h1
                     style={{

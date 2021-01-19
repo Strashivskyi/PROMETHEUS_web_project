@@ -26,14 +26,14 @@ function PatientInfoPage() {
 
     return (
         <>
+             <Header/>
             <ul>
                 {patients.map((patient) => (
                     <>
                         {localStorage.setItem('childName', patient.Name)}
-                        <Header />
 
                         <div className="patient_upper_flex_container">
-                            <h2 style={{ marginLeft: '4rem' }}>
+                            <h2 style={{ marginLeft: '4rem'}}>
                                 <Link to="/" className="patients_link">
                                     Пацієнти
                                 </Link>

@@ -33,8 +33,8 @@ function SignUpForm1() {
                     <DataPicker />
                 </div>
                 <p className="gender">Стать</p>
-                <div class="container">
-                    <div class="group">
+                <div className="gender_container">
+                    <div className="group">
                         <input
                             className="gender_checks"
                             type="checkbox"
@@ -43,13 +43,13 @@ function SignUpForm1() {
                         <label for="xd">Чоловіча</label>
                     </div>
 
-                    <div class="group">
-                        <input type="checkbox" id="figma" />
+                    <div className="group">
+                        <input type="checkbox" id="figma" className="gender_checks"/>
                         <label for="figma">Жіноча</label>
                     </div>
 
-                    <div class="group">
-                        <input type="checkbox" id="sketch" />
+                    <div className="group">
+                        <input type="checkbox" id="sketch" className="gender_checks"/>
                         <label for="sketch">Інше</label>
                     </div>
                 </div>

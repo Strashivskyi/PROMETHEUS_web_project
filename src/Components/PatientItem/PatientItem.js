@@ -1,10 +1,10 @@
 import app from '../../Firebase/firebase'
 import React, { useEffect, useState } from 'react'
-import { Item, Name, ButtonItem, Amount } from './PatientItem.styled'
+import { Item, Name, ButtonItem, Amount, Patient } from './PatientItem.styled'
 import { Link } from 'react-router-dom'
 import kid from '../../assets/boy.png'
 import '../PatientInfo/PatientInfoPage.css'
-
+import "./PatientItem.css"
 function PatientItem() {
     const [patients, setPatients] = useState([])
 
@@ -18,9 +18,9 @@ function PatientItem() {
     }, [])
     console.log(patients)
     return (
-        <>
-            <h2 style={{ marginLeft: '4rem' }}>Пацієнти</h2>
-            <Amount>Кількість :{patients.length}</Amount>
+        <div className="all_inter">
+            <Patient className = "patient_inter" style={{ marginLeft: '105px', marginTop: '45px', fontSize: '24px',}}>Пацієнти</Patient>
+            <Amount>Кількість: {patients.length}</Amount>
 
             {patients.map((patient) => (
                 <Item>
@@ -42,7 +42,7 @@ function PatientItem() {
                     </ButtonItem>
                 </Item>
             ))}
-        </>
+        </div>
     )
 }
 export default PatientItem

@@ -1,12 +1,11 @@
 import Duplicate from "../../../assets/duplicate_task.svg";
-import Edit from "../../../assets/edit.svg";
 import Visible from "../../../assets/visible.svg";
 import UnVisible from "../../../assets/unVisible.svg";
 import Delete from "../../../assets/delete.svg";
 import { useState, useEffect } from "react";
 import app from "../../../Firebase/firebase";
 import { Link } from "react-router-dom";
-
+import EditIcon from '@material-ui/icons/Edit';
 
 
 function ProtocolItem({ protocolId, protocolName, sphereOfDevelopment, skill, length, statusCopied, isActive, interval
@@ -122,11 +121,11 @@ function ProtocolItem({ protocolId, protocolName, sphereOfDevelopment, skill, le
 
     return (
         <>
-            <div className="protocol_item" style={{ backgroundColor: colorItem }}>
+            <div className="protocol_item" style={{ backgroundColor: colorItem, marginLeft: "5rem" }}>
                 <p className='protocol_item_text '>Протокол {protocolName} {statusCopied}. {sphereOfDevelopment}. {skill}</p>
                 <div className="icon_place">
                     <Link onClick={() => localStorage.setItem("program", protocolId)} to="/program">
-                        <img className="icon-edit" src={Edit} />
+                        <EditIcon style={{color: "black"}}/>
                     </Link>
 
                     <img className="icon" onClick={() => CreateDuplicateProtocol(instruction, instruction2, instruction3, stimul, criteriongenGenerSkill, protocolId, +length + 1, sphereOfDevelopment, skill, protocolName, interval
