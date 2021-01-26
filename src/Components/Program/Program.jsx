@@ -74,9 +74,7 @@ function SingleProgram() {
     return (
         <>
             <ProgramHeader />
-            <div className="program_upper_flex_container">
-                <ArrowHeader />
-            </div>
+            <ArrowHeader />
             <ul style={{ position: "relative", right: "4%"}}>
 
 
@@ -84,11 +82,11 @@ function SingleProgram() {
                     protocols.map((protocol) => (
 
                         <div className="program_big_flex_container">
-                            <div className="element_name"> Протокол {protocol.ProtocolId} {protocol.StatusCopied}. {protocol.SphereOfDevelopment}. {protocol.Skill}</div>
+                            <div style={{ marginBottom: "1rem" }} className="element_name"> Протокол {protocol.ProtocolId} {protocol.StatusCopied}. {protocol.SphereOfDevelopment}. {protocol.Skill}</div>
                             <RemoveCopiedStatus protocol={protocol} />
                             <div className="each_element_grid_container">
 
-                                <div style={{ backgroundColor: "#EEEEEE" }} className="element_name">Сфера розвитку</div>
+                                <div style={{ backgroundColor: "#EEEEEE" }} className="element_name">Сфера розвитку:</div>
                                 <div style={{ backgroundColor: "#EEEEEE" }} className="element_value">{protocol.SphereOfDevelopment}</div>
                                 <div style={{ marginTop: "1rem" }} className="element_name">Навик:</div>
                                 <div style={{ marginTop: "1rem" }} className="element_value">{protocol.Skill}</div>
@@ -103,10 +101,10 @@ function SingleProgram() {
                                     marginLeft: "0.5rem", background: "#F8FCFF",
                                     border: "2px solid #CCE9FF",
                                     boxSizing: "border-box",
-                                    height: "52px",
-                                    fontSize: "24px",
-                                    lineHeight: "29px",
-                                    padding: "10px"
+                                    height: "40px",
+                                    fontSize: "20px",
+                                    lineHeight: "20px",
+                                    paddingLeft: "10px"
                                 }}>
                                     <option value="0">0 секунд</option>
                                     <option value="2">2 секунди</option>
@@ -122,26 +120,30 @@ function SingleProgram() {
                                 <div style={{ marginTop: "1rem" }} className="element_value">{protocol.CriterionIncrease}</div>
                                 <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_name">Спосіб забирання підказки:</div>
                                 <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_name"><select onChange={(event) => addMethodTakingHint(event.target.value)} style={{
-                                    marginLeft: "0.5rem", background: "#F8FCFF",
+                                    marginLeft: "-1rem", background: "#F8FCFF",
                                     border: "2px solid #CCE9FF",
                                     boxSizing: "border-box",
-                                    height: "52px",
-                                    fontSize: "24px",
-                                    lineHeight: "29px",
+                                    height: "40px",
+                                    fontSize: "20px",
+                                    lineHeight: "20px",
+                                    paddingLeft: "10px"
                                 }}>
 
                                     <option value="Тимчасова затримка">Тимчасова затримка</option>
                                     <option value="Від найменшої до найбільшої">Від найменшої до найбільшої</option>
                                 </select></div>
+                                <div className="element_name" style={{ height: "30px" }} ></div>
+                                <div className="element_value" style={{ height: "30px" }} ></div>
+
                                 <div className="element_name">Стимули до етапів</div>
-                                <div className="element_value">
+                                <div className="element_value" style={{lineHeight: "18px"}}>
                                     <ul>
 
                                         {stimulus.map((stimul) => (<StimulusItem name={stimul.Name} stimulId={stimul.id} />))}
 
-                                        <div style={{ display: "flex", flexDirection: "row" }}>
+                                        <div style={{ display: "flex", flexDirection: "row",  }}>
                                             <button onClick={() => addStimul(stimulInput)} className="add_button">
-                                                <h1 style={{ marginTop: "5px", marginBottom: "5px", textAlign: "center", width: "30px", color: "#4d4d4d" }}>+</h1>
+                                                <h1 style={{ marginTop: "5px", marginBottom: "5px", textAlign: "center", width: "22px", height: "20px", color: "#4d4d4d", fontSize:"20px" }}>+</h1>
                                             </button>
                                             <div className="transparent_input">
                                                 <input type="text" onChange={(event) => setStimulInput(event.target.value)} name="name" placeholder="Додати стимул...." />
@@ -149,7 +151,9 @@ function SingleProgram() {
                                         </div>
                                     </ul>
                                 </div>
-                                <div className="element_name" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>Опис етапів</div>
+                                <div className="element_name" style={{ height: "30px" }} ></div>
+                                <div className="element_value" style={{ height: "30px" }} ></div>
+                                <div className="element_name" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>Опис етапів:</div>
                                 <div className="element_value" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>{protocol.StepDescription} </div>
                                 {/*step 1*/}
                                 <div className="element_name">Етап 1</div>
@@ -180,6 +184,7 @@ function SingleProgram() {
 
 
             </ul>
+            <div style={{height: "100px"}}></div>
 
         </>
 

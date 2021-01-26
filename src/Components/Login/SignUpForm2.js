@@ -1,12 +1,12 @@
-import React from "react";
-import "./SignUpForm1.css";
-import LoginNavigation from "./Navigation/LoginNavigation";
-import "fontsource-dm-sans"
-import Upload from "../../assets/Vector.svg";
-import $ from 'jquery';
-import { useState, useEffect } from "react"
+import React from 'react'
+import './SignUpForm1.css'
+import LoginNavigation from './Navigation/LoginNavigation'
+import 'fontsource-dm-sans'
+import Upload from '../../assets/Vector.svg'
+import $ from 'jquery'
+import { useState, useEffect } from 'react'
 
-import "./SignUpForm2.css";
+import './SignUpForm2.css'
 
 function SignUpForm2() {
     const [selectedFile, setSelectedFile] = useState()
@@ -18,13 +18,13 @@ function SignUpForm2() {
         }
         if (selectedFile) {
             setPreview(undefined)
-            $("#div1").remove();
+            $('#div1').remove()
         }
         const objectUrl = URL.createObjectURL(selectedFile)
         setPreview(objectUrl)
         return () => URL.revokeObjectURL(objectUrl)
     }, [selectedFile])
-    const onSelectFile = e => {
+    const onSelectFile = (e) => {
         if (!e.target.files || e.target.files.length === 0) {
             setSelectedFile(undefined)
             return
@@ -48,24 +48,54 @@ function SignUpForm2() {
             <LoginNavigation />
 
             <form className="form-second-personal-data">
-
                 <p className="personal_text">Особиста інформація</p>
-                
+
                 <div className="custom_image_input">
-                    <label for="image_input"><img src={Upload} height="25" style={{ cursor: "pointer", marginLeft: "25px", marginRight: "15px", marginTop: "9px", color: "#EEEEEE" }} /><span className="download_image" id="file-chosen">Завантажити фото профілю</span><hr /></label>
-                    <input type='file' id="image_input" onChange={onSelectFile} />
+                    <label for="image_input">
+                        <img
+                            src={Upload}
+                            height="25"
+                            style={{
+                                cursor: 'pointer',
+                                marginLeft: '25px',
+                                marginRight: '15px',
+                                marginTop: '9px',
+                                color: '#EEEEEE',
+                            }}
+                        />
+                        <span className="download_image" id="file-chosen">
+                            Завантажити фото профілю
+                        </span>
+                        <hr />
+                    </label>
+                    <input
+                        type="file"
+                        id="image_input"
+                        onChange={onSelectFile}
+                    />
                 </div>
                 {selectedFile && <img src={preview} className="input_image" />}
-                <div id="div1" className="image_container_simulator">Фото</div>
-                <div className="input-city">
-                    <input type="text" id="fname" name="firstname" placeholder="Країна" />
+                <div id="div1" className="image_container_simulator">
+                    Фото
                 </div>
                 <div className="input-city">
-                    <input type="text" id="fname" name="firstname" placeholder="Місто" />
+                    <input
+                        type="text"
+                        id="fname"
+                        name="firstname"
+                        placeholder="Країна"
+                    />
+                </div>
+                <div className="input-city">
+                    <input
+                        type="text"
+                        id="fname"
+                        name="firstname"
+                        placeholder="Місто"
+                    />
                 </div>
             </form>
-
         </div>
-    );
+    )
 }
-export default SignUpForm2;
+export default SignUpForm2

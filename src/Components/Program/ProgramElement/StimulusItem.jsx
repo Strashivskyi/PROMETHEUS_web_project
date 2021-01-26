@@ -6,7 +6,7 @@ function StimulusItem({name,stimulId}) {
             <li>
                 <div className="stymul_grid_container">
                     <div>{name}</div>
-                    <img onClick={()=>DeleteStimul(stimulId)} src={Delete} height="15" style={{cursor:"pointer", marginLeft: "60px", marginRight: "30px", marginTop: "19px", color: "#EEEEEE" }} />
+                    <img onClick={()=>DeleteStimul(stimulId)} src={Delete} height="15" style={{cursor:"pointer", marginLeft: "60px", marginRight: "30px", marginTop: "5px", color: "#EEEEEE", height: "13px" }} />
                 </div>
             </li>
         </>

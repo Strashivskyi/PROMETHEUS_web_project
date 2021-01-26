@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 
 function ForgetPassword() {
-    return(
+    return (
         <>
-<br/>
-<br/>
-<br/>
-<p>HERE YOU CAN CHANGE YOUR PASSWORD</p>
-    </>
-    );
+            <br />
+            <br />
+            <br />
+            <p>HERE YOU CAN CHANGE YOUR PASSWORD</p>
+        </>
+    )
 }
-export default ForgetPassword;
+export default ForgetPassword

@@ -1,6 +1,6 @@
-@import url("https://rsms.me/inter/inter.css");
+@import url('https://rsms.me/inter/inter.css');
 @import url(//db.onlinewebfonts.com/c/4b62ecafef4891c98fcd1e473603fd2a?family=BUIS);
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 .button_patient {
     border: none;
     background-color: transparent;
@@ -10,9 +10,8 @@
     min-height: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .choose-file-title {

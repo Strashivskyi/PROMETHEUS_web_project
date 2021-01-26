@@ -93,12 +93,14 @@ html { font-family: 'Inter', sans-serif; }
 
 
   }
-  .container {
+  .gender_container {
+      
     display: grid;
     grid-template-columns: 100px 100px 100px;
     grid-gap: 60px;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 14%;
+    margin-right: 14%;
+
 
   }
   .group input[type="checkbox"] {
@@ -143,22 +145,7 @@ html { font-family: 'Inter', sans-serif; }
     top: -20px;
     border-radius: 50%;
   }
-  .first_form_submit{    
-position: absolute;
-width: 380px;
-height: 50px;
-background: #48535F;
-border: 2px solid #48535F;
-margin-top: 120px;
 
-font-family: 'Inter', cursive; 
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 37px;
-color: #ffffff;
-
-  }
 
 .personal_text{
 position: relative;

@@ -16,8 +16,9 @@
 .table-wrapper {
     width: 50%;
     display: row;
-    justify-items: center;
-    
+    margin-left: -4vw;
+    margin-top: 2vh;
+
 }
 
 .MuiPagination-ul {
