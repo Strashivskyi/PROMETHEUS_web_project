@@ -23,7 +23,8 @@
     "react-scripts": "4.0.1",
     "react-select": "^3.1.1",
     "styled-components": "^5.2.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "wtfjs": "^1.11.0"
   },
   "scripts": {
     "start": "react-scripts start",
