@@ -4,6 +4,7 @@ import app from "../../Firebase/firebase";
 import ProtocolItem from "./PageComponent/ProtocolItem";
 import Header from "../Header/Header";
 import ArrowHeader from "./PageComponent/ArrowHeader";
+
 function ProtocolList() {
 
   
@@ -41,6 +42,9 @@ function ProtocolList() {
                     correctionProcedureStep3={protocol.CorrectionProcedureStep3} criterionIncrease={protocol.CriterionIncrease}
                     desirableReaction={protocol.DesirableReaction} method={protocol.Method}
                     methodTakingHint={protocol.MethodTakingHint} reductionСriterion={protocol.ReductionСriterion} stepDescription={protocol.StepDescription} />))}
+
+
+                
 
         </>
     )

@@ -51,7 +51,7 @@ function PatientInfoPage() {
                             <h2 style={{ color: '#6F6F6F' }}>{patient.Name}</h2>
                         </div>
                         <div className="patient_grid_container">
-                            <img src={Kid} height="270" />
+                            <img src={patient.Image} height="270" />
                             <div className="column_outer_flex_container">
                                 <div className="kid_name">{patient.Name} </div>
                                 <div className="diagnosis_flex_container">

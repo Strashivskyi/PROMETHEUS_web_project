@@ -25,7 +25,7 @@ function PatientItem() {
             {patients.map((patient) => (
                 <Item>
                     <img
-                        src={kid}
+                        src={patient.Image}
                         width="250"
                         style={{ marginLeft: '0.8rem', marginTop: '0.9rem' }}
                     />
