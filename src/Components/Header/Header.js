@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './ProgramHeader.css'
-import Logo from '../../assets/Logo.svg'
+import Logo from '../../assets/Logo.svg';
 import app from '../../Firebase/firebase'
 
-function Header({ handleInput }) {
+function Header() {
+
     return (
         <>
             <div className="header">
@@ -20,7 +21,7 @@ function Header({ handleInput }) {
                 />
                 <input
                     className="search"
-                    onChange={handleInput}
+                    onChange={console.log("qqq")}
                     placeholder="Пошук..."
                 />
                 <h1
