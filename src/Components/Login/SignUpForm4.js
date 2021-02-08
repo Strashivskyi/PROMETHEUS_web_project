@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import './SignUpForm1.css'
 import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
@@ -39,13 +39,16 @@ function SignUpForm4({ history }) {
         },
         [history]
     )
-
+    const [phone,setPhoneNumber] = useState("")
+    console.log(phone)
+    const [email, setEmail] = useState("")
+    console.log(email)
     return (
         <div>
             <LoginNavigation />
             <form className="forth_form" onSubmit={handleSignUp}>
                 <div className="contact_text">Контакти</div>
-                <input
+                <input onChange={(event)=> (setEmail(event.target.value))}
                     className="inputE"
                     type="text"
                     id="fname"
@@ -66,14 +69,14 @@ function SignUpForm4({ history }) {
                     name="passwordCheck"
                     placeholder="Підтвердження паролю"
                 />
-                <input
+                <input onChange={(event)=> (setPhoneNumber(event.target.value))}
                     className="inputPh"
                     type="text"
                     id="lname"
                     name="phone"
                     placeholder="Номер телефону"
                 />
-                <input
+                <input 
                     style={{ marginTop: '50px' }}
                     className="forth_form_submit"
                     type="submit"
@@ -84,3 +87,7 @@ function SignUpForm4({ history }) {
     )
 }
 export default withRouter(SignUpForm4)
+function addInputRegistr(firstName,lastName, sex, photo, country, city, profession, organization, phoneNumber) {
+    const db = app.firestore();
+    db.collection("User").doc(localStorage.getItem("user")).set({Name: firstName, Surname: lastName,Gender: sex, Photo: photo, Country: country, City: city,Profession: profession, Organization: organization, PhoneNumber: phoneNumber})
+}
