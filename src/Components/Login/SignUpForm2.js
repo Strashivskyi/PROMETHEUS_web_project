@@ -5,7 +5,7 @@ import 'fontsource-dm-sans'
 import Upload from '../../assets/Vector.svg'
 import $ from 'jquery'
 import { useState, useEffect } from 'react'
-
+import app from "../../../../Firebase/firebase";
 import './SignUpForm2.css'
 
 function SignUpForm2() {

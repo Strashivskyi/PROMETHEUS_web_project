@@ -7,7 +7,7 @@ function ArrowHeader() {
     const [protocols, setProtocols] = useState([]);
     useEffect(() => {
         const db = app.firestore();
-        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
                     
@@ -42,7 +42,7 @@ function addProto(length) {
 
     const db = app.firestore();
 
-    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").add({ProtocolId: (+length+1)})
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").add({ProtocolId: (+length+1)})
 
     // console.log(data.key)
 

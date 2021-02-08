@@ -18,5 +18,5 @@ export default InstructionItem3
 function DeleteInstruction(instuctionId) {
 
     const db = app.firestore();
-    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult3").doc(instuctionId).delete()
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult3").doc(instuctionId).delete()
 }

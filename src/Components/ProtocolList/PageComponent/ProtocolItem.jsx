@@ -18,7 +18,7 @@ function ProtocolItem({ protocolId, protocolName, sphereOfDevelopment, skill, le
     let [instruction, setInstruction] = useState([])
     useEffect(() => {
         const db = app.firestore();
-        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Instructions")
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Instructions")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
 
@@ -39,7 +39,7 @@ function ProtocolItem({ protocolId, protocolName, sphereOfDevelopment, skill, le
     let [instruction2, setInstruction2] = useState([])
     useEffect(() => {
         const db = app.firestore();
-        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult2")
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult2")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
 
@@ -59,7 +59,7 @@ function ProtocolItem({ protocolId, protocolName, sphereOfDevelopment, skill, le
 
     useEffect(() => {
         const db = app.firestore();
-        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult3")
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult3")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
 
@@ -81,7 +81,7 @@ function ProtocolItem({ protocolId, protocolName, sphereOfDevelopment, skill, le
 
     useEffect(() => {
         const db = app.firestore();
-        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus")
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
 
@@ -104,7 +104,7 @@ function ProtocolItem({ protocolId, protocolName, sphereOfDevelopment, skill, le
 
     useEffect(() => {
         const db = app.firestore();
-        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("CriteriongenGenerSkill")
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("CriteriongenGenerSkill")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
 
@@ -149,27 +149,27 @@ function CreateDuplicateProtocol(instruction, instruction2, instruction3, stimul
     console.log(instruction3)
     console.log(stimul)
     console.log(criteriongenGenerSkill)
-    const data = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").add({
+    const data = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").add({
         ProtocolId: id, SphereOfDevelopment: sphereOfDevelopment, Skill: skill, StatusCopied: "(Копія Протокол " + copiId + ")", IsActive: "0", Interval: interval, CorrectionProcedureStep1: correctionProcedureStep1, CorrectionProcedureStep2: correctionProcedureStep2, CorrectionProcedureStep3: correctionProcedureStep3, CriterionIncrease: criterionIncrease,
         DesirableReaction: desirableReaction, Method: method, MethodTakingHint: methodTakingHint, ReductionСriterion: reductionСriterion, StepDescription: stepDescription
     })
         .then(function (docRef) {
             instruction.map(instr => (
-                db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(docRef.id).collection("Instructions").add({ Text: instr.Text }))
+                db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(docRef.id).collection("Instructions").add({ Text: instr.Text }))
             )
             instruction2.map(instr => (
-                db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(docRef.id).collection("InstructionsDificult2").add({ Text: instr.Text }))
+                db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(docRef.id).collection("InstructionsDificult2").add({ Text: instr.Text }))
             )
             instruction3.map(instr => (
-                db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(docRef.id).collection("InstructionsDificult3").add({ Text: instr.Text }))
+                db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(docRef.id).collection("InstructionsDificult3").add({ Text: instr.Text }))
             )
             stimul.map(stimul => (
-                db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(docRef.id).collection("Stimulus").add({ Name: stimul.Name }))
+                db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(docRef.id).collection("Stimulus").add({ Name: stimul.Name }))
 
             )
 
             criteriongenGenerSkill.map(criteriongenGenerSkill => (
-                db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(docRef.id).collection("CriteriongenGenerSkill").add({ Text: criteriongenGenerSkill.Text }))
+                db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(docRef.id).collection("CriteriongenGenerSkill").add({ Text: criteriongenGenerSkill.Text }))
             )
             console.log("Document written with ID: ", docRef.id);
         })
@@ -183,7 +183,7 @@ function CreateDuplicateProtocol(instruction, instruction2, instruction3, stimul
 function DeleteProtocol(protocolId) {
 
     const db = app.firestore();
-    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(protocolId).delete()
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(protocolId).delete()
 
 
 }
@@ -203,7 +203,7 @@ function CheckIsActive({ isActive, protocolId }) {
 function UpdateActiveStatus(protocolId, valueStatus) {
     const db = app.firestore();
 
-    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(protocolId).update({ IsActive: valueStatus })
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(protocolId).update({ IsActive: valueStatus })
 
 
 }

@@ -24,8 +24,10 @@ function SignUpForm4({ history }) {
                             email.value,
                             password.value
                         )
+
                     await app.auth().currentUser.sendEmailVerification()
                     localStorage.setItem('phoneNumber', phone)
+    
                     history.push('/')
                 } else {
                     alert('Будь ласка, перевірте ваш пароль')
@@ -33,6 +35,7 @@ function SignUpForm4({ history }) {
             } catch (error) {
                 alert(error)
             }
+
         },
         [history]
     )

@@ -3,7 +3,7 @@ import './SignUpForm1.css'
 import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
 import DataPicker from './DataPicker'
-
+import app from "../../../../Firebase/firebase";
 function SignUpForm1() {
     return (
         <div>

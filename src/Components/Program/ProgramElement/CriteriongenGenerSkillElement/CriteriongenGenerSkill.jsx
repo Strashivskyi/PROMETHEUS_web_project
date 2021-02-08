@@ -12,7 +12,7 @@ function CriteriongenGenerSkill() {
 
     useEffect(() => {
         const db = app.firestore();
-        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("CriteriongenGenerSkill")
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("CriteriongenGenerSkill")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
 
@@ -61,6 +61,6 @@ export default CriteriongenGenerSkill
 function addCriteriongenGenerSkill(criteriongenGenerSkillInput) {
     const db = app.firestore();
 
-    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("CriteriongenGenerSkill").add({ Text: criteriongenGenerSkillInput })
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("CriteriongenGenerSkill").add({ Text: criteriongenGenerSkillInput })
 
 }

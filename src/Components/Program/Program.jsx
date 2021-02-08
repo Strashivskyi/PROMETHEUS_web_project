@@ -53,7 +53,7 @@ function SingleProgram() {
 
     useEffect(() => {
         const db = app.firestore();
-        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
                     
@@ -195,14 +195,14 @@ export default SingleProgram;
 function addStimul(stimulInput) {
     const db = app.firestore();
 
-    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus").add({ Name: stimulInput })
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus").add({ Name: stimulInput })
 
 }
 
 function addInterval(interval) {
     const db = app.firestore();
 
-    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ Interval: interval })
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ Interval: interval })
 
 }
 
@@ -210,6 +210,6 @@ function addInterval(interval) {
 function addMethodTakingHint(method) {
     const db = app.firestore();
 
-    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ MethodTakingHint: method })
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ MethodTakingHint: method })
 
 }

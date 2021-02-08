@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './ProgramHeader.css'
-import Logo from '../../assets/Logo.svg'
+import Logo from '../../assets/Logo.svg';
 import app from '../../Firebase/firebase'
+function signOut() {
+    localStorage.setItem("user",'@gmail')
+    app.auth().signOut()
+    
+}
+function Header() {
 
-function Header({ handleInput }) {
     return (
         <>
             <div className="header">
                 <img
                     src={Logo}
-                    onClick={() => app.auth().signOut()}
+                    onClick={() => signOut()}
                     width="14.7%"
                     style={{
                         position: 'relative',
@@ -20,7 +25,7 @@ function Header({ handleInput }) {
                 />
                 <input
                     className="search"
-                    onChange={handleInput}
+                    onChange={console.log("qqq")}
                     placeholder="Пошук..."
                 />
                 <h1

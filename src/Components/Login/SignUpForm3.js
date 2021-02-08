@@ -2,7 +2,7 @@ import React from 'react'
 import './SignUpForm1.css'
 import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
-
+import app from "../../../../Firebase/firebase";
 import './SignUpForm3.css'
 import Select from 'react-select'
 

@@ -10,7 +10,7 @@ function Step3() {
 
     useEffect(() => {
         const db = app.firestore();
-        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult3")
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult3")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
                     
@@ -29,7 +29,7 @@ function Step3() {
 
         <>
 
-            <div className="element_name">Інструкції до етапу::</div>
+            <div className="element_name">Інструкції до етапу:</div>
             <div className="element_value">
                 <ol>
                     {instructions.map((instruction) => (<InstructionItem3 text={instruction.Text} instructionId={instruction.id} />))}
@@ -51,6 +51,6 @@ export default Step3
 function addInstruction(instructionInput) {
     const db = app.firestore();
 
-    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult3").add({ Text: instructionInput })
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("InstructionsDificult3").add({ Text: instructionInput })
 
 }

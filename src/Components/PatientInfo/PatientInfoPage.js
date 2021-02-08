@@ -12,7 +12,7 @@ function PatientInfoPage() {
     useEffect(() => {
         const fetchData = async () => {
             const db = app.firestore()
-            const data = await db.collection('Patient').get()
+            const data = await db.collection("User").doc(localStorage.getItem("user")).collection('Patient').get()
             setPatients(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
         fetchData()

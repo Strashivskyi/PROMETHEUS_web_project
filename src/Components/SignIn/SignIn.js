@@ -18,6 +18,8 @@ function SignIn({ history }) {
                     .signInWithEmailAndPassword(email.value, password.value)
                 if (currentUser.emailVerified == true) {
                     history.push('/home')
+                 
+                    localStorage.setItem("user",currentUser.email)
                 } else {
                     alert('please verify your email')
                 }
@@ -26,6 +28,7 @@ function SignIn({ history }) {
         [history]
     )
     if (currentUser && currentUser.emailVerified == true) {
+        localStorage.setItem("user",currentUser.email)
         return <Redirect to="/home" />
     }
 
