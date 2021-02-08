@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 
@@ -20,10 +20,11 @@ const useStyles = makeStyles((theme) => ({
 
 const DataPicker = () => {
     const classes = useStyles()
-
+    const [data, setData] = useState("")
+    console.log(data)
     return (
         <form className={classes.container} noValidate>
-            <TextField
+            <TextField onChange={(event)=>(setData(event.target.value))}
                 id="date"
                 type="date"
                 defaultValue="1990-05-24"

@@ -5,7 +5,7 @@ import 'fontsource-dm-sans'
 import Upload from '../../assets/Vector.svg'
 import $ from 'jquery'
 import { useState, useEffect } from 'react'
-import app from "../../../../Firebase/firebase";
+import app from "../../Firebase/firebase";
 import './SignUpForm2.css'
 
 function SignUpForm2() {
@@ -43,6 +43,12 @@ function SignUpForm2() {
     //         fileChosen.textContent = this.files[0].name
     //     })
     // }
+    const [photo,setPhoto] = useState("")
+    console.log(photo)
+    const [country, setCountry] = useState("")
+    console.log(country)
+    const [city, setCity] = useState("")
+    console.log(city)
     return (
         <div>
             <LoginNavigation />
@@ -68,7 +74,7 @@ function SignUpForm2() {
                         </span>
                         <hr />
                     </label>
-                    <input
+                    <input onChange={(event)=> (setPhoto(event.target.value))}
                         type="file"
                         id="image_input"
                         onChange={onSelectFile}
@@ -79,7 +85,7 @@ function SignUpForm2() {
                     Фото
                 </div>
                 <div className="input-city">
-                    <input
+                    <input onChange={(event)=> (setCountry(event.target.value))}
                         type="text"
                         id="fname"
                         name="firstname"
@@ -87,7 +93,7 @@ function SignUpForm2() {
                     />
                 </div>
                 <div className="input-city">
-                    <input
+                    <input onChange={(event)=> (setCity(event.target.value))}
                         type="text"
                         id="fname"
                         name="firstname"
@@ -99,3 +105,7 @@ function SignUpForm2() {
     )
 }
 export default SignUpForm2
+// function addSecondInputRegistr(photo, country, city) {
+//     const db = app.firestore();
+//     db.collection("User").doc(localStorage.getItem("user")).set({Photo: photo, Country: country, City: city})
+// }

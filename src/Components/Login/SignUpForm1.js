@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SignUpForm1.css'
 import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
 import DataPicker from './DataPicker'
-import app from "../../../../Firebase/firebase";
+
+import app from "../../Firebase/firebase";
+
 function SignUpForm1() {
+    const [firstName, setFirstName] = useState("")
+    console.log(firstName)
+    const[lastName, setLastName] = useState("")
+    console.log(lastName) 
+    const [sex, setSex] = useState("")
+    console.log(sex)
     return (
         <div>
             <LoginNavigation />
             <form className="form-itself">
                 <p className="personal_text">Особиста інформація</p>
                 <div className="input_text_name">
-                    <input
+                    <input onChange={(event)=> (setFirstName(event.target.value))}
                         type="text"
                         id="fname"
                         name="firstname"
@@ -19,7 +27,7 @@ function SignUpForm1() {
                     />
                 </div>
                 <div className="input_text_name">
-                    <input
+                    <input onChange={(event)=> (setLastName(event.target.value))}
                         type="text"
                         id="lname"
                         name="lastname"
@@ -35,7 +43,7 @@ function SignUpForm1() {
                 <p className="gender">Стать</p>
                 <div className="gender_container">
                     <div className="group">
-                        <input
+                        <input onChange={(event)=> (setSex(event.target.value))}
                             className="gender_checks"
                             type="checkbox"
                             id="xd"
@@ -44,12 +52,12 @@ function SignUpForm1() {
                     </div>
 
                     <div className="group">
-                        <input type="checkbox" id="figma" className="gender_checks"/>
+                        <input onChange={(event)=> (setSex(event.target.value))} type="checkbox" id="figma" className="gender_checks"/>
                         <label for="figma">Жіноча</label>
                     </div>
 
                     <div className="group">
-                        <input type="checkbox" id="sketch" className="gender_checks"/>
+                        <input onChange={(event)=> (setSex(event.target.value))} type="checkbox" id="sketch" className="gender_checks"/>
                         <label for="sketch">Інше</label>
                     </div>
                 </div>
@@ -58,3 +66,7 @@ function SignUpForm1() {
     )
 }
 export default SignUpForm1
+// function addFirstInputRegistr(firstName,lastName,sex) {
+//     const db = app.firestore();
+//     db.collection("User").doc(localStorage.getItem("user")).set({Name: firstName, Surname: lastName, Gender: sex})
+// }

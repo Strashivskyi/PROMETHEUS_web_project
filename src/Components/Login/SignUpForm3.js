@@ -2,9 +2,10 @@ import React from 'react'
 import './SignUpForm1.css'
 import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
-import app from "../../../../Firebase/firebase";
+import app from "../../Firebase/firebase";
 import './SignUpForm3.css'
 import Select from 'react-select'
+import { useState } from 'react';
 
 const options = [
     { value: 'therapist', label: 'терапевт' },
@@ -12,15 +13,19 @@ const options = [
     { value: 'psychologist', label: 'психолог' },
     { value: 'child psychologist', label: 'дитячий психолог' },
 ]
-
+    
 function SignUpForm3() {
+    const [profession, setProfession] = useState("")
+    console.log(profession)
+    const [organization, setOrganization] = useState("")
+    console.log(organization)
     return (
         <div>
             <LoginNavigation />
             <form className="third_form">
                 <div className="work_text">Робота</div>
                 <div className="choose_profession">Оберіть вашу професію:</div>
-                <Select
+                <Select onChange={(event)=> (setProfession(event.target.value))}
                     className="third_form_select"
                     defaultValue={options[2]}
                     label="Single select"
@@ -36,7 +41,7 @@ function SignUpForm3() {
                     })}
                 />
                 <div className="input-work-second">
-                    <input
+                    <input onChange={(event)=> (setOrganization(event.target.value))}
                         type="text"
                         id="organizationname"
                         name="organizationname"
@@ -49,3 +54,7 @@ function SignUpForm3() {
     )
 }
 export default SignUpForm3
+// function addThirdInputRegistr(profession,organization) {
+//     const db = app.firestore();
+//     db.collection("User").doc(localStorage.getItem("user")).set({Profession: profession, Organization: organization})
+// }
