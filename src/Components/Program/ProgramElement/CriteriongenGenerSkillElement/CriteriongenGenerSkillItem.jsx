@@ -21,5 +21,5 @@ export default CriteriongenGenerSkillItem
 function DeleteCriteriongenGenerSkill(criteriongenGenerSkillId) {
 
     const db = app.firestore();
-    db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("CriteriongenGenerSkill").doc(criteriongenGenerSkillId).delete()
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("CriteriongenGenerSkill").doc(criteriongenGenerSkillId).delete()
 }

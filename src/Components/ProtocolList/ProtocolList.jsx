@@ -12,7 +12,7 @@ function ProtocolList() {
     const [protocols, setProtocols] = useState([]);
     useEffect(() => {
         const db = app.firestore();
-        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
                     

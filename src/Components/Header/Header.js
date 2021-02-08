@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import './ProgramHeader.css'
 import Logo from '../../assets/Logo.svg';
 import app from '../../Firebase/firebase'
-
+function signOut() {
+    localStorage.setItem("user",'@gmail')
+    app.auth().signOut()
+    
+}
 function Header() {
 
     return (
@@ -10,7 +14,7 @@ function Header() {
             <div className="header">
                 <img
                     src={Logo}
-                    onClick={() => app.auth().signOut()}
+                    onClick={() => signOut()}
                     width="14.7%"
                     style={{
                         position: 'relative',

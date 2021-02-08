@@ -5,7 +5,11 @@ import React from "react";
 import { useEffect, useState } from 'react'
 
 import Logo from '../../assets/Logo.svg';
-
+function signOut() {
+    localStorage.setItem("user",'none')
+    app.auth().signOut()
+    
+}
 function Patient() {
     let [patients, setPatients] = useState([])
     const [inputSearch, setInputSearch] = useState("")
@@ -13,7 +17,7 @@ function Patient() {
     useEffect(() => {
         const fetchData = async () => {
             const db = app.firestore()
-            const data = await db.collection('Patient').get()
+            const data = await db.collection("User").doc(localStorage.getItem("user")).collection('Patient').get()
             setPatients(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
         fetchData()
@@ -26,7 +30,7 @@ function Patient() {
                 <div className="header">
                     <img
                         src={Logo}
-                        onClick={() => app.auth().signOut()}
+                        onClick={() => signOut()}
                         width="14.7%"
                         style={{
                             position: 'relative',

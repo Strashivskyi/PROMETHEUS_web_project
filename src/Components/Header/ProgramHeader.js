@@ -3,15 +3,20 @@ import { HeaderSection } from './Header.styled'
 import Logo from '../../assets/Logo.svg'
 import './ProgramHeader.css'
 import app from '../../Firebase/firebase'
-
+function signOut() {
+    localStorage.setItem("user",'none')
+    app.auth().signOut()
+    
+}
 function ProgramHeader() {
+
     return (
         <>
             <HeaderSection>
                 <div style={{ display: 'flex' }}>
                     <img
                         src={Logo}
-                        onClick={() => app.auth().signOut()}
+                        onClick={() =>signOut()}
                         width="220"
                         style={{ marginLeft: '3.4rem', marginTop: '0.4rem' }}
                     />
