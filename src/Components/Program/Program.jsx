@@ -1,7 +1,7 @@
 import ProgramHeader from "../Header/ProgramHeader";
 import "./Program.css"
 import Step1 from "./ProgramElement/ProgramStep/Step1";
-
+import { TextInput } from 'react-native-paper';
 
 import React, { useEffect, useState } from "react";
 import app from "../../Firebase/firebase";
@@ -10,8 +10,18 @@ import CriteriongenGenerSkill from "./ProgramElement/CriteriongenGenerSkillEleme
 import StimulusItem from "./ProgramElement/StimulusItem";
 import Step2 from "./ProgramElement/ProgramStep/Step2";
 import Step3 from "./ProgramElement/ProgramStep/Step3";
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
-
+const theme = {
+    ...DefaultTheme,
+    roundness: 0,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: 'transparent',
+      accent: 'transparent',
+      dark :"true"
+    },
+  };
 
 
 function RemoveCopiedStatus({ protocol }) {
@@ -72,6 +82,7 @@ function SingleProgram() {
 
 
     return (
+        <PaperProvider theme={theme}>
         <>
             <ProgramHeader />
             <ArrowHeader />
@@ -87,17 +98,64 @@ function SingleProgram() {
                             <div className="each_element_grid_container">
 
                                 <div style={{ backgroundColor: "#EEEEEE" }} className="element_name">Сфера розвитку:</div>
-                                <div style={{ backgroundColor: "#EEEEEE" }} className="element_value">{protocol.SphereOfDevelopment}</div>
-                                <div style={{ marginTop: "1rem" }} className="element_name">Навик:</div>
-                                <div style={{ marginTop: "1rem" }} className="element_value">{protocol.Skill}</div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_name">Метод:</div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_value">{protocol.Method}</div>
-                                <div style={{ marginTop: "1rem" }} className="element_name">Бажана реакція:</div>
-                                <div style={{ marginTop: "1rem" }} className="element_value">{protocol.DesirableReaction}</div>
+                                <TextInput
+                                   className="element_value"
+                                   multiline="true"
+                                   underlineColor = "transparent"
+                                   selectionColor = "primary"
+                                   value = {protocol.SphereOfDevelopment}
+                                   placeholder = "Вказати сферу розвитку..."
+                                   style={{fontSize: "20px"}}
+                                   raised theme={{colors: {background :'#fcfcfc'}}}
+                                   
+                                 />
 
+                                <div style={{ marginTop: "1rem"}} className="element_name">Навик:</div>
+                                <TextInput
+
+                                   className="element_value"
+                                   multiline="true"
+                                   underlineColor = "transparent"
+                                   selectionColor = "primary"
+                                   value = {protocol.Skill}
+                                   placeholder = "Вказати навик..."
+                                   style={{fontSize: "20px", marginTop: "1rem" }}
+                                   raised theme={{colors: {background :'transparent'}}}
+                                   
+                                 />
+                                <div className="element_name" style={{minHeight: "1rem"}}></div>
+                                <div className="element_value" style={{minHeight: "1rem"}}></div>
+                                <div style={{ backgroundColor: "#EEEEEE" }} className="element_name">Метод:</div>
+                                <TextInput
+                                   className="element_value"
+                                   multiline="true"
+                                   underlineColor = "transparent"
+                                   selectionColor = "primary"
+                                   value = {protocol.Method}
+                                   placeholder = "Вказати метод..."
+                                   style={{fontSize: "20px"}}
+                                   raised theme={{colors: {background :'#fcfcfc'}}}
+                                   
+                                 />
+                                <div className="element_name" style={{paddingTop: "1rem"}} >Бажана реакція:</div>
+                                <TextInput
+                                   className="element_value"
+                                   multiline="true"
+                                   underlineColor = "transparent"
+                                   selectionColor = "primary"
+                                   value = {protocol.DesirableReaction}
+                                   placeholder = "Вказати бажану реакцію..."
+                                   style={{fontSize: "20px", paddingTop: "1rem"}}
+                                   raised theme={{colors: {background :'transparent'}}}
+                                   
+                                 />
+                                <div className="element_name" style={{minHeight: "1rem"}}></div>
+                                <div className="element_value" style={{minHeight: "1rem"}}></div>
                                 <CriteriongenGenerSkill />
-                                <div style={{ marginTop: "1rem" }} className="element_name">Рівні інтенсивності підказки:</div>
-                                <div style={{ marginTop: "1rem", }} className="element_value">Оберіть інтервал часу або тип виконання:<select onChange={(event) => addInterval(event.target.value)} style={{
+                                <div className="element_name" style={{minHeight: "1rem", backgroundColor: "#EEEEEE"}}></div>
+                                <div className="element_value" style={{minHeight: "1rem", backgroundColor: "#EEEEEE"}}></div>
+                                <div className="element_name" style={{paddingTop: "1rem"}}>Рівні інтенсивності підказки:</div>
+                                <div className="element_value" style={{paddingTop: "1rem"}}>Оберіть інтервал часу або тип виконання:<select onChange={(event) => addInterval(event.target.value)} style={{
                                     marginLeft: "0.5rem", background: "#F8FCFF",
                                     border: "2px solid #CCE9FF",
                                     boxSizing: "border-box",
@@ -112,14 +170,38 @@ function SingleProgram() {
                                     <option value="6">6 секунд</option>
                                     <option value="Самостійна реакція">Самостійна реакція</option>
                                 </select>
-
+                                <div className="element_name" style={{minHeight: "1rem"}}></div>
+                                <div className="element_value" style={{minHeight: "1rem"}}></div>
                                 </div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_name">Критерій зниження рівня інтенсивності підказки:</div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_value">{protocol.ReductionСriterion}</div>
-                                <div style={{ marginTop: "1rem" }} className="element_name">Критерій підвищення рівня інтенсивності підказки:</div>
-                                <div style={{ marginTop: "1rem" }} className="element_value">{protocol.CriterionIncrease}</div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_name">Спосіб забирання підказки:</div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_name"><select onChange={(event) => addMethodTakingHint(event.target.value)} style={{
+                                <div style={{backgroundColor: "#EEEEEE" }} className="element_name">Критерій зниження рівня інтенсивності підказки:</div>
+                                <TextInput
+                                   className="element_value"
+                                   multiline="true"
+                                   underlineColor = "transparent"
+                                   selectionColor = "primary"
+                                   value = {protocol.ReductionСriterion}
+                                   placeholder = "Вказати критерій..."
+                                   style={{fontSize: "20px"}}
+                                   raised theme={{colors: {background :'#fcfcfc'}}}
+                                   
+                                 />
+                                <div className="element_name" style={{minHeight: "1rem"}}></div>
+                                <div className="element_value" style={{minHeight: "1rem"}}></div>
+                                <div className="element_name">Критерій підвищення рівня інтенсивності підказки:</div>
+                                <TextInput
+                                   className="element_value"
+                                   multiline="true"
+                                   underlineColor = "transparent"
+                                   selectionColor = "primary"
+                                   value = {protocol.CriterionIncrease}
+                                   placeholder = "Вказати критерій..."
+                                   style={{fontSize: "20px"}}
+                                   raised theme={{colors: {background :'transparent'}}}
+                                 />
+                                <div className="element_name" style={{minHeight: "1rem"}}></div>
+                                <div className="element_value" style={{minHeight: "1rem"}}></div>
+                                <div style={{backgroundColor: "#EEEEEE", paddingTop: "1rem" }} className="element_name">Спосіб забирання підказки:</div>
+                                <div style={{backgroundColor: "#EEEEEE", paddingTop: "1rem" }} className="element_value"><select onChange={(event) => addMethodTakingHint(event.target.value)} style={{
                                     marginLeft: "-1rem", background: "#F8FCFF",
                                     border: "2px solid #CCE9FF",
                                     boxSizing: "border-box",
@@ -132,8 +214,11 @@ function SingleProgram() {
                                     <option value="Тимчасова затримка">Тимчасова затримка</option>
                                     <option value="Від найменшої до найбільшої">Від найменшої до найбільшої</option>
                                 </select></div>
-                                <div className="element_name" style={{ height: "30px" }} ></div>
-                                <div className="element_value" style={{ height: "30px" }} ></div>
+                                <div className="element_name" style={{minHeight: "1rem", backgroundColor: "#EEEEEE"}}></div>
+                                <div className="element_value" style={{minHeight: "1rem", backgroundColor: "#EEEEEE"}}></div>
+                                <div className="element_name" style={{minHeight: "1rem"}}></div>
+                                <div className="element_value" style={{minHeight: "1rem"}}></div>
+
 
                                 <div className="element_name">Стимули до етапів</div>
                                 <div className="element_value" style={{lineHeight: "18px"}}>
@@ -151,27 +236,66 @@ function SingleProgram() {
                                         </div>
                                     </ul>
                                 </div>
-                                <div className="element_name" style={{ height: "30px" }} ></div>
-                                <div className="element_value" style={{ height: "30px" }} ></div>
-                                <div className="element_name" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>Опис етапів:</div>
-                                <div className="element_value" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>{protocol.StepDescription} </div>
+                                <div className="element_name" style={{minHeight: "1rem"}}></div>
+                                <div className="element_value" style={{minHeight: "1rem"}}></div>
+
+                                <div className="element_name" style={{backgroundColor: "#EEEEEE" }}>Опис етапів:</div>
+                                <TextInput
+                                   className="element_value"
+                                   multiline="true"
+                                   underlineColor = "transparent"
+                                   selectionColor = "primary"
+                                   value = {protocol.StepDescription}
+                                   placeholder = "Додати опис етапів..."
+                                   style={{fontSize: "20px"}}
+                                   raised theme={{colors: {background :'#fcfcfc'}}}
+                                 />
                                 {/*step 1*/}
+                                <div className="element_name" style={{minHeight: "1rem"}}></div>
+                                <div className="element_value" style={{minHeight: "1rem"}}></div>
                                 <div className="element_name">Етап 1</div>
                                 <div className="element_value"></div>
-                                <div className="element_name" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
-                                <div className="element_value" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}> {protocol.CorrectionProcedureStep1}  </div>
+                                <div className="element_name" style={{ backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
+                                <TextInput
+                                   className="element_value"
+                                   multiline="true"
+                                   underlineColor = "transparent"
+                                   selectionColor = "primary"
+                                   value = {protocol.CorrectionProcedureStep1}
+                                   placeholder = "Вказати процедуру..."
+                                   style={{fontSize: "20px"}}
+                                   raised theme={{colors: {background :'#fcfcfc'}}}
+                                 />
                                 <Step1 />
                                 {/*step 2*/}
                                 <div className="element_name">Етап 2</div>
                                 <div className="element_value"></div>
-                                <div className="element_name" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
-                                <div className="element_value" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>{protocol.CorrectionProcedureStep2}</div>
+                                <div className="element_name" style={{ backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
+                                <TextInput
+                                   className="element_value"
+                                   multiline="true"
+                                   underlineColor = "transparent"
+                                   selectionColor = "primary"
+                                   value = {protocol.CorrectionProcedureStep2}
+                                   placeholder = "Вказати процедуру..."
+                                   style={{fontSize: "20px"}}
+                                   raised theme={{colors: {background :'#fcfcfc'}}}
+                                 />
                                 <Step2 />
                                 {/*step 3*/}
                                 <div className="element_name">Етап 3</div>
                                 <div className="element_value"></div>
-                                <div className="element_name" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
-                                <div className="element_value" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>{protocol.CorrectionProcedureStep3}</div>
+                                <div className="element_name" style={{ backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
+                                <TextInput
+                                   className="element_value"
+                                   multiline="true"
+                                   underlineColor = "transparent"
+                                   selectionColor = "primary"
+                                   value = {protocol.CorrectionProcedureStep2}
+                                   placeholder = "Вказати процедуру..."
+                                   style={{fontSize: "20px"}}
+                                   raised theme={{colors: {background :'#fcfcfc'}}}
+                                 />
                                 <Step3 />
                             </div>
 
@@ -187,7 +311,7 @@ function SingleProgram() {
             <div style={{height: "100px"}}></div>
 
         </>
-
+        </PaperProvider>
     );
 };
 export default SingleProgram;
