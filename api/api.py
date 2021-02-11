@@ -5,16 +5,17 @@ import os
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
-app.config["ClIENT_FILES"] = "C:\\Users\\svyat\\OneDrive\\Рабочий стол\\PROMETHEUS_web_project\\api"
+# app.config["ClIENT_FILES"] = "C:\\Users\\svyat\\OneDrive\\Рабочий стол\\PROMETHEUS_web_project\\api"
+app.config["ClIENT_FILES"] = "/home/kaizen/github/PROMETHEUS_web_project"
 
 
 @app.route("/get_files/<telegram_id>/<file_name>", methods=['GET'])
 def get_file(telegram_id, file_name):
     storage_controller.download_file(telegram_id, file_name)
-    # try:
-    return send_from_directory(app.config["ClIENT_FILES"], filename=file_name, as_attachment=True)
-    # finally:
-    #     os.remove(file_name)
+    try:
+        return send_from_directory(app.config["ClIENT_FILES"], filename=file_name, as_attachment=True)
+    finally:
+        os.remove(f"/home/kaizen/github/PROMETHEUS_web_project/{file_name}")
 
 
 @app.route("/get_files", methods=['GET'])
