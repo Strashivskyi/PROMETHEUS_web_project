@@ -43,11 +43,12 @@ function SignUpForm2() {
     //         fileChosen.textContent = this.files[0].name
     //     })
     // }
-    const [photo,setPhoto] = useState("")
-    console.log(photo)
+  
     const [country, setCountry] = useState("")
     console.log(country)
+    localStorage.setItem("Country",country)
     const [city, setCity] = useState("")
+    localStorage.setItem("City",city)
     console.log(city)
     return (
         <div>
@@ -74,7 +75,7 @@ function SignUpForm2() {
                         </span>
                         <hr />
                     </label>
-                    <input onChange={(event)=> (setPhoto(event.target.value))}
+                    <input 
                         type="file"
                         id="image_input"
                         onChange={onSelectFile}

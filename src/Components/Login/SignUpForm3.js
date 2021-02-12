@@ -17,7 +17,9 @@ const options = [
 function SignUpForm3() {
     const [profession, setProfession] = useState("")
     console.log(profession)
+    localStorage.setItem("Profession",profession)
     const [organization, setOrganization] = useState("")
+    localStorage.setItem("Organization",organization)
     console.log(organization)
     return (
         <div>
@@ -25,7 +27,7 @@ function SignUpForm3() {
             <form className="third_form">
                 <div className="work_text">Робота</div>
                 <div className="choose_profession">Оберіть вашу професію:</div>
-                <Select onChange={(event)=> (setProfession(event.target.value))}
+                <Select onChange={(event)=> (setProfession(event.value))}
                     className="third_form_select"
                     defaultValue={options[2]}
                     label="Single select"
