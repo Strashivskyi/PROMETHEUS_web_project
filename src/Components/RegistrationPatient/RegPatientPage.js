@@ -142,18 +142,19 @@ export default function RegistrationPatient() {
 
     async function handleSubmit() {
         await db.collection('Patient').add({
-            firstName: firstName,
-            secondName: secondName,
-            diagnose: diagnose,
-            parents: parents,
-            gender: gender,
-            age: age,
-            date: date,
-            city: city,
-            country: country,
-            weight: weight,
-            height: height,
-            blood: blood,
+            Name: `${firstName} ${secondName}`,
+            Diagnose: diagnose,
+            Parents: parents,
+            Gender: gender,
+            Age: age,
+            BirthDate: date,
+            City: city,
+            Country: country,
+            KidWeight: weight,
+            KidHeight: height,
+            BloodType: blood,
+            Image:
+                'https://pulson.ru/wp-content/uploads/2013/10/krasivyie-foto-detey4.jpg',
         })
     }
 
@@ -332,19 +333,21 @@ export default function RegistrationPatient() {
                             {/* blood type */}
                         </div>
                     </form>
-                    <button
-                        className="save_button"
-                        // type="submit"
-                        style={{
-                            top: '1rem',
-                            right: '2rem',
-                            cursor: 'pointer',
-                            position: 'absolute',
-                        }}
-                        onClick={handleSubmit}
-                    >
-                        Зберегти
-                    </button>
+                    <Link to="/">
+                        <button
+                            className="save_button"
+                            // type="submit"
+                            style={{
+                                top: '1rem',
+                                right: '2rem',
+                                cursor: 'pointer',
+                                position: 'absolute',
+                            }}
+                            onClick={handleSubmit}
+                        >
+                            Зберегти
+                        </button>
+                    </Link>
                 </div>
             </div>
         </>
