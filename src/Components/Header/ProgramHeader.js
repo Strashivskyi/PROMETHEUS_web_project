@@ -16,7 +16,10 @@ function ProgramHeader() {
                         style={{ marginLeft: '3.4rem', marginTop: '0.4rem' }}
                     />
                     <div style={{ marginTop: '40px', marginBottom: '15px' }}>
-                        <button className="save_button" style={{ top: '1rem' , cursor: "pointer"}}>
+                        <button
+                            className="save_button"
+                            style={{ top: '1rem', cursor: 'pointer' }}
+                        >
                             Зберегти
                         </button>
                     </div>

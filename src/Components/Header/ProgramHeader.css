@@ -11,7 +11,7 @@
     line-height: 12px;
     color: #ffffff;
 }
-.header{
+.header {
     margin-right: 3%;
 }
 .search {
@@ -29,7 +29,6 @@
     padding-right: 0px;
     padding-bottom: 5px;
     box-sizing: border-box;
-
 
     background-color: transparent;
     font-family: 'Inter', cursive;

@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import './ProgramHeader.css'
-import Logo from '../../assets/Logo.svg';
+import Logo from '../../assets/Logo.svg'
 import app from '../../Firebase/firebase'
 
 function Header() {
-
     return (
         <>
             <div className="header">
@@ -16,12 +15,12 @@ function Header() {
                         position: 'relative',
                         left: '4%',
                         marginTop: '1.1%',
-                        marginBottom: "-20px"
+                        marginBottom: '-20px',
                     }}
                 />
                 <input
                     className="search"
-                    onChange={console.log("qqq")}
+                    onChange={console.log('qqq')}
                     placeholder="Пошук..."
                 />
                 <h1

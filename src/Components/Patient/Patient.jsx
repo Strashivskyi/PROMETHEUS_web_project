@@ -1,14 +1,13 @@
-import app from "../../Firebase/firebase";
-import PatientItem from "../PatientItem/PatientItem";
-import React from "react";
-
-import { useEffect, useState } from 'react'
-
-import Logo from '../../assets/Logo.svg';
+import app from '../../Firebase/firebase'
+import PatientItem from '../PatientItem/PatientItem'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Logo from '../../assets/Logo.svg'
+import { BsPlusCircle } from 'react-icons/bs'
 
 function Patient() {
     let [patients, setPatients] = useState([])
-    const [inputSearch, setInputSearch] = useState("")
+    const [inputSearch, setInputSearch] = useState('')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,7 +17,9 @@ function Patient() {
         }
         fetchData()
     }, [])
-    patients = patients.filter(protocol => protocol.Name.includes(inputSearch))
+    patients = patients.filter((protocol) =>
+        protocol.Name.includes(inputSearch)
+    )
 
     return (
         <>
@@ -32,14 +33,13 @@ function Patient() {
                             position: 'relative',
                             left: '4%',
                             marginTop: '1.1%',
-                            marginBottom: "-20px"
+                            marginBottom: '-20px',
                         }}
                     />
                     <input
                         className="search"
-                        onChange={(e) => (setInputSearch(e.target.value))}
+                        onChange={(e) => setInputSearch(e.target.value)}
                         placeholder="Пошук..."
-
                     />
                     <h1
                         style={{
@@ -53,8 +53,33 @@ function Patient() {
                     />
                 </div>
             </>
-            <PatientItem patients={patients} />
+            <div className="info_title">
+                <div className="inter_fing">
+                    <div
+                        style={{
+                            marginLeft: '105px',
+                            marginTop: '45px',
+                            fontSize: '24px',
+                        }}
+                    >
+                        Пацієнти
+                    </div>
+                    <div
+                        style={{
+                            marginLeft: '105px',
+                            marginTop: '45px',
+                            fontSize: '24px',
+                        }}
+                    >
+                        Кількість: {patients.length}
+                    </div>
+                </div>
+                <Link to="/patient_registration">
+                    <BsPlusCircle size={50} />
+                </Link>
+            </div>
 
+            <PatientItem patients={patients} />
         </>
     )
 }

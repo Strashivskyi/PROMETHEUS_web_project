@@ -44,12 +44,20 @@ function SignUpForm1() {
                     </div>
 
                     <div className="group">
-                        <input type="checkbox" id="figma" className="gender_checks"/>
+                        <input
+                            type="checkbox"
+                            id="figma"
+                            className="gender_checks"
+                        />
                         <label for="figma">Жіноча</label>
                     </div>
 
                     <div className="group">
-                        <input type="checkbox" id="sketch" className="gender_checks"/>
+                        <input
+                            type="checkbox"
+                            id="sketch"
+                            className="gender_checks"
+                        />
                         <label for="sketch">Інше</label>
                     </div>
                 </div>

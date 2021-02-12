@@ -19,7 +19,7 @@ export const Name = styled.h2`
     font-style: normal;
 `
 export const Patient = styled.h2`
-   font-family: Inter, sans-serif;
+    font-family: Inter, sans-serif;
 `
 
 export const Amount = styled.h2`
