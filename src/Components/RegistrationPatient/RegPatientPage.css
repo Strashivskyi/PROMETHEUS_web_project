@@ -1,0 +1,20 @@
+.content-wrapper {
+    display: flex;
+}
+
+.column-direction-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.patient-title {
+    display: flex;
+}
+
+.patient-subtitle {
+}
+
+.zebra-table {
+    display: flex;
+    flex-flow: column wrap;
+}
