@@ -1,14 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState, createRef } from 'react'
 import SimpleHeader from '../Header/SimpleHeader'
 import { Link } from 'react-router-dom'
 import Arrow from '../../assets/arrow.png'
 import MenuItem from '@material-ui/core/MenuItem'
-import AvatarUpload from '../Fields/AvatarUpload'
+import { Avatar, Button as MuiButton } from '@material-ui/core'
+import { spacing } from '@material-ui/system'
+import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import app from '../../Firebase/firebase'
 import './RegPatientPage.css'
+
+/* -
+----------------------------
+|  Style components block  |
+----------------------------
+ */
+const Button = styled(MuiButton)(spacing)
+
+const CenteredContent = styled.div`
+    text-align: center;
+`
+
+/* -
+------------------------
+|    Main component    |
+------------------------
+ */
 
 const currenciesGenders = [
     {
@@ -62,6 +81,24 @@ const currenciesBlood = [
 
 export default function RegistrationPatient() {
     const useStyles = makeStyles((theme) => ({
+        rootForTitle: {
+            '& .MuiTextField-root': {
+                margin: theme.spacing(1),
+                width: '28ch',
+            },
+        },
+        rootForSubTitle: {
+            '& .MuiTextField-root': {
+                margin: theme.spacing(1),
+                width: '15ch',
+            },
+        },
+        rootForDate: {
+            '& .MuiTextField-root': {
+                margin: theme.spacing(1),
+                width: '15ch',
+            },
+        },
         root: {
             '& .MuiTextField-root': {
                 margin: theme.spacing(1),
@@ -70,22 +107,7 @@ export default function RegistrationPatient() {
         },
     }))
     const classes = useStyles()
-
-    //     "Ім'я"
-    //     "Прізвище"
-    //     "Діагноз"
-    //     "Батьки"
-
-    //     вік
-    //     {/* date of birth */}
-    //     Місто
-    //     Країна
-    //     Введіть вагу
-    //     Введіть зріст
-    //     {/* blood type */}
-
-    const [firstName, setFirstName] = useState('')
-    const [secondName, setSecondName] = useState('')
+    const [name, setName] = useState('')
     const [diagnose, setDiagnose] = useState('')
     const [parents, setParents] = useState('')
     const [gender, setGender] = useState('')
@@ -96,15 +118,46 @@ export default function RegistrationPatient() {
     const [weight, setWeight] = useState('')
     const [height, setHeight] = useState('')
     const [blood, setBlood] = useState('')
+    const [image, _setImage] = useState(null)
+    const inputFileRef = createRef(null)
 
+    // FOR IMAGE
+    const cleanup = () => {
+        URL.revokeObjectURL(image)
+        inputFileRef.current.value = null
+    }
+
+    const setImage = (newImage) => {
+        if (image) {
+            cleanup()
+        }
+        _setImage(newImage)
+    }
+
+    const handleOnChange = (event) => {
+        const newImage = event.target?.files?.[0]
+
+        if (newImage) {
+            setImage(URL.createObjectURL(newImage))
+        }
+    }
+
+    /**
+     *
+     * @param {React.MouseEvent<HTMLButtonElement, MouseEvent>} event
+     */
+    const handleClick = (event) => {
+        if (image) {
+            event.preventDefault()
+            setImage(null)
+        }
+    }
+
+    //FOR INPUTS
     const db = app.firestore()
 
-    const firstNameChange = (event) => {
-        setFirstName(event.target.value)
-        console.log(firstName)
-    }
-    const secondNameChange = (event) => {
-        setSecondName(event.target.value)
+    const nameChange = (event) => {
+        setName(event.target.value)
     }
     const diagnoseChange = (event) => {
         setDiagnose(event.target.value)
@@ -141,8 +194,8 @@ export default function RegistrationPatient() {
     }
 
     async function handleSubmit() {
-        await db.collection('Patient').add({
-            Name: `${firstName} ${secondName}`,
+        const res = await db.collection('Patient').add({
+            Name: name,
             Diagnose: diagnose,
             Parents: parents,
             Gender: gender,
@@ -192,154 +245,211 @@ export default function RegistrationPatient() {
             {/* --------  Main  content  -------- */}
             {/* --------------------------------- */}
             <div className="content-wrapper">
-                <div>
-                    <AvatarUpload />
+                <div className="avatar-reg-wrapper">
+                    <CenteredContent>
+                        <Avatar
+                            alt="Avatar"
+                            src={image}
+                            variant="square"
+                            style={{
+                                width: '256px',
+                                height: '256px',
+                            }}
+                        />
+                        <input
+                            ref={inputFileRef}
+                            accept="image/*"
+                            hidden
+                            id="avatar-image-upload"
+                            type="file"
+                            onChange={handleOnChange}
+                        />
+                        <label htmlFor="avatar-image-upload">
+                            <Button
+                                className="upload-image-btn"
+                                variant="contained"
+                                color="grey"
+                                component="span"
+                                mb={2}
+                                onClick={handleClick}
+                            >
+                                {image ? 'Очистити' : 'Завантажити'}
+                            </Button>
+                        </label>
+                    </CenteredContent>
                 </div>
                 <div className="column-direction-list">
-                    <form
-                        className={classes.root}
+                    {/* Start of inputs */}
+                    <div
+                        className={classes.rootForTitle}
                         noValidate
                         autoComplete="off"
                     >
                         <div className="patient-title">
+                            <div className="label-area">Ім'я та Прізвище:</div>
+
                             <TextField
-                                id="standard-basic"
-                                label="Прізвище"
-                                onChange={(event) => secondNameChange(event)}
-                            />
-                            <TextField
-                                id="standard-basic"
-                                label="Ім'я"
-                                onChange={(event) => firstNameChange(event)}
+                                onChange={(event) => nameChange(event)}
                             />
                         </div>
+                    </div>
+                    <div
+                        className={classes.rootForSubTitle}
+                        noValidate
+                        autoComplete="off"
+                    >
                         <div className="patient-subtitle">
+                            <div className="patient-subtitle-label">
+                                Діагноз:
+                            </div>
                             <TextField
-                                id="standard-basic"
-                                label="Діагноз"
+                                className="patient-subtitle-input"
                                 onChange={(event) => diagnoseChange(event)}
                             />
                         </div>
+                    </div>
+                    <div className={classes.root} noValidate autoComplete="off">
                         <div className="zebra-table">
-                            <TextField
-                                id="standard-basic"
-                                label="Батьки"
-                                onChange={(event) => parentsChange(event)}
-                            />
-                            <TextField
-                                id="outlined-select-currency"
-                                select
-                                label="Оберіть стать"
-                                value={gender}
-                                onChange={(event) => genderChange(event)}
-                                variant="outlined"
-                            >
-                                {currenciesGenders.map((option) => (
-                                    <MenuItem
-                                        key={option.value}
-                                        value={option.value}
-                                    >
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                            <TextField
-                                id="standard-number"
-                                placeholder="Введіть вік"
-                                type="number"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                onChange={(event) => ageChange(event)}
-                                InputProps={{
-                                    endAdornment: (
-                                        <InputAdornment position="start">
-                                            років
-                                        </InputAdornment>
-                                    ),
-                                }}
-                            />
+                            <div className="zebra-table-left-part">
+                                <div className="grey-stripe-zebra">
+                                    <div className="label-area">Батьки:</div>
 
-                            {/* date of birth */}
-                            <TextField
-                                id="date"
-                                type="date"
-                                defaultValue="1990-05-24"
-                                className={classes.textField}
-                                color="secondary"
-                                size="medium"
-                                onChange={(event) => dateChange(event)}
-                            />
-                            <TextField
-                                id="standard-basic"
-                                label="Місто"
-                                onChange={(event) => cityChange(event)}
-                            />
-                            <TextField
-                                id="standard-basic"
-                                label="Країна"
-                                onChange={(event) => countryChange(event)}
-                            />
-                            <TextField
-                                id="standard-number"
-                                placeholder="Введіть вагу"
-                                type="number"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                onChange={(event) => weightChange(event)}
-                                InputProps={{
-                                    endAdornment: (
-                                        <InputAdornment position="start">
-                                            кг
-                                        </InputAdornment>
-                                    ),
-                                }}
-                            />
-                            <TextField
-                                id="standard-number"
-                                placeholder="Введіть зріст"
-                                type="number"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                onChange={(event) => heightChange(event)}
-                                InputProps={{
-                                    endAdornment: (
-                                        <InputAdornment position="start">
-                                            см
-                                        </InputAdornment>
-                                    ),
-                                }}
-                            />
-                            <TextField
-                                id="outlined-select-currency"
-                                select
-                                label="Оберіть групу крові"
-                                value={blood}
-                                onChange={(event) => bloodChange(event)}
-                                variant="outlined"
-                            >
-                                {currenciesBlood.map((option) => (
-                                    <MenuItem
-                                        key={option.value}
-                                        value={option.value}
+                                    <TextField
+                                        onChange={(event) =>
+                                            parentsChange(event)
+                                        }
+                                    />
+                                </div>
+                                <div className="white-stipe-zebra">
+                                    <div className="label-area">Стать:</div>
+                                    <TextField
+                                        select
+                                        value={gender}
+                                        onChange={(event) =>
+                                            genderChange(event)
+                                        }
                                     >
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-
-                            {/* blood type */}
+                                        {currenciesGenders.map((option) => (
+                                            <MenuItem
+                                                key={option.value}
+                                                value={option.value}
+                                            >
+                                                {option.label}
+                                            </MenuItem>
+                                        ))}
+                                    </TextField>
+                                </div>
+                                <div className="grey-stripe-zebra">
+                                    <div className="label-area">Вік:</div>
+                                    <TextField
+                                        type="number"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        onChange={(event) => ageChange(event)}
+                                        InputProps={{
+                                            endAdornment: (
+                                                <InputAdornment position="start">
+                                                    років
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                </div>
+                                <div className="white-stipe-zebra">
+                                    <div className="label-area">
+                                        Дата народження:
+                                    </div>
+                                    <TextField
+                                        type="date"
+                                        className={classes.textField}
+                                        color="secondary"
+                                        size="medium"
+                                        onChange={(event) => dateChange(event)}
+                                    />
+                                </div>
+                                <div className="grey-stripe-zebra">
+                                    <div className="label-area">Місто:</div>
+                                    <TextField
+                                        onChange={(event) => cityChange(event)}
+                                    />
+                                </div>
+                                <div className="white-stipe-zebra">
+                                    <div className="label-area">Країна:</div>
+                                    <TextField
+                                        onChange={(event) =>
+                                            countryChange(event)
+                                        }
+                                    />
+                                </div>
+                            </div>
+                            <div className="zebra-table-right-part">
+                                <div className="grey-stripe-zebra">
+                                    <div className="label-area">Вага:</div>
+                                    <TextField
+                                        type="number"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        onChange={(event) =>
+                                            weightChange(event)
+                                        }
+                                        InputProps={{
+                                            endAdornment: (
+                                                <InputAdornment position="start">
+                                                    кг
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                </div>
+                                <div className="white-stipe-zebra">
+                                    <div className="label-area">Зріст:</div>
+                                    <TextField
+                                        type="number"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        onChange={(event) =>
+                                            heightChange(event)
+                                        }
+                                        InputProps={{
+                                            endAdornment: (
+                                                <InputAdornment position="start">
+                                                    см
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                </div>
+                                <div className="grey-stripe-zebra">
+                                    <div className="label-area">
+                                        Група крові:
+                                    </div>
+                                    <TextField
+                                        select
+                                        value={blood}
+                                        onChange={(event) => bloodChange(event)}
+                                    >
+                                        {currenciesBlood.map((option) => (
+                                            <MenuItem
+                                                key={option.value}
+                                                value={option.value}
+                                            >
+                                                {option.label}
+                                            </MenuItem>
+                                        ))}
+                                    </TextField>
+                                </div>
+                            </div>
                         </div>
-                    </form>
+                    </div>
                     <Link to="/">
                         <button
                             className="save_button"
-                            // type="submit"
                             style={{
-                                top: '1rem',
-                                right: '2rem',
+                                top: '3.1rem',
+                                right: '5.6rem',
                                 cursor: 'pointer',
                                 position: 'absolute',
                             }}
