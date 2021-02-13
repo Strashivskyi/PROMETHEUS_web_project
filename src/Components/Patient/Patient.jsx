@@ -74,10 +74,19 @@ function Patient() {
                         Кількість: {patients.length}
                     </div>
                 </div>
-                <Link to="/patient_registration">
-                    <BsPlusCircle size={50} />
-                </Link>
             </div>
+
+            <Link
+                to="/patient_registration"
+                style={{
+                    position: 'absolute',
+                    top: '11.5rem',
+                    right: '8rem',
+                    color: 'grey',
+                }}
+            >
+                <BsPlusCircle size={50} />
+            </Link>
 
             <PatientItem patients={patients} />
         </>

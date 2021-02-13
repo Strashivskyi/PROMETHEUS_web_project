@@ -4,10 +4,3 @@
     justify-content: center;
     align-items: center;
 }
-
-.add_patient_btn {
-    border-radius: 50%;
-    background-image: none;
-    background: transparent;
-    background-color: transparent;
-}
