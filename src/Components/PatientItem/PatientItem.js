@@ -4,14 +4,21 @@ import { Item, Name, ButtonItem, Amount, Patient } from './PatientItem.styled'
 import { Link } from 'react-router-dom'
 import kid from '../../assets/boy.png'
 import '../PatientInfo/PatientInfoPage.css'
-import "./PatientItem.css"
-function PatientItem({patients}) {
-
+import './PatientItem.css'
+function PatientItem({ patients }) {
     console.log(patients)
     return (
-        
         <div className="all_inter">
-            <Patient className = "patient_inter" style={{ marginLeft: '105px', marginTop: '45px', fontSize: '24px',}}>Пацієнти</Patient>
+            <Patient
+                className="patient_inter"
+                style={{
+                    marginLeft: '105px',
+                    marginTop: '45px',
+                    fontSize: '24px',
+                }}
+            >
+                Пацієнти
+            </Patient>
             <Amount>Кількість: {patients.length}</Amount>
 
             {patients.map((patient) => (

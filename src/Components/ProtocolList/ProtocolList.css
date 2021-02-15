@@ -37,10 +37,10 @@
     cursor: pointer;
     margin: 0.5rem;
     width: 1rem;
-    height: 1rem
+    height: 1rem;
 }
 
-.add-proto{
+.add-proto {
     position: relative;
     left: 47.3%;
     top: 1.3rem;
@@ -49,7 +49,6 @@
     width: 3rem;
     border-radius: 100%;
     cursor: pointer;
-    
 }
 .add-foto {
     margin: 0.7rem 0.7rem 0.7rem 0.75rem;

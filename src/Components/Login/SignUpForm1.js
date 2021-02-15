@@ -4,25 +4,26 @@ import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
 import { withRouter, Redirect } from 'react-router'
 import DataPicker from './DataPicker'
-import app from "../../Firebase/firebase";
+import app from '../../Firebase/firebase'
 
 function SignUpForm1() {
-    const [firstName, setFirstName] = useState("")
-    localStorage.setItem("Name",firstName)
+    const [firstName, setFirstName] = useState('')
+    localStorage.setItem('Name', firstName)
     console.log(firstName)
-    const[lastName, setLastName] = useState("")
-    localStorage.setItem("Surname",lastName)
-    console.log(lastName) 
-    const [sex, setSex] = useState("")
-    localStorage.setItem("Gender",sex)
+    const [lastName, setLastName] = useState('')
+    localStorage.setItem('Surname', lastName)
+    console.log(lastName)
+    const [sex, setSex] = useState('')
+    localStorage.setItem('Gender', sex)
     console.log(sex)
     return (
         <div>
             <LoginNavigation />
-            <form  className="form-itself">
+            <form className="form-itself">
                 <p className="personal_text">Особиста інформація</p>
                 <div className="input_text_name">
-                    <input onChange={(event)=> (setFirstName(event.target.value))}
+                    <input
+                        onChange={(event) => setFirstName(event.target.value)}
                         type="text"
                         id="fname"
                         name="firstname"
@@ -30,7 +31,8 @@ function SignUpForm1() {
                     />
                 </div>
                 <div className="input_text_name">
-                    <input onChange={(event)=> (setLastName(event.target.value))}
+                    <input
+                        onChange={(event) => setLastName(event.target.value)}
                         type="text"
                         id="lname"
                         name="lastname"
@@ -46,7 +48,8 @@ function SignUpForm1() {
                 <p className="gender">Стать</p>
                 <div className="gender_container">
                     <div className="group">
-                        <input onClick={()=> (setSex("Чоловіча"))}
+                        <input
+                            onClick={() => setSex('Чоловіча')}
                             className="gender_checks"
                             type="checkbox"
                             id="xd"
@@ -55,12 +58,22 @@ function SignUpForm1() {
                     </div>
 
                     <div className="group">
-                        <input onClick={()=> (setSex("Жіноча"))} type="checkbox" id="figma" className="gender_checks"/>
+                        <input
+                            onClick={() => setSex('Жіноча')}
+                            type="checkbox"
+                            id="figma"
+                            className="gender_checks"
+                        />
                         <label for="figma">Жіноча</label>
                     </div>
 
                     <div className="group">
-                        <input onClick={()=> (setSex("Інше"))} type="checkbox" id="sketch" className="gender_checks"/>
+                        <input
+                            onClick={() => setSex('Інше')}
+                            type="checkbox"
+                            id="sketch"
+                            className="gender_checks"
+                        />
                         <label for="sketch">Інше</label>
                     </div>
                 </div>
@@ -69,8 +82,6 @@ function SignUpForm1() {
     )
 }
 export default withRouter(SignUpForm1)
-
-
 
 // function addFirstInputRegistr(firstName,lastName,sex) {
 //     const db = app.firestore();

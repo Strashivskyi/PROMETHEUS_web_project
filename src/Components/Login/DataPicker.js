@@ -20,12 +20,13 @@ const useStyles = makeStyles((theme) => ({
 
 const DataPicker = () => {
     const classes = useStyles()
-    const [data, setData] = useState("")
+    const [data, setData] = useState('')
     console.log(data)
-    localStorage.setItem("Birthday",data)
+    localStorage.setItem('Birthday', data)
     return (
         <form className={classes.container} noValidate>
-            <TextField onChange={(event)=>(setData(event.target.value))}
+            <TextField
+                onChange={(event) => setData(event.target.value)}
                 id="date"
                 type="date"
                 defaultValue="1990-05-24"

@@ -5,7 +5,7 @@ import 'fontsource-dm-sans'
 import Upload from '../../assets/Vector.svg'
 import $ from 'jquery'
 import { useState, useEffect } from 'react'
-import app from "../../Firebase/firebase";
+import app from '../../Firebase/firebase'
 import './SignUpForm2.css'
 
 function SignUpForm2() {
@@ -43,12 +43,12 @@ function SignUpForm2() {
     //         fileChosen.textContent = this.files[0].name
     //     })
     // }
-  
-    const [country, setCountry] = useState("")
+
+    const [country, setCountry] = useState('')
     console.log(country)
-    localStorage.setItem("Country",country)
-    const [city, setCity] = useState("")
-    localStorage.setItem("City",city)
+    localStorage.setItem('Country', country)
+    const [city, setCity] = useState('')
+    localStorage.setItem('City', city)
     console.log(city)
     return (
         <div>
@@ -75,7 +75,7 @@ function SignUpForm2() {
                         </span>
                         <hr />
                     </label>
-                    <input 
+                    <input
                         type="file"
                         id="image_input"
                         onChange={onSelectFile}
@@ -86,7 +86,8 @@ function SignUpForm2() {
                     Фото
                 </div>
                 <div className="input-city">
-                    <input onChange={(event)=> (setCountry(event.target.value))}
+                    <input
+                        onChange={(event) => setCountry(event.target.value)}
                         type="text"
                         id="fname"
                         name="firstname"
@@ -94,7 +95,8 @@ function SignUpForm2() {
                     />
                 </div>
                 <div className="input-city">
-                    <input onChange={(event)=> (setCity(event.target.value))}
+                    <input
+                        onChange={(event) => setCity(event.target.value)}
                         type="text"
                         id="fname"
                         name="firstname"

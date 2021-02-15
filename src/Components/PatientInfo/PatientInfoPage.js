@@ -12,7 +12,11 @@ function PatientInfoPage() {
     useEffect(() => {
         const fetchData = async () => {
             const db = app.firestore()
-            const data = await db.collection("User").doc(localStorage.getItem("user")).collection('Patient').get()
+            const data = await db
+                .collection('User')
+                .doc(localStorage.getItem('user'))
+                .collection('Patient')
+                .get()
             setPatients(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
         fetchData()
@@ -26,14 +30,14 @@ function PatientInfoPage() {
 
     return (
         <>
-             <Header/>
+            <Header />
             <ul>
                 {patients.map((patient) => (
                     <>
                         {localStorage.setItem('childName', patient.Name)}
 
                         <div className="patient_upper_flex_container">
-                            <h2 style={{ marginLeft: '4rem'}}>
+                            <h2 style={{ marginLeft: '4rem' }}>
                                 <Link to="/" className="patients_link">
                                     Пацієнти
                                 </Link>
