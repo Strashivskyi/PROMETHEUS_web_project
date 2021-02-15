@@ -48,7 +48,7 @@ function SignIn({ history }) {
                         />
                         <input
                             className="login_text_input_second"
-                            type="text"
+                            type="password"
                             id="lname"
                             name="password"
                             placeholder="Пароль"
