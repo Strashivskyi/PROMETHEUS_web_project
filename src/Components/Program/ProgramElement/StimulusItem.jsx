@@ -18,4 +18,7 @@ function DeleteStimul(stimulId) {
 
     const db = app.firestore();
     db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus").doc(stimulId).delete()
+    setTimeout(() => {
+        window.location.reload();
+       }, 300); 
 }

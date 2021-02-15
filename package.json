@@ -31,7 +31,8 @@
     "react-select": "^3.1.1",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4",
-    "wtfjs": "^1.11.0"
+    "wtfjs": "^1.11.0",
+    "xlsx": "^0.16.9"
   },
   "scripts": {
     "start": "react-scripts start",

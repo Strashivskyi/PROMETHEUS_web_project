@@ -33,13 +33,10 @@ function RemoveCopiedStatus({ protocol }) {
 
     return (<></>)
 }
-function name() {
 
-
-
-}
 
 function SingleProgram() {
+    let test=[]
 
     let [stimulus, setStimulus] = useState([]);
     let [stimulInput, setStimulInput] = useState("")
@@ -61,7 +58,7 @@ function SingleProgram() {
         }
     }, [])
 
-
+    
 
 
 
@@ -76,6 +73,7 @@ function SingleProgram() {
                 if (snapshot.size) {
 
                     setProtocols(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+
                     console.log("Сука ")
                 } else {
                     console.log("Сука1")
@@ -86,6 +84,26 @@ function SingleProgram() {
         }
     }, [])
 
+
+
+
+    // let [stimulus1, setStimulus1] = useState([]);
+  
+
+    
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const db = app.firestore()
+    //         test.map((t)=>{
+    //         const data = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(t).collection("Stimulus").get()
+    //         setStimulus1(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    //         console.log(stimulus1)
+    //         console.log("Сукаaaaaaaaa ")
+    //     })}
+    //     fetchData()
+    // }, [stimulus1, setStimulus1])
+
+    
     protocols = protocols.filter(protocol => protocol.id.includes(localStorage.getItem("program")))
 
 
@@ -281,7 +299,27 @@ function SingleProgram() {
                                         style={{ fontSize: "20px" }}
                                         raised theme={{ colors: { background: '#fcfcfc' } }}
                                     />
-                                    <Step1 />
+                                    {/* <Step1 Instructions1={protocol.Instructions1}/> */}
+
+                                    <div className="element_name">Інструкції до етапу:</div>
+                                    <div className="element_value">
+
+
+                                        <TextInput
+                                            className="element_value"
+                                            multiline="true"
+                                            underlineColor="transparent"
+                                            selectionColor="primary"
+
+                                            placeholder={protocol.Instructions1}
+                                            onChange={(event) => addInstruction1(event.target.value)}
+                                            style={{ fontSize: "20px" }}
+                                            raised theme={{ colors: { background: '#fcfcfc' } }}
+                                        />
+
+
+
+                                    </div>
                                     {/*step 2*/}
                                     <div className="element_name">Етап 2</div>
                                     <div className="element_value"></div>
@@ -297,7 +335,25 @@ function SingleProgram() {
                                         style={{ fontSize: "20px" }}
                                         raised theme={{ colors: { background: '#fcfcfc' } }}
                                     />
-                                    <Step2 />
+                                    {/* <Step2 Instructions2={protocol.Instructions2} /> */}
+                                    <div className="element_name">Інструкції до етапу:</div>
+                                    <div className="element_value">
+
+
+                                        <TextInput
+                                            className="element_value"
+                                            multiline="true"
+                                            underlineColor="transparent"
+                                            selectionColor="primary"
+
+                                            placeholder={protocol.Instructions2}
+                                            onChange={(event) => addInstruction2(event.target.value)}
+                                            style={{ fontSize: "20px" }}
+                                            raised theme={{ colors: { background: '#fcfcfc' } }}
+                                        />
+
+
+                                    </div>
                                     {/*step 3*/}
                                     <div className="element_name">Етап 3</div>
                                     <div className="element_value"></div>
@@ -313,7 +369,25 @@ function SingleProgram() {
                                         style={{ fontSize: "20px" }}
                                         raised theme={{ colors: { background: '#fcfcfc' } }}
                                     />
-                                    <Step3 />
+                                    {/* <Step3  Instructions3={protocol.Instructions3}/> */}
+                                    <div className="element_name">Інструкції до етапу:</div>
+                                    <div className="element_value">
+
+
+                                        <TextInput
+                                            className="element_value"
+                                            multiline="true"
+                                            underlineColor="transparent"
+                                            selectionColor="primary"
+
+                                            placeholder={protocol.Instructions3}
+                                            onChange={(event) => addInstruction3(event.target.value)}
+                                            style={{ fontSize: "20px" }}
+                                            raised theme={{ colors: { background: '#fcfcfc' } }}
+                                        />
+
+
+                                    </div>
                                 </div>
 
                             </div>
@@ -335,12 +409,32 @@ export default SingleProgram;
 
 
 
+function addInstruction1(instructionInput) {
+    const db = app.firestore();
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ Instructions1: instructionInput })
+
+}
+
+function addInstruction2(instructionInput) {
+    const db = app.firestore();
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ Instructions2: instructionInput })
+
+}
+
+function addInstruction3(instructionInput) {
+    const db = app.firestore();
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ Instructions3: instructionInput })
+
+}
+
 
 function addStimul(stimulInput) {
     const db = app.firestore();
 
     db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus").add({ Name: stimulInput })
-
+    setTimeout(() => {
+        window.location.reload();
+       }, 300);
 }
 function addSkill(params) {
     const db = app.firestore();
