@@ -153,7 +153,7 @@ function PatientInfoPage() {
                                 Результати терапії
                             </Link>
                             <Link
-                                to="/protocol-list"
+                                to="/program-template"
                                 onClick={() =>
                                     localStorage.setItem('program', 'ok')
                                 }
