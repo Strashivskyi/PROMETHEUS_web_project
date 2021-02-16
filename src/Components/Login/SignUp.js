@@ -1,6 +1,6 @@
 import SignUpForm1 from './SignUpForm1'
 import SignUpForm2 from './SignUpForm2'
-import SignUpForm3 from './SignUpForm3'
+import UserRoleChoosing from './UserRoleChoosing'
 import SignUpForm4 from './SignUpForm4'
 import PrivateRouteToReg from '../../Firebase/AuthSetup/PrivateRoute/PrivateRouteToReg'
 
@@ -19,17 +19,17 @@ function SignUp() {
                             <PrivateRouteToReg
                                 exact
                                 path="/registration"
-                                component={SignUpForm1}
+                                component={UserRoleChoosing}
                             />
                             <PrivateRouteToReg
                                 exact
                                 path="/registration/signup2"
-                                component={SignUpForm2}
+                                component={SignUpForm1}
                             />
                             <PrivateRouteToReg
                                 exact
                                 path="/registration/signup3"
-                                component={SignUpForm3}
+                                component={SignUpForm2}
                             />
                             <PrivateRouteToReg
                                 exact
