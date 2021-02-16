@@ -1,7 +1,7 @@
 import ProgramHeader from "../Header/ProgramHeader";
 import "./Program.css"
 import Step1 from "./ProgramElement/ProgramStep/Step1";
-
+import { TextInput } from 'react-native-paper';
 
 import React, { useEffect, useState } from "react";
 import app from "../../Firebase/firebase";
@@ -10,41 +10,56 @@ import CriteriongenGenerSkill from "./ProgramElement/CriteriongenGenerSkillEleme
 import StimulusItem from "./ProgramElement/StimulusItem";
 import Step2 from "./ProgramElement/ProgramStep/Step2";
 import Step3 from "./ProgramElement/ProgramStep/Step3";
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
-
+const theme = {
+    ...DefaultTheme,
+    roundness: 0,
+    colors: {
+        ...DefaultTheme.colors,
+        primary: 'transparent',
+        accent: 'transparent',
+        dark: "true"
+    },
+};
 
 
 function RemoveCopiedStatus({ protocol }) {
     if (protocol.StatusCopied != null) {
         const db = app.firestore();
-        db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ StatusCopied: "" })
+        db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ StatusCopied: "" })
 
     }
 
     return (<></>)
 }
 
+
 function SingleProgram() {
+    let test=[]
 
     let [stimulus, setStimulus] = useState([]);
     let [stimulInput, setStimulInput] = useState("")
 
     useEffect(() => {
         const db = app.firestore();
-        const unsubscribe = db.collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus")
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
-                    
+
                     setStimulus(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
                     console.log("Сука ")
                 } else {
-                    console.log("Сука1") 
+                    console.log("Сука1")
                 }
             })
         return () => {
             unsubscribe()
         }
     }, [])
+
+    
+
 
 
     let [protocols, setProtocols] = useState([]);
@@ -56,11 +71,12 @@ function SingleProgram() {
         const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
             .onSnapshot(snapshot => {
                 if (snapshot.size) {
-                    
+
                     setProtocols(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+
                     console.log("Сука ")
                 } else {
-                    console.log("Сука1") 
+                    console.log("Сука1")
                 }
             })
         return () => {
@@ -68,135 +84,426 @@ function SingleProgram() {
         }
     }, [])
 
+
+
+
+    // let [stimulus1, setStimulus1] = useState([]);
+  
+
+    
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const db = app.firestore()
+    //         test.map((t)=>{
+    //         const data = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(t).collection("Stimulus").get()
+    //         setStimulus1(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    //         console.log(stimulus1)
+    //         console.log("Сукаaaaaaaaa ")
+    //     })}
+    //     fetchData()
+    // }, [stimulus1, setStimulus1])
+
+    
     protocols = protocols.filter(protocol => protocol.id.includes(localStorage.getItem("program")))
 
 
     return (
-        <>
-            <ProgramHeader />
-            <ArrowHeader />
-            <ul style={{ position: "relative", right: "4%"}}>
+        <PaperProvider theme={theme}>
+            <>
+                <ProgramHeader />
+                <ArrowHeader />
+                <ul style={{ position: "relative", right: "4%" }}>
 
 
-                {
-                    protocols.map((protocol) => (
+                    {
+                        protocols.map((protocol) => (
 
-                        <div className="program_big_flex_container">
-                            <div style={{ marginBottom: "1rem" }} className="element_name"> Протокол {protocol.ProtocolId} {protocol.StatusCopied}. {protocol.SphereOfDevelopment}. {protocol.Skill}</div>
-                            <RemoveCopiedStatus protocol={protocol} />
-                            <div className="each_element_grid_container">
+                            <div className="program_big_flex_container">
+                                <div style={{ marginBottom: "1rem" }} className="element_name"> Протокол {protocol.ProtocolId} {protocol.StatusCopied}. {protocol.SphereOfDevelopment}. {protocol.Skill}</div>
+                                <RemoveCopiedStatus protocol={protocol} />
+                                <div className="each_element_grid_container">
 
-                                <div style={{ backgroundColor: "#EEEEEE" }} className="element_name">Сфера розвитку:</div>
-                                <div style={{ backgroundColor: "#EEEEEE" }} className="element_value">{protocol.SphereOfDevelopment}</div>
-                                <div style={{ marginTop: "1rem" }} className="element_name">Навик:</div>
-                                <div style={{ marginTop: "1rem" }} className="element_value">{protocol.Skill}</div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_name">Метод:</div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_value">{protocol.Method}</div>
-                                <div style={{ marginTop: "1rem" }} className="element_name">Бажана реакція:</div>
-                                <div style={{ marginTop: "1rem" }} className="element_value">{protocol.DesirableReaction}</div>
+                                    <div style={{ backgroundColor: "#EEEEEE" }} className="element_name">Сфера розвитку:</div>
+                                    <TextInput
+                                        className="element_value"
+                                        multiline="true"
+                                        underlineColor="transparent"
+                                        selectionColor="primary"
+                                        placeholder={protocol.SphereOfDevelopment}
+                                        style={{ fontSize: "20px" }}
+                                        raised theme={{ colors: { background: '#fcfcfc' } }}
+                                        onChange={(e) => addSphereOfDevelopment(e.target.value)}
 
-                                <CriteriongenGenerSkill />
-                                <div style={{ marginTop: "1rem" }} className="element_name">Рівні інтенсивності підказки:</div>
-                                <div style={{ marginTop: "1rem", }} className="element_value">Оберіть інтервал часу або тип виконання:<select onChange={(event) => addInterval(event.target.value)} style={{
-                                    marginLeft: "0.5rem", background: "#F8FCFF",
-                                    border: "2px solid #CCE9FF",
-                                    boxSizing: "border-box",
-                                    height: "40px",
-                                    fontSize: "20px",
-                                    lineHeight: "20px",
-                                    paddingLeft: "10px"
-                                }}>
-                                    <option value="0">0 секунд</option>
-                                    <option value="2">2 секунди</option>
-                                    <option value="4">4 секунди</option>
-                                    <option value="6">6 секунд</option>
-                                    <option value="Самостійна реакція">Самостійна реакція</option>
-                                </select>
+                                    />
 
-                                </div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_name">Критерій зниження рівня інтенсивності підказки:</div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_value">{protocol.ReductionСriterion}</div>
-                                <div style={{ marginTop: "1rem" }} className="element_name">Критерій підвищення рівня інтенсивності підказки:</div>
-                                <div style={{ marginTop: "1rem" }} className="element_value">{protocol.CriterionIncrease}</div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_name">Спосіб забирання підказки:</div>
-                                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_name"><select onChange={(event) => addMethodTakingHint(event.target.value)} style={{
-                                    marginLeft: "-1rem", background: "#F8FCFF",
-                                    border: "2px solid #CCE9FF",
-                                    boxSizing: "border-box",
-                                    height: "40px",
-                                    fontSize: "20px",
-                                    lineHeight: "20px",
-                                    paddingLeft: "10px"
-                                }}>
+                                    <div style={{ marginTop: "1rem" }} className="element_name">Навик:</div>
+                                    <TextInput
 
-                                    <option value="Тимчасова затримка">Тимчасова затримка</option>
-                                    <option value="Від найменшої до найбільшої">Від найменшої до найбільшої</option>
-                                </select></div>
-                                <div className="element_name" style={{ height: "30px" }} ></div>
-                                <div className="element_value" style={{ height: "30px" }} ></div>
+                                        className="element_value"
+                                        multiline="true"
+                                        underlineColor="transparent"
+                                        selectionColor="primary"
 
-                                <div className="element_name">Стимули до етапів</div>
-                                <div className="element_value" style={{lineHeight: "18px"}}>
-                                    <ul>
+                                        placeholder={protocol.Skill}
+                                        style={{ fontSize: "20px", marginTop: "1rem" }}
+                                        raised theme={{ colors: { background: 'transparent' } }}
+                                        onChange={(e) => addSkill(e.target.value)}
 
-                                        {stimulus.map((stimul) => (<StimulusItem name={stimul.Name} stimulId={stimul.id} />))}
+                                    />
+                                    <div className="element_name" style={{ minHeight: "1rem" }}></div>
+                                    <div className="element_value" style={{ minHeight: "1rem" }}></div>
+                                    <div style={{ backgroundColor: "#EEEEEE" }} className="element_name">Метод:</div>
+                                    <TextInput
+                                        className="element_value"
+                                        multiline="true"
+                                        underlineColor="transparent"
+                                        selectionColor="primary"
 
-                                        <div style={{ display: "flex", flexDirection: "row",  }}>
-                                            <button onClick={() => addStimul(stimulInput)} className="add_button">
-                                                <h1 style={{ marginTop: "5px", marginBottom: "5px", textAlign: "center", width: "22px", height: "20px", color: "#4d4d4d", fontSize:"20px" }}>+</h1>
-                                            </button>
-                                            <div className="transparent_input">
-                                                <input type="text" onChange={(event) => setStimulInput(event.target.value)} name="name" placeholder="Додати стимул...." />
+                                        placeholder={protocol.Method}
+                                        style={{ fontSize: "20px" }}
+                                        raised theme={{ colors: { background: '#fcfcfc' } }}
+                                        onChange={(e) => addMethod(e.target.value)}
+
+                                    />
+                                    <div className="element_name" style={{ paddingTop: "1rem" }} >Бажана реакція:</div>
+                                    <TextInput
+                                        className="element_value"
+                                        multiline="true"
+                                        underlineColor="transparent"
+                                        selectionColor="primary"
+
+                                        placeholder={protocol.DesirableReaction}
+                                        style={{ fontSize: "20px", paddingTop: "1rem" }}
+                                        raised theme={{ colors: { background: 'transparent' } }}
+                                        onChange={(e) => addDesirableReaction(e.target.value)}
+
+                                    />
+                                    <div className="element_name" style={{ minHeight: "1rem" }}></div>
+                                    <div className="element_value" style={{ minHeight: "1rem" }}></div>
+                                    <CriteriongenGenerSkill />
+                                    <div className="element_name" style={{ minHeight: "1rem", backgroundColor: "#EEEEEE" }}></div>
+                                    <div className="element_value" style={{ minHeight: "1rem", backgroundColor: "#EEEEEE" }}></div>
+                                    <div className="element_name" style={{ paddingTop: "1rem" }}>Рівні інтенсивності підказки:</div>
+                                    <div className="element_value" style={{ paddingTop: "1rem" }}>Оберіть інтервал часу або тип виконання:<select onChange={(event) => addInterval(event.target.value)} style={{
+                                        marginLeft: "0.5rem", background: "#F8FCFF",
+                                        border: "2px solid #CCE9FF",
+                                        boxSizing: "border-box",
+                                        height: "40px",
+                                        fontSize: "20px",
+                                        lineHeight: "20px",
+                                        paddingLeft: "10px"
+                                    }}>
+                                        <option value="0">0 секунд</option>
+                                        <option value="2">2 секунди</option>
+                                        <option value="4">4 секунди</option>
+                                        <option value="6">6 секунд</option>
+                                        <option value="Самостійна реакція">Самостійна реакція</option>
+                                    </select>
+                                        <div className="element_name" style={{ minHeight: "1rem" }}></div>
+                                        <div className="element_value" style={{ minHeight: "1rem" }}></div>
+                                    </div>
+                                    <div style={{ backgroundColor: "#EEEEEE" }} className="element_name">Критерій зниження рівня інтенсивності підказки:</div>
+                                    <TextInput
+                                        className="element_value"
+                                        multiline="true"
+                                        underlineColor="transparent"
+                                        selectionColor="primary"
+
+                                        placeholder={protocol.ReductionСriterion}
+                                        style={{ fontSize: "20px" }}
+                                        raised theme={{ colors: { background: '#fcfcfc' } }}
+                                        onChange={(e) => addReductionСriterion(e.target.value)}
+
+                                    />
+                                    <div className="element_name" style={{ minHeight: "1rem" }}></div>
+                                    <div className="element_value" style={{ minHeight: "1rem" }}></div>
+                                    <div className="element_name">Критерій підвищення рівня інтенсивності підказки:</div>
+                                    <TextInput
+                                        className="element_value"
+                                        multiline="true"
+                                        underlineColor="transparent"
+                                        selectionColor="primary"
+
+                                        placeholder={protocol.CriterionIncrease}
+                                        onChange={(e) => addCriterionIncrease(e.target.value)}
+                                        style={{ fontSize: "20px" }}
+                                        raised theme={{ colors: { background: 'transparent' } }}
+                                    />
+                                    <div className="element_name" style={{ minHeight: "1rem" }}></div>
+                                    <div className="element_value" style={{ minHeight: "1rem" }}></div>
+                                    <div style={{ backgroundColor: "#EEEEEE", paddingTop: "1rem" }} className="element_name">Спосіб забирання підказки:</div>
+                                    <div style={{ backgroundColor: "#EEEEEE", paddingTop: "1rem" }} className="element_value"><select onChange={(event) => addMethodTakingHint(event.target.value)} style={{
+                                        marginLeft: "-1rem", background: "#F8FCFF",
+                                        border: "2px solid #CCE9FF",
+                                        boxSizing: "border-box",
+                                        height: "40px",
+                                        fontSize: "20px",
+                                        lineHeight: "20px",
+                                        paddingLeft: "10px"
+                                    }}>
+
+                                        <option value="Тимчасова затримка">Тимчасова затримка</option>
+                                        <option value="Від найменшої до найбільшої">Від найменшої до найбільшої</option>
+                                    </select></div>
+                                    <div className="element_name" style={{ minHeight: "1rem", backgroundColor: "#EEEEEE" }}></div>
+                                    <div className="element_value" style={{ minHeight: "1rem", backgroundColor: "#EEEEEE" }}></div>
+                                    <div className="element_name" style={{ minHeight: "1rem" }}></div>
+                                    <div className="element_value" style={{ minHeight: "1rem" }}></div>
+
+
+                                    <div className="element_name">Стимули до етапів</div>
+                                    <div className="element_value" style={{ lineHeight: "18px" }}>
+                                        <ul>
+
+                                            {stimulus.map((stimul) => (<StimulusItem name={stimul.Name} stimulId={stimul.id} />))}
+
+                                            <div style={{ display: "flex", flexDirection: "row", }}>
+                                                <button onClick={() => addStimul(stimulInput)} className="add_button">
+                                                    <h1 style={{ marginTop: "5px", marginBottom: "5px", textAlign: "center", width: "22px", height: "20px", color: "#4d4d4d", fontSize: "20px" }}>+</h1>
+                                                </button>
+                                                <div className="transparent_input">
+                                                    <input type="text" onChange={(event) => setStimulInput(event.target.value)} name="name" placeholder="Додати стимул...." />
+                                                </div>
                                             </div>
-                                        </div>
-                                    </ul>
+                                        </ul>
+                                    </div>
+                                    <div className="element_name" style={{ minHeight: "1rem" }}></div>
+                                    <div className="element_value" style={{ minHeight: "1rem" }}></div>
+
+                                    <div className="element_name" style={{ backgroundColor: "#EEEEEE" }}>Опис етапів:</div>
+                                    <TextInput
+                                        className="element_value"
+                                        multiline="true"
+                                        underlineColor="transparent"
+                                        selectionColor="primary"
+
+                                        placeholder={protocol.StepDescription}
+                                        style={{ fontSize: "20px" }}
+                                        raised theme={{ colors: { background: '#fcfcfc' } }}
+                                        onChange={(event) => setStepDescription(event.target.value)}
+                                    />
+                                    {/*step 1*/}
+                                    <div className="element_name" style={{ minHeight: "1rem" }}></div>
+                                    <div className="element_value" style={{ minHeight: "1rem" }}></div>
+                                    <div className="element_name">Етап 1</div>
+                                    <div className="element_value"></div>
+                                    <div className="element_name" style={{ backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
+                                    <TextInput
+                                        className="element_value"
+                                        multiline="true"
+                                        underlineColor="transparent"
+                                        selectionColor="primary"
+
+                                        placeholder={protocol.CorrectionProcedureStep1}
+                                        onChange={(event) => setCorrectionProcedureStep1(event.target.value)}
+                                        style={{ fontSize: "20px" }}
+                                        raised theme={{ colors: { background: '#fcfcfc' } }}
+                                    />
+                                    {/* <Step1 Instructions1={protocol.Instructions1}/> */}
+
+                                    <div className="element_name">Інструкції до етапу:</div>
+                                    <div className="element_value">
+
+
+                                        <TextInput
+                                            className="element_value"
+                                            multiline="true"
+                                            underlineColor="transparent"
+                                            selectionColor="primary"
+
+                                            placeholder={protocol.Instructions1}
+                                            onChange={(event) => addInstruction1(event.target.value)}
+                                            style={{ fontSize: "20px" }}
+                                            raised theme={{ colors: { background: '#fcfcfc' } }}
+                                        />
+
+
+
+                                    </div>
+                                    {/*step 2*/}
+                                    <div className="element_name">Етап 2</div>
+                                    <div className="element_value"></div>
+                                    <div className="element_name" style={{ backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
+                                    <TextInput
+                                        className="element_value"
+                                        multiline="true"
+                                        underlineColor="transparent"
+                                        selectionColor="primary"
+
+                                        placeholder={protocol.CorrectionProcedureStep2}
+                                        onChange={(event) => setCorrectionProcedureStep2(event.target.value)}
+                                        style={{ fontSize: "20px" }}
+                                        raised theme={{ colors: { background: '#fcfcfc' } }}
+                                    />
+                                    {/* <Step2 Instructions2={protocol.Instructions2} /> */}
+                                    <div className="element_name">Інструкції до етапу:</div>
+                                    <div className="element_value">
+
+
+                                        <TextInput
+                                            className="element_value"
+                                            multiline="true"
+                                            underlineColor="transparent"
+                                            selectionColor="primary"
+
+                                            placeholder={protocol.Instructions2}
+                                            onChange={(event) => addInstruction2(event.target.value)}
+                                            style={{ fontSize: "20px" }}
+                                            raised theme={{ colors: { background: '#fcfcfc' } }}
+                                        />
+
+
+                                    </div>
+                                    {/*step 3*/}
+                                    <div className="element_name">Етап 3</div>
+                                    <div className="element_value"></div>
+                                    <div className="element_name" style={{ backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
+                                    <TextInput
+                                        className="element_value"
+                                        multiline="true"
+                                        underlineColor="transparent"
+                                        selectionColor="primary"
+
+                                        placeholder={protocol.CorrectionProcedureStep3}
+                                        onChange={(event) => setCorrectionProcedureStep3(event.target.value)}
+                                        style={{ fontSize: "20px" }}
+                                        raised theme={{ colors: { background: '#fcfcfc' } }}
+                                    />
+                                    {/* <Step3  Instructions3={protocol.Instructions3}/> */}
+                                    <div className="element_name">Інструкції до етапу:</div>
+                                    <div className="element_value">
+
+
+                                        <TextInput
+                                            className="element_value"
+                                            multiline="true"
+                                            underlineColor="transparent"
+                                            selectionColor="primary"
+
+                                            placeholder={protocol.Instructions3}
+                                            onChange={(event) => addInstruction3(event.target.value)}
+                                            style={{ fontSize: "20px" }}
+                                            raised theme={{ colors: { background: '#fcfcfc' } }}
+                                        />
+
+
+                                    </div>
                                 </div>
-                                <div className="element_name" style={{ height: "30px" }} ></div>
-                                <div className="element_value" style={{ height: "30px" }} ></div>
-                                <div className="element_name" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>Опис етапів:</div>
-                                <div className="element_value" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>{protocol.StepDescription} </div>
-                                {/*step 1*/}
-                                <div className="element_name">Етап 1</div>
-                                <div className="element_value"></div>
-                                <div className="element_name" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
-                                <div className="element_value" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}> {protocol.CorrectionProcedureStep1}  </div>
-                                <Step1 />
-                                {/*step 2*/}
-                                <div className="element_name">Етап 2</div>
-                                <div className="element_value"></div>
-                                <div className="element_name" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
-                                <div className="element_value" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>{protocol.CorrectionProcedureStep2}</div>
-                                <Step2 />
-                                {/*step 3*/}
-                                <div className="element_name">Етап 3</div>
-                                <div className="element_value"></div>
-                                <div className="element_name" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>Процедура корекції неправильної відповіді:</div>
-                                <div className="element_value" style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>{protocol.CorrectionProcedureStep3}</div>
-                                <Step3 />
+
                             </div>
 
-                        </div>
 
-
-                    ))}
+                        ))}
 
 
 
 
-            </ul>
-            <div style={{height: "100px"}}></div>
+                </ul>
+                <div style={{ height: "100px" }}></div>
 
-        </>
-
+            </>
+        </PaperProvider>
     );
 };
 export default SingleProgram;
+
+
+
+function addInstruction1(instructionInput) {
+    const db = app.firestore();
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ Instructions1: instructionInput })
+
+}
+
+function addInstruction2(instructionInput) {
+    const db = app.firestore();
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ Instructions2: instructionInput })
+
+}
+
+function addInstruction3(instructionInput) {
+    const db = app.firestore();
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ Instructions3: instructionInput })
+
+}
+
 
 function addStimul(stimulInput) {
     const db = app.firestore();
 
     db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus").add({ Name: stimulInput })
+    setTimeout(() => {
+        window.location.reload();
+       }, 300);
+}
+function addSkill(params) {
+    const db = app.firestore();
 
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ Skill: params })
+    console.log(params)
+}
+
+function addMethod(params) {
+    const db = app.firestore();
+
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ Method: params })
+    console.log(params)
+}
+function addDesirableReaction(params) {
+    const db = app.firestore();
+
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ DesirableReaction: params })
+    console.log(params)
+}
+
+function addReductionСriterion(params) {
+    const db = app.firestore();
+
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ ReductionСriterion: params })
+    console.log(params)
+}
+
+function addCriterionIncrease(params) {
+    const db = app.firestore();
+
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ CriterionIncrease: params })
+    console.log(params)
+}
+
+function setStepDescription(params) {
+    const db = app.firestore();
+
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ StepDescription: params })
+    console.log(params)
+
+}
+function setCorrectionProcedureStep3(params) {
+    const db = app.firestore();
+
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ CorrectionProcedureStep3: params })
+    console.log(params)
+
+}
+function setCorrectionProcedureStep2(params) {
+    const db = app.firestore();
+
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ CorrectionProcedureStep2: params })
+    console.log(params)
+
+}
+function setCorrectionProcedureStep1(params) {
+    const db = app.firestore();
+
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ CorrectionProcedureStep1: params })
+    console.log(params)
+
+}
+
+function addSphereOfDevelopment(sphereOfDevelopment) {
+    const db = app.firestore();
+
+    db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).update({ SphereOfDevelopment: sphereOfDevelopment })
+    console.log(sphereOfDevelopment)
 }
 
 function addInterval(interval) {

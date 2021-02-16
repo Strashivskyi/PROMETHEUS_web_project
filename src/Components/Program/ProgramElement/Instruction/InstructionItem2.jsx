@@ -6,7 +6,7 @@ function InstructionItem2 ({text,instructionId}) {
         <>
             <li>
                 <div className="step_grid_container">
-                    <div>{text}</div>
+                <input placeholder={text}></input>
                     <img onClick={()=>DeleteInstruction(instructionId)} src={Delete} height="15" style={{cursor:"pointer", marginLeft: "30px", marginRight: "30px", marginTop: "9px", color: "#EEEEEE" }} />
 
                 </div>

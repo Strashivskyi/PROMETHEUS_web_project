@@ -26,8 +26,8 @@ function SignUpForm4({ history }) {
                         )
 
                     await app.auth().currentUser.sendEmailVerification()
-                    localStorage.setItem('phoneNumber', phone)
-    
+
+                    addInputRegistr()
                     history.push('/')
                 } else {
                     alert('Будь ласка, перевірте ваш пароль')
@@ -39,16 +39,19 @@ function SignUpForm4({ history }) {
         },
         [history]
     )
-    const [phone,setPhoneNumber] = useState("")
+    const [phone, setPhoneNumber] = useState("")
     console.log(phone)
+    localStorage.setItem('PhoneNumber', phone)
+
     const [email, setEmail] = useState("")
+    localStorage.setItem("userEmail", email)
     console.log(email)
     return (
         <div>
             <LoginNavigation />
             <form className="forth_form" onSubmit={handleSignUp}>
                 <div className="contact_text">Контакти</div>
-                <input onChange={(event)=> (setEmail(event.target.value))}
+                <input onChange={(event) => (setEmail(event.target.value))}
                     className="inputE"
                     type="text"
                     id="fname"
@@ -69,14 +72,14 @@ function SignUpForm4({ history }) {
                     name="passwordCheck"
                     placeholder="Підтвердження паролю"
                 />
-                <input onChange={(event)=> (setPhoneNumber(event.target.value))}
+                <input onChange={(event) => (setPhoneNumber(event.target.value))}
                     className="inputPh"
                     type="text"
                     id="lname"
                     name="phone"
                     placeholder="Номер телефону"
                 />
-                <input 
+                <input
                     style={{ marginTop: '50px' }}
                     className="forth_form_submit"
                     type="submit"
@@ -87,7 +90,7 @@ function SignUpForm4({ history }) {
     )
 }
 export default withRouter(SignUpForm4)
-function addInputRegistr(firstName,lastName, sex, photo, country, city, profession, organization, phoneNumber) {
+function addInputRegistr() {
     const db = app.firestore();
-    db.collection("User").doc(localStorage.getItem("user")).set({Name: firstName, Surname: lastName,Gender: sex, Photo: photo, Country: country, City: city,Profession: profession, Organization: organization, PhoneNumber: phoneNumber})
+    db.collection("User").doc(localStorage.getItem("userEmail")).set({ Name: localStorage.getItem("Name"), Surname: localStorage.getItem("Surname"), Birthday: localStorage.getItem("Birthday"), Gender: localStorage.getItem("Gender"), Country: localStorage.getItem("Country"), City: localStorage.getItem("City"), Profession: localStorage.getItem("Profession"), Organization: localStorage.getItem("Organization"), PhoneNumber: localStorage.getItem("PhoneNumber") })
 }

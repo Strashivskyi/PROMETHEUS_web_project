@@ -22,6 +22,7 @@ const DataPicker = () => {
     const classes = useStyles()
     const [data, setData] = useState("")
     console.log(data)
+    localStorage.setItem("Birthday",data)
     return (
         <form className={classes.container} noValidate>
             <TextField onChange={(event)=>(setData(event.target.value))}

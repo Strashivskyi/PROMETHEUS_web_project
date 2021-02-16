@@ -29,22 +29,23 @@ function CriteriongenGenerSkill() {
 
     return (
         <>
-            <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_name">Критерій узагальнення навику: </div>
-            <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }} className="element_value">
-                <div style={{ marginTop: "1rem", backgroundColor: "#EEEEEE" }}>
+            <div style={{ backgroundColor: "#EEEEEE" }} className="element_name">Критерій узагальнення навику: </div>
+            <div style={{ backgroundColor: "#EEEEEE" }} className="element_value">
+                <div style={{  backgroundColor: "#EEEEEE" }}>
                     <ol style={{
-                        fontFamily: "Inter", marginTop: "0.3rem", marginLeft: "-0.9rem",
+                        fontFamily: "Inter", marginLeft: "-0.9rem",
                         fontStyle: "normal",
                         fontWeight: "normal",
                         fontSize: "20px",
-                        lineHeight: "29px"
+                        lineHeight: "29px",
+                        marginTop: "10px"
                     }}>
                         {criteriongenGenerSkills.map((criteriongenGenerSkill) => (<CriteriongenGenerSkillItem text={criteriongenGenerSkill.Text} criteriongenGenerSkillId={criteriongenGenerSkill.id} />))}
 
                     </ol>
 
                     <div style={{ display: "flex", flexDirection: "row", marginLeft: "30px" }}>
-                        <button onClick={() => addCriteriongenGenerSkill(criteriongenGenerSkillInput)} className="add_button">                                                <h1 style={{ marginTop: "5px", marginBottom: "5px", textAlign: "center", width: "22px", height: "20px", color: "#4d4d4d", fontSize: "20px" }}>+</h1></button>
+                        <button onClick={() => addCriteriongenGenerSkill(criteriongenGenerSkillInput)} className="add_button"><h1 style={{ marginTop: "5px", marginBottom: "5px", textAlign: "center", width: "22px", height: "20px", color: "#4d4d4d", fontSize: "20px" }}>+</h1></button>
                         <div className="transparent_input">
 
                             <input type="text" onChange={(event) => setCriteriongenGenerSkillInput(event.target.value)} name="name" placeholder="Додати критерій...." />
