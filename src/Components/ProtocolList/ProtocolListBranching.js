@@ -26,14 +26,12 @@ export default function RenderProgramList() {
         }
     }, [])
     users = users.filter((user) => user.id == localStorage.getItem('user'))
-    if (localStorage.getItem('proffesion') == 'therapist') {
-        console.log('Therapist in local storage')
-    } else {
+    if (users.length == 1) {
         localStorage.setItem('proffesion', users[0].Profession)
     }
-    if (localStorage.getItem('proffesion') == 'therapist') {
-        return <ProtocolListTherapist />
-    } else {
+    if (localStorage.getItem('proffesion') == 'supervisor') {
         return <ProtocolListSuperVisor />
+    } else {
+        return <ProtocolListTherapist />
     }
 }
