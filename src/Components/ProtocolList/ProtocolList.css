@@ -56,3 +56,8 @@
     height: 1.5rem;
     transform: rotate(45deg);
 }
+
+.control-panel {
+    display: flex;
+    align-items: center;
+}

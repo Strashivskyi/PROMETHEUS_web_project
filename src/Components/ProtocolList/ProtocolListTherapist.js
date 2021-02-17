@@ -1,9 +1,10 @@
-import './ProtocolList.css'
 import React, { useEffect, useState } from 'react'
 import app from '../../Firebase/firebase'
-import ProtocolItem from './PageComponent/ProtocolItem'
+import ProtocolItemTherapist from './PageComponent/ProtocolItemTherapist'
 import Header from '../Header/Header'
-import ArrowHeader from './PageComponent/ArrowHeader'
+import { Link } from 'react-router-dom'
+import Arrow from '../../assets/arrow.png'
+import './ProtocolList.css'
 
 export default function ProtocolList() {
     let test = []
@@ -25,9 +26,11 @@ export default function ProtocolList() {
                             id: doc.id,
                         }))
                     )
-                    console.log('Сука')
+                    console.log('yeah')
                 } else {
-                    console.log('Сука1')
+                    console.log(
+                        'error in ProtocolList/ProtocolListTherapist.js'
+                    )
                 }
             })
         return () => {
@@ -68,14 +71,48 @@ export default function ProtocolList() {
     return (
         <>
             <Header />
-            <ArrowHeader />
-            <button onClick={() => CreateProgramTemplates(protocols, child[0])}>
-                CreateProgramTemplates
-            </button>
+            <div className="patient_upper_flex_container">
+                <h2 style={{ marginLeft: '6rem' }}>
+                    <Link to="/" className="patients_link">
+                        Пацієнти
+                    </Link>
+                </h2>
+                <img
+                    src={Arrow}
+                    height="20"
+                    style={{
+                        marginLeft: '30px',
+                        marginRight: '30px',
+                        marginTop: '28px',
+                        color: 'black',
+                    }}
+                />
+                <h2>
+                    <Link
+                        to="/patient"
+                        className="patients_link"
+                        style={{ color: '#6F6F6F' }}
+                    >
+                        {localStorage.getItem('childName')}
+                    </Link>
+                </h2>
+                <img
+                    src={Arrow}
+                    height="20"
+                    style={{
+                        marginLeft: '30px',
+                        marginRight: '30px',
+                        marginTop: '28px',
+                        color: 'black',
+                    }}
+                />
+                <h2>Програма</h2>
+            </div>
+
             {protocols
                 .sort((a, b) => +a.ProtocolId - +b.ProtocolId)
                 .map((protocol) => (
-                    <ProtocolItem
+                    <ProtocolItemTherapist
                         protocolId={protocol.id}
                         protocolName={protocol.ProtocolId}
                         sphereOfDevelopment={protocol.SphereOfDevelopment}
@@ -103,32 +140,4 @@ export default function ProtocolList() {
                 ))}
         </>
     )
-}
-
-function CreateProgramTemplates(protocols, child) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('ProgramTemplates')
-        .add({
-            Age: child.Age,
-            Diagnos: child.Diagnos,
-            KidWeight: child.KidWeight,
-        })
-
-        .then(function (docRef) {
-            protocols.map((protocol) =>
-                db
-                    .collection('User')
-                    .doc(localStorage.getItem('user'))
-                    .collection('ProgramTemplates')
-                    .doc(docRef.id)
-                    .collection('protocols')
-                    .add(protocol)
-            )
-        })
-        .catch(function (error) {
-            console.error('Error adding document: ', error)
-        })
 }

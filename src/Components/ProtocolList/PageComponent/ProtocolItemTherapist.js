@@ -1,13 +1,11 @@
-import Duplicate from '../../../assets/duplicate_task.svg'
 import Visible from '../../../assets/visible.svg'
 import UnVisible from '../../../assets/unVisible.svg'
-import Delete from '../../../assets/delete.svg'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import app from '../../../Firebase/firebase'
+import { AiOutlineArrowRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import EditIcon from '@material-ui/icons/Edit'
 
-export default function ProtocolItem({
+export default function ProtocolItemTherapist({
     protocolId,
     protocolName,
     sphereOfDevelopment,
@@ -28,6 +26,7 @@ export default function ProtocolItem({
 }) {
     let [colorItem, setColorItem] = useState('')
 
+    // console.log(user.Profession)
     if (+protocolName % 2 != true) {
         colorItem = '#EEEEEE'
     }
@@ -42,49 +41,25 @@ export default function ProtocolItem({
                     Протокол {protocolName} {statusCopied}.{' '}
                     {sphereOfDevelopment}. {skill}
                 </p>
-                <div className="icon_place">
+                <div className="control-panel">
+                    <CheckIsActive
+                        isActive={isActive}
+                        protocolId={protocolId}
+                    />
                     <Link
                         onClick={() =>
                             localStorage.setItem('program', protocolId)
                         }
                         to="/program"
                     >
-                        <EditIcon style={{ color: 'black' }} />
+                        <AiOutlineArrowRight
+                            size={25}
+                            style={{
+                                paddingLeft: '2rem',
+                            }}
+                            color="black"
+                        />
                     </Link>
-
-                    <img
-                        className="icon"
-                        onClick={() =>
-                            CreateDuplicateProtocol(
-                                protocolId,
-                                +length + 1,
-                                sphereOfDevelopment,
-                                skill,
-                                protocolName,
-                                interval,
-                                correctionProcedureStep1,
-                                correctionProcedureStep2,
-                                correctionProcedureStep3,
-                                criterionIncrease,
-                                desirableReaction,
-                                method,
-                                methodTakingHint,
-                                reductionСriterion,
-                                stepDescription
-                            )
-                        }
-                        src={Duplicate}
-                    />
-                    <CheckIsActive
-                        isActive={isActive}
-                        protocolId={protocolId}
-                    />
-
-                    <img
-                        className="icon"
-                        onClick={() => DeleteProtocol(protocolId)}
-                        src={Delete}
-                    />
                 </div>
             </div>
         </>
@@ -137,16 +112,7 @@ function CreateDuplicateProtocol(
 
     // console.log(data.key)
 }
-function DeleteProtocol(protocolId) {
-    const db = app.firestore()
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(protocolId)
-        .delete()
-}
+
 function CheckIsActive({ isActive, protocolId }) {
     console.log(isActive)
     if (isActive == true) {

@@ -38,7 +38,9 @@ function RemoveCopiedStatus({ protocol }) {
     return <></>
 }
 
-function SingleProgram() {
+// MAIN COMPONENT
+
+export default function ProgramEditable() {
     let test = []
 
     let [stimulus, setStimulus] = useState([])
@@ -671,7 +673,10 @@ function SingleProgram() {
         </PaperProvider>
     )
 }
-export default SingleProgram
+
+//  -------
+// |  END  |
+//  -------
 
 function addInstruction1(instructionInput) {
     const db = app.firestore()
