@@ -432,9 +432,9 @@ function addStimul(stimulInput) {
     const db = app.firestore();
 
     db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(localStorage.getItem("program")).collection("Stimulus").add({ Name: stimulInput })
-    setTimeout(() => {
-        window.location.reload();
-       }, 300);
+    // setTimeout(() => {
+    //     window.location.reload();
+    //    }, 300);
 }
 function addSkill(params) {
     const db = app.firestore();

@@ -50,7 +50,6 @@ let test=[]
         }
     }, [])
 
-
     return (
         <>
             <Header />
@@ -82,10 +81,12 @@ export default ProtocolList
 function CreateProgramTemplates(protocols, child) {
     const db = app.firestore();
 
-    db.collection("User").doc(localStorage.getItem("user")).collection("ProgramTemplates").add({ Age: child.Age, Diagnos: child.Diagnos, KidWeight: child.KidWeight })
+    db.collection("User").doc(localStorage.getItem("user")).collection("ProgramTemplates").add({ Age: child.Age, Diagnos: child.Diagnos, KidWeight: child.KidWeight})
     
     .then(function (docRef) {
+        db.collection("User").doc(localStorage.getItem("user")).collection("ProgramTemplates").doc(docRef.id).update({CountOfProtocol:protocols.length})
         protocols.map((protocol) => db.collection("User").doc(localStorage.getItem("user")).collection("ProgramTemplates").doc(docRef.id).collection("protocols").add(protocol)
+        
         )
     })  .catch(function (error) {
         console.error("Error adding document: ", error);

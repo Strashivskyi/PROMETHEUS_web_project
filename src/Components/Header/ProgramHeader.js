@@ -169,9 +169,6 @@ function signOut() {
     app.auth().signOut()
 
 }
-function name() {
-
-}
 function ProgramHeader() {
 
 
@@ -218,15 +215,11 @@ function ProgramHeader() {
                             i++
                         }));
                         console.log(j)
-
                     } else {
                         console.log("Сука1")
                     }
                     j += 1
                 })
-
-
-
             return () => {
                 unsubscribe()
             }
@@ -250,8 +243,10 @@ function ProgramHeader() {
                         style={{ marginLeft: '3.4rem', marginTop: '0.4rem' }}
                     />
                     <div style={{ marginTop: '40px', marginBottom: '15px' }}>
-                        <button className="save_button" style={{ top: '1rem', cursor: "pointer" }} onClick={() => (
-                            exportUsersToExcel(users, workSheetColumnName, workSheetName, filePath, protocols))}>
+                        <button className="save_button" style={{ top: '1rem', cursor: "pointer" }} 
+                        // onClick={() => (
+                        //     exportUsersToExcel(users, workSheetColumnName, workSheetName, filePath, protocols))}
+                            >
                             Зберегти
                         </button>
                     </div>

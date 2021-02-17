@@ -1,9 +1,9 @@
 import app from "../../Firebase/firebase";
 import PatientItem from "../PatientItem/PatientItem";
 import React from "react";
-
+import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
-
+import { BsPlusCircle } from 'react-icons/bs'
 import Logo from '../../assets/Logo.svg';
 function signOut() {
     localStorage.setItem("user",'none')
@@ -57,6 +57,40 @@ function Patient() {
                     />
                 </div>
             </>
+            <div className="info_title">
+                <div className="inter_fing">
+                    <div
+                        style={{
+                            marginLeft: '105px',
+                            marginTop: '45px',
+                            fontSize: '24px',
+                        }}
+                    >
+                        Пацієнти
+                    </div>
+                    <div
+                        style={{
+                            marginLeft: '105px',
+                            marginTop: '45px',
+                            fontSize: '24px',
+                        }}
+                    >
+                        Кількість: {patients.length}
+                    </div>
+                </div>
+            </div>
+
+            <Link
+                to="/patient_registration"
+                style={{
+                    position: 'absolute',
+                    top: '11.5rem',
+                    right: '8rem',
+                    color: 'grey',
+                }}
+            >
+                <BsPlusCircle size={50} />
+            </Link>
             <PatientItem patients={patients} />
 
         </>

@@ -5,15 +5,11 @@ import { Link } from 'react-router-dom'
 import kid from '../../assets/boy.png'
 import '../PatientInfo/PatientInfoPage.css'
 import "./PatientItem.css"
-function PatientItem({patients}) {
+function PatientItem({ patients }) {
 
     console.log(patients)
     return (
-        
         <div className="all_inter">
-            <Patient className = "patient_inter" style={{ marginLeft: '105px', marginTop: '45px', fontSize: '24px',}}>Пацієнти</Patient>
-            <Amount>Кількість: {patients.length}</Amount>
-
             {patients.map((patient) => (
                 <Item>
                     <img
@@ -30,7 +26,7 @@ function PatientItem({patients}) {
                     >
                         <Link to="/patient" className="viewmore_patient">
                             Переглянути
-                        </Link>
+                    </Link>
                     </ButtonItem>
                 </Item>
             ))}

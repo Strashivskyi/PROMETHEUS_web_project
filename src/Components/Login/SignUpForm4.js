@@ -92,5 +92,5 @@ function SignUpForm4({ history }) {
 export default withRouter(SignUpForm4)
 function addInputRegistr() {
     const db = app.firestore();
-    db.collection("User").doc(localStorage.getItem("userEmail")).set({ Name: localStorage.getItem("Name"), Surname: localStorage.getItem("Surname"), Birthday: localStorage.getItem("Birthday"), Gender: localStorage.getItem("Gender"), Country: localStorage.getItem("Country"), City: localStorage.getItem("City"), Profession: localStorage.getItem("Profession"), Organization: localStorage.getItem("Organization"), PhoneNumber: localStorage.getItem("PhoneNumber") })
+    db.collection("User").doc(localStorage.getItem("userEmail")).set({ Name: localStorage.getItem("Name"), Surname: localStorage.getItem("Surname"), Birthday: localStorage.getItem("Birthday"), Gender: localStorage.getItem("Gender"), Country: localStorage.getItem("Country"), City: localStorage.getItem("City"), Profession: localStorage.getItem("Profession"), Organization: localStorage.getItem("Organization"), PhoneNumber: localStorage.getItem("PhoneNumber"),TelegramUserID:'' })
 }

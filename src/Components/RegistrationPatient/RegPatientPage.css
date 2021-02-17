@@ -1,0 +1,74 @@
+.content-wrapper {
+    display: flex;
+}
+
+.column-direction-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.patient-title {
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.patient-subtitle {
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.patient-subtitle-label {
+    margin-right: 1rem;
+    font-size: 18px;
+}
+
+.label-area {
+    margin-right: 1rem;
+    font-size: 18px;
+}
+
+.patient-subtitle-input {
+}
+
+.zebra-table {
+    display: flex;
+}
+
+.zebra-table-left-part {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.zebra-table-right-part {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.avatar-reg-wrapper {
+    margin-top: 2rem;
+    margin-left: 8.5rem;
+    margin-right: 4rem;
+}
+
+.grey-stripe-zebra {
+    width: 23rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.5rem;
+    background-color: #eeeeee;
+}
+
+.white-stipe-zebra {
+    width: 23rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+.upload-image-btn {
+    width: 256px;
+}

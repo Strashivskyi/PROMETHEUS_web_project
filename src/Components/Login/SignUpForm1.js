@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import './SignUpForm1.css'
 import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
-import { withRouter, Redirect } from 'react-router'
+import { withRouter } from 'react-router'
 import DataPicker from './DataPicker'
-import app from "../../Firebase/firebase";
 
 function SignUpForm1() {
     const [firstName, setFirstName] = useState("")

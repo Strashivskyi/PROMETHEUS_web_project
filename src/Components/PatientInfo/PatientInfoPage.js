@@ -24,6 +24,35 @@ function PatientInfoPage() {
     localStorage.setItem('childName', '')
     console.log(patients)
 
+    let path='/protocol-list'
+    
+    const [protocols, setProtocols] = useState([]);
+
+
+
+    useEffect(() => {
+        const db = app.firestore();
+        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
+            .onSnapshot(snapshot => {
+                if (snapshot.size) {
+
+                    setProtocols(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+
+                    console.log("Сука ")
+                } else {
+                    console.log("Сука1")
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
+    if(protocols.length==0){
+        path="/program-template"
+    }else{
+        path='/protocol-list'
+    }
+
     return (
         <>
              <Header/>
@@ -153,7 +182,7 @@ function PatientInfoPage() {
                                 Результати терапії
                             </Link>
                             <Link
-                                to="/protocol-list"
+                                to={path}
                                 onClick={() =>
                                     localStorage.setItem('program', 'ok')
                                 }
