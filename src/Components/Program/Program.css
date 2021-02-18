@@ -15,6 +15,15 @@
     display: grid;
     grid-template-columns: 34vw auto;
 }
+.title_name {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 .element_name {
     font-family: Inter;
     font-style: normal;
@@ -30,9 +39,6 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 40px;
-
-
-    
 }
 .stymul_grid_container {
     display: grid;
