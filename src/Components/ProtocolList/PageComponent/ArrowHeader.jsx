@@ -48,26 +48,10 @@ function ArrowHeader() {
                         color: 'black',
                     }}
                 />
-                <h2>
-                    <Link
-                        to="/patient"
-                        className="patients_link"
-                        style={{ color: '#6F6F6F' }}
-                    >
-                        {localStorage.getItem('childName')}
-                    </Link>
-                </h2>
-                <img
-                    src={Arrow}
-                    height="20"
-                    style={{
-                        marginLeft: '30px',
-                        marginRight: '30px',
-                        marginTop: '28px',
-                        color: 'black',
-                    }}
-                />
-                <h2>Програма</h2>
+                <h2 ><Link to="/patient" className="patients_link" >{localStorage.getItem("childName")}</Link></h2>
+                <img src={Arrow} height="20" style={{ marginLeft: "30px", marginRight: "30px", marginTop: "28px", color: "black" }} />
+                <h2 style={{ color: "#6F6F6F" }}>Програма</h2>
+
                 <div
                     onClick={() => addProto(protocols.length)}
                     className="add-proto"

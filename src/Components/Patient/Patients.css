@@ -1,0 +1,24 @@
+@import url('https://rsms.me/inter/inter.css');
+
+html {
+    font-family: 'Inter', sans-serif;
+}
+.search{
+    font-size: 20px;
+    line-height: 30px;
+    position: relative;
+    width: 19.2%;
+    left: 62.2%;
+    box-sizing: border-box;
+    border-radius: 0px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: silver solid 2px;
+    background-color: white;
+    background-image: url(/src/assets/icon.png);
+    background-position: 10px 15px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 8px 40px;
+
+}

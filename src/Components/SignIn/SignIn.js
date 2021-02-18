@@ -54,7 +54,7 @@ function SignIn({ history }) {
                             placeholder="Пароль"
                         />
                         <input
-                            className="login_submit"
+                            class="slide-hover-left-3"
                             type="submit"
                             value="Увійти"
                         />

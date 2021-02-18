@@ -4,7 +4,7 @@ export const Item = styled.div`
     display: inline-block;
     background: #ffffff;
     margin: 25px;
-    margin-left: 6rem;
+    margin-left: 4.3rem;
     width: 275px;
     height: 370px;
     box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24),

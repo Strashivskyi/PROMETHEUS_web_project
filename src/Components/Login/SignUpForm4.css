@@ -89,20 +89,37 @@ html {
     font-size: 22px;
     line-height: 47px;
 }
-.forth_form_submit {
-    position: relative;
-    width: 377px;
+
+
+input:focus {
+    outline: none;
+}
+input.slide-hover-left-4 {
     height: 50px;
-    background: #48535f;
+    width: 350px;
+    left: 10px;
     border: 2px solid #48535f;
-    margin-top: 95px;
-    padding-top: 1px;
     margin-right: auto;
     margin-left: auto;
-    font-family: 'Inter', cursive;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
+    position: relative;
     line-height: 37px;
-    color: #ffffff;
+    font-family: 'Inter', cursive;
+    border: 1px solid #48535f;
+    color: #48535f;
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    display: inline-block;
+    background-image: linear-gradient(0, #48535f, #48535f);
+    background-size: 0;
+    transition: .8s;
+    background-repeat: no-repeat;
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+input.slide-hover-left-4:hover {
+    background-size: 100%;
+    color: #fff;
 }

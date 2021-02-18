@@ -39,7 +39,10 @@
     width: 1rem;
     height: 1rem;
 }
-
+.icon:hover{
+    transform: scale(1.2);
+    transition: 0.1s;    
+}
 .add-proto {
     position: relative;
     left: 47.3%;

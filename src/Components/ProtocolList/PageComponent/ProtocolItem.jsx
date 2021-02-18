@@ -49,7 +49,7 @@ export default function ProtocolItem({
                         }
                         to="/program"
                     >
-                        <EditIcon style={{ color: 'black' }} />
+                        <EditIcon className="icon" style={{ color: "black" }} />
                     </Link>
 
                     <img
@@ -75,10 +75,8 @@ export default function ProtocolItem({
                         }
                         src={Duplicate}
                     />
-                    <CheckIsActive
-                        isActive={isActive}
-                        protocolId={protocolId}
-                    />
+                    <CheckIsActive className="icon" isActive={isActive} protocolId={protocolId} />
+
 
                     <img
                         className="icon"

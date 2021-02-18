@@ -9,3 +9,31 @@ html {
 .patient_inter {
     font-family: 'Inter', sans-serif;
 }
+.hover_patient:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,0,0,0.5); 
+    transition: 0.4s;
+}
+.button_item{
+    padding-top: 0rem;
+    margin-left: 25px;
+    background: #48535f;
+    width: 227px;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+}
+.button_item:hover{
+    background: #36404b;
+    cursor: pointer;
+    box-shadow: 0 0 1px rgba(0,0,0,0.5); 
+
+}
+.viewmore_patient:hover {
+    color: white;
+}
+.viewmore_patient {
+    color: white;
+    text-decoration: none;
+}

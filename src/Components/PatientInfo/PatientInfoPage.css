@@ -104,11 +104,20 @@
 }
 
 .patient_page_buttons_therapy:hover {
-    background-color: black;
+    color: white;
+    background: #36404b;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    transform: scale(1.07);
+    transition: 0.4s;
 }
 
+
 .patient_page_buttons_therapy:active {
-    background-color: black;
+    color: white;
+    background: #36404b;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    transform: scale(1.07);
+    transition: 0.4s;
 }
 .patient_page_buttons_program {
     background-color: #48535f;
@@ -119,11 +128,20 @@
 }
 
 .patient_page_buttons_program:hover {
-    background-color: black;
-}
+    color: white;
+    background: #36404b;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    transform: scale(1.07);
+    transition: 0.4s;
 
+}
 .patient_page_buttons_program:active {
-    background-color: black;
+    color: white;
+    background: #36404b;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    transform: scale(1.07);
+    transition: 0.4s;
+
 }
 .viewmore_patient {
     color: white;

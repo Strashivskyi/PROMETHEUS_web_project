@@ -1,6 +1,7 @@
 import app from '../../Firebase/firebase'
 import PatientItem from '../PatientItem/PatientItem'
 import React from 'react'
+import "./Patients.css"
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { BsPlusCircle } from 'react-icons/bs'
@@ -44,11 +45,7 @@ function Patient() {
                             marginBottom: '-20px',
                         }}
                     />
-                    <input
-                        className="search"
-                        onChange={(e) => setInputSearch(e.target.value)}
-                        placeholder="Пошук..."
-                    />
+                    <input className="search" onChange={(e) => (setInputSearch(e.target.value))} type="text" name="search" placeholder="Пошук.."/>
                     <h1
                         style={{
                             border: 'none',
@@ -67,7 +64,9 @@ function Patient() {
                         style={{
                             marginLeft: '105px',
                             marginTop: '45px',
-                            fontSize: '24px',
+                            fontSize: '25px',
+                            color: 'rgb(111, 111, 111)',
+                            fontWeight: '700'
                         }}
                     >
                         Пацієнти
@@ -76,7 +75,8 @@ function Patient() {
                         style={{
                             marginLeft: '105px',
                             marginTop: '45px',
-                            fontSize: '24px',
+                            fontSize: '20px',
+                            color: "#48535f"
                         }}
                     >
                         Кількість: {patients.length}

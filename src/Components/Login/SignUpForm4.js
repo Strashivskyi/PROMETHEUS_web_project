@@ -81,8 +81,7 @@ function SignUpForm4({ history }) {
                     placeholder="Номер телефону"
                 />
                 <input
-                    style={{ marginTop: '50px' }}
-                    className="forth_form_submit"
+                    class="slide-hover-left-4"
                     type="submit"
                     value="Зареєструватись"
                 />
