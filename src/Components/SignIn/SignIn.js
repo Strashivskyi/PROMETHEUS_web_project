@@ -31,7 +31,7 @@ function SignIn({ history }) {
         localStorage.setItem('user', currentUser.email)
         return <Redirect to="/home" />
     }
-
+    localStorage.setItem('profession', '')
     return (
         <>
             <div className="image-form-division">

@@ -4,15 +4,13 @@ import SignIn from './Components/SignIn/SignIn'
 import Patient from './Components/Patient/Patient'
 import ForgetPassword from './Components/SignIn/ForgetPassword'
 import PrivateRouteToReg from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToReg'
-import SingleProgram from './Components/Program/Program.jsx'
+import RenderProgram from './Components/Program/ProgramBranching'
 import { AuthProvider } from './Firebase/AuthSetup/Auth'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PrivateRouteToLogin from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToLogin'
 import PatientInfoPage from './Components/PatientInfo/PatientInfoPage'
-import ProtocolList from './Components/ProtocolList/ProtocolList'
+import RenderProgramList from './Components/ProtocolList/ProtocolListBranching'
 import TherapyResult from './Components/TherapyResult/TherapyResult'
-import ProgramTemplate from "./Components/ProgramTemplate/ProgramTemplate";
-import RegistrationPatient from './Components/RegistrationPatient/RegPatientPage'
 function App() {
     return (
         <>
@@ -33,7 +31,7 @@ function App() {
                         <PrivateRouteToLogin
                             exact
                             path="/program"
-                            component={SingleProgram}
+                            component={RenderProgram}
                         />
                         <PrivateRouteToReg
                             path="/registration"
@@ -42,7 +40,7 @@ function App() {
                         <PrivateRouteToLogin
                             exact
                             path="/protocol-list"
-                            component={ProtocolList}
+                            component={RenderProgramList}
                         />
                         <PrivateRouteToLogin
                             exact
@@ -56,16 +54,6 @@ function App() {
                             path="/patient/result_of_therapy"
                             component={PatientInfoPage}
                             component={TherapyResult}
-                        />
-                        <PrivateRouteToLogin
-                            exact
-                            path="/program-template"
-                            component={ProgramTemplate}
-                        />
-                        <PrivateRouteToLogin
-                            exact
-                            path="/patient_registration"
-                            component={RegistrationPatient}
                         />
                     </Switch>
                 </Router>
