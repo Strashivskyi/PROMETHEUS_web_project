@@ -194,21 +194,25 @@ export default function RegistrationPatient() {
     }
 
     async function handleSubmit() {
-        const res = await db.collection("User").doc(localStorage.getItem("user")).collection('Patient').add({
-            Name: name,
-            Diagnos: diagnose,
-            Parents: parents,
-            Gender: gender,
-            Age: age,
-            BirthDate: date,
-            City: city,
-            Country: country,
-            KidWeight: weight,
-            KidHeight: height,
-            BloodType: blood,
-            Image:
-                'https://pulson.ru/wp-content/uploads/2013/10/krasivyie-foto-detey4.jpg',
-        })
+        const res = await db
+            .collection('User')
+            .doc(localStorage.getItem('user'))
+            .collection('Patient')
+            .add({
+                Name: name,
+                Diagnos: diagnose,
+                Parents: parents,
+                Gender: gender,
+                Age: age,
+                BirthDate: date,
+                City: city,
+                Country: country,
+                KidWeight: weight,
+                KidHeight: height,
+                BloodType: blood,
+                Image:
+                    'https://pulson.ru/wp-content/uploads/2013/10/krasivyie-foto-detey4.jpg',
+            })
     }
 
     return (

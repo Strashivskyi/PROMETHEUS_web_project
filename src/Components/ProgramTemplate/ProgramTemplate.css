@@ -4,7 +4,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
 } */
-.template_place{
+.template_place {
     width: 200px;
     height: 110px;
     background-color: #eeeeee;
@@ -14,21 +14,20 @@
     margin: 55px;
     transition: 0.5s linear;
 }
-.template_place{
+.template_place {
     box-shadow: none;
 }
-.template_img{
+.template_img {
     margin-left: 180px;
 }
-.template_categories{
+.template_categories {
     font-weight: bold;
 }
-.template_title{
+.template_title {
     display: flex;
-    flex-direction:row;
-    
+    flex-direction: row;
 }
- .template_link{
+.template_link {
     background: rgba(239, 79, 89, 0.71);
     border: 1px solid #ef4f59;
     width: 350px;
@@ -40,7 +39,7 @@
     text-decoration: none;
     color: #ffffff;
 }
-.templates_string{
+.templates_string {
     margin-right: 60px;
     margin-left: 120px;
     font-size: 24px;

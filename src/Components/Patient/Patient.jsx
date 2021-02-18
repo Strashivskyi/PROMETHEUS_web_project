@@ -1,28 +1,33 @@
-import app from "../../Firebase/firebase";
-import PatientItem from "../PatientItem/PatientItem";
-import React from "react";
-import { Link } from "react-router-dom";
+import app from '../../Firebase/firebase'
+import PatientItem from '../PatientItem/PatientItem'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { BsPlusCircle } from 'react-icons/bs'
-import Logo from '../../assets/Logo.svg';
+import Logo from '../../assets/Logo.svg'
 function signOut() {
-    localStorage.setItem("user",'none')
+    localStorage.setItem('user', 'none')
     app.auth().signOut()
-    
 }
 function Patient() {
     let [patients, setPatients] = useState([])
-    const [inputSearch, setInputSearch] = useState("")
+    const [inputSearch, setInputSearch] = useState('')
 
     useEffect(() => {
         const fetchData = async () => {
             const db = app.firestore()
-            const data = await db.collection("User").doc(localStorage.getItem("user")).collection('Patient').get()
+            const data = await db
+                .collection('User')
+                .doc(localStorage.getItem('user'))
+                .collection('Patient')
+                .get()
             setPatients(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
         fetchData()
     }, [])
-    patients = patients.filter(protocol => protocol.Name.includes(inputSearch))
+    patients = patients.filter((protocol) =>
+        protocol.Name.includes(inputSearch)
+    )
 
     return (
         <>
@@ -36,14 +41,13 @@ function Patient() {
                             position: 'relative',
                             left: '4%',
                             marginTop: '1.1%',
-                            marginBottom: "-20px"
+                            marginBottom: '-20px',
                         }}
                     />
                     <input
                         className="search"
-                        onChange={(e) => (setInputSearch(e.target.value))}
+                        onChange={(e) => setInputSearch(e.target.value)}
                         placeholder="Пошук..."
-
                     />
                     <h1
                         style={{
@@ -92,7 +96,6 @@ function Patient() {
                 <BsPlusCircle size={50} />
             </Link>
             <PatientItem patients={patients} />
-
         </>
     )
 }

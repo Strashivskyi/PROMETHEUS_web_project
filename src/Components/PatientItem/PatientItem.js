@@ -4,9 +4,8 @@ import { Item, Name, ButtonItem, Amount, Patient } from './PatientItem.styled'
 import { Link } from 'react-router-dom'
 import kid from '../../assets/boy.png'
 import '../PatientInfo/PatientInfoPage.css'
-import "./PatientItem.css"
+import './PatientItem.css'
 function PatientItem({ patients }) {
-
     console.log(patients)
     return (
         <div className="all_inter">
@@ -26,7 +25,7 @@ function PatientItem({ patients }) {
                     >
                         <Link to="/patient" className="viewmore_patient">
                             Переглянути
-                    </Link>
+                        </Link>
                     </ButtonItem>
                 </Item>
             ))}

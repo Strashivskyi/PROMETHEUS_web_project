@@ -11,6 +11,8 @@ import PrivateRouteToLogin from './Firebase/AuthSetup/PrivateRoute/PrivateRouteT
 import PatientInfoPage from './Components/PatientInfo/PatientInfoPage'
 import RenderProgramList from './Components/ProtocolList/ProtocolListBranching'
 import TherapyResult from './Components/TherapyResult/TherapyResult'
+import RegistrationPatient from './Components/RegistrationPatient/RegPatientPage'
+
 function App() {
     return (
         <>
@@ -49,11 +51,13 @@ function App() {
                         />
                         <PrivateRouteToLogin
                             exact
-                            exact
                             path="/patient/result_of_therapy"
-                            path="/patient/result_of_therapy"
-                            component={PatientInfoPage}
                             component={TherapyResult}
+                        />
+                        <PrivateRouteToLogin
+                            exact
+                            path="/patient_registration"
+                            component={RegistrationPatient}
                         />
                     </Switch>
                 </Router>

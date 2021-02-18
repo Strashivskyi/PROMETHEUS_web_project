@@ -35,23 +35,23 @@ function SignUpForm4({ history }) {
             } catch (error) {
                 alert(error)
             }
-
         },
         [history]
     )
-    const [phone, setPhoneNumber] = useState("")
+    const [phone, setPhoneNumber] = useState('')
     console.log(phone)
     localStorage.setItem('PhoneNumber', phone)
 
-    const [email, setEmail] = useState("")
-    localStorage.setItem("userEmail", email)
+    const [email, setEmail] = useState('')
+    localStorage.setItem('userEmail', email)
     console.log(email)
     return (
         <div>
             <LoginNavigation />
             <form className="forth_form" onSubmit={handleSignUp}>
                 <div className="contact_text">Контакти</div>
-                <input onChange={(event) => (setEmail(event.target.value))}
+                <input
+                    onChange={(event) => setEmail(event.target.value)}
                     className="inputE"
                     type="text"
                     id="fname"
@@ -72,7 +72,8 @@ function SignUpForm4({ history }) {
                     name="passwordCheck"
                     placeholder="Підтвердження паролю"
                 />
-                <input onChange={(event) => (setPhoneNumber(event.target.value))}
+                <input
+                    onChange={(event) => setPhoneNumber(event.target.value)}
                     className="inputPh"
                     type="text"
                     id="lname"
@@ -91,6 +92,19 @@ function SignUpForm4({ history }) {
 }
 export default withRouter(SignUpForm4)
 function addInputRegistr() {
-    const db = app.firestore();
-    db.collection("User").doc(localStorage.getItem("userEmail")).set({ Name: localStorage.getItem("Name"), Surname: localStorage.getItem("Surname"), Birthday: localStorage.getItem("Birthday"), Gender: localStorage.getItem("Gender"), Country: localStorage.getItem("Country"), City: localStorage.getItem("City"), Profession: localStorage.getItem("Profession"), Organization: localStorage.getItem("Organization"), PhoneNumber: localStorage.getItem("PhoneNumber"),TelegramUserID:'' })
+    const db = app.firestore()
+    db.collection('User')
+        .doc(localStorage.getItem('userEmail'))
+        .set({
+            Name: localStorage.getItem('Name'),
+            Surname: localStorage.getItem('Surname'),
+            Birthday: localStorage.getItem('Birthday'),
+            Gender: localStorage.getItem('Gender'),
+            Country: localStorage.getItem('Country'),
+            City: localStorage.getItem('City'),
+            Profession: localStorage.getItem('Profession'),
+            Organization: localStorage.getItem('Organization'),
+            PhoneNumber: localStorage.getItem('PhoneNumber'),
+            TelegramUserID: '',
+        })
 }

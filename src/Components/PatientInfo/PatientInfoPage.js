@@ -12,7 +12,11 @@ function PatientInfoPage() {
     useEffect(() => {
         const fetchData = async () => {
             const db = app.firestore()
-            const data = await db.collection("User").doc(localStorage.getItem("user")).collection('Patient').get()
+            const data = await db
+                .collection('User')
+                .doc(localStorage.getItem('user'))
+                .collection('Patient')
+                .get()
             setPatients(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
         fetchData()
@@ -24,45 +28,52 @@ function PatientInfoPage() {
     localStorage.setItem('childName', '')
     console.log(patients)
 
-    let path='/protocol-list'
-    
-    const [protocols, setProtocols] = useState([]);
+    let path = '/protocol-list'
 
-
+    const [protocols, setProtocols] = useState([])
 
     useEffect(() => {
-        const db = app.firestore();
-        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
-            .onSnapshot(snapshot => {
+        const db = app.firestore()
+        const unsubscribe = db
+            .collection('User')
+            .doc(localStorage.getItem('user'))
+            .collection('Patient')
+            .doc(localStorage.getItem('child'))
+            .collection('Protocols')
+            .onSnapshot((snapshot) => {
                 if (snapshot.size) {
+                    setProtocols(
+                        snapshot.docs.map((doc) => ({
+                            ...doc.data(),
+                            id: doc.id,
+                        }))
+                    )
 
-                    setProtocols(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-
-                    console.log("Сука ")
+                    console.log('Сука ')
                 } else {
-                    console.log("Сука1")
+                    console.log('Сука1')
                 }
             })
         return () => {
             unsubscribe()
         }
     }, [])
-    if(protocols.length==0){
-        path="/program-template"
-    }else{
-        path='/protocol-list'
+    if (protocols.length == 0) {
+        path = '/program-template'
+    } else {
+        path = '/protocol-list'
     }
 
     return (
         <>
-             <Header/>
+            <Header />
             <ul>
                 {patients.map((patient) => (
                     <>
                         {localStorage.setItem('childName', patient.Name)}
 
                         <div className="patient_upper_flex_container">
-                            <h2 style={{ marginLeft: '4rem'}}>
+                            <h2 style={{ marginLeft: '4rem' }}>
                                 <Link to="/" className="patients_link">
                                     Пацієнти
                                 </Link>
