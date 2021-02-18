@@ -233,10 +233,20 @@ function ProgramHeader() {
                         width="220"
                         style={{ marginLeft: '3.4rem', marginTop: '0.4rem' }}
                     />
-                    <div style={{ marginTop: '40px', marginBottom: '15px' }}>
+                    <div
+                        style={{
+                            marginTop: '40px',
+                            marginBottom: '15px',
+                            marginLeft: '15rem',
+                        }}
+                    >
                         <button
                             className="save_button"
-                            style={{ top: '1rem', cursor: 'pointer' }}
+                            style={{
+                                top: '1rem',
+                                cursor: 'pointer',
+                                width: '25rem',
+                            }}
                             onClick={() =>
                                 exportUsersToExcel(
                                     users,
@@ -247,7 +257,7 @@ function ProgramHeader() {
                                 )
                             }
                         >
-                            Зберегти
+                            Завантажити файл з програмою
                         </button>
                     </div>
                 </div>
