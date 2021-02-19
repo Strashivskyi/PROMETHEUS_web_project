@@ -45,43 +45,7 @@
 .zebra_rows_flex_container_value{
     color:#666666;
 }
-/* 
-.zebra_rows_parents_data {
-    color: #48535f;
-    margin-left: 150px;
-}
-.zebra_rows_gender_data {
-    color: #48535f;
-    margin-left: 163px;
-}
-.zebra_rows_age_data {
-    color: #48535f;
-    margin-left: 189px;
-}
-.zebra_rows_birthday_data {
-    color: #48535f;
-    margin-left: 24px;
-}
-.zebra_rows_town_data {
-    color: #48535f;
-    margin-left: 157px;
-}
-.zebra_rows_country_data {
-    color: #48535f;
-    margin-left: 147px;
-}
-.zebra_rows_blood_data {
-    color: #48535f;
-    margin-left: 140px;
-}
-.zebra_rows_height_data {
-    color: #48535f;
-    margin-left: 210px;
-}
-.zebra_rows_weight_data {
-    color: #48535f;
-    margin-left: 220px;
-} */
+
 .second_column_outer_flex_container {
     display: flex;
     flex-direction: column;

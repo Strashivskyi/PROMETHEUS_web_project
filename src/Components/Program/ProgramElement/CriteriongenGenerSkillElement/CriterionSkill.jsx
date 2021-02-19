@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import app from '../../../../Firebase/firebase'
 import '../../Program.css'
 
-export default function CriteriongenSkill() {
+export default function CriteriongenSkill({CriteriongenSkill}) {
     let [criteriongenGenerSkills, setCriteriongenGenerSkills] = useState([])
 
     useEffect(() => {

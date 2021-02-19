@@ -156,3 +156,25 @@ input[type='button'] {
     margin-left: 12%;
     margin-bottom: -20px;
 }
+@media screen and (min-width:1920px){
+    .number-buttons {
+        display: grid;
+        grid-template-columns: auto 162px auto 162px auto 162px auto;
+        margin-left: 12%;
+        margin-right: 23%;
+        height: 40px;
+    }
+    .number-button {
+        font-family: 'Inter', cursive;
+        background-color: #48535f;
+        border-radius: 50%;
+        border: 2px solid #48535f;
+        width: 55px;
+        color: #ffffff;
+        font-weight: 400;
+        font-size: 28px;
+        text-align: center;
+        z-index: 20;
+        line-height: 50px;
+    }
+}

@@ -126,7 +126,7 @@ export default CriteriongenGenerSkill
 
 function addCriteriongenGenerSkill(criteriongenGenerSkillInput) {
     const db = app.firestore()
-    if (criteriongenGenerSkillInput != '') {
+
     db.collection('User')
         .doc(localStorage.getItem('user'))
         .collection('Patient')
@@ -135,8 +135,4 @@ function addCriteriongenGenerSkill(criteriongenGenerSkillInput) {
         .doc(localStorage.getItem('program'))
         .collection('CriteriongenGenerSkill')
         .add({ Text: criteriongenGenerSkillInput })
-    }
-    else{
-        alert("Неможливо надіслати пустий критерій узагальнення навику")
-    }
 }

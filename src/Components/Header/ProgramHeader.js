@@ -4,162 +4,162 @@ import './ProgramHeader.css'
 
 import app from '../../Firebase/firebase'
 
-const exportUsersToExcel = require('./exportService');
+// const exportUsersToExcel = require('./exportService');
 
 
 
 
-const users = [
-    {
-        id: 1,
+// const users = [
+//     {
+//         id: 1,
 
 
-        stym: ['', '', '', '', '', '', '', '', ''],
-        instr1: '',
-        instr2: '',
-        instr3: '',
-        bool_field: 0
-    },
-    {
-        id: 2,
+//         stym: ['', '', '', '', '', '', '', '', ''],
+//         instr1: '',
+//         instr2: '',
+//         instr3: '',
+//         bool_field: 0
+//     },
+//     {
+//         id: 2,
 
 
-        stym: ['', '', '', '', '', '', '', '', ''],
-        instr1: '',
-        instr2: '',
-        instr3: '',
-        bool_field: 0
-    },
-    {
-        id: 3,
+//         stym: ['', '', '', '', '', '', '', '', ''],
+//         instr1: '',
+//         instr2: '',
+//         instr3: '',
+//         bool_field: 0
+//     },
+//     {
+//         id: 3,
 
 
-        stym: ['', '', '', '', '', '', '', '', ''],
-        instr1: '',
-        instr2: '',
-        instr3: '',
-        bool_field: 0
-    },
-    {
-        id: 4,
+//         stym: ['', '', '', '', '', '', '', '', ''],
+//         instr1: '',
+//         instr2: '',
+//         instr3: '',
+//         bool_field: 0
+//     },
+//     {
+//         id: 4,
 
 
-        stym: ['', '', '', '', '', '', '', '', ''],
-        instr1: '',
-        instr2: '',
-        instr3: '',
-        bool_field: 0
-    },
-    {
-        id: 5,
+//         stym: ['', '', '', '', '', '', '', '', ''],
+//         instr1: '',
+//         instr2: '',
+//         instr3: '',
+//         bool_field: 0
+//     },
+//     {
+//         id: 5,
 
-        stym: ['', '', '', '', '', '', '', '', ''],
-        instr1: '',
-        instr2: '',
-        instr3: '',
-        bool_field: 0
-    },
-    {
-        id: 6,
+//         stym: ['', '', '', '', '', '', '', '', ''],
+//         instr1: '',
+//         instr2: '',
+//         instr3: '',
+//         bool_field: 0
+//     },
+//     {
+//         id: 6,
 
-        stym: ['', '', '', '', '', '', '', '', ''],
-        instr1: '',
-        instr2: '',
-        instr3: '',
-        bool_field: 0
-    },
-    {
-        id: 7,
+//         stym: ['', '', '', '', '', '', '', '', ''],
+//         instr1: '',
+//         instr2: '',
+//         instr3: '',
+//         bool_field: 0
+//     },
+//     {
+//         id: 7,
 
-        stym: ['', '', '', '', '', '', '', '', ''],
-        instr1: '',
-        instr2: '',
-        instr3: '',
-        bool_field: 0
-    },
-    {
-        id: 8,
-
-
-        stym: ['', '', '', '', '', '', '', '', ''],
-        instr1: '',
-        instr2: '',
-        instr3: '',
-        bool_field: 0
-    },
-    {
-        id: 9,
+//         stym: ['', '', '', '', '', '', '', '', ''],
+//         instr1: '',
+//         instr2: '',
+//         instr3: '',
+//         bool_field: 0
+//     },
+//     {
+//         id: 8,
 
 
-        stym: ['', '', '', '', '', '', '', '', ''],
-        instr1: '',
-        instr2: '',
-        instr3: '',
-        bool_field: 0
-    },
-    {
-        id: 10,
+//         stym: ['', '', '', '', '', '', '', '', ''],
+//         instr1: '',
+//         instr2: '',
+//         instr3: '',
+//         bool_field: 0
+//     },
+//     {
+//         id: 9,
 
 
-        stym: ['', '', '', '', '', '', '', '', ''],
-        instr1: '',
-        instr2: '',
-        instr3: '',
-        bool_field: 0
-    },
-];
+//         stym: ['', '', '', '', '', '', '', '', ''],
+//         instr1: '',
+//         instr2: '',
+//         instr3: '',
+//         bool_field: 0
+//     },
+//     {
+//         id: 10,
 
-users[1].bool_field = 0
-const workSheetColumnName = [
-    "Number",
-    "Text1",
-    "Text2",
-    "Text3",
-    "Stymul1",
-    "Stymul2",
-    "Stymul3",
-    "Stymul4",
-    "Stymul5",
-    "Stymul6",
-    "Stymul7",
-    "Stymul8",
-    "Stymul9",
-    "Instructions for first difficulty level ->",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "Instructions for second difficulty level ->",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "Instructions for third difficulty level ->",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "some boolean field"
 
-]
+//         stym: ['', '', '', '', '', '', '', '', ''],
+//         instr1: '',
+//         instr2: '',
+//         instr3: '',
+//         bool_field: 0
+//     },
+// ];
 
-const workSheetName = 'Users';
-const filePath = './outputFiles/Book1.xls';
+// users[1].bool_field = 0
+// const workSheetColumnName = [
+//     "Number",
+//     "Text1",
+//     "Text2",
+//     "Text3",
+//     "Stymul1",
+//     "Stymul2",
+//     "Stymul3",
+//     "Stymul4",
+//     "Stymul5",
+//     "Stymul6",
+//     "Stymul7",
+//     "Stymul8",
+//     "Stymul9",
+//     "Instructions for first difficulty level ->",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "Instructions for second difficulty level ->",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "Instructions for third difficulty level ->",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "",
+//     "some boolean field"
+
+// ]
+
+// const workSheetName = 'Users';
+// const filePath = './outputFiles/Book1.xls';
 
 
 

@@ -152,7 +152,6 @@ function CreateDuplicateProtocol(
             console.error("Error adding document: ", error);
         });
 
-
     // console.log(data.key)
 }
 function DeleteProtocol(protocolId) {
