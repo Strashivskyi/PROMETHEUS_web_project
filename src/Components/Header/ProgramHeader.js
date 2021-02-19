@@ -171,62 +171,62 @@ function signOut() {
 function ProgramHeader() {
 
 
-    let [protocols, setProtocols] = useState([]);
+    // let [protocols, setProtocols] = useState([]);
 
 
 
-    useEffect(() => {
-        const db = app.firestore();
-        const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
-            .onSnapshot(snapshot => {
-                if (snapshot.size) {
+    // useEffect(() => {
+    //     const db = app.firestore();
+    //     const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols")
+    //         .onSnapshot(snapshot => {
+    //             if (snapshot.size) {
 
-                    setProtocols(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-                    console.log("Сука ")
-                } else {
-                    console.log("Сука1")
-                }
-            })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    //                 setProtocols(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    //                 console.log("Сука ")
+    //             } else {
+    //                 console.log("Сука1")
+    //             }
+    //         })
+    //     return () => {
+    //         unsubscribe()
+    //     }
+    // }, [])
 
  
 
 
 
-    let [stimulus, setStimulus] = useState('');
-    useEffect(() => {
-        const db = app.firestore();
-        let j = 0
-        JSON.parse(localStorage.getItem("protoID")).map((protoId) => {
+    // let [stimulus, setStimulus] = useState('');
+    // useEffect(() => {
+    //     const db = app.firestore();
+    //     let j = 0
+    //     JSON.parse(localStorage.getItem("protoID")).map((protoId) => {
 
-            users[j].stym1 = ''
-            console.log(protoId)
+    //         users[j].stym1 = ''
+    //         console.log(protoId)
 
-            const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(protoId).collection("Stimulus")
-                .onSnapshot(snapshot => {
-                    if (snapshot.size) {
-                        let i = 0
-                        setStimulus(snapshot.docs.map(doc => {
-                            users[j].stym[i] = doc.data().Name
-                            i++
-                        }));
-                        console.log(j)
-                    } else {
-                        console.log("Сука1")
-                    }
-                    j += 1
-                })
-            return () => {
-                unsubscribe()
-            }
+    //         const unsubscribe = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(protoId).collection("Stimulus")
+    //             .onSnapshot(snapshot => {
+    //                 if (snapshot.size) {
+    //                     let i = 0
+    //                     setStimulus(snapshot.docs.map(doc => {
+    //                         users[j].stym[i] = doc.data().Name
+    //                         i++
+    //                     }));
+    //                     console.log(j)
+    //                 } else {
+    //                     console.log("Сука1")
+    //                 }
+    //                 j += 1
+    //             })
+    //         return () => {
+    //             unsubscribe()
+    //         }
 
-        })
+    //     })
 
 
-    }, [])
+    // }, [])
 
 
 

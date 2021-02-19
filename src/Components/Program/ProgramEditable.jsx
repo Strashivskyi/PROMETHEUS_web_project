@@ -7,6 +7,7 @@ import ArrowHeader from './ProgramElement/ArrowHeader'
 import CriteriongenGenerSkill from './ProgramElement/CriteriongenGenerSkillElement/CriteriongenGenerSkill'
 import StimulusItem from './ProgramElement/StimulusItem'
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
+import { StayPrimaryLandscapeOutlined } from '@material-ui/icons'
 
 const theme = {
     ...DefaultTheme,
@@ -704,18 +705,19 @@ function addInstruction3(instructionInput) {
 
 function addStimul(stimulInput) {
     const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .collection('Stimulus')
-        .add({ Name: stimulInput })
-    setTimeout(() => {
-        window.location.reload()
-    }, 300)
+    if (stimulInput != '') {
+        db.collection('User')
+            .doc(localStorage.getItem('user'))
+            .collection('Patient')
+            .doc(localStorage.getItem('child'))
+            .collection('Protocols')
+            .doc(localStorage.getItem('program'))
+            .collection('Stimulus')
+            .add({ Name: stimulInput })
+    }
+    else {
+        alert("Неможливо надіслати пустий стимул")
+    }
 }
 function addSkill(params) {
     const db = app.firestore()

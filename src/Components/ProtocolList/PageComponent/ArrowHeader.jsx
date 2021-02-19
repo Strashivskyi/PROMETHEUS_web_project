@@ -72,7 +72,22 @@ function addProto(length) {
         .collection('Patient')
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
-        .add({ ProtocolId: +length + 1 })
+        .add({
+            ProtocolId: +length + 1, 
+            SphereOfDevelopment: " ", 
+            Skill: " ", 
+            IsActive: '0',
+            Interval: " ",
+            CorrectionProcedureStep1: " ",
+            CorrectionProcedureStep2: " ",
+            CorrectionProcedureStep3: " ",
+            CriterionIncrease: "    ",
+            DesirableReaction: " ",
+            Method: " ",
+            MethodTakingHint: " ",
+            ReductionСriterion: " ",
+            StepDescription: " ",
+        })
 
     // console.log(data.key)
 }
