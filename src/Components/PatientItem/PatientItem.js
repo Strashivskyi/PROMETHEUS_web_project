@@ -17,16 +17,11 @@ function PatientItem({ patients }) {
                     />
 
                     <Name style={{ marginLeft: "-3.8rem", textAlign: "center", height: '4rem' }}>{patient.Name}</Name>
-                    <button
-                        className="button_item"
-                        onClick={() =>
-                            localStorage.setItem('child', patient.id)
-                        }
-                    >
-                        <Link to="/patient" className="viewmore_patient">
+
+                        <Link to="/patient" className="viewmore_patient button_item" onClick={() =>
+                            localStorage.setItem('child', patient.id)}>
                             Переглянути
-                                    </Link>
-                    </button>
+                        </Link>
                 </Item>
             ))}
         </div>

@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import Arrow from '../../../assets/arrow.png'
 import Delete from '../../../assets/delete.svg'
 import app from '../../../Firebase/firebase'
+import { BsPlusCircle } from 'react-icons/bs'
+
 function ArrowHeader() {
     const [protocols, setProtocols] = useState([])
     useEffect(() => {
@@ -56,7 +58,7 @@ function ArrowHeader() {
                     onClick={() => addProto(protocols.length)}
                     className="add-proto"
                 >
-                    <img className="add-foto" src={Delete}></img>
+                    <BsPlusCircle size={50} />
                 </div>
             </div>
         </>
@@ -70,7 +72,22 @@ function addProto(length) {
         .collection('Patient')
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
-        .add({ ProtocolId: +length + 1 })
+        .add({
+            ProtocolId: +length + 1, 
+            SphereOfDevelopment: " ", 
+            Skill: " ", 
+            IsActive: '0',
+            Interval: " ",
+            CorrectionProcedureStep1: " ",
+            CorrectionProcedureStep2: " ",
+            CorrectionProcedureStep3: " ",
+            CriterionIncrease: "    ",
+            DesirableReaction: " ",
+            Method: " ",
+            MethodTakingHint: " ",
+            ReductionСriterion: " ",
+            StepDescription: " ",CriteriongenGenerSkill:" "
+        })
 
     // console.log(data.key)
 }

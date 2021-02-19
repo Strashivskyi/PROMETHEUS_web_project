@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     margin-right: 5vw;
-    margin-left: 5vw;
+    margin-left: 6vw;
     min-width: 90vw;
 }
 .each_element_grid_container {
@@ -43,12 +43,16 @@
 .stymul_grid_container {
     display: grid;
     margin-left: -40px;
-    grid-template-columns: 5vw 1vw;
+    grid-template-columns: 49.6vw 1vw;
     margin-bottom: 0px;
     margin-top: 16px;
 
     min-width: 200px;
     max-width: 200px;
+}
+.stymuls li:hover{
+    transform: scale(1.002);
+    text-decoration: underline 0.1px;
 }
 ul {
     list-style-type: none;
@@ -56,6 +60,11 @@ ul {
 .step_grid_container {
     display: grid;
     grid-template-columns: 50vw 1vw;
+    width: 200px;
+}
+.criterions li:hover{
+    transform: scale(1.002);
+    text-decoration: underline 0.1px;
 }
 .transparent_input input {
     color: #222222;
@@ -87,4 +96,23 @@ ul {
 .add_button:hover {
     margin-left: -40px;
     background-color: whitesmoke;
+}
+.program_link{
+    color: black;
+}
+.program_link:hover{
+    color: #48535F;
+}
+.delete_criterion{
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 9px;
+}
+.delete_criterion:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.delete_stymul:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }

@@ -49,7 +49,7 @@ export default function ProtocolItem({
                         }
                         to="/program"
                     >
-                        <EditIcon className="icon" style={{ color: "black" }} />
+                        <EditIcon className="icon" style={{ position: "relative", top: "-5px", color: "black" }} />
                     </Link>
 
                     <img
@@ -114,8 +114,7 @@ function CreateDuplicateProtocol(
         .collection('Patient')
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
-        .doc()
-        .set({
+        .add({
             SphereOfDevelopment: sphereOfDevelopment,
             ProtocolId: id,
             Skill: skill,
@@ -132,6 +131,26 @@ function CreateDuplicateProtocol(
             ReductionСriterion: reductionСriterion,
             StepDescription: stepDescription,
         })
+        .then(function(docRef) {
+            db.collection('User')
+            .doc(localStorage.getItem('user'))
+            .collection('Patient')
+            .doc(localStorage.getItem('child'))
+            .collection('Protocols').doc(docRef.id )
+            .collection("CriteriongenGenerSkill")
+            .add({Text:""})
+            db.collection('User')
+            .doc(localStorage.getItem('user'))
+            .collection('Patient')
+            .doc(localStorage.getItem('child'))
+            .collection('Protocols').doc(docRef.id )
+            .collection("Stimulus")
+            .add({Name:""})
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
 
     // console.log(data.key)
 }

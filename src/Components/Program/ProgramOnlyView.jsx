@@ -220,7 +220,22 @@ export default function ProgramOnlyView() {
                                     className="element_value"
                                     style={{ minHeight: '1rem' }}
                                 ></div>
-                                <CriteriongenSkill />
+                                <>
+            <div
+                style={{ backgroundColor: '#EEEEEE' }}
+                className="element_name"
+            >
+                Критерій узагальнення навику:{' '}
+            </div>
+            <div
+                style={{ backgroundColor: '#EEEEEE' }}
+                className="element_value"
+            >
+                <div style={{ backgroundColor: '#EEEEEE' }}>
+                {protocol.CriteriongenGenerSkill}
+                </div>
+            </div>
+        </>
                                 <div
                                     className="element_name"
                                     style={{
@@ -498,201 +513,3 @@ export default function ProgramOnlyView() {
 //  -------
 // |  END  |
 //  -------
-
-function addInstruction1(instructionInput) {
-    const db = app.firestore()
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ Instructions1: instructionInput })
-}
-
-function addInstruction2(instructionInput) {
-    const db = app.firestore()
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ Instructions2: instructionInput })
-}
-
-function addInstruction3(instructionInput) {
-    const db = app.firestore()
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ Instructions3: instructionInput })
-}
-
-function addStimul(stimulInput) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .collection('Stimulus')
-        .add({ Name: stimulInput })
-    setTimeout(() => {
-        window.location.reload()
-    }, 300)
-}
-function addSkill(params) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ Skill: params })
-    console.log(params)
-}
-
-function addMethod(params) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ Method: params })
-    console.log(params)
-}
-function addDesirableReaction(params) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ DesirableReaction: params })
-    console.log(params)
-}
-
-function addReductionСriterion(params) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ ReductionСriterion: params })
-    console.log(params)
-}
-
-function addCriterionIncrease(params) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ CriterionIncrease: params })
-    console.log(params)
-}
-
-function setStepDescription(params) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ StepDescription: params })
-    console.log(params)
-}
-function setCorrectionProcedureStep3(params) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ CorrectionProcedureStep3: params })
-    console.log(params)
-}
-function setCorrectionProcedureStep2(params) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ CorrectionProcedureStep2: params })
-    console.log(params)
-}
-function setCorrectionProcedureStep1(params) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ CorrectionProcedureStep1: params })
-    console.log(params)
-}
-
-function addSphereOfDevelopment(sphereOfDevelopment) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ SphereOfDevelopment: sphereOfDevelopment })
-    console.log(sphereOfDevelopment)
-}
-
-function addInterval(interval) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ Interval: interval })
-}
-
-function addMethodTakingHint(method) {
-    const db = app.firestore()
-
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ MethodTakingHint: method })
-}

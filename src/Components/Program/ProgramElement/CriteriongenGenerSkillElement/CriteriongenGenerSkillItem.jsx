@@ -1,12 +1,12 @@
 import Delete from '../../../../assets/delete.png'
-
+import '../../Program.css'
 import React from 'react'
 import app from '../../../../Firebase/firebase'
 function CriteriongenGenerSkillItem({ text, criteriongenGenerSkillId }) {
     return (
-        <>
+        <div className="criterions">
             <li>
-                <div className="step_grid_container">
+                <div class="step_grid_container">
                     <div>{text}</div>
                     <img
                         onClick={() =>
@@ -16,16 +16,12 @@ function CriteriongenGenerSkillItem({ text, criteriongenGenerSkillId }) {
                         }
                         src={Delete}
                         height="15"
-                        style={{
-                            marginLeft: '30px',
-                            marginRight: '30px',
-                            marginTop: '9px',
-                            color: '#EEEEEE',
-                        }}
+                        className="delete_criterion"
+
                     />
                 </div>
             </li>
-        </>
+        </div>
     )
 }
 export default CriteriongenGenerSkillItem

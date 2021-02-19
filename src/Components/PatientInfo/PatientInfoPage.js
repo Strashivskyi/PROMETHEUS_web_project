@@ -45,7 +45,7 @@ function PatientInfoPage() {
                     setProtocols(
                         snapshot.docs.map((doc) => ({
                             ...doc.data(),
-                            id: doc.id,
+                            id: doc.id, 
                         }))
                     )
 
@@ -88,7 +88,7 @@ function PatientInfoPage() {
                                     color: 'black',
                                 }}
                             />
-                            <h2 style={{ color: '#6F6F6F' }}>{patient.Name}</h2>
+                            <h2 className="patients_link" style={{ color: '#6F6F6F' }}>{patient.Name}</h2>
                         </div>
                         <div className="patient_grid_container">
                             <img src={patient.Image} height="270" />
@@ -107,13 +107,13 @@ function PatientInfoPage() {
                                     style={{ backgroundColor: '#EEEEEE' }}
                                 >
                                     <div>Батьки:</div>
-                                    <div className="zebra_rows_parents_data">
+                                    <div className="zebra_rows_flex_container_value">
                                         {patient.Parents}
                                     </div>
                                 </div>
                                 <div className="zebra_rows_flex_container">
                                     <div>Стать:</div>
-                                    <div className="zebra_rows_gender_data">
+                                    <div className="zebra_rows_flex_container_value">
                                         {patient.Gender}
                                     </div>
                                 </div>
@@ -122,13 +122,13 @@ function PatientInfoPage() {
                                     style={{ backgroundColor: '#EEEEEE' }}
                                 >
                                     <div>Вік:</div>
-                                    <div className="zebra_rows_age_data">
+                                    <div className="zebra_rows_flex_container_value">
                                         {patient.Age} років
                                     </div>
                                 </div>
                                 <div className="zebra_rows_flex_container">
                                     <div>Дата народження:</div>
-                                    <div className="zebra_rows_birthday_data">
+                                    <div className="zebra_rows_flex_container_value">
                                         {patient.BirthDate}
                                     </div>
                                 </div>
@@ -137,13 +137,13 @@ function PatientInfoPage() {
                                     style={{ backgroundColor: '#EEEEEE' }}
                                 >
                                     <div>Місто:</div>
-                                    <div className="zebra_rows_town_data">
+                                    <div className="zebra_rows_flex_container_value">
                                         {patient.City}
                                     </div>
                                 </div>
                                 <div className="zebra_rows_flex_container">
                                     <div>Країна:</div>
-                                    <div className="zebra_rows_country_data">
+                                    <div className="zebra_rows_flex_container_value">
                                         {patient.Country}
                                     </div>
                                 </div>
@@ -155,13 +155,13 @@ function PatientInfoPage() {
                                     style={{ backgroundColor: '#EEEEEE' }}
                                 >
                                     <div>Вага:</div>
-                                    <div className="zebra_rows_weight_data">
+                                    <div className="zebra_rows_flex_container_value">
                                         {patient.KidWeight} кг
                                     </div>
                                 </div>
                                 <div className="zebra_rows_flex_container">
                                     <div>Зріст:</div>
-                                    <div className="zebra_rows_height_data">
+                                    <div className="zebra_rows_flex_container_value">
                                         {patient.KidHeight} см
                                     </div>
                                 </div>
@@ -170,7 +170,7 @@ function PatientInfoPage() {
                                     style={{ backgroundColor: '#EEEEEE' }}
                                 >
                                     <div>Група крові:</div>
-                                    <div className="zebra_rows_blood_data">
+                                    <div className="zebra_rows_flex_container_value">
                                         {patient.BloodType}
                                     </div>
                                 </div>

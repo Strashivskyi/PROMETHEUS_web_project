@@ -2,7 +2,7 @@ import Delete from '../../../assets/delete.png'
 import app from '../../../Firebase/firebase'
 function StimulusItem({ name, stimulId }) {
     return (
-        <>
+        <div className="stymuls">
             <li>
                 <div className="stymul_grid_container">
                     <div>{name}</div>
@@ -10,18 +10,18 @@ function StimulusItem({ name, stimulId }) {
                         onClick={() => DeleteStimul(stimulId)}
                         src={Delete}
                         height="15"
+                        className="delete_stymul"
                         style={{
                             cursor: 'pointer',
                             marginLeft: '60px',
                             marginRight: '30px',
                             marginTop: '5px',
                             color: '#EEEEEE',
-                            height: '13px',
                         }}
                     />
                 </div>
             </li>
-        </>
+        </div>
     )
 }
 export default StimulusItem

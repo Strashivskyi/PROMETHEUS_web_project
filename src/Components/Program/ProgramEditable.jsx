@@ -225,7 +225,38 @@ export default function ProgramEditable() {
                                     className="element_value"
                                     style={{ minHeight: '1rem' }}
                                 ></div>
-                                <CriteriongenGenerSkill />
+                                 <>
+            <div
+                style={{ backgroundColor: '#EEEEEE' }}
+                className="element_name"
+            >
+                Критерій узагальнення навику:{' '}
+            </div>
+            <div
+                style={{ backgroundColor: '#EEEEEE' }}
+                className="element_value"
+            >
+                <div style={{ backgroundColor: '#EEEEEE' }}>
+                <TextInput
+                                    className="element_value"
+                                    multiline="true"
+                                    underlineColor="transparent"
+                                    selectionColor="primary"
+                                    defaultValue={protocol.CriteriongenGenerSkill}
+                                    style={{ fontSize: '20px' }}
+                                    raised
+                                    theme={{
+                                        colors: { background: '#fcfcfc' },
+                                    }}
+                                    onChange={(e) =>
+                                        addCriteriongenGenerSkill(e.target.value)
+                                    }
+                                />
+                </div>
+            </div>
+        </>
+                        
+
                                 <div
                                     className="element_name"
                                     style={{
@@ -704,7 +735,7 @@ function addInstruction3(instructionInput) {
 
 function addStimul(stimulInput) {
     const db = app.firestore()
-
+    if (stimulInput != '') {
     db.collection('User')
         .doc(localStorage.getItem('user'))
         .collection('Patient')
@@ -713,9 +744,7 @@ function addStimul(stimulInput) {
         .doc(localStorage.getItem('program'))
         .collection('Stimulus')
         .add({ Name: stimulInput })
-    setTimeout(() => {
-        window.location.reload()
-    }, 300)
+    }else {alert("Неможливо надіслати пустий стимул")}
 }
 function addSkill(params) {
     const db = app.firestore()
@@ -865,4 +894,15 @@ function addMethodTakingHint(method) {
         .collection('Protocols')
         .doc(localStorage.getItem('program'))
         .update({ MethodTakingHint: method })
+}
+function addCriteriongenGenerSkill(generSkill) {
+    const db = app.firestore()
+
+    db.collection('User')
+        .doc(localStorage.getItem('user'))
+        .collection('Patient')
+        .doc(localStorage.getItem('child'))
+        .collection('Protocols')
+        .doc(localStorage.getItem('program'))
+        .update({ CriteriongenGenerSkill: generSkill })
 }

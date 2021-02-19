@@ -15,15 +15,18 @@ html {
     transition: 0.4s;
 }
 .button_item{
-    padding-top: 0rem;
-    margin-left: 25px;
+    margin-left: 8%;
+    margin-right: 8%;
     background: #48535f;
-    width: 227px;
-    height: 30px;
+    padding: 0.5em 4em;
+    height: 40px;
     border-radius: 3px;
     border: none;
     color: white;
+    text-decoration: none;
+
 }
+
 .button_item:hover{
     background: #36404b;
     cursor: pointer;
