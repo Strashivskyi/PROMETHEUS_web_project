@@ -44,3 +44,8 @@
     margin-left: 120px;
     font-size: 24px;
 }
+.template-grid{
+    display: flex;
+    flex-wrap: wrap;
+
+} 	

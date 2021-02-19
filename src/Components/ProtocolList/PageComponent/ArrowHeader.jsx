@@ -74,19 +74,19 @@ function addProto(length) {
         .collection('Protocols')
         .add({
             ProtocolId: +length + 1, 
-            SphereOfDevelopment: " ", 
-            Skill: " ", 
+            SphereOfDevelopment: "", 
+            Skill: "", 
             IsActive: '0',
-            Interval: " ",
-            CorrectionProcedureStep1: " ",
-            CorrectionProcedureStep2: " ",
-            CorrectionProcedureStep3: " ",
-            CriterionIncrease: "    ",
-            DesirableReaction: " ",
-            Method: " ",
-            MethodTakingHint: " ",
-            ReductionСriterion: " ",
-            StepDescription: " ",CriteriongenGenerSkill:" "
+            Interval: "0",
+            CorrectionProcedureStep1: "",
+            CorrectionProcedureStep2: "",
+            CorrectionProcedureStep3: "",
+            CriterionIncrease: "",
+            DesirableReaction: "",
+            Method: "",
+            MethodTakingHint: "Тимчасова затримка",
+            ReductionСriterion: "",
+            StepDescription: "",CriteriongenGenerSkill:""
         })
 
     // console.log(data.key)

@@ -9,6 +9,7 @@ import app from '../../Firebase/firebase'
 import './SignUpForm2.css'
 
 function SignUpForm2() {
+    
     const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState()
     useEffect(() => {
@@ -50,6 +51,7 @@ function SignUpForm2() {
     const [city, setCity] = useState('')
     localStorage.setItem('City', city)
     console.log(city)
+    localStorage.setItem("step",3)
     return (
         <div>
             <LoginNavigation />

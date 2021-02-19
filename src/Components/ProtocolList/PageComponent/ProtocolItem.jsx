@@ -24,7 +24,7 @@ export default function ProtocolItem({
     method,
     methodTakingHint,
     reductionСriterion,
-    stepDescription,
+    stepDescription,CriteriongenGenerSkill
 }) {
     let [colorItem, setColorItem] = useState('')
 
@@ -70,7 +70,7 @@ export default function ProtocolItem({
                                 method,
                                 methodTakingHint,
                                 reductionСriterion,
-                                stepDescription
+                                stepDescription,CriteriongenGenerSkill
                             )
                         }
                         src={Duplicate}
@@ -104,7 +104,7 @@ function CreateDuplicateProtocol(
     method,
     methodTakingHint,
     reductionСriterion,
-    stepDescription
+    stepDescription,CriteriongenGenerSkill
 ) {
     localStorage.setItem('program', protocolId)
     const db = app.firestore()
@@ -130,6 +130,7 @@ function CreateDuplicateProtocol(
             MethodTakingHint: methodTakingHint,
             ReductionСriterion: reductionСriterion,
             StepDescription: stepDescription,
+            CriteriongenGenerSkill:CriteriongenGenerSkill
         })
         .then(function(docRef) {
             db.collection('User')

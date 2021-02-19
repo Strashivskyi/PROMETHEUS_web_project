@@ -8,6 +8,7 @@ import Select from 'react-select'
 import { useState } from 'react'
 
 const options = [
+   
     { value: 'therapist', label: 'терапевт' },
     { value: 'ordinary doctor', label: 'звичайний лікар' },
     { value: 'psychologist', label: 'психолог' },
@@ -15,12 +16,14 @@ const options = [
 ]
 
 function SignUpForm3() {
+  
     const [profession, setProfession] = useState('')
     console.log(profession)
     localStorage.setItem('Profession', profession)
     const [organization, setOrganization] = useState('')
     localStorage.setItem('Organization', organization)
     console.log(organization)
+    
     return (
         <div>
             <LoginNavigation />

@@ -283,6 +283,7 @@ export default function ProgramEditable() {
                                 >
                                     Оберіть інтервал часу або тип виконання:
                                     <select
+                                    defaultValue={protocol.Interval}
                                         onChange={(event) =>
                                             addInterval(event.target.value)
                                         }
@@ -388,6 +389,7 @@ export default function ProgramEditable() {
                                     className="element_value"
                                 >
                                     <select
+                                     defaultValue={protocol.MethodTakingHint}
                                         onChange={(event) =>
                                             addMethodTakingHint(
                                                 event.target.value

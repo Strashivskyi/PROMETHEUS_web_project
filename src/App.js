@@ -12,6 +12,7 @@ import PatientInfoPage from './Components/PatientInfo/PatientInfoPage'
 import RenderProgramList from './Components/ProtocolList/ProtocolListBranching'
 import TherapyResult from './Components/TherapyResult/TherapyResult'
 import RegistrationPatient from './Components/RegistrationPatient/RegPatientPage'
+import ProgramTemplate from "./Components/ProgramTemplate/ProgramTemplate";
 
 function App() {
     return (
@@ -58,6 +59,11 @@ function App() {
                             exact
                             path="/patient_registration"
                             component={RegistrationPatient}
+                        />
+                          <PrivateRouteToLogin
+                            exact
+                            path="/program-template"
+                            component={ProgramTemplate}
                         />
                     </Switch>
                 </Router>

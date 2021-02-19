@@ -25,10 +25,10 @@ function SignUpForm3() {
         localStorage.setItem('Profession', newValue.role)
         console.log(newValue.role)
     }
-
+    localStorage.setItem("step",1)
     return (
         <div>
-            <LoginNavigation />
+            <LoginNavigation colorBackground={"white"} colorText={'#48535F'}/>
             <div className="before_register">
                 Передусім оберіть вашу роль як користувача:
             </div>
