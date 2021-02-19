@@ -42,8 +42,8 @@
     margin-left: -15px;
     line-height: 40px;
 }
-.zebra_rows_flex_container_value{
-    color:#666666;
+.zebra_rows_flex_container_value {
+    color: #666666;
 }
 
 .second_column_outer_flex_container {
@@ -72,16 +72,15 @@
 .patient_page_buttons_therapy:hover {
     color: white;
     background: #36404b;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     transform: scale(1.07);
     transition: 0.4s;
 }
 
-
 .patient_page_buttons_therapy:active {
     color: white;
     background: #36404b;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     transform: scale(1.07);
     transition: 0.4s;
 }
@@ -96,20 +95,39 @@
 .patient_page_buttons_program:hover {
     color: white;
     background: #36404b;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     transform: scale(1.07);
     transition: 0.4s;
-
 }
 .patient_page_buttons_program:active {
     color: white;
     background: #36404b;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     transform: scale(1.07);
     transition: 0.4s;
-
 }
 .viewmore_patient {
     color: white;
     text-decoration: none;
+}
+@media screen and (min-width: 1300px) {
+    .patient_grid_container {
+        display: grid;
+        grid-template-columns: 19vw 30vw 25vw;
+        grid-gap: 5vw;
+        gap: 5vw;
+        margin-right: 70px;
+        margin-left: 8rem;
+        margin-top: 1rem;
+    }
+
+    .patient_page_buttons {
+        grid-template-columns: 25vw 25vw;
+        font-size: 26px;
+        margin-left: 36vw;
+    }
+    .zebra_rows_flex_container {
+        padding-left: 40px;
+        line-height: 60px;
+    }
 }

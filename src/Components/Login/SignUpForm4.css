@@ -14,8 +14,8 @@ html {
     text-align: center;
 }
 .forth_form {
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 .inputE {
     color: #222222;
@@ -122,4 +122,16 @@ input.slide-hover-left-4 {
 input.slide-hover-left-4:hover {
     background-size: 100%;
     color: #fff;
+}
+@media screen and (min-width:1300px){
+
+.forth_form {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+}
+@media screen and (min-width:1920px){
+    input.slide-hover-left-4 {
+        width: 530px;
+    }  
 }
