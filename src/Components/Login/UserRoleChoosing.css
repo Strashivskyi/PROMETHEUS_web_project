@@ -28,3 +28,31 @@ a:hover {
     font-family: 'Inter';
     font-size: 20px;
 }
+@media screen and (min-width:1920px){
+    .before_register {
+        font-size: 30px;
+        text-align: center;
+        margin-left: 150px;
+        margin-right: 150px;
+        margin-top: 150px;
+    }
+    a {
+        text-decoration: none;
+        color: grey;
+    }
+    a:hover {
+        color: #48535f;
+    }
+    
+    .have_acc {
+        margin-left: 32%;
+        padding-top: 110px;
+        padding-bottom: 10px;
+    
+        color: #48535f;
+        font-weight: 300;
+        display: flex;
+        font-family: 'Inter';
+        font-size: 20px;
+    }
+}

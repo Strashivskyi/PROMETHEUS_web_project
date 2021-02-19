@@ -86,7 +86,7 @@ function addProto(length) {
             Method: " ",
             MethodTakingHint: " ",
             ReductionСriterion: " ",
-            StepDescription: " ",
+            StepDescription: " ",CriteriongenGenerSkill:" "
         })
 
     // console.log(data.key)
