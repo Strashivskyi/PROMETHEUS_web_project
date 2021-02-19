@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { HeaderSection } from './Header.styled'
 import Logo from '../../assets/Logo.svg'
 import './ProgramHeader.css'
 
@@ -234,16 +233,18 @@ function ProgramHeader() {
 
     return (
         <>
-            <HeaderSection>
-                <div style={{ display: 'flex' }}>
+                <div className="header">
                     <img
                         src={Logo}
                         onClick={() => signOut()}
                         width="220"
-                        style={{ marginLeft: '3.4rem', marginTop: '0.4rem' }}
+                        style={{ position: 'relative',
+                        left: '4%',
+                        marginTop: '1.1%',
+                        marginBottom: "-20px" }}
                     />
-                    <div style={{ marginTop: '40px', marginBottom: '15px' }}>
-                        <button className="save_button" style={{ top: '1rem', cursor: "pointer" }} 
+                    <div style={{ position: "absolute", top: "0.9%", left: "20%" }}>
+                        <button className="save_button btn-background-slide" style={{ top: '1rem', cursor: "pointer" }} 
                         // onClick={() => (
                         //     exportUsersToExcel(users, workSheetColumnName, workSheetName, filePath, protocols))}
                             >
@@ -253,12 +254,18 @@ function ProgramHeader() {
                 </div>
                 <hr
                     style={{
-                        marginLeft: '4rem',
+                        border: 'none',
+                        borderBottom: ' 1px solid #6F6F6F',
+                        position: 'relative',
+                        top: '1.5rem',
+                        left: '1.7%',
+                        width: '93.2%',
+                        marginBottom: '2rem',
+                        marginRight: '4.5rem'
                     }}
                 />
-            </HeaderSection>
         </>
     )
 }
 
-export default ProgramHeader
+export default ProgramHeader;

@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import Arrow from '../../../assets/arrow.png'
 import Delete from '../../../assets/delete.svg'
 import app from '../../../Firebase/firebase'
+import { BsPlusCircle } from 'react-icons/bs'
+
 function ArrowHeader() {
     const [protocols, setProtocols] = useState([])
     useEffect(() => {
@@ -56,7 +58,7 @@ function ArrowHeader() {
                     onClick={() => addProto(protocols.length)}
                     className="add-proto"
                 >
-                    <img className="add-foto" src={Delete}></img>
+                    <BsPlusCircle size={50} />
                 </div>
             </div>
         </>

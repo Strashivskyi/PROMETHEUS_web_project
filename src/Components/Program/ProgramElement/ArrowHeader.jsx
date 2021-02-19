@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Arrow from '../../../assets/arrow.png'
 import '../Program.css'
+import '../../PatientItem/PatientItem.css'
 function ArrowHeader() {
     return (
         <>
@@ -27,7 +28,6 @@ function ArrowHeader() {
                     <Link
                         to="/patient"
                         className="patients_link"
-                        style={{ color: '#6F6F6F' }}
                     >
                         {localStorage.getItem('childName')}
                     </Link>
@@ -44,8 +44,7 @@ function ArrowHeader() {
                 />
                 <h2>
                     <Link
-                        style={{ color: 'black' }}
-                        className="patients_link"
+                        className="program_link"
                         to="/protocol-list"
                     >
                         Програма

@@ -49,7 +49,7 @@ export default function ProtocolItem({
                         }
                         to="/program"
                     >
-                        <EditIcon className="icon" style={{ color: "black" }} />
+                        <EditIcon className="icon" style={{ position: "relative", top: "-5px", color: "black" }} />
                     </Link>
 
                     <img

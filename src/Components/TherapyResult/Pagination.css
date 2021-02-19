@@ -19,6 +19,9 @@
     margin-left: -4vw;
     margin-top: 2vh;
 }
+.pagination-box:hover{
+    transform: slace(2);
+}
 
 .MuiPagination-ul {
     justify-content: center;

@@ -65,7 +65,7 @@ function Patient() {
                             marginLeft: '105px',
                             marginTop: '45px',
                             fontSize: '25px',
-                            color: 'rgb(111, 111, 111)',
+                            color: '#6F6F6F',
                             fontWeight: '700'
                         }}
                     >
@@ -74,7 +74,9 @@ function Patient() {
                     <div
                         style={{
                             marginLeft: '105px',
-                            marginTop: '45px',
+                            marginTop: '40px',
+                            marginBottom: '20px',
+
                             fontSize: '20px',
                             color: "#48535f"
                         }}
@@ -89,9 +91,10 @@ function Patient() {
                 style={{
                     position: 'absolute',
                     top: '11.5rem',
-                    right: '8rem',
+                    right: '10rem',
                     color: 'grey',
                 }}
+                className="add_patient_button"
             >
                 <BsPlusCircle size={50} />
             </Link>

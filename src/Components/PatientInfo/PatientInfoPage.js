@@ -88,7 +88,7 @@ function PatientInfoPage() {
                                     color: 'black',
                                 }}
                             />
-                            <h2 style={{ color: '#6F6F6F' }}>{patient.Name}</h2>
+                            <h2 className="patients_link" style={{ color: '#6F6F6F' }}>{patient.Name}</h2>
                         </div>
                         <div className="patient_grid_container">
                             <img src={patient.Image} height="270" />
