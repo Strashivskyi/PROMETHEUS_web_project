@@ -10,8 +10,8 @@ const File = ({ file, loading }) => {
             <li className="list-group-item">
                 <form
                     action={`http://127.0.0.1:5000/get_files/${localStorage.getItem(
-                        'telegramUserName'
-                    )}/${file.toString()}`}
+                        'telegramUserName')
+                        }/${localStorage.getItem("childName")}/${file.toString()}`}
                 >
                     <input
                         type="submit"

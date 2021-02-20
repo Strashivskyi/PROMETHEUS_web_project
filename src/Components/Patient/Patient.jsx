@@ -12,6 +12,7 @@ function signOut() {
 }
 function Patient() {
     let [patients, setPatients] = useState([])
+    let [user, setUser] = useState([])
     const [inputSearch, setInputSearch] = useState('')
 
     useEffect(() => {
@@ -26,6 +27,32 @@ function Patient() {
         }
         fetchData()
     }, [])
+
+
+    useEffect(() => {
+        const db = app.firestore()
+        const unsubscribe = db
+            .collection('User')
+            .onSnapshot((snapshot) => {
+                if (snapshot.size) {
+                    setUser(
+                        snapshot.docs.filter((u) =>
+                        u.id.includes(localStorage.getItem('user'))
+                    ).map((doc) => {
+                        localStorage.setItem("telegramUserName", (doc.data().TelegramUserID))
+                        })
+                    )
+                } else {
+                    console.log('Сука1')
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
+
+
+    
     patients = patients.filter((protocol) =>
         protocol.Name.includes(inputSearch)
     )

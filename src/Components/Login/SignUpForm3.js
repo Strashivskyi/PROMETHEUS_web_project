@@ -19,7 +19,7 @@ function SignUpForm3() {
   
     const [profession, setProfession] = useState('')
     console.log(profession)
-    localStorage.setItem('Profession', profession)
+    localStorage.setItem('proffesion', profession)
     const [organization, setOrganization] = useState('')
     localStorage.setItem('Organization', organization)
     console.log(organization)
@@ -63,7 +63,4 @@ function SignUpForm3() {
     )
 }
 export default SignUpForm3
-// function addThirdInputRegistr(profession,organization) {
-//     const db = app.firestore();
-//     db.collection("User").doc(localStorage.getItem("user")).set({Profession: profession, Organization: organization})
-// }
+

@@ -103,7 +103,7 @@ function addInputRegistr() {
             Gender: localStorage.getItem('Gender'),
             Country: localStorage.getItem('Country'),
             City: localStorage.getItem('City'),
-            Profession: localStorage.getItem('Profession'),
+            Profession: localStorage.getItem('proffesion'),
             Organization: localStorage.getItem('Organization'),
             PhoneNumber: localStorage.getItem('PhoneNumber'),
             TelegramUserID: '',

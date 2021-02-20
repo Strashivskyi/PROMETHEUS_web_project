@@ -183,12 +183,6 @@ function PatientInfoPage() {
                                     myCustomProps: { patient },
                                 }}
                                 className="patient_page_buttons_therapy"
-                                onClick={() =>
-                                    localStorage.setItem(
-                                        'telegramUserName',
-                                        patient.TelegramUserName
-                                    )
-                                }
                             >
                                 Результати терапії
                             </Link>

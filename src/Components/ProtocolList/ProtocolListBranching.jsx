@@ -11,10 +11,9 @@ export default function RenderProgramList() {
         const unsubscribe = db.collection('User').onSnapshot((snapshot) => {
             if (snapshot.size) {
                 setUsers(
-                    snapshot.docs.map((doc) => ({
-                        ...doc.data(),
-                        id: doc.id,
-                    }))
+                    snapshot.docs.filter((user) => user.id == localStorage.getItem('user')).map((doc) => {
+                        localStorage.setItem('proffesion',doc.data().Profession)
+                    })
                 )
                 console.log('success')
             } else {
@@ -25,10 +24,6 @@ export default function RenderProgramList() {
             unsubscribe()
         }
     }, [])
-    users = users.filter((user) => user.id == localStorage.getItem('user'))
-    if (users.length == 1) {
-        localStorage.setItem('proffesion', users[0].Profession)
-    }
     if (localStorage.getItem('proffesion') == 'supervisor') {
         return <ProtocolListSuperVisor />
     } else {

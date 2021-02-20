@@ -26,7 +26,7 @@ export default function ProtocolItemTherapist({
 }) {
     let [colorItem, setColorItem] = useState('')
 
-    // console.log(user.Profession)
+
     if (+protocolName % 2 != true) {
         colorItem = '#EEEEEE'
     }

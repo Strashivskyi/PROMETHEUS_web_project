@@ -22,7 +22,7 @@ function SignUpForm3() {
     ]
 
     const onChange = (newValue) => {
-        localStorage.setItem('Profession', newValue.role)
+        localStorage.setItem('proffesion', newValue.role)
         console.log(newValue.role)
     }
     localStorage.setItem("step",1)
