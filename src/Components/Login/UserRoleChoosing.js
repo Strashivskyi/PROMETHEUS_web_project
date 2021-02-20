@@ -6,6 +6,7 @@ import app from '../../Firebase/firebase'
 import SwitchSelector from 'react-switch-selector'
 import './UserRoleChoosing.css'
 function SignUpForm3() {
+    localStorage.setItem("step",1)
     const options = [
         {
             label: 'Супервізор',

@@ -9,6 +9,7 @@ import app from '../../Firebase/firebase'
 import './SignUpForm2.css'
 
 function SignUpForm2() {
+    localStorage.setItem("step",3)
     const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState()
     useEffect(() => {

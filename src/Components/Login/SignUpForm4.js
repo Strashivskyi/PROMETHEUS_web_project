@@ -7,6 +7,7 @@ import { withRouter } from 'react-router'
 import app from '../../Firebase/firebase'
 
 function SignUpForm4({ history }) {
+    localStorage.setItem("step",4)
     const handleSignUp = useCallback(
         async (event) => {
             event.preventDefault()

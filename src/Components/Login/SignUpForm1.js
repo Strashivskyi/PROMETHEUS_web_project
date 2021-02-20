@@ -6,6 +6,7 @@ import { withRouter } from 'react-router'
 import DataPicker from './DataPicker'
 
 function SignUpForm1() {
+    localStorage.setItem("step",2)
     const [firstName, setFirstName] = useState('')
     localStorage.setItem('Name', firstName)
     console.log(firstName)

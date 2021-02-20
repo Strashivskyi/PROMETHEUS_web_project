@@ -1,0 +1,13 @@
+.logo_container{
+    display:none;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .logo_container{
+        min-height: 5vw;
+        max-height: 5vh;
+        margin-bottom: -40px;
+        display:initial;
+
+
+    }
+}

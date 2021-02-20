@@ -118,3 +118,12 @@
   .create_template_button.btn-background-slide:hover {
     color: white;
   }
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .protocol_item {
+        display: flex;
+        flex-direction: column;
+        width: 87%;
+        height: 20vh;
+        margin: 0.5rem 1vw 0rem 1vw;
+    }
+  }
