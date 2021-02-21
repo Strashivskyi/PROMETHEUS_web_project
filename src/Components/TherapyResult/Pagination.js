@@ -26,7 +26,7 @@ const PaginationRounded = () => {
     console.log('')
     var storageRef = app.storage().ref()
     var patientResultRef = storageRef.child(
-        'patient_result/' + localStorage.getItem('telegramUserName')+"/"+localStorage.getItem("childName")
+        'patients/' + localStorage.getItem('child') + '/results'
     )
 
     useEffect(() => {
@@ -38,9 +38,9 @@ const PaginationRounded = () => {
                         return url
                             .toString()
                             .replace(
-                                'gs://ionkid-abd2f.appspot.com/patient_result/' +
-                                    localStorage.getItem('telegramUserName') +"/"+localStorage.getItem("childName")+
-                                    '/',
+                                'gs://ionkid-abd2f.appspot.com/patients/' +
+                                    localStorage.getItem('child') +
+                                    '/results/',
                                 ''
                             )
                     })
@@ -51,6 +51,7 @@ const PaginationRounded = () => {
         fetchData()
     }, []) // [files, setFiles]
 
+    console.log(files)
     const handleChange = (event, value) => {
         setPage(value)
     }
