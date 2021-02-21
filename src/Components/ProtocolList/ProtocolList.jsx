@@ -8,6 +8,106 @@ import { ReactSortable } from "react-sortablejs";
 
 export default function ProtocolList() {
     let test = []
+   
+    const [protocolsToTerapists, setProtocolsToTerapists] = useState([])
+    let listTest = JSON.parse(localStorage.getItem('therapistID'))
+    console.log(listTest[0])
+    useEffect(() => {
+
+        const db = app.firestore()
+        const unsubscribe = db
+            .collection('User')
+            .doc(localStorage.getItem('user'))
+            .collection('Patient')
+            .doc(localStorage.getItem('child'))
+            .collection('Protocols')
+            .onSnapshot((snapshot) => {
+                if (snapshot.size) {
+                    setProtocolsToTerapists(
+                        snapshot.docs.map((doc) => {
+                            console.log('UPD', doc.data())
+                            listTest.map((terapist) => {
+
+
+                                db.collection('Therapists')
+                                    .doc(terapist)
+                                    .collection('Patient')
+                                    .doc(localStorage.getItem('child'))
+                                    .collection('Protocols').doc(doc.id).set(doc.data())
+
+                                
+                                db.collection('Therapists')
+                                    .doc(terapist)
+                                    .collection('Patient')
+                                    .doc(localStorage.getItem('child'))
+                                    .set({ Name: localStorage.getItem("childName")} )
+
+                            }
+                            )
+                        })
+                    )
+                    console.log('Сука')
+                } else {
+                    console.log('Сука1')
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
+
+    const [stimulusToTerapists, setStimulusToTerapists] = useState([])
+
+    console.log(listTest[0])
+    useEffect(() => {
+
+        const db = app.firestore()
+        const unsubscribe = db
+            .collection('User')
+            .doc(localStorage.getItem('user'))
+            .collection('Patient')
+            .doc(localStorage.getItem('child'))
+            .collection('Protocols')
+            .onSnapshot((snapshot) => {
+
+                if (snapshot.size) {
+
+                    snapshot.docs.map((doc) => {
+                        db
+                            .collection('User')
+                            .doc(localStorage.getItem('user'))
+                            .collection('Patient')
+                            .doc(localStorage.getItem('child'))
+                            .collection('Protocols').doc(doc.id).collection("Stimulus")
+                            .onSnapshot((snapshot) => {
+                                if (snapshot.size) {
+
+                                    setStimulusToTerapists(snapshot.docs.map((docStim) => {
+                                        listTest.map((terapist) => {
+                                            db.collection('Therapists')
+                                                .doc(terapist)
+                                                .collection('Patient')
+                                                .doc(localStorage.getItem('child'))
+                                                .collection('Protocols').doc(doc.id)
+                                                .collection("Stimulus").doc(docStim.id).set(docStim.data())
+                                        }
+                                        )
+                                    }))
+                                } else {
+                                    console.log('Сука1')
+                                }
+                            })
+                    })
+
+                    console.log('Сука')
+                } else {
+                    console.log('Сука1')
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
     const [protocols, setProtocols] = useState([])
     useEffect(() => {

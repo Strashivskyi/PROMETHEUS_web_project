@@ -164,7 +164,16 @@ function DeleteProtocol(protocolId) {
         .collection('Protocols')
         .doc(protocolId)
         .delete()
+    JSON.parse(localStorage.getItem('terapistID')).map((terapist) => {
+        db.collection('Therapists')
+            .doc(terapist)
+            .collection('Patient')
+            .doc(localStorage.getItem('child'))
+            .collection('Protocols').doc(protocolId).delete()
+    })
+
 }
+
 function CheckIsActive({ isActive, protocolId }) {
     console.log(isActive)
     if (isActive == true) {

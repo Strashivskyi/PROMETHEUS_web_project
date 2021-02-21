@@ -5,9 +5,75 @@ import Header from '../Header/Header'
 import Arrow from '../../assets/arrow.png'
 import Kid from '../../assets/kid.jpg'
 import { Link } from 'react-router-dom'
+import Delete from '../../assets/delete.svg'
 
-function PatientInfoPage() {
+export default function PatientInfoPage() {
+    
     let [patients, setPatients] = useState([])
+
+    let [therapistInput, setTherapistInput] = useState('')
+
+    let test = []
+
+    const [terapists, setTerapists] = useState([])
+    useEffect(() => {
+        const db = app.firestore()
+        const unsubscribe = db
+            .collection('User')
+            .doc(localStorage.getItem('user'))
+            .collection('Patient')
+            .doc(localStorage.getItem('child'))
+            .collection('Therapists')
+            .onSnapshot((snapshot) => {
+                if (snapshot.size) {
+                    setTerapists(
+                        snapshot.docs.map((doc) => ({
+                            ...doc.data(),
+                            id: doc.id, 
+                        }))
+                    )
+
+                    console.log('Сука ')
+                } else {
+                    console.log('Сука1')
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
+
+terapists.map((terapist) => test.push(terapist.id))
+console.log(test)
+localStorage.setItem('therapistID', JSON.stringify(test))
+
+    const [therapists, setTherapists] = useState([])
+    useEffect(() => {
+        const db = app.firestore()
+        const unsubscribe = db
+            .collection('User')
+            .doc(localStorage.getItem('user'))
+            .collection('Patient')
+            .doc(localStorage.getItem('child'))
+            .collection('Therapists')
+            .onSnapshot((snapshot) => {
+                if (snapshot.size) {
+                    setTherapists(
+                        snapshot.docs.map((doc) => ({
+                            ...doc.data(),
+                            id: doc.id, 
+                        }))
+                    )
+
+                    console.log('Сука ')
+                } else {
+                    console.log('Сука1')
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -91,7 +157,7 @@ function PatientInfoPage() {
                             <h2 className="patients_link" style={{ color: '#6F6F6F' }}>{patient.Name}</h2>
                         </div>
                         <div className="patient_grid_container">
-                            <img src={patient.Image} height="270" />
+                            <img src={patient.Image} height="270" style={{ marginTop: '80px' }} />
                             <div className="column_outer_flex_container">
                                 <div className="kid_name">{patient.Name} </div>
                                 <div className="diagnosis_flex_container">
@@ -147,9 +213,6 @@ function PatientInfoPage() {
                                         {patient.Country}
                                     </div>
                                 </div>
-                            </div>
-                            {/* second column */}
-                            <div className="second_column_outer_flex_container">
                                 <div
                                     className="zebra_rows_flex_container"
                                     style={{ backgroundColor: '#EEEEEE' }}
@@ -172,6 +235,86 @@ function PatientInfoPage() {
                                     <div>Група крові:</div>
                                     <div className="zebra_rows_flex_container_value">
                                         {patient.BloodType}
+                                    </div>
+                                </div>
+                            </div>
+                            {/* second column */}
+                            <div className="second_column_outer_flex_container">
+                                <div
+                                    className="zebra_rows_flex_container"
+                                    style ={{ display: 'flex', flexDirection: 'column' }}
+                                >
+                                    <div>Терапевти:</div>
+                                    <div>
+                                        {/* <ReactSortable list={protocols} setList={setProtocols}> */}
+                                        {therapists
+                                            .sort((a, b) => +a.id - +b.id)
+                                            .map((therapist) => (
+                                                <>
+                                                    <div style={{ fontSize: "20px", display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                                                        <div>
+                                                            {therapist.Name} 
+                                                            <div className="zebra_rows_flex_container_value" style={{ marginTop: '-20px'}}>
+                                                                ({therapist.id})
+                                                            </div>
+                                                        </div>
+                                                        <div className="icon_place">
+                                                            <img
+                                                                className="icon"
+                                                                onClick={() => DeleteTherapist(therapist.id)}
+                                                                src={Delete}
+                                                                width="8px"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </>
+                                            ))}
+                                        {/* </ReactSortable> */}
+                                    </div>
+                                    {/* <div className="zebra_rows_flex_container_value">
+                                        {    
+                                            therapists.map((therapist) => test.push(therapist.id))
+                                        }
+                                    </div> */}
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'row',
+                                            marginLeft: '2rem'
+                                        }}
+                                    >
+                                        <button
+                                            onClick={() =>
+                                                addTherapist(therapistInput)
+                                            }
+                                            className="add_button"
+                                        >
+                                            <h1
+                                                style={{
+                                                    marginTop: '5px',
+                                                    marginBottom: '5px',
+                                                    textAlign: 'center',
+                                                    width: '22px',
+                                                    height: '20px',
+                                                    color: '#4d4d4d',
+                                                    fontSize: '20px',
+                                                }}
+                                            >
+                                                +
+                                            </h1>
+                                        </button>
+                                        <div className="transparent_input">
+                                            <input
+                                                type="text"
+                                                onChange={(event) =>
+                                                    setTherapistInput(
+                                                        event.target.value
+                                                    )
+                                                }
+                                                name="name"
+                                                placeholder="Додати за поштою...."
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -202,4 +345,41 @@ function PatientInfoPage() {
         </>
     )
 }
-export default PatientInfoPage
+
+function DeleteTherapist(therapistId) {
+    console.log('хуй')
+    const db = app.firestore()
+    db.collection('User')
+        .doc(localStorage.getItem('user'))
+        .collection('Patient')
+        .doc(localStorage.getItem('child'))
+        .collection('Therapists')
+        .doc(therapistId)
+        .delete()
+}
+
+function addTherapist(therapistInput) {
+    const db = app.firestore()
+    if (therapistInput != '') {
+        db.collection('Therapists')
+          .doc(therapistInput)
+          .get().then((doc) => { 
+              if (doc.exists) {
+                  console.log("zaebis pashe") 
+                  db.collection('User')
+                            .doc(localStorage.getItem('user'))
+                            .collection('Patient')
+                            .doc(localStorage.getItem('child'))
+                            .collection('Therapists')
+                            .doc(therapistInput)
+                            .set({ Name: doc.data().Name })
+              }
+              else {
+                alert("Необхідно вказати дійсну пошту терапевта")
+              }
+
+            })
+          .catch((error) => { console.log(error) })
+
+    }else {alert("Спочатку вкажіть пошту терапевта")}
+}
