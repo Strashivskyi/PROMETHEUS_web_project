@@ -8,7 +8,7 @@ export default function RenderProgramList() {
 
     useEffect(() => {
         const db = app.firestore()
-        const unsubscribe = db.collection('User').onSnapshot((snapshot) => {
+        const unsubscribe = db.collection(localStorage.getItem('proffesion')).onSnapshot((snapshot) => {
             if (snapshot.size) {
                 setUsers(
                     snapshot.docs.filter((user) => user.id == localStorage.getItem('user')).map((doc) => {
@@ -24,7 +24,7 @@ export default function RenderProgramList() {
             unsubscribe()
         }
     }, [])
-    if (localStorage.getItem('proffesion') == 'supervisor') {
+    if (localStorage.getItem('proffesion') == 'User') {
         return <ProtocolListSuperVisor />
     } else {
         return <ProtocolListTherapist />

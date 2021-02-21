@@ -22,7 +22,7 @@ const theme = {
 function RemoveCopiedStatus({ protocol }) {
     if (protocol.StatusCopied != null) {
         const db = app.firestore()
-        db.collection('User')
+        db.collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -43,7 +43,7 @@ export default function ProgramOnlyView() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -73,7 +73,7 @@ export default function ProgramOnlyView() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))

@@ -94,7 +94,7 @@ function SignUpForm4({ history }) {
 export default withRouter(SignUpForm4)
 function addInputRegistr() {
     const db = app.firestore()
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('userEmail'))
         .set({
             Name: localStorage.getItem('Name'),

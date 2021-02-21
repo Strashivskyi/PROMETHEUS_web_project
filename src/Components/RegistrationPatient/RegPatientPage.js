@@ -195,7 +195,7 @@ export default function RegistrationPatient() {
 
     async function handleSubmit() {
         const res = await db
-            .collection('User')
+            .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .add({

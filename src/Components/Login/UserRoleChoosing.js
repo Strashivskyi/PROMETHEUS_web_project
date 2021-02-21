@@ -10,13 +10,13 @@ function SignUpForm3() {
         {
             label: 'Супервізор',
             value: {
-                role: 'supervisor',
+                role: 'User',
             },
         },
         {
             label: 'Терапіст',
             value: {
-                role: 'therapist',
+                role: 'Therapist',
             },
         },
     ]

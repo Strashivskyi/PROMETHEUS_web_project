@@ -19,7 +19,7 @@ function Patient() {
         const fetchData = async () => {
             const db = app.firestore()
             const data = await db
-                .collection('User')
+                .collection(localStorage.getItem('proffesion'))
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .get()
@@ -32,7 +32,7 @@ function Patient() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection(localStorage.getItem('proffesion'))
             .onSnapshot((snapshot) => {
                 if (snapshot.size) {
                     setUser(

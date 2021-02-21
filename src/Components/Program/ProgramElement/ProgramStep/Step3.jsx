@@ -59,7 +59,7 @@ export default Step3
 function addInstruction(instructionInput) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))

@@ -13,7 +13,7 @@ export default function ProtocolList() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -46,7 +46,7 @@ export default function ProtocolList() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .where('Name', '==', localStorage.getItem('childName'))

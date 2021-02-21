@@ -704,7 +704,7 @@ export default function ProgramEditable() {
 
 function addInstruction1(instructionInput) {
     const db = app.firestore()
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -715,7 +715,7 @@ function addInstruction1(instructionInput) {
 
 function addInstruction2(instructionInput) {
     const db = app.firestore()
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -726,7 +726,7 @@ function addInstruction2(instructionInput) {
 
 function addInstruction3(instructionInput) {
     const db = app.firestore()
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -738,7 +738,7 @@ function addInstruction3(instructionInput) {
 function addStimul(stimulInput) {
     const db = app.firestore()
     if (stimulInput != '') {
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -751,7 +751,7 @@ function addStimul(stimulInput) {
 function addSkill(params) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -764,7 +764,7 @@ function addSkill(params) {
 function addMethod(params) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -776,7 +776,7 @@ function addMethod(params) {
 function addDesirableReaction(params) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -789,7 +789,7 @@ function addDesirableReaction(params) {
 function addReductionСriterion(params) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -802,7 +802,7 @@ function addReductionСriterion(params) {
 function addCriterionIncrease(params) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -815,7 +815,7 @@ function addCriterionIncrease(params) {
 function setStepDescription(params) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -827,7 +827,7 @@ function setStepDescription(params) {
 function setCorrectionProcedureStep3(params) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -839,7 +839,7 @@ function setCorrectionProcedureStep3(params) {
 function setCorrectionProcedureStep2(params) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -851,7 +851,7 @@ function setCorrectionProcedureStep2(params) {
 function setCorrectionProcedureStep1(params) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -864,7 +864,7 @@ function setCorrectionProcedureStep1(params) {
 function addSphereOfDevelopment(sphereOfDevelopment) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -877,7 +877,7 @@ function addSphereOfDevelopment(sphereOfDevelopment) {
 function addInterval(interval) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -889,7 +889,7 @@ function addInterval(interval) {
 function addMethodTakingHint(method) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -900,7 +900,7 @@ function addMethodTakingHint(method) {
 function addCriteriongenGenerSkill(generSkill) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))

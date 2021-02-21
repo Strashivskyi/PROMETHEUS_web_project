@@ -24,7 +24,7 @@ export default function ProtocolItem({
     method,
     methodTakingHint,
     reductionСriterion,
-    stepDescription,CriteriongenGenerSkill
+    stepDescription, CriteriongenGenerSkill
 }) {
     let [colorItem, setColorItem] = useState('')
 
@@ -70,7 +70,7 @@ export default function ProtocolItem({
                                 method,
                                 methodTakingHint,
                                 reductionСriterion,
-                                stepDescription,CriteriongenGenerSkill
+                                stepDescription, CriteriongenGenerSkill
                             )
                         }
                         src={Duplicate}
@@ -104,7 +104,7 @@ function CreateDuplicateProtocol(
     method,
     methodTakingHint,
     reductionСriterion,
-    stepDescription,CriteriongenGenerSkill
+    stepDescription, CriteriongenGenerSkill
 ) {
     localStorage.setItem('program', protocolId)
     const db = app.firestore()
@@ -130,26 +130,26 @@ function CreateDuplicateProtocol(
             MethodTakingHint: methodTakingHint,
             ReductionСriterion: reductionСriterion,
             StepDescription: stepDescription,
-            CriteriongenGenerSkill:CriteriongenGenerSkill
+            CriteriongenGenerSkill: CriteriongenGenerSkill
         })
-        .then(function(docRef) {
+        .then(function (docRef) {
             db.collection('User')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .doc(localStorage.getItem('child'))
-            .collection('Protocols').doc(docRef.id )
-            .collection("CriteriongenGenerSkill")
-            .add({Text:""})
+                .doc(localStorage.getItem('user'))
+                .collection('Patient')
+                .doc(localStorage.getItem('child'))
+                .collection('Protocols').doc(docRef.id)
+                .collection("CriteriongenGenerSkill")
+                .add({ Text: "" })
             db.collection('User')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .doc(localStorage.getItem('child'))
-            .collection('Protocols').doc(docRef.id )
-            .collection("Stimulus")
-            .add({Name:""})
+                .doc(localStorage.getItem('user'))
+                .collection('Patient')
+                .doc(localStorage.getItem('child'))
+                .collection('Protocols').doc(docRef.id)
+                .collection("Stimulus")
+                .add({ Name: "" })
             console.log("Document written with ID: ", docRef.id);
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.error("Error adding document: ", error);
         });
 
@@ -164,6 +164,15 @@ function DeleteProtocol(protocolId) {
         .collection('Protocols')
         .doc(protocolId)
         .delete()
+    JSON.parse(localStorage.getItem('therapistID')).map((terapist) => {
+        db.collection('Therapists')
+            .doc(terapist)
+            .collection('Patient')
+            .doc(localStorage.getItem('child'))
+            .collection('Protocols').doc(protocolId).delete()
+    })
+
+
 }
 function CheckIsActive({ isActive, protocolId }) {
     console.log(isActive)

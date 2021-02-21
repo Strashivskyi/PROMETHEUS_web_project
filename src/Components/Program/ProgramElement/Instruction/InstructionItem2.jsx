@@ -27,7 +27,7 @@ function InstructionItem2({ text, instructionId }) {
 export default InstructionItem2
 function DeleteInstruction(instuctionId) {
     const db = app.firestore()
-    db.collection('User')
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
