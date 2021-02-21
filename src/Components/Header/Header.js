@@ -19,7 +19,7 @@ function Header() {
                     width="14.7%"
                     style={{
                         position: 'relative',
-                        left: '4%',
+                        left: '7%',
                         marginTop: '1.1%',
                         marginBottom: "-20px"
                     }}

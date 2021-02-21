@@ -116,13 +116,17 @@ ul {
     cursor: pointer;
     transform: scale(1.1);
 }
-@media screen and (nim-width:1300px){
+@media screen and (min-width:1300px){
     .element_name{
         line-height: 55px;
     }
 }
-@media screen and (nim-width:1920px){
+@media screen and (min-width:1920px){
     .element_name{
         line-height: 60px;
+    }
+    .program_big_flex_container {
+      
+        margin-right: 7vw;
     }
 }

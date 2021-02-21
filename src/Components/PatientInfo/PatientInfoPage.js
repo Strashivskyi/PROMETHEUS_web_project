@@ -108,7 +108,7 @@ function PatientInfoPage() {
                                 >
                                     <div>Батьки:</div>
                                     <div className="zebra_rows_flex_container_value">
-                                       {patient.Parents}
+                                        {patient.Parents}
                                     </div>
                                 </div>
                                 <div className="zebra_rows_flex_container">

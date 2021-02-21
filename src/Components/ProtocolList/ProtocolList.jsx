@@ -71,38 +71,39 @@ export default function ProtocolList() {
             <Header />
             <ArrowHeader />
             <button class="create_template_button btn-background-slide" onClick={() => CreateProgramTemplates(protocols, child[0])}>Імпортувати шаблон</button>
-            <div style={{marginTop: "20px"}}>
-            {/* <ReactSortable list={protocols} setList={setProtocols}> */}
-            {protocols
-                .sort((a, b) => +a.ProtocolId - +b.ProtocolId)
-                .map((protocol) => (
-                    <ProtocolItem
-                        protocolId={protocol.id}
-                        protocolName={protocol.ProtocolId}
-                        sphereOfDevelopment={protocol.SphereOfDevelopment}
-                        length={protocols.length}
-                        skill={protocol.Skill}
-                        statusCopied={protocol.StatusCopied}
-                        isActive={protocol.IsActive}
-                        interval={protocol.Interval}
-                        correctionProcedureStep1={
-                            protocol.CorrectionProcedureStep1
-                        }
-                        correctionProcedureStep2={
-                            protocol.CorrectionProcedureStep2
-                        }
-                        correctionProcedureStep3={
-                            protocol.CorrectionProcedureStep3
-                        }
-                        criterionIncrease={protocol.CriterionIncrease}
-                        desirableReaction={protocol.DesirableReaction}
-                        method={protocol.Method}
-                        methodTakingHint={protocol.MethodTakingHint}
-                        reductionСriterion={protocol.ReductionСriterion}
-                        stepDescription={protocol.StepDescription}
-                    />
-                ))}
-            {/* </ReactSortable> */}
+            <div className="create_element">
+                {/* <ReactSortable list={protocols} setList={setProtocols}> */}
+                {protocols
+                    .sort((a, b) => +a.ProtocolId - +b.ProtocolId)
+                    .map((protocol) => (
+                        <ProtocolItem
+                            protocolId={protocol.id}
+                            protocolName={protocol.ProtocolId}
+                            sphereOfDevelopment={protocol.SphereOfDevelopment}
+                            length={protocols.length}
+                            skill={protocol.Skill}
+                            statusCopied={protocol.StatusCopied}
+                            isActive={protocol.IsActive}
+                            interval={protocol.Interval}
+                            correctionProcedureStep1={
+                                protocol.CorrectionProcedureStep1
+                            }
+                            correctionProcedureStep2={
+                                protocol.CorrectionProcedureStep2
+                            }
+                            correctionProcedureStep3={
+                                protocol.CorrectionProcedureStep3
+                            }
+                            criterionIncrease={protocol.CriterionIncrease}
+                            desirableReaction={protocol.DesirableReaction}
+                            method={protocol.Method}
+                            methodTakingHint={protocol.MethodTakingHint}
+                            reductionСriterion={protocol.ReductionСriterion}
+                            stepDescription={protocol.StepDescription}
+                            CriteriongenGenerSkill={protocol.CriteriongenGenerSkill}
+                        />
+                    ))}
+                {/* </ReactSortable> */}
             </div>
         </>
     )
@@ -119,7 +120,6 @@ function CreateProgramTemplates(protocols, child) {
             Diagnos: child.Diagnos,
             KidWeight: child.KidWeight,
         })
-
         .then(function (docRef) {
             protocols.map((protocol) =>
                 db
@@ -129,9 +129,13 @@ function CreateProgramTemplates(protocols, child) {
                     .doc(docRef.id)
                     .collection('protocols')
                     .add(protocol)
+
             )
         })
         .catch(function (error) {
             console.error('Error adding document: ', error)
         })
+    setTimeout(() => {
+   alert("Шаблон протоколів успішно створений!")
+    }, 300);
 }

@@ -113,7 +113,7 @@
 @media screen and (min-width: 1300px) {
     .patient_grid_container {
         display: grid;
-        grid-template-columns: 19vw 30vw 25vw;
+        grid-template-columns: 18vw 30vw 25vw;
         grid-gap: 5vw;
         gap: 5vw;
         margin-right: 70px;
@@ -131,3 +131,67 @@
         line-height: 60px;
     }
 }
+@media screen and (min-width:800px) and (max-width:1000px){
+    .patient_grid_container {
+        flex-direction: column;
+        grid-template-columns: none;
+
+    }
+    .second_column_outer_flex_container {
+        margin-top: 5px;
+    }
+    .patient_page_buttons{
+        display: flex;
+        justify-content: space-between;
+        margin-right: 250px;
+        margin-left: 18vw;
+        
+    }
+    .patient_page_buttons_therapy{
+        min-width: 290px;
+    }
+}
+@media screen and (min-width:1001px) and (max-width:1300px){
+    .patient_grid_container {
+        flex-direction: column;
+        grid-template-columns: none;
+
+    }
+    .second_column_outer_flex_container {
+        margin-top: 5px;
+        margin-right: 400px;
+    }
+    .patient_page_buttons{
+        display: flex;
+        justify-content: space-between;
+        margin-right: 250px;
+        margin-left: 18vw;
+        
+    }
+    .patient_page_buttons_program {
+        min-width: 300px;
+    }
+    .patient_page_buttons_therapy{
+        min-width: 300px;
+    }
+    .column_outer_flex_container {
+        
+        margin-right: 120px;
+}
+}
+/* @media screen and (max-width:900px){
+    .patient_grid_container {
+        flex-direction: column;
+        grid-template-columns: none;
+
+    }
+    .second_column_outer_flex_container {
+        margin-top: 5px;
+    }
+    .patient_page_buttons{
+        display: flex;
+        justify-content: space-between;
+        margin-right: 250px;
+        margin-left: 18vw;
+    }
+} */

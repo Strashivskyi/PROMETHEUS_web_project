@@ -29,9 +29,6 @@
     font-size: 18px;
 }
 
-.patient-subtitle-input {
-}
-
 .zebra-table {
     display: flex;
 }
@@ -71,4 +68,21 @@
 
 .upload-image-btn {
     width: 256px;
+}
+@media screen and (min-width: 800px) and (max-width:1300px) {
+    .save_button {
+        margin-top: -40px;
+    }
+    .MuiAvatar-square {
+        margin-left: 172px;
+    }
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .column-direction-list {
+        display: flex;
+        flex-direction: column;
+        margin: 160px;
+    }
 }
