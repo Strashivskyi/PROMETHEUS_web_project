@@ -7,6 +7,7 @@ import ArrowHeader from './ProgramElement/ArrowHeader'
 import CriteriongenGenerSkill from './ProgramElement/CriteriongenGenerSkillElement/CriteriongenGenerSkill'
 import StimulusItem from './ProgramElement/StimulusItem'
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
+import MobileHeader from '../Header/MobileHeader'
 
 const theme = {
     ...DefaultTheme,
@@ -106,6 +107,7 @@ export default function ProgramEditable() {
     return (
         <PaperProvider theme={theme}>
             <>
+                <MobileHeader />
                 <ProgramHeader />
                 <ArrowHeader />
                 <ul style={{ position: 'relative', right: '4%' }}>
@@ -225,37 +227,37 @@ export default function ProgramEditable() {
                                     className="element_value"
                                     style={{ minHeight: '1rem' }}
                                 ></div>
-                                 <>
-            <div
-                style={{ backgroundColor: '#EEEEEE' }}
-                className="element_name"
-            >
-                Критерій узагальнення навику:{' '}
-            </div>
-            <div
-                style={{ backgroundColor: '#EEEEEE' }}
-                className="element_value"
-            >
-                <div style={{ backgroundColor: '#EEEEEE' }}>
-                <TextInput
-                                    className="element_value"
-                                    multiline="true"
-                                    underlineColor="transparent"
-                                    selectionColor="primary"
-                                    defaultValue={protocol.CriteriongenGenerSkill}
-                                    style={{ fontSize: '20px' }}
-                                    raised
-                                    theme={{
-                                        colors: { background: '#fcfcfc' },
-                                    }}
-                                    onChange={(e) =>
-                                        addCriteriongenGenerSkill(e.target.value)
-                                    }
-                                />
-                </div>
-            </div>
-        </>
-                        
+                                <>
+                                    <div
+                                        style={{ backgroundColor: '#EEEEEE' }}
+                                        className="element_name"
+                                    >
+                                        Критерій узагальнення навику:{' '}
+                                    </div>
+                                    <div
+                                        style={{ backgroundColor: '#EEEEEE' }}
+                                        className="element_value"
+                                    >
+                                        <div style={{ backgroundColor: '#EEEEEE' }}>
+                                            <TextInput
+                                                className="element_value"
+                                                multiline="true"
+                                                underlineColor="transparent"
+                                                selectionColor="primary"
+                                                defaultValue={protocol.CriteriongenGenerSkill}
+                                                style={{ fontSize: '20px' }}
+                                                raised
+                                                theme={{
+                                                    colors: { background: '#fcfcfc' },
+                                                }}
+                                                onChange={(e) =>
+                                                    addCriteriongenGenerSkill(e.target.value)
+                                                }
+                                            />
+                                        </div>
+                                    </div>
+                                </>
+
 
                                 <div
                                     className="element_name"
@@ -736,15 +738,15 @@ function addInstruction3(instructionInput) {
 function addStimul(stimulInput) {
     const db = app.firestore()
     if (stimulInput != '') {
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .collection('Stimulus')
-        .add({ Name: stimulInput })
-    }else {alert("Неможливо надіслати пустий стимул")}
+        db.collection('User')
+            .doc(localStorage.getItem('user'))
+            .collection('Patient')
+            .doc(localStorage.getItem('child'))
+            .collection('Protocols')
+            .doc(localStorage.getItem('program'))
+            .collection('Stimulus')
+            .add({ Name: stimulInput })
+    } else { alert("Неможливо надіслати пустий стимул") }
 }
 function addSkill(params) {
     const db = app.firestore()

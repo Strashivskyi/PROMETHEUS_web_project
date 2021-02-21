@@ -6,11 +6,15 @@ import PrivateRouteToReg from '../../Firebase/AuthSetup/PrivateRoute/PrivateRout
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './Login1.css'
+import MobileHeader from '../Header/MobileHeader'
+import MobileRegistration from './MobileRegistration'
 
 function SignUp() {
     return (
-        <>
-            <div className="image-form-division">
+        <>  
+            <MobileHeader/>
+            <MobileRegistration/>
+            <div className="image-form-division-sign-up">
                 <div className="image" />
                 <div className="form">
                     <div className="sign-up-text">Реєстрація</div>

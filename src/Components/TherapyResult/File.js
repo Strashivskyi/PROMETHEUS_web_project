@@ -9,6 +9,7 @@ const File = ({ file, loading }) => {
         <ul className="list-group mb-4">
             <li className="list-group-item">
                 <form
+                    className="protocol_text"
                     action={`http://127.0.0.1:5000/get_files/${localStorage.getItem(
                         'telegramUserName'
                     )}/${file.toString()}`}

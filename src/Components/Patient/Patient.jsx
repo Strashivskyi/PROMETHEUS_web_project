@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { BsPlusCircle } from 'react-icons/bs'
 import Logo from '../../assets/Logo.svg'
+import MobileHeader from '../Header/MobileHeader'
 function signOut() {
     localStorage.setItem('user', 'none')
     app.auth().signOut()
@@ -33,6 +34,7 @@ function Patient() {
     return (
         <>
             <>
+                <MobileHeader/>
                 <div className="header">
                     <img
                         src={Logo}

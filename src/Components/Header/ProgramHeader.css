@@ -43,3 +43,8 @@
   .save_button.btn-background-slide:hover {
     color: white;
   }
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .full_program_header{
+        display:none;
+    }
+  }

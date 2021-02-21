@@ -242,4 +242,4 @@ function PatientInfoPage() {
         </>
     )
 }
-export default PatientInfoPage
+export default PatientInfoPage;

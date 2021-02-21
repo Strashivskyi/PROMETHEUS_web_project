@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react'
 import app from '../../../Firebase/firebase'
 import { Link } from 'react-router-dom'
 import EditIcon from '@material-ui/icons/Edit'
-
 export default function ProtocolItem({
     protocolId,
     protocolName,

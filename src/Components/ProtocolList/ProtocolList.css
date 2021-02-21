@@ -123,7 +123,47 @@
         display: flex;
         flex-direction: column;
         width: 87%;
-        height: 20vh;
-        margin: 0.5rem 1vw 0rem 1vw;
+        height: 25vw;
+        margin: 0.5rem 1vw 0rem -5vw;
+        border: solid #AAAAAA 1px;
+        background-color: #FFF !important;
+        
+    }
+    .protocol_item_text {
+        width: 78%;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 6vw;
+        margin-bottom: -1vw;
+        align-self: center;
+        padding-top: -50px;
+        line-height: 5vw;
+        right: 0%;
+        position: relative;
+        color: #000000;
+    }
+    .add_protocol{
+        height: 15vw;
+        border: solid #AAAAAA 1px;
+        display: flex;
+        flex-direction: row;
+        width: 87%;
+        margin: 0.5rem 0vw 0rem 6vw;
+        margin-left: 6.5vw;
+
+    }
+    .add_protocol_text{
+        font-size: 5vw;
+        padding-top: 4%;
+        padding-left: 4%;
+
+    }
+    .add_protocol_img{
+        height: 10vw;
+        padding-left: 10%;
+        padding-top: 2%;
+
+
     }
   }

@@ -6,6 +6,8 @@ import Header from '../Header/Header'
 import ArrowHeader from './PageComponent/ArrowHeader'
 import { ReactSortable } from "react-sortablejs";
 import MobileHeader from '../Header/MobileHeader'
+import Plus from '../../assets/plus_proto.svg'
+
 
 export default function ProtocolList() {
     let test = []
@@ -106,6 +108,14 @@ export default function ProtocolList() {
                 ))}
             {/* </ReactSortable> */}
             </div>
+            <div className="add_protocol">
+                <div className="add_protocol_text">Додати новий протокол...</div>
+                <img
+                    className="add_protocol_img"
+                    onClick={() => addProto(protocols.length)}
+                    src={Plus}
+                    />
+            </div>
         </>
     )
 }
@@ -136,4 +146,31 @@ function CreateProgramTemplates(protocols, child) {
         .catch(function (error) {
             console.error('Error adding document: ', error)
         })
+        
+        
 }
+function addProto(length) {
+    const db = app.firestore()
+
+    db.collection('User')
+        .doc(localStorage.getItem('user'))
+        .collection('Patient')
+        .doc(localStorage.getItem('child'))
+        .collection('Protocols')
+        .add({
+            ProtocolId: +length + 1, 
+            SphereOfDevelopment: " ", 
+            Skill: " ", 
+            IsActive: '0',
+            Interval: " ",
+            CorrectionProcedureStep1: " ",
+            CorrectionProcedureStep2: " ",
+            CorrectionProcedureStep3: " ",
+            CriterionIncrease: "    ",
+            DesirableReaction: " ",
+            Method: " ",
+            MethodTakingHint: " ",
+            ReductionСriterion: " ",
+            StepDescription: " ",CriteriongenGenerSkill:" "
+        })}
+

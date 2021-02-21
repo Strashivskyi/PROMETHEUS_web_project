@@ -17,11 +17,12 @@ function SignUpForm1() {
     localStorage.setItem('Gender', sex)
     console.log(sex)
     return (
-        <div>
+        <div className="first_sign">
             <LoginNavigation />
             <form className="form-itself">
                 <p className="personal_text">Особиста інформація</p>
                 <div className="input_text_name">
+
                     <input
                         onChange={(event) => setFirstName(event.target.value)}
                         type="text"

@@ -2,7 +2,7 @@
 @import url(//db.onlinewebfonts.com/c/4b62ecafef4891c98fcd1e473603fd2a?family=BUIS);
 .patient_grid_container {
     display: grid;
-    grid-template-columns: 10px auto auto;
+    grid-template-columns: 17vw auto auto;
     gap: 5vw;
     margin-right: 70px;
     margin-left: 8rem;
@@ -18,7 +18,6 @@
     flex-direction: row;
 }
 .column_outer_flex_container {
-    margin-top: 200px;
     display: flex;
     flex-direction: column;
 }
@@ -125,8 +124,13 @@
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .column_outer_flex_container {
-        margin-top: 40vh;
+        margin-top: 65vw;
         position: relative;
+        margin-left: -14vw;
+    }
+    .kid_name{
+        font-size: 10vw;
+        margin-left: -4vw;
     }
     .second_column_outer_flex_container {
         display: none;
@@ -175,7 +179,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        margin-top: 100vh;
+        margin-top: 160vw;
         font-size: 20px;
         font-weight: 600;
         margin-left: -5vw;
@@ -184,18 +188,18 @@
         gap: 5vh;
     }
     .patient_page_buttons_therapy {
-        max-width: 80vw;
+        max-width: 90vw;
     }
     .patient_page_buttons_program {
-        max-width: 80vw;
+        max-width: 90vw;
     }
     .zebra_rows_flex_container {
         display: grid;
         grid-template-columns: 50% auto;
-        font-size: 20px;
+        font-size: 7vw;
         padding-left: 10px;
         margin-left: -15px;
-        line-height: 30px;
+        line-height: 8vw;
     }
     /* @media only screen and (min-device-width : 390px) and (max-device-width : 480px) {
         .mobile_child_image{

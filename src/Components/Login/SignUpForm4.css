@@ -21,8 +21,8 @@ html {
     color: #222222;
     width: 100%;
     padding: 12px 60px;
-    padding-right: 0px;
-    padding-bottom: 0px;
+    padding-right: 10px;
+    padding-bottom: 6px;
     margin: 8px 0;
     margin-top: 7px;
     box-sizing: border-box;
@@ -39,8 +39,8 @@ html {
     color: #222222;
     width: 100%;
     padding: 12px 60px;
-    padding-right: 0px;
-    padding-bottom: 0px;
+    padding-right: 10px;
+    padding-bottom: 6px;
     margin: 8px 0;
     margin-top: 7px;
     box-sizing: border-box;
@@ -57,8 +57,8 @@ html {
     color: #222222;
     width: 100%;
     padding: 12px 60px;
-    padding-right: 0px;
-    padding-bottom: 0px;
+    padding-right: 10px;
+    padding-bottom: 6px;
     margin: 8px 0;
     margin-top: 7px;
     box-sizing: border-box;
@@ -75,8 +75,8 @@ html {
     color: #222222;
     width: 100%;
     padding: 12px 60px;
-    padding-bottom: 0px;
-    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-right: 6px;
     margin: 8px 0;
     margin-top: 7px;
     box-sizing: border-box;
@@ -88,6 +88,42 @@ html {
     font-weight: 400;
     font-size: 22px;
     line-height: 47px;
+}
+.inputE input{
+    border: none;
+    width: 100%;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: #F8FCFF;
+    padding-left: 10px;
+
+}
+.inputPh input{
+    border: none;
+    width: 100%;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: #F8FCFF;
+    padding-left: 10px;
+
+}
+.inputP input{
+    border: none;
+    width: 100%;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: #F8FCFF;
+    padding-left: 10px;
+
+}
+.inputCp input{
+    border: none;
+    width: 100%;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: #F8FCFF;
+    padding-left: 10px;
+
 }
 
 

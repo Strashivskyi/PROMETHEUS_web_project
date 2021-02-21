@@ -46,11 +46,12 @@ html {
     margin-left: 25%;
     margin-right: 25%;
 }
-.input_text_name input {
+.input_text_name {
     color: #545454;
     width: 100%;
     padding: 12px 60px;
-    padding-bottom: 0px;
+    padding-bottom: 6px;
+    padding-right: 10px;
     margin: 8px 0;
     box-sizing: border-box;
     background: url(/src/assets/human.svg) no-repeat left center;
@@ -61,6 +62,16 @@ html {
     font-weight: 400;
     font-size: 25px;
     line-height: 47px;
+    
+}
+.input_text_name input{
+    border: none;
+    width: 100%;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: #F8FCFF ;
+    padding-left: 10px;
+    
 }
 
 input[type='button'] {
@@ -176,5 +187,8 @@ input[type='button'] {
         text-align: center;
         z-index: 20;
         line-height: 50px;
+    }
+    .first_sign{
+        display:none;
     }
 }
