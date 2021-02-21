@@ -7,8 +7,7 @@ import Kid from '../../assets/kid.jpg'
 import { Link } from 'react-router-dom'
 import Delete from '../../assets/delete.svg'
 
-export default function PatientInfoPage() {
-
+export default function PatientInfoTherapist() {
     let [patients, setPatients] = useState([])
 
     let [therapistInput, setTherapistInput] = useState('')
@@ -88,8 +87,8 @@ export default function PatientInfoPage() {
         fetchData()
     }, [])
 
-    patients = patients.filter((patient) =>
-        patient.id==(localStorage.getItem('child'))
+    patients = patients.filter(
+        (patient) => patient.id == localStorage.getItem('child')
     )
     localStorage.setItem('childName', '')
     console.log(patients)
@@ -154,10 +153,19 @@ export default function PatientInfoPage() {
                                     color: 'black',
                                 }}
                             />
-                            <h2 className="patients_link" style={{ color: '#6F6F6F' }}>{patient.Name}</h2>
+                            <h2
+                                className="patients_link"
+                                style={{ color: '#6F6F6F' }}
+                            >
+                                {patient.Name}
+                            </h2>
                         </div>
                         <div className="patient_grid_container">
-                            <img src={patient.Image} height="270" style={{ marginTop: '80px' }} />
+                            <img
+                                src={patient.Image}
+                                height="270"
+                                style={{ marginTop: '80px' }}
+                            />
                             <div className="column_outer_flex_container">
                                 <div className="kid_name">{patient.Name} </div>
                                 <div className="diagnosis_flex_container">
@@ -242,7 +250,10 @@ export default function PatientInfoPage() {
                             <div className="second_column_outer_flex_container">
                                 <div
                                     className="zebra_rows_flex_container"
-                                    style={{ display: 'flex', flexDirection: 'column' }}
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                    }}
                                 >
                                     <div>Терапевти:</div>
                                     <div>
@@ -251,71 +262,40 @@ export default function PatientInfoPage() {
                                             .sort((a, b) => +a.id - +b.id)
                                             .map((therapist) => (
                                                 <>
-                                                    <div style={{ fontSize: "20px", display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                                                    <div
+                                                        style={{
+                                                            fontSize: '20px',
+                                                            display: 'flex',
+                                                            flexDirection:
+                                                                'row',
+                                                            justifyContent:
+                                                                'space-between',
+                                                        }}
+                                                    >
                                                         <div>
                                                             {therapist.Name}
-                                                            <div className="zebra_rows_flex_container_value" style={{ marginTop: '-20px' }}>
+                                                            <div
+                                                                className="zebra_rows_flex_container_value"
+                                                                style={{
+                                                                    marginTop:
+                                                                        '-20px',
+                                                                }}
+                                                            >
                                                                 ({therapist.id})
                                                             </div>
-                                                        </div>
-                                                        <div className="icon_place">
-                                                            <img
-                                                                className="icon"
-                                                                onClick={() => DeleteTherapist(therapist.id)}
-                                                                src={Delete}
-                                                                width="8px"
-                                                            />
                                                         </div>
                                                     </div>
                                                 </>
                                             ))}
-                                        {/* </ReactSortable> */}
                                     </div>
-                                    {/* <div className="zebra_rows_flex_container_value">
-                                        {    
-                                            therapists.map((therapist) => test.push(therapist.id))
-                                        }
-                                    </div> */}
+
                                     <div
                                         style={{
                                             display: 'flex',
                                             flexDirection: 'row',
-                                            marginLeft: '2rem'
+                                            marginLeft: '2rem',
                                         }}
-                                    >
-                                        <button
-                                            onClick={() =>
-                                                addTherapist(therapistInput)
-                                            }
-                                            className="add_button"
-                                        >
-                                            <h1
-                                                style={{
-                                                    marginTop: '5px',
-                                                    marginBottom: '5px',
-                                                    textAlign: 'center',
-                                                    width: '22px',
-                                                    height: '20px',
-                                                    color: '#4d4d4d',
-                                                    fontSize: '20px',
-                                                }}
-                                            >
-                                                +
-                                            </h1>
-                                        </button>
-                                        <div className="transparent_input">
-                                            <input
-                                                type="text"
-                                                onChange={(event) =>
-                                                    setTherapistInput(
-                                                        event.target.value
-                                                    )
-                                                }
-                                                name="name"
-                                                placeholder="Додати за поштою...."
-                                            />
-                                        </div>
-                                    </div>
+                                    ></div>
                                 </div>
                             </div>
                         </div>
@@ -363,9 +343,10 @@ function addTherapist(therapistInput) {
     if (therapistInput != '') {
         db.collection('Therapists')
             .doc(therapistInput)
-            .get().then((doc) => {
+            .get()
+            .then((doc) => {
                 if (doc.exists) {
-                    console.log("zaebis pashe")
+                    console.log('zaebis pashe')
                     db.collection('User')
                         .doc(localStorage.getItem('user'))
                         .collection('Patient')
@@ -373,13 +354,14 @@ function addTherapist(therapistInput) {
                         .collection('Therapists')
                         .doc(therapistInput)
                         .set({ Name: doc.data().Name })
+                } else {
+                    alert('Необхідно вказати дійсну пошту терапевта')
                 }
-                else {
-                    alert("Необхідно вказати дійсну пошту терапевта")
-                }
-
             })
-            .catch((error) => { console.log(error) })
-
-    } else { alert("Спочатку вкажіть пошту терапевта") }
+            .catch((error) => {
+                console.log(error)
+            })
+    } else {
+        alert('Спочатку вкажіть пошту терапевта')
+    }
 }

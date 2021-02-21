@@ -8,11 +8,11 @@ import RenderProgram from './Components/Program/ProgramBranching'
 import { AuthProvider } from './Firebase/AuthSetup/Auth'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PrivateRouteToLogin from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToLogin'
-import PatientInfoPage from './Components/PatientInfo/PatientInfoPage'
+import PatientInfoRender from './Components/PatientInfo/PatientInfoBranching'
 import RenderProgramList from './Components/ProtocolList/ProtocolListBranching'
 import TherapyResult from './Components/TherapyResult/TherapyResult'
 import RegistrationPatient from './Components/RegistrationPatient/RegPatientPage'
-import ProgramTemplate from "./Components/ProgramTemplate/ProgramTemplate";
+import ProgramTemplate from './Components/ProgramTemplate/ProgramTemplate'
 
 function App() {
     return (
@@ -48,7 +48,7 @@ function App() {
                         <PrivateRouteToLogin
                             exact
                             path="/patient"
-                            component={PatientInfoPage}
+                            component={PatientInfoRender}
                         />
                         <PrivateRouteToLogin
                             exact
@@ -60,7 +60,7 @@ function App() {
                             path="/patient_registration"
                             component={RegistrationPatient}
                         />
-                          <PrivateRouteToLogin
+                        <PrivateRouteToLogin
                             exact
                             path="/program-template"
                             component={ProgramTemplate}
