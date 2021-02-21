@@ -71,7 +71,7 @@ export default function ProtocolList() {
             <Header />
             <ArrowHeader />
             <button class="create_template_button btn-background-slide" onClick={() => CreateProgramTemplates(protocols, child[0])}>Імпортувати шаблон</button>
-            <div style={{ marginTop: "20px" }}>
+            <div className="create_element">
                 {/* <ReactSortable list={protocols} setList={setProtocols}> */}
                 {protocols
                     .sort((a, b) => +a.ProtocolId - +b.ProtocolId)

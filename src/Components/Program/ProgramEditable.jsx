@@ -108,7 +108,7 @@ export default function ProgramEditable() {
             <>
                 <ProgramHeader />
                 <ArrowHeader />
-                <ul style={{ position: 'relative', right: '4%' }}>
+                <ul style={{ position: 'relative', right: '6%' }}>
                     {protocols.map((protocol) => (
                         <div className="program_big_flex_container">
                             <div

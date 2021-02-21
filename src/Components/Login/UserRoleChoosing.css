@@ -56,3 +56,18 @@ a:hover {
         font-size: 20px;
     }
 }
+/* @media screen and (max-width: 1298px){
+    .have_acc{
+        margin-left: 35.5%;
+    }
+}
+@media screen and (max-width: 1100px){
+    .have_acc{
+        margin-left: 32%;
+    }
+}
+@media screen and (max-width: 900px){
+    .have_acc{
+        margin-left: 29%;
+    }
+} */

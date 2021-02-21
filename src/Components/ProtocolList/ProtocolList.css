@@ -9,7 +9,9 @@
     position: relative;
     color: #000000;
 }
-
+.create_element{
+    margin-top: 20px;
+}
 .protocol_item {
     display: flex;
     flex-direction: row;
@@ -157,5 +159,27 @@
     }
     .add-proto {
         margin-top: 2.5rem;
+    }
+}
+@media screen and (max-width: 800px){
+    .create_element{
+        margin-top: 90px;
+    }
+    .create_template_button{
+        margin-left: 200px;
+        margin-top: 5px;
+
+
+    }
+}
+@media screen and (max-width: 850px){
+    .create_element{
+        margin-top: 90px;
+    }
+    .create_template_button{
+        margin-left: 200px;
+        margin-top: 5px;
+        
+
     }
 }

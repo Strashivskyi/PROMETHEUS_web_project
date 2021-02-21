@@ -94,3 +94,9 @@ input[type='file'] {
     margin-left: 300px;
     font-size: 19px;
 }
+/* @media screen and (min-width: 800px) {
+    .form-second-personal-data {
+        
+        margin-top: 30px;
+    }
+} */

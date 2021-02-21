@@ -143,6 +143,7 @@ input[type='button'] {
     font-size: 28px;
     color: #222222;
     text-align: center;
+    margin-top: 30px;
 }
 .input-text {
     margin-top: 70px;
@@ -156,7 +157,7 @@ input[type='button'] {
     margin-left: 12%;
     margin-bottom: -20px;
 }
-@media screen and (min-width:1920px){
+/* @media screen and (min-width:1920px){
     .number-buttons {
         display: grid;
         grid-template-columns: auto 162px auto 162px auto 162px auto;
@@ -176,5 +177,26 @@ input[type='button'] {
         text-align: center;
         z-index: 20;
         line-height: 50px;
+    }
+} */
+@media screen and (min-width:800px) and (max-width:1300px){
+    .number-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+    .have_acc{
+        position: absolute;
+    }
+}
+/* @media screen and (max-width:1298px) {
+    .number-buttons{ 
+        
+        grid-template-columns: auto 145px auto 145px auto 145px auto;
+    }
+} */
+@media screen and (min-width:1520px) and (max-width:2000px) {
+    .number-buttons{ 
+        display: flex;
+        justify-content: space-between;
     }
 }

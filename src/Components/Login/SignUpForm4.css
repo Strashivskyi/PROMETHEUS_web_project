@@ -123,15 +123,62 @@ input.slide-hover-left-4:hover {
     background-size: 100%;
     color: #fff;
 }
-@media screen and (min-width:1300px){
+/* @media screen and (min-width:1300px){
 
 .forth_form {
     margin-left: 20%;
     margin-right: 20%;
 }
-}
+} */
 @media screen and (min-width:1920px){
     input.slide-hover-left-4 {
         width: 530px;
     }  
 }
+/* @media screen and (min-width: 800px){
+    .contact_text {
+        margin-top: 55px;
+        
+    }
+    input.slide-hover-left-4 {
+        width: 430px;
+        margin-top: 70px;
+    }
+} */
+@media screen and (min-width: 800px) and (max-width: 1300px) {
+    input.slide-hover-left-4 {
+        width: 396px;
+        margin-top: 70px;
+        text-align: center;
+    }
+}
+/* @media screen and (min-width: 950px){
+    input.slide-hover-left-4 {
+        width: 500px;
+        margin-top: 70px;
+    }
+}
+@media screen and (max-width: 1170px){
+    input.slide-hover-left-4 {
+        width: 620px;
+        margin-top: 70px;
+    }
+}
+@media screen and (max-width: 1200px){
+    input.slide-hover-left-4 {
+        width: 645px;
+        margin-top: 70px;
+    }
+}
+@media screen and (max-width: 1260px){
+    input.slide-hover-left-4 {
+        width: 660px;
+        margin-top: 70px;
+    }
+} */
+/* @media screen and (max-width: 1300px){
+    input.slide-hover-left-4 {
+        width: 660px;
+        margin-top: 70px;
+    }
+} */

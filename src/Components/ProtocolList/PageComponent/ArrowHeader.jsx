@@ -58,7 +58,7 @@ function ArrowHeader() {
                     onClick={() => addProto(protocols.length)}
                     className="add-proto"
                 >
-                    <BsPlusCircle size={50} />
+                    <BsPlusCircle size={50} style={{marginTop:"30px"}} />
                 </div>
             </div>
         </>

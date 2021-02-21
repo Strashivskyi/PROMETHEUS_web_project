@@ -34,3 +34,18 @@
 .download-button:focus {
     border: 3px solid rgb(221, 221, 221);
 }
+@media screen and (min-width: 899px) and (max-width:1919px){
+    .list-group-item {
+        margin-top: 95px;
+    }
+}
+@media screen and (min-width: 1920px){
+    .list-group-item {
+        margin-top: 105px;
+    }
+}
+@media screen and (max-width: 899px){
+    .list-group-item {
+        margin-top: 95px;
+    }
+}
