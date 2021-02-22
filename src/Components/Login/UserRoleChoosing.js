@@ -16,7 +16,7 @@ function SignUpForm3() {
         {
             label: 'Терапіст',
             value: {
-                role: 'Therapist',
+                role: 'Therapists',
             },
         },
     ]

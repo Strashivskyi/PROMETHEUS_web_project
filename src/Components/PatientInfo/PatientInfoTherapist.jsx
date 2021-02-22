@@ -10,42 +10,6 @@ import Delete from '../../assets/delete.svg'
 export default function PatientInfoTherapist() {
     let [patients, setPatients] = useState([])
 
-    let [therapistInput, setTherapistInput] = useState('')
-
-    let test = []
-
-    const [terapists, setTerapists] = useState([])
-    useEffect(() => {
-        const db = app.firestore()
-        const unsubscribe = db
-            .collection('User')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .doc(localStorage.getItem('child'))
-            .collection('Therapists')
-            .onSnapshot((snapshot) => {
-                if (snapshot.size) {
-                    setTerapists(
-                        snapshot.docs.map((doc) => ({
-                            ...doc.data(),
-                            id: doc.id,
-                        }))
-                    )
-
-                    console.log('Сука ')
-                } else {
-                    console.log('Сука1')
-                }
-            })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
-
-    terapists.map((terapist) => test.push(terapist.id))
-    console.log(test)
-    localStorage.setItem('therapistID', JSON.stringify(test))
-
     const [therapists, setTherapists] = useState([])
     useEffect(() => {
         const db = app.firestore()
@@ -78,7 +42,7 @@ export default function PatientInfoTherapist() {
         const fetchData = async () => {
             const db = app.firestore()
             const data = await db
-                .collection('User')
+                .collection('Therapists')
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .get()
@@ -93,41 +57,6 @@ export default function PatientInfoTherapist() {
     localStorage.setItem('childName', '')
     console.log(patients)
 
-    let path = '/protocol-list'
-
-    const [protocols, setProtocols] = useState([])
-
-    useEffect(() => {
-        const db = app.firestore()
-        const unsubscribe = db
-            .collection('User')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .doc(localStorage.getItem('child'))
-            .collection('Protocols')
-            .onSnapshot((snapshot) => {
-                if (snapshot.size) {
-                    setProtocols(
-                        snapshot.docs.map((doc) => ({
-                            ...doc.data(),
-                            id: doc.id,
-                        }))
-                    )
-
-                    console.log('Сука ')
-                } else {
-                    console.log('Сука1')
-                }
-            })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
-    if (protocols.length == 0) {
-        path = '/program-template'
-    } else {
-        path = '/protocol-list'
-    }
 
     return (
         <>
@@ -310,7 +239,7 @@ export default function PatientInfoTherapist() {
                                 Результати терапії
                             </Link>
                             <Link
-                                to={path}
+                                to={'/protocol-list'}
                                 onClick={() =>
                                     localStorage.setItem('program', 'ok')
                                 }

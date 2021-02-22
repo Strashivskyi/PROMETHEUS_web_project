@@ -40,7 +40,7 @@ function ProgramHeader() {
                         style={{ top: '1rem', cursor: 'pointer' }}
                         onClick={() => exportUsersToExcel(userEmail, childName)}
                     >
-                        Зберегти
+                        Зберегти файл
                     </button>
                 </div>
             </div>
