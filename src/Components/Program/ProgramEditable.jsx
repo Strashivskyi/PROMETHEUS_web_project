@@ -7,7 +7,7 @@ import ArrowHeader from './ProgramElement/ArrowHeader'
 import CriteriongenGenerSkill from './ProgramElement/CriteriongenGenerSkillElement/CriteriongenGenerSkill'
 import StimulusItem from './ProgramElement/StimulusItem'
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
-
+import MobileHeader from '../Header/MobileHeader'
 const theme = {
     ...DefaultTheme,
     roundness: 0,
@@ -106,6 +106,7 @@ export default function ProgramEditable() {
     return (
         <PaperProvider theme={theme}>
             <>
+            <MobileHeader />
                 <ProgramHeader />
                 <ArrowHeader />
                 <ul style={{ position: 'relative', right: '4%' }}>

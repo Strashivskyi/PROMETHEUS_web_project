@@ -51,14 +51,14 @@ input[type='file'] {
     line-height: 30px;
     color: grey;
 }
-.input-city input {
+.input-city {
     color: #222222;
     width: 100%;
     padding: 12px 60px;
-    padding-bottom: 0px;
-    margin-top: 10px;
-    padding-right: 40%;
+    padding-bottom: 6px;
 
+    margin-top: 10px;
+    padding-right: 10px;
     box-sizing: border-box;
     border: none;
     border-bottom: 3px solid #222222;
@@ -69,6 +69,19 @@ input[type='file'] {
     font-size: 25px;
     line-height: 47px;
 }
+.input-city input{
+    border: none;
+    width: 100%;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: #F8FCFF;
+    padding-left: 10px;
+
+}
+/* .input-city input:-webkit-autofill{
+    background-color: #FFF;
+
+} */
 
 .custom-file-upload {
     border-bottom: 3px solid #222222;

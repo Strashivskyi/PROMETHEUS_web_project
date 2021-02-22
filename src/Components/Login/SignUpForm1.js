@@ -18,7 +18,7 @@ function SignUpForm1() {
     console.log(sex)
  
     return (
-        <div>
+        <div className="first_sign">
             <LoginNavigation />
             <form className="form-itself">
                 <p className="personal_text">Особиста інформація</p>

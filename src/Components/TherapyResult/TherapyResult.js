@@ -4,12 +4,13 @@ import './TherapyResult.css'
 import Arrow from '../../assets/arrow.png'
 import { Link, useHistory } from 'react-router-dom'
 import PaginationRounded from './Pagination'
-
+import MobileHeader from '../Header/MobileHeader'
 const TherapyResult = () => {
     var history = useHistory()
 
     return (
         <>
+        <MobileHeader/>
             <Header />
             <div
                 className="patient_upper_flex_container"

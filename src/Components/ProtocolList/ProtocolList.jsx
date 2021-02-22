@@ -5,6 +5,8 @@ import ProtocolItem from './PageComponent/ProtocolItem'
 import Header from '../Header/Header'
 import ArrowHeader from './PageComponent/ArrowHeader'
 import { ReactSortable } from "react-sortablejs";
+import MobileHeader from '../Header/MobileHeader'   
+import Plus from '../../assets/plus_proto.svg'
 
 export default function ProtocolList() {
     let test = []
@@ -171,8 +173,9 @@ export default function ProtocolList() {
         <>
             <Header />
             <ArrowHeader />
+            <MobileHeader/>
             <button class="create_template_button btn-background-slide" onClick={() => CreateProgramTemplates(protocols, child[0])}>Імпортувати шаблон</button>
-            <div style={{ marginTop: "20px" }}>
+            <div className="create_element" style={{marginRight: "50px", marginLeft: "-50px"}}>
                 {/* <ReactSortable list={protocols} setList={setProtocols}> */}
                 {protocols
                     .sort((a, b) => +a.ProtocolId - +b.ProtocolId)

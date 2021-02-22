@@ -66,7 +66,7 @@ ul {
     transform: scale(1.002);
     text-decoration: underline 0.1px;
 }
-.transparent_input input {
+/* .transparent_input input {
     color: #222222;
     width: 100%;
     padding: 6px 8px;
@@ -83,7 +83,7 @@ ul {
     padding: 6px 10px;
     border: black;
     background-color: transparent;
-}
+} */
 .add_button {
     margin-left: -40px;
     background-color: transparent;
@@ -116,13 +116,56 @@ ul {
     cursor: pointer;
     transform: scale(1.1);
 }
-@media screen and (nim-width:1300px){
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .program_big_flex_container {
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+        margin-left: 10px;
+        min-width: 90vw;
+        max-width: 90vw;
+
+    }
+    .title_name {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 17px;
+        line-height: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .element_name {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .element_value {
+        max-width: 10vw;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 40px;
+    }
+   
+}
+@media screen and (min-width:1300px){
     .element_name{
         line-height: 55px;
     }
 }
-@media screen and (nim-width:1920px){
+@media screen and (min-width:1920px){
     .element_name{
         line-height: 60px;
     }
+    .program_big_flex_container {
+      
+        margin-right: 7vw;
+    }
+
 }

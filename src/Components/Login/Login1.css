@@ -3,7 +3,7 @@ html {
     font-family: 'Inter', sans-serif;
 }
 
-.image-form-division {
+.image-form-division-sign-up {
     display: grid;
     grid-template-columns: 45vw 48vw;
     margin: 3vw;
@@ -24,4 +24,26 @@ html {
 .image {
     background: url('../../assets/image 27.svg') center no-repeat;
     background-size: 42vw 90vh;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .image-form-division-sign-up {
+        display: none;
+    }
+}
+@media screen and (min-width: 800px) and (max-width:1300px){
+    .sign-up-text{
+        font-size: 30px;
+        line-height: 200px;
+    }
+   .image-form-division-sign-up {
+        flex-direction: column;
+        grid-template-columns: none;
+       
+    }
+    .form {
+        margin: 40px;
+    }
+    .image {
+        background-size: 26vw 70vh;
+    }
 }

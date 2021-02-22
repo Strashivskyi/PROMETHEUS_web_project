@@ -46,11 +46,12 @@ html {
     margin-left: 25%;
     margin-right: 25%;
 }
-.input_text_name input {
+.input_text_name {
     color: #545454;
     width: 100%;
     padding: 12px 60px;
-    padding-bottom: 0px;
+    padding-bottom: 6px;
+    padding-right: 10px;
     margin: 8px 0;
     box-sizing: border-box;
     background: url(/src/assets/human.svg) no-repeat left center;
@@ -61,6 +62,16 @@ html {
     font-weight: 400;
     font-size: 25px;
     line-height: 47px;
+    
+}
+.input_text_name input{
+    border: none;
+    width: 100%;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: #F8FCFF ;
+    padding-left: 10px;
+    
 }
 
 input[type='button'] {
@@ -143,6 +154,7 @@ input[type='button'] {
     font-size: 28px;
     color: #222222;
     text-align: center;
+    margin-top: 30px;
 }
 .input-text {
     margin-top: 70px;
@@ -156,25 +168,20 @@ input[type='button'] {
     margin-left: 12%;
     margin-bottom: -20px;
 }
-@media screen and (min-width:1920px){
+
+@media screen and (min-width:800px) and (max-width:1300px){
     .number-buttons {
-        display: grid;
-        grid-template-columns: auto 162px auto 162px auto 162px auto;
-        margin-left: 12%;
-        margin-right: 23%;
-        height: 40px;
+        display: flex;
+        justify-content: space-between;
     }
-    .number-button {
-        font-family: 'Inter', cursive;
-        background-color: #48535f;
-        border-radius: 50%;
-        border: 2px solid #48535f;
-        width: 55px;
-        color: #ffffff;
-        font-weight: 400;
-        font-size: 28px;
-        text-align: center;
-        z-index: 20;
-        line-height: 50px;
+    .have_acc{
+        position: absolute;
+    }
+}
+
+@media screen and (min-width:1520px) and (max-width:2000px) {
+    .number-buttons{ 
+        display: flex;
+        justify-content: space-between;
     }
 }

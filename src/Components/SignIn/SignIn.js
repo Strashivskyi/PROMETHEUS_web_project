@@ -5,6 +5,9 @@ import '../Login/Login1.css'
 import './SignIn.css'
 import { AuthContext } from '../../Firebase/AuthSetup/Auth'
 import { Link } from 'react-router-dom'
+import MobileHeader from '../Header/MobileHeader'
+import Logo from '../../assets/Logo.svg';
+import SignOut from '../../assets/SignOut.svg';
 
 function SignIn({ history }) {
     const { currentUser } = useContext(AuthContext)
@@ -34,10 +37,11 @@ function SignIn({ history }) {
 
     return (
         <>
+               <MobileHeader/>  
             <div className="image-form-division">
                 <div className="image" />
                 <div className="form">
-                    <div className="sign-up-text"> Увійти на сайт</div>
+                    <div className="sign-in-text"> Увійти на сайт</div>
                     <form className="login_form" onSubmit={handleLogin}>
                         <input
                             className="login_text_input"

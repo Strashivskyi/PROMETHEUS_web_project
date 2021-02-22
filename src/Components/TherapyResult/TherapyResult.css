@@ -17,3 +17,14 @@
 .choose-file-title {
     font-size: 20px;
 }
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .choose-file-title {
+        font-size: 6vw;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 800px) and (max-width:2000px){
+    .choose-file-title {
+        font-size: 30px;
+    }
+}

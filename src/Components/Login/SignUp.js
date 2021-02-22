@@ -3,14 +3,17 @@ import SignUpForm2 from './SignUpForm2'
 import UserRoleChoosing from './UserRoleChoosing'
 import SignUpForm4 from './SignUpForm4'
 import PrivateRouteToReg from '../../Firebase/AuthSetup/PrivateRoute/PrivateRouteToReg'
-
+import MobileHeader from '../Header/MobileHeader'
+import MobileRegistration from './MobileRegistration'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './Login1.css'
 
 function SignUp() {
     return (
         <>
-            <div className="image-form-division">
+            <MobileHeader/>
+            <MobileRegistration/>
+            <div className="image-form-division-sign-up">
                 <div className="image" />
                 <div className="form">
                     <div className="sign-up-text">Реєстрація</div>

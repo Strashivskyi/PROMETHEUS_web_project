@@ -2,6 +2,7 @@ import app from '../../Firebase/firebase'
 import PatientItem from '../PatientItem/PatientItem'
 import React from 'react'
 import "./Patients.css"
+import MobileHeader from '../Header/MobileHeader'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { BsPlusCircle } from 'react-icons/bs'
@@ -60,6 +61,7 @@ function Patient() {
     return (
         <>
             <>
+            <MobileHeader/>
                 <div className="header">
                     <img
                         src={Logo}

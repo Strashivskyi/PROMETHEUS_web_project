@@ -22,6 +22,7 @@ function ProgramHeader() {
 
     return (
         <>
+         <div className="full_program_header">
             <div className="header">
                 <img
                     src={Logo}
@@ -56,6 +57,7 @@ function ProgramHeader() {
                     marginRight: '4.5rem',
                 }}
             />
+            </div>
         </>
     )
 }
