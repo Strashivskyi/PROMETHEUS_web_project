@@ -270,5 +270,11 @@ input.slide-hover-left-3:hover {
 
 }
 
-
+@media screen and (min-width:800px) and (max-width:1300px){
+    .image-form-division {
+        flex-direction: column;
+        grid-template-columns: none;
+       
+    }
+}
 

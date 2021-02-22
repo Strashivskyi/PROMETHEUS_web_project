@@ -25,11 +25,11 @@ export default function RenderProgramList() {
             unsubscribe()
         }
     }, [])
-    users = users.filter((user) => user.id == localStorage.getItem('user'))
+    users = users.filter((user) => user.id == localStorage.getItem('proffesion'))
     if (users.length == 1) {
         localStorage.setItem('proffesion', users[0].Profession)
     }
-    if (localStorage.getItem('proffesion') == 'supervisor') {
+    if (localStorage.getItem('proffesion') == 'User') {
         return <ProtocolListSuperVisor />
     } else {
         return <ProtocolListTherapist />

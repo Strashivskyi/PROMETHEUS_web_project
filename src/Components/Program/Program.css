@@ -152,17 +152,20 @@ ul {
         font-size: 16px;
         line-height: 40px;
     }
-    /* .transparent_input input {
-        color: #222222;
-        width: 100%;
-        padding: 6px 8px;
-        margin-top: 7px;
-        border: black;
-        box-sizing: border-box;
-        background-color: transparent;
-        font-family: 'Inter', cursive;
-        font-weight: 400;
-        font-size: 10px;
-        line-height: 30px;
-    } */
+   
+}
+@media screen and (min-width:1300px){
+    .element_name{
+        line-height: 55px;
+    }
+}
+@media screen and (min-width:1920px){
+    .element_name{
+        line-height: 60px;
+    }
+    .program_big_flex_container {
+      
+        margin-right: 7vw;
+    }
+
 }

@@ -89,43 +89,38 @@ html {
     font-size: 22px;
     line-height: 47px;
 }
-.inputE input{
+.inputE input {
     border: none;
     width: 100%;
     line-height: 40px;
     font-size: 20px;
-    background-color: #F8FCFF;
+    background-color: #f8fcff;
     padding-left: 10px;
-
 }
-.inputPh input{
+.inputPh input {
     border: none;
     width: 100%;
     line-height: 40px;
     font-size: 20px;
-    background-color: #F8FCFF;
+    background-color: #f8fcff;
     padding-left: 10px;
-
 }
-.inputP input{
+.inputP input {
     border: none;
     width: 100%;
     line-height: 40px;
     font-size: 20px;
-    background-color: #F8FCFF;
+    background-color: #f8fcff;
     padding-left: 10px;
-
 }
-.inputCp input{
+.inputCp input {
     border: none;
     width: 100%;
     line-height: 40px;
     font-size: 20px;
-    background-color: #F8FCFF;
+    background-color: #f8fcff;
     padding-left: 10px;
-
 }
-
 
 input:focus {
     outline: none;
@@ -150,7 +145,7 @@ input.slide-hover-left-4 {
     display: inline-block;
     background-image: linear-gradient(0, #48535f, #48535f);
     background-size: 0;
-    transition: .8s;
+    transition: 0.8s;
     background-repeat: no-repeat;
     transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
@@ -158,4 +153,18 @@ input.slide-hover-left-4 {
 input.slide-hover-left-4:hover {
     background-size: 100%;
     color: #fff;
+}
+
+@media screen and (min-width: 1920px) {
+    input.slide-hover-left-4 {
+        width: 530px;
+    }
+} 
+
+@media screen and (min-width: 800px) and (max-width: 1300px) {
+    input.slide-hover-left-4 {
+        width: 396px;
+        margin-top: 70px;
+        text-align: center;
+    }
 }

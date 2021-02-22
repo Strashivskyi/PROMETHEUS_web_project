@@ -44,3 +44,35 @@
     margin-left: 120px;
     font-size: 24px;
 }
+@media screen and (min-width: 800px) and (max-width:1298px){
+    .templates_string {
+        margin-right: 60px;
+        margin-left: 120px;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    .template_link {
+       
+        width: 300px;
+        height: 43px;
+        font-size: 17px;
+        margin-right: 90px;
+        margin-top: 20px;
+}
+}
+@media screen and (min-width: 800px) and (max-width:1298px){
+    .templates_string {
+        margin-right: 60px;
+        margin-left: 120px;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    .template_link {
+       
+        width: 300px;
+        height: 43px;
+        font-size: 17px;
+        margin-right: 90px;
+        margin-top: 20px;
+}
+}

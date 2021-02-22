@@ -72,3 +72,102 @@
 .upload-image-btn {
     width: 256px;
 }
+@media screen and (min-width: 800px) and (max-width: 1299px) {
+ 
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+      
+    }
+    .column-direction-list {
+        display: flex;
+        flex-direction: column;
+        margin: 40px;
+    }
+    .MuiAvatar-root {
+        margin-left: 27.5vw;
+}
+}
+@media screen and (max-width: 838px){
+  
+.MuiAvatar-root {
+    margin-left: 22vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 839px) and (max-width:900px){
+ 
+.MuiAvatar-root {
+    margin-left: 24vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 901px) and (max-width:960px){
+
+.MuiAvatar-root {
+    margin-left: 26vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 961px) and (max-width:1000px){
+
+.MuiAvatar-root {
+    margin-left: 27vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 1030px) and (max-width:1110px){
+
+.MuiAvatar-root {
+    margin-left: 29vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 1111px) and (max-width:1300px){
+
+.MuiAvatar-root {
+    margin-left: 32vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 1301px){
+    .save_button {
+        margin-top: -20px;
+    } 
+}

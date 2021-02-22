@@ -48,3 +48,30 @@
         display:none;
     }
   }
+  @media screen and (min-width:1299px)and (max-width:1499px){
+    .save_button{
+      margin-left: 700px;
+      margin-top: -10px;
+    }
+  }
+  @media screen and (min-width:1500px){
+    .save_button{
+      margin-left: 900px;
+      margin-top: -20px;
+    }
+  }
+  @media screen and (min-width:1920px){
+    .save_button{
+      margin-left: 1150px;
+      font-size: 24px;
+      height: 56px;
+      margin-top: -10px;
+    }
+  }
+
+  @media screen and (min-width:800px) and (max-width:1298px){
+    .save_button {
+      margin-left: 390px;
+      width: 170px;
+    }
+  }

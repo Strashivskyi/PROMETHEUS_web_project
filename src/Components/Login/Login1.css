@@ -30,4 +30,20 @@ html {
         display: none;
     }
 }
-
+@media screen and (min-width: 800px) and (max-width:1300px){
+    .sign-up-text{
+        font-size: 30px;
+        line-height: 200px;
+    }
+   .image-form-division-sign-up {
+        flex-direction: column;
+        grid-template-columns: none;
+       
+    }
+    .form {
+        margin: 40px;
+    }
+    .image {
+        background-size: 26vw 70vh;
+    }
+}

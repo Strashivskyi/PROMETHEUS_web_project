@@ -153,6 +153,9 @@
         margin-left: 6.5vw;
 
     }
+    .create_element{
+        margin-top: 20px;
+    }
     .add_protocol_text{
         font-size: 5vw;
         padding-top: 4%;
@@ -167,3 +170,69 @@
 
     }
   }
+  @media screen and (min-width: 1300px) {
+    .create_template_button {
+        background: transparent;
+        color: #ef4f59;
+        padding: 0.5em 1em;
+        border: 1px solid #ef4f59;
+        cursor: pointer;
+        margin-left: 800px;
+        margin-right: 30px;
+        margin-top: -65px;
+        font-family: Inter;
+        font-weight: 500;
+        line-height: 22px;
+        font-size: 22px;
+        width: 200px;
+        height: 60px;
+        position: absolute;
+    }
+    .add-proto {
+        top: 7.5rem;
+    }
+}
+@media screen and (min-width: 1920px) {
+    .create_template_button {
+        background: transparent;
+        color: #ef4f59;
+        padding: 0.5em 1em;
+        border: 1px solid #ef4f59;
+        cursor: pointer;
+        margin-left: 1300px;
+        margin-right: 20px;
+        margin-top: -65px;
+        font-family: Inter;
+        font-weight: 500;
+        line-height: 22px;
+        font-size: 22px;
+        width: 300px;
+        height: 60px;
+        position: absolute;
+    }
+    .add-proto {
+        margin-top: 2.5rem;
+    }
+}
+@media screen and (max-width: 800px){
+    .create_element{
+        margin-top: 90px;
+    }
+    .create_template_button{
+        margin-left: 200px;
+        margin-top: 5px;
+
+
+    }
+}
+@media screen and (max-width: 850px){
+    .create_element{
+        margin-top: 90px;
+    }
+    .create_template_button{
+        margin-left: 200px;
+        margin-top: 5px;
+        
+
+    }
+}
