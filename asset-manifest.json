@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "//PROMETHEUS_web_project/static/css/main.432c827c.chunk.css",
+    "main.js": "//PROMETHEUS_web_project/static/js/main.77d71395.chunk.js",
+    "main.js.map": "//PROMETHEUS_web_project/static/js/main.77d71395.chunk.js.map",
+    "runtime-main.js": "//PROMETHEUS_web_project/static/js/runtime-main.7ad34836.js",
+    "runtime-main.js.map": "//PROMETHEUS_web_project/static/js/runtime-main.7ad34836.js.map",
+    "static/css/2.e745d69f.chunk.css": "//PROMETHEUS_web_project/static/css/2.e745d69f.chunk.css",
+    "static/js/2.43f587b5.chunk.js": "//PROMETHEUS_web_project/static/js/2.43f587b5.chunk.js",
+    "static/js/2.43f587b5.chunk.js.map": "//PROMETHEUS_web_project/static/js/2.43f587b5.chunk.js.map",
+    "index.html": "//PROMETHEUS_web_project/index.html",
+    "static/css/2.e745d69f.chunk.css.map": "//PROMETHEUS_web_project/static/css/2.e745d69f.chunk.css.map",
+    "static/css/main.432c827c.chunk.css.map": "//PROMETHEUS_web_project/static/css/main.432c827c.chunk.css.map",
+    "static/js/2.43f587b5.chunk.js.LICENSE.txt": "//PROMETHEUS_web_project/static/js/2.43f587b5.chunk.js.LICENSE.txt",
+    "static/media/Logo.b4105b8d.svg": "//PROMETHEUS_web_project/static/media/Logo.b4105b8d.svg",
+    "static/media/SignOut.409110e9.svg": "//PROMETHEUS_web_project/static/media/SignOut.409110e9.svg",
+    "static/media/Vector.afd93cb0.svg": "//PROMETHEUS_web_project/static/media/Vector.afd93cb0.svg",
+    "static/media/SignUpForm2.css": "//PROMETHEUS_web_project/static/media/country.41e9a86f.svg",
+    "static/media/delete.a5794248.svg": "//PROMETHEUS_web_project/static/media/delete.a5794248.svg",
+    "static/media/index.css": "//PROMETHEUS_web_project/static/media/dm-sans-latin-ext-400-normal.652b69da.woff2",
+    "static/media/duplicate_task.34f35a29.svg": "//PROMETHEUS_web_project/static/media/duplicate_task.34f35a29.svg",
+    "static/media/ForgetPassword.css": "//PROMETHEUS_web_project/static/media/emmm.0c2b8ee5.svg",
+    "static/media/MobileRegistration.css": "//PROMETHEUS_web_project/static/media/human.742d4c04.svg",
+    "static/media/SignIn.css": "//PROMETHEUS_web_project/static/media/pass.e2cff086.svg",
+    "static/media/kid.1b0c905a.jpg": "//PROMETHEUS_web_project/static/media/kid.1b0c905a.jpg",
+    "static/media/SignUpForm4.css": "//PROMETHEUS_web_project/static/media/phh.49602c3d.svg",
+    "static/media/plus_proto.b56347b4.svg": "//PROMETHEUS_web_project/static/media/plus_proto.b56347b4.svg",
+    "static/media/unVisible.c5b9f5a7.svg": "//PROMETHEUS_web_project/static/media/unVisible.c5b9f5a7.svg",
+    "static/media/visible.d08ba1db.svg": "//PROMETHEUS_web_project/static/media/visible.d08ba1db.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ad34836.js",
+    "static/css/2.e745d69f.chunk.css",
+    "static/js/2.43f587b5.chunk.js",
+    "static/css/main.432c827c.chunk.css",
+    "static/js/main.77d71395.chunk.js"
+  ]
+}
