@@ -1,0 +1,34 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+npm-debug.log*	npm-debug.log*
+yarn-debug.log*	yarn-debug.log*
+yarn-error.log*	yarn-error.log*
+api/.idea/api.iml
+api/.idea/misc.xml
+api/.idea/modules.xml
+api/.idea/vcs.xml
+api/.idea/inspectionProfiles/profiles_settings.xml
+api/.idea/.gitignore
+api/firebase/__pycache__/__init__.cpython-38.pyc
+api/firebase/__pycache__/firebase_secret.cpython-38.pyc
+api/firebase/__pycache__/pyrebase.cpython-38.pyc
+api/firebase/__pycache__/storage_controller.cpython-38.pyc

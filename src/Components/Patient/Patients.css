@@ -1,0 +1,10 @@
+@import url('https://rsms.me/inter/inter.css');
+
+html {
+    font-family: 'Inter', sans-serif;
+}
+
+.add_patient_button:hover{
+    transform: scale(1.3);
+    transition: 0.2s;
+}

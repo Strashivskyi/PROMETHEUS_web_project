@@ -1,0 +1,59 @@
+@import url('https://rsms.me/inter/inter.css');
+    .mobile_registration{
+        display: none;
+    }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .mobile_registration{
+        position: relative;
+        display: initial;
+
+
+    }
+    .input_form{
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .sign-up-text-mobile{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 7vw;
+        color: #38414A;
+        margin-top: 6vw;
+    }
+    .input_text_name_mobile{
+        color: #545454;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 0px;
+    padding-right: 10px;
+    padding-left: -17px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background: url(/src/assets/human.svg) no-repeat left center;
+    background-position: -5px -2px;
+    background-size: 20vw;
+    border: none;
+    border-bottom: 1px solid #48535F;
+    background-color: transparent;
+    font-family: 'Inter', cursive;
+    font-weight: 400;
+    font-size: 15vw;
+    line-height: 20px;
+    }
+
+.input_text_name_mobile input{
+    border: none;
+    width: 100%;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: transparent ;
+    padding-left: 10px;
+    margin-left: -3vw;
+    
+}
+
+
+}

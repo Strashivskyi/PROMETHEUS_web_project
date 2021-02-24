@@ -1,0 +1,69 @@
+@import url('https://rsms.me/inter/inter.css');
+html {
+    font-family: 'Inter', sans-serif;
+}
+
+.third_form_select {
+    font-size: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.choose_profession {
+    font-family: 'Inter', cursive;
+    font-size: 19px;
+    margin-bottom: 8px;
+    margin-left: 12%;
+    color: #48535f;
+}
+.third_form {
+    margin-left: 25%;
+    margin-right: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.third_form_check {
+    position: relative;
+    width: 390px;
+    height: 50px;
+    background: #48535f;
+    border: 2px solid #48535f;
+    margin-top: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Inter', cursive;
+    font-size: 24px;
+    line-height: 37px;
+    color: #ffffff;
+}
+
+.work_text {
+    position: relative;
+    font-family: 'Inter';
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 48px;
+    text-align: center;
+    color: #222222;
+    margin-left: 40%;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+div .input-work-second input {
+    color: #222222;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 0px;
+    margin: 8px 0;
+    margin-top: 28px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid #222222;
+    background-color: transparent;
+    background: url(/src/assets/org.svg) no-repeat left center;
+    font-family: 'Inter', cursive;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 47px;
+}

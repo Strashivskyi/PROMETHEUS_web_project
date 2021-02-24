@@ -1,0 +1,173 @@
+.content-wrapper {
+    display: flex;
+}
+
+.column-direction-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.patient-title {
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.patient-subtitle {
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.patient-subtitle-label {
+    margin-right: 1rem;
+    font-size: 18px;
+}
+
+.label-area {
+    margin-right: 1rem;
+    font-size: 18px;
+}
+
+.patient-subtitle-input {
+}
+
+.zebra-table {
+    display: flex;
+}
+
+.zebra-table-left-part {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.zebra-table-right-part {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.avatar-reg-wrapper {
+    margin-top: 2rem;
+    margin-left: 8.5rem;
+    margin-right: 4rem;
+}
+
+.grey-stripe-zebra {
+    width: 23rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.5rem;
+    background-color: #eeeeee;
+}
+
+.white-stipe-zebra {
+    width: 23rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+.upload-image-btn {
+    width: 256px;
+}
+@media screen and (min-width: 800px) and (max-width: 1299px) {
+ 
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+      
+    }
+    .column-direction-list {
+        display: flex;
+        flex-direction: column;
+        margin: 40px;
+    }
+    .MuiAvatar-root {
+        margin-left: 27.5vw;
+}
+}
+@media screen and (max-width: 838px){
+  
+.MuiAvatar-root {
+    margin-left: 22vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 839px) and (max-width:900px){
+ 
+.MuiAvatar-root {
+    margin-left: 24vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 901px) and (max-width:960px){
+
+.MuiAvatar-root {
+    margin-left: 26vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 961px) and (max-width:1000px){
+
+.MuiAvatar-root {
+    margin-left: 27vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 1030px) and (max-width:1110px){
+
+.MuiAvatar-root {
+    margin-left: 29vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 1111px) and (max-width:1300px){
+
+.MuiAvatar-root {
+    margin-left: 32vw;
+}
+.esUBPJ {
+    text-align: -moz-center;
+}
+.MuiButton-root {
+    
+    margin-left: -27vw;
+}
+}
+@media screen and (min-width: 1301px){
+    .save_button {
+        margin-top: -20px;
+    } 
+}
