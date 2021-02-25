@@ -66,53 +66,6 @@ export default function ProtocolItemTherapist({
     )
 }
 
-function CreateDuplicateProtocol(
-    protocolId,
-    id,
-    sphereOfDevelopment,
-    skill,
-    copiId,
-    interval,
-    correctionProcedureStep1,
-    correctionProcedureStep2,
-    correctionProcedureStep3,
-    criterionIncrease,
-    desirableReaction,
-    method,
-    methodTakingHint,
-    reductionСriterion,
-    stepDescription
-) {
-    localStorage.setItem('program', protocolId)
-    const db = app.firestore()
-
-    db.collection(localStorage.getItem('proffesion'))
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc()
-        .set({
-            SphereOfDevelopment: sphereOfDevelopment,
-            ProtocolId: id,
-            Skill: skill,
-            StatusCopied: '(Копія Протокол ' + copiId + ')',
-            IsActive: '0',
-            Interval: interval,
-            CorrectionProcedureStep1: correctionProcedureStep1,
-            CorrectionProcedureStep2: correctionProcedureStep2,
-            CorrectionProcedureStep3: correctionProcedureStep3,
-            CriterionIncrease: criterionIncrease,
-            DesirableReaction: desirableReaction,
-            Method: method,
-            MethodTakingHint: methodTakingHint,
-            ReductionСriterion: reductionСriterion,
-            StepDescription: stepDescription,
-        })
-
-    // console.log(data.key)
-}
-
 function CheckIsActive({ isActive, protocolId }) {
     console.log(isActive)
     if (isActive == true) {

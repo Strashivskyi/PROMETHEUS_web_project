@@ -15,18 +15,60 @@ function SignIn({ history }) {
         async (event) => {
             event.preventDefault()
             const { email, password } = event.target.elements
+
+            const db = app.firestore()
+            await db.collection('Users').where("Email", '==', email.value).onSnapshot((snapshot) => {
+                if (snapshot.size) {
+
+                    snapshot.docs.map((doc) => {
+                        localStorage.setItem("proffesion",doc.data().Profession)
+                    })
+                } else {
+                    console.log('Немає професії')
+                }
+            })
+                    // .collection('Patient')
+                    // .doc(localStorage.getItem('child'))
+                    // .collection('Protocols')
+                    // .doc(localStorage.getItem('program'))
+                    // .collection('Stimulus')
+                    // .onSnapshot((snapshot) => {
+                    //     if (snapshot.size) {
+                    //         setStimulus(
+                    //             snapshot.docs.map((doc) => ({
+                    //                 ...doc.data(),
+                    //                 id: doc.id,
+                    //             }))
+                    //         )
+                    //         console.log('Сука ')
+                    //     } else {
+                    //         console.log('Сука1')
+                    //     }
+                    // })
+               
             try {
                 await app
                     .auth()
                     .signInWithEmailAndPassword(email.value, password.value)
                 if (currentUser.emailVerified == true) {
-                    history.push('/home')
+                    
+                    await db.collection('Users').where("Email", '==', email.value).onSnapshot((snapshot) => {
+                        if (snapshot.size) {
+        
+                            snapshot.docs.map((doc) => {
+                                localStorage.setItem("proffesion",doc.data().Profession)
+                            })
+                        } else {
+                            console.log('Немає професії')
+                        }
+                    })
 
                     localStorage.setItem('user', currentUser.email)
+                    history.push('/home')
                 } else {
                     alert('please verify your email')
                 }
-            } catch (error) {}
+            } catch (error) { }
         },
         [history]
     )
@@ -37,7 +79,7 @@ function SignIn({ history }) {
 
     return (
         <>
-               <MobileHeader/>  
+            <MobileHeader />
             <div className="image-form-division">
                 <div className="image" />
                 <div className="form">

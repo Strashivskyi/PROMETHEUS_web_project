@@ -9,35 +9,6 @@ import Delete from '../../assets/delete.svg'
 
 export default function PatientInfoTherapist() {
     let [patients, setPatients] = useState([])
-
-    const [therapists, setTherapists] = useState([])
-    useEffect(() => {
-        const db = app.firestore()
-        const unsubscribe = db
-            .collection('User')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .doc(localStorage.getItem('child'))
-            .collection('Therapists')
-            .onSnapshot((snapshot) => {
-                if (snapshot.size) {
-                    setTherapists(
-                        snapshot.docs.map((doc) => ({
-                            ...doc.data(),
-                            id: doc.id,
-                        }))
-                    )
-
-                    console.log('Сука ')
-                } else {
-                    console.log('Сука1')
-                }
-            })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
-
     useEffect(() => {
         const fetchData = async () => {
             const db = app.firestore()
@@ -184,9 +155,9 @@ export default function PatientInfoTherapist() {
                                         flexDirection: 'column',
                                     }}
                                 >
-                                    <div>Терапевти:</div>
+                                    {/* <div>Терапевти:</div>
                                     <div>
-                                        {/* <ReactSortable list={protocols} setList={setProtocols}> */}
+                                        
                                         {therapists
                                             .sort((a, b) => +a.id - +b.id)
                                             .map((therapist) => (
@@ -216,7 +187,7 @@ export default function PatientInfoTherapist() {
                                                     </div>
                                                 </>
                                             ))}
-                                    </div>
+                                    </div> */}
 
                                     <div
                                         style={{
@@ -255,42 +226,3 @@ export default function PatientInfoTherapist() {
     )
 }
 
-function DeleteTherapist(therapistId) {
-    console.log('хуй')
-    const db = app.firestore()
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Therapists')
-        .doc(therapistId)
-        .delete()
-}
-
-function addTherapist(therapistInput) {
-    const db = app.firestore()
-    if (therapistInput != '') {
-        db.collection('Therapists')
-            .doc(therapistInput)
-            .get()
-            .then((doc) => {
-                if (doc.exists) {
-                    console.log('zaebis pashe')
-                    db.collection('User')
-                        .doc(localStorage.getItem('user'))
-                        .collection('Patient')
-                        .doc(localStorage.getItem('child'))
-                        .collection('Therapists')
-                        .doc(therapistInput)
-                        .set({ Name: doc.data().Name })
-                } else {
-                    alert('Необхідно вказати дійсну пошту терапевта')
-                }
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    } else {
-        alert('Спочатку вкажіть пошту терапевта')
-    }
-}

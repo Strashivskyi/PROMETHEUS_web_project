@@ -19,7 +19,7 @@ function SignUpForm3() {
   
     const [profession, setProfession] = useState('')
     console.log(profession)
-    localStorage.setItem('proffesion', profession)
+ 
     const [organization, setOrganization] = useState('')
     localStorage.setItem('Organization', organization)
     console.log(organization)

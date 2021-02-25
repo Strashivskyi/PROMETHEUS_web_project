@@ -4,9 +4,9 @@ import app from '../../Firebase/firebase'
 import ProtocolItem from './PageComponent/ProtocolItem'
 import Header from '../Header/Header'
 import ArrowHeader from './PageComponent/ArrowHeader'
-import { ReactSortable } from "react-sortablejs";
+
 import MobileHeader from '../Header/MobileHeader'   
-import Plus from '../../assets/plus_proto.svg'
+
 
 export default function ProtocolList() {
     let test = []
@@ -17,7 +17,7 @@ export default function ProtocolList() {
 
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection(localStorage.getItem("proffesion"))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -41,7 +41,7 @@ export default function ProtocolList() {
                                     .doc(terapist)
                                     .collection('Patient')
                                     .doc(localStorage.getItem('child'))
-                                    .set({ Name: localStorage.getItem("childName")} )
+                                    .set(JSON.parse(localStorage.getItem('childData')) )
 
                             }
                             )
@@ -64,7 +64,7 @@ export default function ProtocolList() {
 
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection(localStorage.getItem("proffesion"))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -75,7 +75,7 @@ export default function ProtocolList() {
 
                     snapshot.docs.map((doc) => {
                         db
-                            .collection('User')
+                            .collection(localStorage.getItem("proffesion"))
                             .doc(localStorage.getItem('user'))
                             .collection('Patient')
                             .doc(localStorage.getItem('child'))
@@ -116,7 +116,7 @@ export default function ProtocolList() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection(localStorage.getItem("proffesion"))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -147,7 +147,7 @@ export default function ProtocolList() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection(localStorage.getItem("proffesion"))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .where('Name', '==', localStorage.getItem('childName'))
@@ -216,7 +216,7 @@ export default function ProtocolList() {
 function CreateProgramTemplates(protocols, child) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem("proffesion"))
         .doc(localStorage.getItem('user'))
         .collection('ProgramTemplates')
         .add({
@@ -227,7 +227,7 @@ function CreateProgramTemplates(protocols, child) {
         .then(function (docRef) {
             protocols.map((protocol) =>
                 db
-                    .collection('User')
+                    .collection(localStorage.getItem("proffesion"))
                     .doc(localStorage.getItem('user'))
                     .collection('ProgramTemplates')
                     .doc(docRef.id)
@@ -236,7 +236,7 @@ function CreateProgramTemplates(protocols, child) {
 
             )
             db
-                    .collection('User')
+                    .collection(localStorage.getItem("proffesion"))
                     .doc(localStorage.getItem('user'))
                     .collection('ProgramTemplates')
                     .doc(docRef.id)

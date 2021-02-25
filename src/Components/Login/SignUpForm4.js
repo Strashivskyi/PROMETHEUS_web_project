@@ -112,8 +112,13 @@ function addInputRegistr() {
             Country: localStorage.getItem('Country'),
             City: localStorage.getItem('City'),
             Profession: localStorage.getItem('proffesion'),
-            Organization: localStorage.getItem('Organization'),
             PhoneNumber: localStorage.getItem('PhoneNumber'),
             TelegramUserID: '',
+        })
+        db.collection("Users")
+        .doc()
+        .set({
+            Email:localStorage.getItem('userEmail'),
+            Profession: localStorage.getItem('proffesion'),
         })
 }

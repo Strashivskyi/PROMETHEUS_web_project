@@ -109,7 +109,7 @@ function CreateDuplicateProtocol(
     localStorage.setItem('program', protocolId)
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem("proffesion"))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -133,7 +133,7 @@ function CreateDuplicateProtocol(
             CriteriongenGenerSkill: CriteriongenGenerSkill
         })
         .then(function (docRef) {
-            db.collection('User')
+            db.collection(localStorage.getItem("proffesion"))
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .doc(localStorage.getItem('child'))
@@ -157,7 +157,7 @@ function CreateDuplicateProtocol(
 }
 function DeleteProtocol(protocolId) {
     const db = app.firestore()
-    db.collection('User')
+    db.collection(localStorage.getItem("proffesion"))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -197,7 +197,7 @@ function CheckIsActive({ isActive, protocolId }) {
 function UpdateActiveStatus(protocolId, valueStatus) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem("proffesion"))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))

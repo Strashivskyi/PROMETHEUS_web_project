@@ -32,18 +32,6 @@ function SignUpForm2() {
         }
         setSelectedFile(e.target.files[0])
     }
-    // const imageInput = document.getElementById('image_input');
-
-    // const fileChosen = document.getElementById('file-chosen');
-    // if (imageInput == null) {
-    //     fileChosen.textContent = this.files[0].name
-    // }
-    // if (imageInput != null) {
-    //     imageInput.addEventListener('change', function () {
-
-    //         fileChosen.textContent = this.files[0].name
-    //     })
-    // }
 
     const [country, setCountry] = useState('')
     console.log(country)

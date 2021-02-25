@@ -7,6 +7,7 @@ import PrivateRouteToReg from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToR
 import RenderProgram from './Components/Program/ProgramBranching'
 import { AuthProvider } from './Firebase/AuthSetup/Auth'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import PrivateRouteToLogin from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToLogin'
 import PatientInfoRender from './Components/PatientInfo/PatientInfoBranching'
 import RenderProgramList from './Components/ProtocolList/ProtocolListBranching'
@@ -17,8 +18,9 @@ import ProgramTemplate from './Components/ProgramTemplate/ProgramTemplate'
 function App() {
     return (
         <>
+        <HashRouter>
             <AuthProvider>
-                <Router>
+                
                     <Switch>
                         <Route exact path="/" component={SignIn} />
                         <PrivateRouteToLogin
@@ -66,8 +68,9 @@ function App() {
                             component={ProgramTemplate}
                         />
                     </Switch>
-                </Router>
+         
             </AuthProvider>
+            </HashRouter>
         </>
     )
 }

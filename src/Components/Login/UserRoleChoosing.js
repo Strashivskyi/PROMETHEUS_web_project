@@ -10,7 +10,7 @@ function SignUpForm3() {
         {
             label: 'Супервізор',
             value: {
-                role: 'User',
+                role: 'Supervisors',
             },
         },
         {
@@ -26,6 +26,7 @@ function SignUpForm3() {
         console.log(newValue.role)
     }
     localStorage.setItem("step",1)
+    localStorage.setItem("proffesion","Supervisors")
     return (
         <div>
             <LoginNavigation colorBackground={"white"} colorText={'#48535F'}/>

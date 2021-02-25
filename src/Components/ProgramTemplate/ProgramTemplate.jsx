@@ -14,7 +14,7 @@ function ProgramTemplate({ history }) {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection(localStorage.getItem("proffesion"))
             .doc(localStorage.getItem('user'))
             .collection('ProgramTemplates')
             .onSnapshot((snapshot) => {

@@ -32,6 +32,7 @@
     "react-select": "^3.1.1",
     "react-sortablejs": "^6.0.0",
     "react-switch-selector": "^1.2.1",
+    "sed": "0.0.2",
     "sortablejs": "^1.13.0",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4",
@@ -42,7 +43,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -63,8 +66,9 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "prettier": "2.2.1",
     "react-firebase-hooks": "^2.2.0"
-  },
-  "proxy": "http://localhost:5000"
+  }
+  
 }

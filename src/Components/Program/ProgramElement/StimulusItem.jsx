@@ -36,7 +36,5 @@ function DeleteStimul(stimulId) {
         .collection('Stimulus')
         .doc(stimulId)
         .delete()
-    // setTimeout(() => {
-    //     window.location.reload();
-    //    }, 300);
+
 }

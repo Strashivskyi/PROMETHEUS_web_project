@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import app from '../../Firebase/firebase'
 import ProgramHeader from '../Header/ProgramHeader'
-import { TextInput } from 'react-native-paper'
+
 import ArrowHeader from './ProgramElement/ArrowHeader'
-import CriteriongenSkill from './ProgramElement/CriteriongenGenerSkillElement/CriterionSkill'
-import StimulusItem from './ProgramElement/StimulusItem'
+
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
 import './Program.css'
 
@@ -38,7 +37,6 @@ function RemoveCopiedStatus({ protocol }) {
 
 export default function ProgramOnlyView() {
     let [stimulus, setStimulus] = useState([])
-    let [stimulInput, setStimulInput] = useState('')
 
     useEffect(() => {
         const db = app.firestore()
@@ -96,20 +94,6 @@ export default function ProgramOnlyView() {
             unsubscribe()
         }
     }, [])
-
-    // let [stimulus1, setStimulus1] = useState([]);
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const db = app.firestore()
-    //         test.map((t)=>{
-    //         const data = db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(t).collection("Stimulus").get()
-    //         setStimulus1(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-    //         console.log(stimulus1)
-    //         console.log("Сукаaaaaaaaa ")
-    //     })}
-    //     fetchData()
-    // }, [stimulus1, setStimulus1])
 
     protocols = protocols.filter((protocol) =>
         protocol.id.includes(localStorage.getItem('program'))

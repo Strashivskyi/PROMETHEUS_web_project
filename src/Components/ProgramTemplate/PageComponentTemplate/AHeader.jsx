@@ -4,32 +4,7 @@ import Arrow from '../../../assets/arrow.png'
 import Delete from '../../../assets/delete.svg'
 import app from '../../../Firebase/firebase'
 function AHeader() {
-    const [protocols, setProtocols] = useState([])
-    useEffect(() => {
-        const db = app.firestore()
-        const unsubscribe = db
-            .collection('User')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .doc(localStorage.getItem('child'))
-            .collection('Protocols')
-            .onSnapshot((snapshot) => {
-                if (snapshot.size) {
-                    setProtocols(
-                        snapshot.docs.map((doc) => ({
-                            ...doc.data(),
-                            id: doc.id,
-                        }))
-                    )
-                    console.log('Сука')
-                } else {
-                    console.log('Сука1')
-                }
-            })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    
     return (
         <>
             <div className="patient_upper_flex_container">
@@ -68,24 +43,9 @@ function AHeader() {
                     }}
                 />
                 <h2>Програма</h2>
-                {/* <div onClick={()=>addProto(protocols.length)} className="add-proto">
-                    <img className="add-foto"
-                        src={Delete}></img>
-                </div> */}
             </div>
         </>
     )
 }
-function addProto(length) {
-    const db = app.firestore()
 
-    db.collection('User')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .add({ ProtocolId: +length + 1 })
-
-    // console.log(data.key)
-}
 export default AHeader

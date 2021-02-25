@@ -1,5 +1,5 @@
 import Delete from '../../../assets/delete.svg'
-import { useState, useEffect } from 'react'
+
 import app from '../../../Firebase/firebase'
 
 function TemplateItem({ diagnos, age, count, number, idTemplate, history }) {
@@ -34,7 +34,7 @@ function CreateDuplicateTemplate(idTemplate, history) {
 
     console.log(
         db
-            .collection('User')
+            .collection(localStorage.getItem("proffesion"))
             .doc(localStorage.getItem('user'))
             .collection('ProgramTemplates')
             .doc(idTemplate)
@@ -42,7 +42,7 @@ function CreateDuplicateTemplate(idTemplate, history) {
             .onSnapshot((snapshot) => {
                 if (snapshot.size) {
                     snapshot.docs.map((doc) => {
-                        db.collection('User')
+                        db.collection(localStorage.getItem("proffesion"))
                             .doc(localStorage.getItem('user'))
                             .collection('Patient')
                             .doc(localStorage.getItem('child'))
@@ -62,33 +62,13 @@ function CreateDuplicateTemplate(idTemplate, history) {
     history.push('/protocol-list')
 }
 
-// console.log(data.key)
 
-//}
+
 function DeleteTemplate(idTemplate) {
     const db = app.firestore()
-    db.collection('User')
+    db.collection(localStorage.getItem("proffesion"))
         .doc(localStorage.getItem('user'))
         .collection('ProgramTemplates')
         .doc(idTemplate)
         .delete()
 }
-// function CheckIsActive({ isActive, protocolId }) {
-//     console.log(isActive)
-//     if (isActive == true) {
-
-//         return (
-//             <img onClick={() => UpdateActiveStatus(protocolId, '0')} className="icon" src={Visible} />
-//         )
-//     }
-//     else {
-//         return (<img onClick={() => UpdateActiveStatus(protocolId, '1')} className="icon" src={UnVisible} />
-//         )
-//     }
-// }
-// function UpdateActiveStatus(protocolId, valueStatus) {
-//     const db = app.firestore();
-
-//     db.collection("User").doc(localStorage.getItem("user")).collection("Patient").doc(localStorage.getItem("child")).collection("Protocols").doc(protocolId).update({ IsActive: valueStatus })
-
-// }

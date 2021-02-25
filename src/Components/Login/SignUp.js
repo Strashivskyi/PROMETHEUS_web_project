@@ -6,6 +6,7 @@ import PrivateRouteToReg from '../../Firebase/AuthSetup/PrivateRoute/PrivateRout
 import MobileHeader from '../Header/MobileHeader'
 import MobileRegistration from './MobileRegistration'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter} from 'react-router-dom'
 import './Login1.css'
 
 function SignUp() {
@@ -17,7 +18,7 @@ function SignUp() {
                 <div className="image" />
                 <div className="form">
                     <div className="sign-up-text">Реєстрація</div>
-                    <Router>
+                    <HashRouter>
                         <Switch>
                             <PrivateRouteToReg
                                 exact
@@ -40,7 +41,7 @@ function SignUp() {
                                 component={SignUpForm4}
                             />
                         </Switch>
-                    </Router>
+                        </HashRouter>
                 </div>
             </div>
         </>

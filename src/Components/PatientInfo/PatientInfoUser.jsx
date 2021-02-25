@@ -18,7 +18,7 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection('Supervisors')
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -50,7 +50,7 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection('Supervisors')
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -78,7 +78,7 @@ export default function PatientInfoUser() {
         const fetchData = async () => {
             const db = app.firestore()
             const data = await db
-                .collection('User')
+                .collection('Supervisors')
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .get()
@@ -100,7 +100,7 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+            .collection('Supervisors')
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -128,7 +128,7 @@ export default function PatientInfoUser() {
     } else {
         path = '/protocol-list'
     }
-
+    localStorage.setItem('childData', JSON.stringify(patients[0]))
     return (
         <>
             <Header />
@@ -299,13 +299,9 @@ export default function PatientInfoUser() {
                                                     </div>
                                                 </>
                                             ))}
-                                        {/* </ReactSortable> */}
+                                   
                                     </div>
-                                    {/* <div className="zebra_rows_flex_container_value">
-                                        {    
-                                            therapists.map((therapist) => test.push(therapist.id))
-                                        }
-                                    </div> */}
+                                   
                                     <div
                                         style={{
                                             display: 'flex',
@@ -379,13 +375,19 @@ export default function PatientInfoUser() {
 function DeleteTherapist(therapistId) {
     console.log('хуй')
     const db = app.firestore()
-    db.collection('User')
+    db.collection('Supervisors')
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
         .collection('Therapists')
         .doc(therapistId)
         .delete()
+        db.collection('Therapists')
+        .doc(therapistId)
+        .collection('Patient')
+        .doc(localStorage.getItem('child'))
+        .delete()
+
 }
 
 function addTherapist(therapistInput) {
@@ -397,7 +399,7 @@ function addTherapist(therapistInput) {
             .then((doc) => {
                 if (doc.exists) {
                     console.log('zaebis pashe')
-                    db.collection('User')
+                    db.collection('Supervisors')
                         .doc(localStorage.getItem('user'))
                         .collection('Patient')
                         .doc(localStorage.getItem('child'))

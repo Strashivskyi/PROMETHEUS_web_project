@@ -4,15 +4,15 @@ import DataPicker from './DataPicker'
 
 
 function MobileRegistration() {
-    const [firstName, setFirstName] = useState('')
-    localStorage.setItem('Name', firstName)
-    console.log(firstName)
-    const [lastName, setLastName] = useState('')
-    localStorage.setItem('Surname', lastName)
-    console.log(lastName)
-    const [sex, setSex] = useState('')
-    localStorage.setItem('Gender', sex)
-    console.log(sex)
+    // const [firstName, setFirstName] = useState('')
+    // localStorage.setItem('Name', firstName)
+    // console.log(firstName)
+    // const [lastName, setLastName] = useState('')
+    // localStorage.setItem('Surname', lastName)
+    // console.log(lastName)
+    // const [sex, setSex] = useState('')
+    // localStorage.setItem('Gender', sex)
+    // console.log(sex)
     return (
         <>
         <div className="mobile_registration">  
@@ -21,7 +21,7 @@ function MobileRegistration() {
             <div>Ім'я</div>
             <div className="input_text_name_mobile">
                     <input
-                        onChange={(event) => setLastName(event.target.value)}
+                        // onChange={(event) => setLastName(event.target.value)}
                         type="text"
                         id="lname"
                         name="lastname"
