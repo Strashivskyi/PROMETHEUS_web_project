@@ -21,42 +21,42 @@ function SignIn({ history }) {
                 if (snapshot.size) {
 
                     snapshot.docs.map((doc) => {
-                        localStorage.setItem("proffesion",doc.data().Profession)
+                        localStorage.setItem("proffesion", doc.data().Profession)
                     })
                 } else {
                     console.log('Немає професії')
                 }
             })
-                    // .collection('Patient')
-                    // .doc(localStorage.getItem('child'))
-                    // .collection('Protocols')
-                    // .doc(localStorage.getItem('program'))
-                    // .collection('Stimulus')
-                    // .onSnapshot((snapshot) => {
-                    //     if (snapshot.size) {
-                    //         setStimulus(
-                    //             snapshot.docs.map((doc) => ({
-                    //                 ...doc.data(),
-                    //                 id: doc.id,
-                    //             }))
-                    //         )
-                    //         console.log('Сука ')
-                    //     } else {
-                    //         console.log('Сука1')
-                    //     }
-                    // })
-               
+            // .collection('Patient')
+            // .doc(localStorage.getItem('child'))
+            // .collection('Protocols')
+            // .doc(localStorage.getItem('program'))
+            // .collection('Stimulus')
+            // .onSnapshot((snapshot) => {
+            //     if (snapshot.size) {
+            //         setStimulus(
+            //             snapshot.docs.map((doc) => ({
+            //                 ...doc.data(),
+            //                 id: doc.id,
+            //             }))
+            //         )
+            //         console.log('Сука ')
+            //     } else {
+            //         console.log('Сука1')
+            //     }
+            // })
+
             try {
                 await app
                     .auth()
                     .signInWithEmailAndPassword(email.value, password.value)
                 if (currentUser.emailVerified == true) {
-                    
+
                     await db.collection('Users').where("Email", '==', email.value).onSnapshot((snapshot) => {
                         if (snapshot.size) {
-        
+
                             snapshot.docs.map((doc) => {
-                                localStorage.setItem("proffesion",doc.data().Profession)
+                                localStorage.setItem("proffesion", doc.data().Profession)
                             })
                         } else {
                             console.log('Немає професії')
@@ -76,6 +76,14 @@ function SignIn({ history }) {
         localStorage.setItem('user', currentUser.email)
         return <Redirect to="/home" />
     }
+    localStorage.removeItem('userEmail')
+    localStorage.removeItem('Name')
+    localStorage.removeItem('Surname')
+    localStorage.removeItem('Birthday')
+    localStorage.removeItem('Gender')
+    localStorage.removeItem('Country')
+    localStorage.removeItem('City')
+    localStorage.removeItem('PhoneNumber')
 
     return (
         <>
@@ -110,7 +118,7 @@ function SignIn({ history }) {
                             Досі немає акаунту? &nbsp;&nbsp;&nbsp;
                         </span>{' '}
                         <Link className="login_link_reg" to="/registration">
-                            Зареєстуватись
+                            Зареєструватись
                         </Link>
                     </div>
                     <div className="forgot_password">

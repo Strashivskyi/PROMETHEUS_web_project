@@ -79,6 +79,7 @@ function SignUpForm2() {
                     <input
                         onChange={(event) => setCountry(event.target.value)}
                         type="text"
+                        defaultValue={localStorage.getItem('Country')}
                         id="fname"
                         name="firstname"
                         placeholder="Країна"
@@ -88,6 +89,7 @@ function SignUpForm2() {
                     <input
                         onChange={(event) => setCity(event.target.value)}
                         type="text"
+                        defaultValue={localStorage.getItem('City')}
                         id="fname"
                         name="firstname"
                         placeholder="Місто"

@@ -55,7 +55,7 @@ function SignUpForm4({ history }) {
                 <div className="inputE">
                     <input
                         onChange={(event) => setEmail(event.target.value)}
-                        className="inputE"
+                        defaultValue={localStorage.getItem('PhoneNumber')}
                         type="text"
                         id="fname"
                         name="email"
@@ -64,7 +64,7 @@ function SignUpForm4({ history }) {
                 </div>
                 <div className="inputP">
                     <input
-                        className="inputP"
+
                         type="text"
                         id="lname"
                         name="password"
@@ -73,7 +73,7 @@ function SignUpForm4({ history }) {
                 </div>
                 <div className="inputCp">
                     <input
-                        className="inputCp"
+
                         type="text"
                         id="lname"
                         name="passwordCheck"
@@ -83,7 +83,7 @@ function SignUpForm4({ history }) {
                 <div className="inputPh">
                     <input
                         onChange={(event) => setPhoneNumber(event.target.value)}
-                        className="inputPh"
+                        defaultValue={localStorage.getItem('userEmail')}
                         type="text"
                         id="lname"
                         name="phone"
@@ -115,10 +115,10 @@ function addInputRegistr() {
             PhoneNumber: localStorage.getItem('PhoneNumber'),
             TelegramUserID: '',
         })
-        db.collection("Users")
+    db.collection("Users")
         .doc()
         .set({
-            Email:localStorage.getItem('userEmail'),
+            Email: localStorage.getItem('userEmail'),
             Profession: localStorage.getItem('proffesion'),
         })
 }

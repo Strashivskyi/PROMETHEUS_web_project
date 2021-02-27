@@ -24,6 +24,7 @@ function SignUpForm1() {
                 <p className="personal_text">Особиста інформація</p>
                 <div className="input_text_name">
                     <input
+                    defaultValue={localStorage.getItem('Name')}
                         onChange={(event) => setFirstName(event.target.value)}
                         type="text"
                         id="fname"
@@ -33,6 +34,7 @@ function SignUpForm1() {
                 </div>
                 <div className="input_text_name">
                     <input
+                    defaultValue={  localStorage.getItem('Surname')}
                         onChange={(event) => setLastName(event.target.value)}
                         type="text"
                         id="lname"

@@ -4,8 +4,8 @@ import app from '../../Firebase/firebase'
 import ProtocolItem from './PageComponent/ProtocolItem'
 import Header from '../Header/Header'
 import ArrowHeader from './PageComponent/ArrowHeader'
-
-import MobileHeader from '../Header/MobileHeader'   
+import Popup from '../ModalWindow/Popup'
+import MobileHeader from '../Header/MobileHeader'
 
 
 export default function ProtocolList() {
@@ -41,7 +41,7 @@ export default function ProtocolList() {
                                     .doc(terapist)
                                     .collection('Patient')
                                     .doc(localStorage.getItem('child'))
-                                    .set(JSON.parse(localStorage.getItem('childData')) )
+                                    .set(JSON.parse(localStorage.getItem('childData')))
 
                             }
                             )
@@ -168,14 +168,29 @@ export default function ProtocolList() {
             unsubscribe()
         }
     }, [])
+    const [isOpen, setIsOpen] = useState(false);
+
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    }
 
     return (
         <>
             <Header />
             <ArrowHeader />
-            <MobileHeader/>
-            <button class="create_template_button btn-background-slide" onClick={() => CreateProgramTemplates(protocols, child[0])}>Імпортувати шаблон</button>
-            <div className="create_element" style={{marginRight: "50px", marginLeft: "-50px"}}>
+            <MobileHeader />
+            <button class="create_template_button btn-background-slide" onClick={togglePopup}>Зберегти як шаблон</button>
+            {isOpen && <Popup
+                content={<>
+                    <b className="text_modul">Будь ласка, оберіть тип даного шаблону:</b>
+                    <div className="button_modul">
+                        <button onClick={() => CreateProgramTemplates(protocols, child[0], "Private")} className="button_private">Приватний</button>
+                        <button onClick={() => CreateProgramTemplates(protocols, child[0], "Public")} className="button_public">Публічний</button>
+                    </div>
+                </>}
+                handleClose={togglePopup}
+            />}
+            <div className="create_element" style={{ marginRight: "50px", marginLeft: "-50px" }}>
                 {/* <ReactSortable list={protocols} setList={setProtocols}> */}
                 {protocols
                     .sort((a, b) => +a.ProtocolId - +b.ProtocolId)
@@ -213,40 +228,72 @@ export default function ProtocolList() {
     )
 }
 
-function CreateProgramTemplates(protocols, child) {
+function CreateProgramTemplates(protocols, child, typeTemplates) {
     const db = app.firestore()
+    if (typeTemplates == "Private") {
+        db.collection(localStorage.getItem("proffesion"))
+            .doc(localStorage.getItem('user'))
+            .collection('ProgramTemplates')
+            .add({
+                Age: child.Age,
+                Diagnos: child.Diagnos,
+                KidWeight: child.KidWeight,
+            })
+            .then(function (docRef) {
+                protocols.map((protocol) =>
+                    db
+                        .collection(localStorage.getItem("proffesion"))
+                        .doc(localStorage.getItem('user'))
+                        .collection('ProgramTemplates')
+                        .doc(docRef.id)
+                        .collection('protocols')
+                        .add(protocol)
 
-    db.collection(localStorage.getItem("proffesion"))
-        .doc(localStorage.getItem('user'))
-        .collection('ProgramTemplates')
-        .add({
-            Age: child.Age,
-            Diagnos: child.Diagnos,
-            KidWeight: child.KidWeight,
-        })
-        .then(function (docRef) {
-            protocols.map((protocol) =>
+                )
                 db
                     .collection(localStorage.getItem("proffesion"))
                     .doc(localStorage.getItem('user'))
                     .collection('ProgramTemplates')
                     .doc(docRef.id)
-                    .collection('protocols')
-                    .add(protocol)
-
-            )
-            db
-                    .collection(localStorage.getItem("proffesion"))
-                    .doc(localStorage.getItem('user'))
+                    .set({
+                        Age: child.Age,
+                        Diagnos: child.Diagnos,
+                        KidWeight: child.KidWeight, CountOfProtocol: protocols.length
+                    })
+            })
+            .catch(function (error) {
+                console.error('Error adding document: ', error)
+            })
+    }
+    if (typeTemplates == "Public") {
+        db
+            .collection('ProgramTemplates')
+            .add({
+                Age: child.Age,
+                Diagnos: child.Diagnos,
+                KidWeight: child.KidWeight,
+            })
+            .then(function (docRef) {
+                protocols.map((protocol) =>
+                    db
+                        .collection('ProgramTemplates')
+                        .doc(docRef.id)
+                        .collection('protocols')
+                        .add(protocol)
+                )
+                db
                     .collection('ProgramTemplates')
                     .doc(docRef.id)
-                    .set({ Age: child.Age,
+                    .set({
+                        Age: child.Age,
                         Diagnos: child.Diagnos,
-                        KidWeight: child.KidWeight,CountOfProtocol:protocols.length})
-        })
-        .catch(function (error) {
-            console.error('Error adding document: ', error)
-        })
+                        KidWeight: child.KidWeight, CountOfProtocol: protocols.length
+                    })
+            })
+            .catch(function (error) {
+                console.error('Error adding document: ', error)
+            })
+    }
     setTimeout(() => {
         alert("Шаблон протоколів успішно створений!")
     }, 300);

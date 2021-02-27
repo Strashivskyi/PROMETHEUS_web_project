@@ -2,7 +2,7 @@ import React from 'react'
 import './SignUpForm1.css'
 import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
-import app from '../../Firebase/firebase'
+import { Link } from 'react-router-dom'
 import SwitchSelector from 'react-switch-selector'
 import './UserRoleChoosing.css'
 function SignUpForm3() {
@@ -63,9 +63,9 @@ function SignUpForm3() {
                     Вже маєте акаунт? &nbsp;&nbsp;&nbsp;
                 </span>
                 <div className="login_link_reg">
-                    <a href="/" className="login_please">
+                    <Link to="/" className="login_please">
                         Залогуватись
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
