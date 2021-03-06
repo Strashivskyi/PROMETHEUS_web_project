@@ -187,12 +187,11 @@ export default function ProtocolList() {
                 >
                     <BsPlusCircle />
             </div>
-            {isOpen && <Popup
+            {isOpen && <Popup protocols={protocols} child={child[0]}
                 content={<>
                     <b className="text_modul">Будь ласка, оберіть тип даного шаблону:</b>
                     <div className="button_modul">
-                        <button className="button_private">Приватний</button>
-                        <button className="button_public">Публічний</button>
+                        
                     </div>
                 </>}
                 handleClose={togglePopup}

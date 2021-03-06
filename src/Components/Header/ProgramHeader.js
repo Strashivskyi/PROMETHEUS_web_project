@@ -15,10 +15,18 @@ function ProgramHeader() {
     let childName = localStorage.getItem('child')
 
     const exportUsersToExcel = (userEmail, kidName) => {
-        fetch(`/files/${userEmail}/${kidName}`).then((data) => {
-            setFileGenerated(data.status) // 200
-        })
+        console.log(fetch(`http://localhost:5000/files/${userEmail}/${kidName}`))
+
+        try {
+            fetch(`http://localhost:5000/files/${userEmail}/${kidName}`).then((data) => {
+                setFileGenerated(data.status) // 200
+            })
+          } catch(err) {
+            console.log(err); // Failed to fetch
+          }
+        
     }
+
 
     return (
         <>
