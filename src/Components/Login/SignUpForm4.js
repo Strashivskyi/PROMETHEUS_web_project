@@ -55,7 +55,6 @@ function SignUpForm4({ history }) {
                 <div className="inputE">
                     <input
                         onChange={(event) => setEmail(event.target.value)}
-                        className="inputE"
                         type="text"
                         id="fname"
                         name="email"
@@ -64,7 +63,6 @@ function SignUpForm4({ history }) {
                 </div>
                 <div className="inputP">
                     <input
-                        className="inputP"
                         type="text"
                         id="lname"
                         name="password"
@@ -73,7 +71,6 @@ function SignUpForm4({ history }) {
                 </div>
                 <div className="inputCp">
                     <input
-                        className="inputCp"
                         type="text"
                         id="lname"
                         name="passwordCheck"
@@ -83,7 +80,6 @@ function SignUpForm4({ history }) {
                 <div className="inputPh">
                     <input
                         onChange={(event) => setPhoneNumber(event.target.value)}
-                        className="inputPh"
                         type="text"
                         id="lname"
                         name="phone"

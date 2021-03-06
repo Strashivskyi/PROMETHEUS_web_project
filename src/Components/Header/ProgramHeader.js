@@ -62,4 +62,4 @@ function ProgramHeader() {
     )
 }
 
-export default ProgramHeader
+export default ProgramHeader;

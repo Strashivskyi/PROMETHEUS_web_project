@@ -25,7 +25,7 @@ html {
     background: url('../../assets/image 27.svg') center no-repeat;
     background-size: 42vw 90vh;
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
     .image-form-division-sign-up {
         display: none;
     }

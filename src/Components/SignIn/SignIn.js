@@ -6,8 +6,6 @@ import './SignIn.css'
 import { AuthContext } from '../../Firebase/AuthSetup/Auth'
 import { Link } from 'react-router-dom'
 import MobileHeader from '../Header/MobileHeader'
-import Logo from '../../assets/Logo.svg';
-import SignOut from '../../assets/SignOut.svg';
 
 function SignIn({ history }) {
     const { currentUser } = useContext(AuthContext)
@@ -78,27 +76,33 @@ function SignIn({ history }) {
     }
 
     return (
-        <>
+        <> 
             <MobileHeader />
+            <div className="light_blue_back">
             <div className="image-form-division">
                 <div className="image" />
                 <div className="form">
                     <div className="sign-in-text"> Увійти на сайт</div>
                     <form className="login_form" onSubmit={handleLogin}>
+                    <div className="mobile_signin_label">Email</div>
+                    <div className="login_text_input">
+                    <input
+                        type="text"
+                        id="fname"
+                        name="email"
+                        placeholder="Email"
+                    />
+                </div>
+                <div className="mobile_signin_label">Пароль</div>
+                <div className="login_text_input_second">
+
                         <input
-                            className="login_text_input"
-                            type="text"
-                            id="fname"
-                            name="email"
-                            placeholder="Email"
-                        />
-                        <input
-                            className="login_text_input_second"
                             type="password"
                             id="lname"
                             name="password"
                             placeholder="Пароль"
                         />
+                </div>
                         <input
                             class="slide-hover-left-3"
                             type="submit"
@@ -110,7 +114,7 @@ function SignIn({ history }) {
                             Досі немає акаунту? &nbsp;&nbsp;&nbsp;
                         </span>{' '}
                         <Link className="login_link_reg" to="/registration">
-                            Зареєстуватись
+                            Зареєструватись
                         </Link>
                     </div>
                     <div className="forgot_password">
@@ -121,6 +125,7 @@ function SignIn({ history }) {
                             Відновити пароль
                         </Link>
                     </div>
+                </div>
                 </div>
             </div>
         </>

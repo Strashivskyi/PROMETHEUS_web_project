@@ -101,11 +101,20 @@ export default function ProgramEditable() {
     protocols = protocols.filter((protocol) =>
         protocol.id.includes(localStorage.getItem('program'))
     )
+    const [fileGenerated, setFileGenerated] = useState(0)
 
+    let userEmail = localStorage.getItem('user')
+    let childName = localStorage.getItem('child')
+
+    const exportUsersToExcel = (userEmail, kidName) => {
+        fetch(`/files/${userEmail}/${kidName}`).then((data) => {
+            setFileGenerated(data.status) // 200
+        })
+    }
     return (
         <PaperProvider theme={theme}>
             <>
-            <MobileHeader />
+                <MobileHeader />
                 <ProgramHeader />
                 <ArrowHeader />
                 <ul style={{ position: 'relative', right: '4%' }}>
@@ -692,6 +701,13 @@ export default function ProgramEditable() {
                         </div>
                     ))}
                 </ul>
+                <button
+                        className="save_button_supervisor_mobile btn-background-slide"
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => exportUsersToExcel(userEmail, childName)}
+                    >
+                        Зберегти файл
+            </button>
                 <div style={{ height: '100px' }}></div>
             </>
         </PaperProvider>

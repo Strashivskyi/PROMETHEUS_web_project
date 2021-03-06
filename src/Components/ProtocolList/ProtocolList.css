@@ -1,3 +1,12 @@
+.patient_upper_flex_container {
+    display: flex;
+    flex-direction: row;
+}
+.create_element{
+    margin-right: 50px;
+    margin-left: -50px;
+}
+
 .protocol_item_text {
     width: 78%;
     font-family: Inter;
@@ -33,9 +42,8 @@
     flex-direction: row;
 }
 
-.icon-edit {
+.edit_icon {
     cursor: pointer;
-    margin: 0.2rem;
 }
 
 .icon {
@@ -118,14 +126,119 @@
   .create_template_button.btn-background-slide:hover {
     color: white;
   }
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .go_icon{
+      transform: scale(1.5);
+  }
+  .go_icon:hover{
+    transform: scale(1.8);
+}
+.edit_icon:hover{
+    transform: scale(3.5);
+    transition: 0.1s;  
+
+}
+.edit_icon {
+    position: relative;
+    transform: scale(3);
+    width: 1vw;
+    height: 1vw;
+
+}
+.add-proto-mobile{
+    position: relative;
+    top: -1000px;
+}
+
+  @media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
+    
+    .add-proto-mobile:hover{
+        transform: scale(2.5);
+        transition: 0.2s;
+        margin-top: -2vw;
+        margin-left: 81vw;
+
+
+    }
+    .add-proto-mobile{
+        position: relative;
+        right: 0%;
+        top: 0rem;
+        color: grey;
+        height: 3rem;
+        width: 3rem;
+        cursor: pointer;
+        margin-top: -3vw;
+        margin-left: 80vw;
+        transform: scale(2);
+
+    }
+    .create_template_button {
+        background: transparent;
+        color: #EF4F59;
+        padding: .5em 1em;
+        margin-left: 9vw;
+        margin-right: 0px;
+        margin-top: 5vw;
+        font-size: 4vw;
+        width: 50%;
+        height: 9vw;
+        position: relative;
+    
+      }
+    .go_icon{
+        position: relative;
+        top: 1vw;
+    }
+    .go_icon:hover{
+        top: 1.5vw;
+    }
+    .edit_icon:hover{
+        transform: scale(3.5);
+        transition: 0.1s;  
+        top: 3.2vw;
+
+    }
+    .edit_icon {
+        position: relative;
+        top: 3vw;
+        transform: scale(3);
+        width: 10vw;
+        height: 10vw;
+        margin-top: 30px;  
+
+    }
+    
+    .icon_place {
+        width: 97%;
+        height: 35%;
+        background-color: #EEEEEE;
+
+    }
+    .icon {
+        cursor: pointer;
+        margin: 7vw;
+        margin-top: 0;
+        padding-top: 3vw;
+        padding-bottom: 6vw;
+        margin-bottom: 0;
+        width: 3vw;
+        height: 3vw;
+    }
+    .control-panel {
+        display: flex;
+        align-items: left;
+        background-color: #9b2f2f;
+    }
+    .patient_upper_flex_container {
+        display: none;
+    }
     .protocol_item {
         display: flex;
         flex-direction: column;
         width: 87%;
         height: 25vw;
         margin: 0.5rem 1vw 0rem -5vw;
-        border: solid #AAAAAA 1px;
+        border: solid #AAAAAA 1.4px;
         background-color: #FFF !important;
         
     }
@@ -134,7 +247,7 @@
         font-family: Inter;
         font-style: normal;
         font-weight: 500;
-        font-size: 6vw;
+        font-size: 4vw;
         margin-bottom: -1vw;
         align-self: center;
         padding-top: -50px;
@@ -153,9 +266,7 @@
         margin-left: 6.5vw;
 
     }
-    .create_element{
-        margin-top: 20px;
-    }
+    
     .add_protocol_text{
         font-size: 5vw;
         padding-top: 4%;
@@ -169,7 +280,24 @@
 
 
     }
-  }
+    @media only screen and (min-device-width : 480px) and (max-device-width : 800px) {
+        .add-proto-mobile{
+            margin-top: 0vw;
+            transform: scale(3);
+
+        }
+        .add-proto-mobile:hover{
+            transform: scale(3.6);
+            transition: 0.2s;
+            margin-top: 1vw;
+            margin-left: 81vw;
+    
+    
+        }
+        } 
+}
+
+  
   @media screen and (min-width: 1300px) {
     .create_template_button {
         background: transparent;
@@ -214,7 +342,13 @@
         margin-top: 2.5rem;
     }
 }
-@media screen and (max-width: 800px){
+@media screen and (min-width: 800px) and (max-width: 1300px){
+    .edit_icon {
+
+        width: 1.7vw;
+        height: 1.7vw;
+    
+    }
     .create_element{
         margin-top: 90px;
     }
@@ -224,15 +358,14 @@
 
 
     }
-}
-@media screen and (max-width: 850px){
-    .create_element{
-        margin-top: 90px;
-    }
-    .create_template_button{
-        margin-left: 200px;
-        margin-top: 5px;
+    @media screen and (min-width: 1000px) and (max-width: 1300px){
+        .edit_icon {
+    
+            width: 1.3vw;
+            height: 1.3vw;
         
-
+        }
+    
     }
 }
+

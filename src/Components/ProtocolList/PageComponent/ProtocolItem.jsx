@@ -5,7 +5,7 @@ import Delete from '../../../assets/delete.svg'
 import { useState, useEffect } from 'react'
 import app from '../../../Firebase/firebase'
 import { Link } from 'react-router-dom'
-import EditIcon from '@material-ui/icons/Edit'
+import EditIcon from '../../../assets/edit_new.svg'
 
 export default function ProtocolItem({
     protocolId,
@@ -39,8 +39,8 @@ export default function ProtocolItem({
                 style={{ backgroundColor: colorItem, marginLeft: '5rem' }}
             >
                 <p className="protocol_item_text ">
-                    Протокол {protocolName} {statusCopied}.{' '}
-                    {sphereOfDevelopment}. {skill}
+                    Протокол {protocolName}{statusCopied}.
+                     {sphereOfDevelopment}.{skill}
                 </p>
                 <div className="icon_place">
                     <Link
@@ -49,7 +49,10 @@ export default function ProtocolItem({
                         }
                         to="/program"
                     >
-                        <EditIcon className="icon" style={{ position: "relative", top: "-5px", color: "black" }} />
+                    <img
+                        className="icon edit_icon"
+                        src={EditIcon}
+                    />
                     </Link>
 
                     <img

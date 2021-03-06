@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import app from '../../Firebase/firebase'
 import './PatientInfoPage.css'
 import Header from '../Header/Header'
+import MobileHeader from '../Header/MobileHeader'
 import Arrow from '../../assets/arrow.png'
 import Kid from '../../assets/kid.jpg'
 import { Link } from 'react-router-dom'
@@ -130,7 +131,8 @@ export default function PatientInfoUser() {
     }
     localStorage.setItem('childData', JSON.stringify(patients[0]))
     return (
-        <>
+        <div >
+            <MobileHeader/>
             <Header />
             <ul>
                 {patients.map((patient) => (
@@ -161,10 +163,15 @@ export default function PatientInfoUser() {
                             </h2>
                         </div>
                         <div className="patient_grid_container">
+                        <img
+                                    src={patient.Image}
+                                    height="200"
+                                    className="mobile_child_image"
+                                />
                             <img
                                 src={patient.Image}
                                 height="270"
-                                style={{ marginTop: '80px' }}
+                                className="child_image"
                             />
                             <div className="column_outer_flex_container">
                                 <div className="kid_name">{patient.Name} </div>
@@ -256,21 +263,14 @@ export default function PatientInfoUser() {
                                     }}
                                 >
                                     <div>Терапевти:</div>
-                                    <div>
+                                    <div className="therapist_info">
                                         {/* <ReactSortable list={protocols} setList={setProtocols}> */}
                                         {therapists
                                             .sort((a, b) => +a.id - +b.id)
                                             .map((therapist) => (
                                                 <>
                                                     <div
-                                                        style={{
-                                                            fontSize: '20px',
-                                                            display: 'flex',
-                                                            flexDirection:
-                                                                'row',
-                                                            justifyContent:
-                                                                'space-between',
-                                                        }}
+                                                        className = "therapist_container"
                                                     >
                                                         <div>
                                                             {therapist.Name}
@@ -278,15 +278,15 @@ export default function PatientInfoUser() {
                                                                 className="zebra_rows_flex_container_value"
                                                                 style={{
                                                                     marginTop:
-                                                                        '-20px',
+                                                                        '0px',
                                                                 }}
                                                             >
                                                                 ({therapist.id})
                                                             </div>
                                                         </div>
-                                                        <div className="icon_place">
+                                                        <div className="icon_place_therapist">
                                                             <img
-                                                                className="icon"
+                                                                className="icon_patient"
                                                                 onClick={() =>
                                                                     DeleteTherapist(
                                                                         therapist.id
@@ -303,6 +303,7 @@ export default function PatientInfoUser() {
                                     </div>
                                    
                                     <div
+                                        className="add_patient_container"
                                         style={{
                                             display: 'flex',
                                             flexDirection: 'row',
@@ -316,6 +317,7 @@ export default function PatientInfoUser() {
                                             className="add_button"
                                         >
                                             <h1
+                                                
                                                 style={{
                                                     marginTop: '5px',
                                                     marginBottom: '5px',
@@ -368,7 +370,7 @@ export default function PatientInfoUser() {
                     </>
                 ))}
             </ul>
-        </>
+        </div>
     )
 }
 

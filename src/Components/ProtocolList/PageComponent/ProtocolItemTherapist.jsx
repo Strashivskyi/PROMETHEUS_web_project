@@ -35,13 +35,13 @@ export default function ProtocolItemTherapist({
         <>
             <div
                 className="protocol_item"
-                style={{ backgroundColor: colorItem, marginLeft: '5rem' }}
+                style={{ backgroundColor: colorItem, marginLeft: '7vw' }}
             >
                 <p className="protocol_item_text ">
                     Протокол {protocolName} {statusCopied}.{' '}
                     {sphereOfDevelopment}. {skill}
                 </p>
-                <div className="control-panel">
+                <div className="icon_place">
                     <CheckIsActive
                         isActive={isActive}
                         protocolId={protocolId}
@@ -53,10 +53,7 @@ export default function ProtocolItemTherapist({
                         to="/program"
                     >
                         <AiOutlineArrowRight
-                            size={25}
-                            style={{
-                                paddingLeft: '2rem',
-                            }}
+                            className='icon go_icon'
                             color="black"
                         />
                     </Link>

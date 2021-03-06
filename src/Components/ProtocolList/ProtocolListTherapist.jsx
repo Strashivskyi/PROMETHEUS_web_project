@@ -5,6 +5,7 @@ import Header from '../Header/Header'
 import { Link } from 'react-router-dom'
 import Arrow from '../../assets/arrow.png'
 import './ProtocolList.css'
+import MobileHeader from '../Header/MobileHeader'
 
 export default function ProtocolList() {
     let test = []
@@ -70,6 +71,7 @@ export default function ProtocolList() {
 
     return (
         <>
+            <MobileHeader/>
             <Header />
             <div className="patient_upper_flex_container">
                 <h2 style={{ marginLeft: '6rem' }}>

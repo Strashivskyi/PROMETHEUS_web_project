@@ -48,7 +48,7 @@ function ProgramTemplate({ history }) {
             <div className="template_title">
                 <div className="templates_string">
                     {' '}
-                    Створити програму на основі шаблону серед наведених нище АБО
+                    Створити програму на основі шаблону серед наведених нижче АБО
                 </div>
                 <Link className="template_link" to="/protocol-list">
                     Створити пусту програму

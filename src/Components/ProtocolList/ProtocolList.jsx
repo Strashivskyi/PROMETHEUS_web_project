@@ -4,8 +4,9 @@ import app from '../../Firebase/firebase'
 import ProtocolItem from './PageComponent/ProtocolItem'
 import Header from '../Header/Header'
 import ArrowHeader from './PageComponent/ArrowHeader'
-
-import MobileHeader from '../Header/MobileHeader'   
+import Popup from '../ModalWindow/Popup'
+import MobileHeader from '../Header/MobileHeader'
+import { BsPlusCircle } from 'react-icons/bs'
 
 
 export default function ProtocolList() {
@@ -41,7 +42,7 @@ export default function ProtocolList() {
                                     .doc(terapist)
                                     .collection('Patient')
                                     .doc(localStorage.getItem('child'))
-                                    .set(JSON.parse(localStorage.getItem('childData')) )
+                                    .set(JSON.parse(localStorage.getItem('childData')))
 
                             }
                             )
@@ -169,13 +170,34 @@ export default function ProtocolList() {
         }
     }, [])
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    }
     return (
         <>
+           <MobileHeader />
             <Header />
             <ArrowHeader />
-            <MobileHeader/>
-            <button class="create_template_button btn-background-slide" onClick={() => CreateProgramTemplates(protocols, child[0])}>Імпортувати шаблон</button>
-            <div className="create_element" style={{marginRight: "50px", marginLeft: "-50px"}}>
+            <button class="create_template_button btn-background-slide" onClick={togglePopup}>Зберегти як шаблон</button>
+            <div
+                    onClick={() => addProto(protocols.length)}
+                    className="add-proto-mobile"
+                >
+                    <BsPlusCircle />
+            </div>
+            {isOpen && <Popup
+                content={<>
+                    <b className="text_modul">Будь ласка, оберіть тип даного шаблону:</b>
+                    <div className="button_modul">
+                        <button className="button_private">Приватний</button>
+                        <button className="button_public">Публічний</button>
+                    </div>
+                </>}
+                handleClose={togglePopup}
+            />}
+            <div className="create_element" >
                 {/* <ReactSortable list={protocols} setList={setProtocols}> */}
                 {protocols
                     .sort((a, b) => +a.ProtocolId - +b.ProtocolId)
@@ -208,7 +230,9 @@ export default function ProtocolList() {
                         />
                     ))}
                 {/* </ReactSortable> */}
+                
             </div>
+            
         </>
     )
 }
@@ -236,13 +260,15 @@ function CreateProgramTemplates(protocols, child) {
 
             )
             db
-                    .collection(localStorage.getItem("proffesion"))
-                    .doc(localStorage.getItem('user'))
-                    .collection('ProgramTemplates')
-                    .doc(docRef.id)
-                    .set({ Age: child.Age,
-                        Diagnos: child.Diagnos,
-                        KidWeight: child.KidWeight,CountOfProtocol:protocols.length})
+                .collection(localStorage.getItem("proffesion"))
+                .doc(localStorage.getItem('user'))
+                .collection('ProgramTemplates')
+                .doc(docRef.id)
+                .set({
+                    Age: child.Age,
+                    Diagnos: child.Diagnos,
+                    KidWeight: child.KidWeight, CountOfProtocol: protocols.length
+                })
         })
         .catch(function (error) {
             console.error('Error adding document: ', error)
@@ -250,4 +276,31 @@ function CreateProgramTemplates(protocols, child) {
     setTimeout(() => {
         alert("Шаблон протоколів успішно створений!")
     }, 300);
+}
+function addProto(length) {
+    const db = app.firestore()
+
+    db.collection('User')
+        .doc(localStorage.getItem('user'))
+        .collection('Patient')
+        .doc(localStorage.getItem('child'))
+        .collection('Protocols')
+        .add({
+            ProtocolId: +length + 1, 
+            SphereOfDevelopment: "", 
+            Skill: "", 
+            IsActive: '0',
+            Interval: "0",
+            CorrectionProcedureStep1: "",
+            CorrectionProcedureStep2: "",
+            CorrectionProcedureStep3: "",
+            CriterionIncrease: "",
+            DesirableReaction: "",
+            Method: "",
+            MethodTakingHint: "Тимчасова затримка",
+            ReductionСriterion: "",
+            StepDescription: "",CriteriongenGenerSkill:""
+        })
+
+    // console.log(data.key)
 }

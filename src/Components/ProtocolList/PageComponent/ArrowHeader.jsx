@@ -4,13 +4,13 @@ import Arrow from '../../../assets/arrow.png'
 import Delete from '../../../assets/delete.svg'
 import app from '../../../Firebase/firebase'
 import { BsPlusCircle } from 'react-icons/bs'
-
+import '../ProtocolList.css'
 function ArrowHeader() {
     const [protocols, setProtocols] = useState([])
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection(localStorage.getItem("proffesion"))
+            .collection('User')
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -67,7 +67,7 @@ function ArrowHeader() {
 function addProto(length) {
     const db = app.firestore()
 
-    db.collection(localStorage.getItem("proffesion"))
+    db.collection('User')
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -89,6 +89,6 @@ function addProto(length) {
             StepDescription: "",CriteriongenGenerSkill:""
         })
 
-
+    // console.log(data.key)
 }
 export default ArrowHeader

@@ -11,6 +11,8 @@ import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import app from '../../Firebase/firebase'
 import './RegPatientPage.css'
+import MobileHeader from '../Header/MobileHeader'
+import "./RegPatientPage.css"
 
 /* -
 ----------------------------
@@ -216,7 +218,8 @@ export default function RegistrationPatient() {
     }
 
     return (
-        <>
+        <div className="general_container">
+            <MobileHeader/>
             <SimpleHeader />
             <div
                 className="patient_upper_flex_container"
@@ -255,10 +258,8 @@ export default function RegistrationPatient() {
                             alt="Avatar"
                             src={image}
                             variant="square"
-                            style={{
-                                width: '256px',
-                                height: '256px',
-                            }}
+                            style={{marginLeft: "auto", width: "256px", height: "256px", marginLeft: "auto"}}
+
                         />
                         <input
                             ref={inputFileRef}
@@ -293,6 +294,8 @@ export default function RegistrationPatient() {
                             <div className="label-area">Ім'я та Прізвище:</div>
 
                             <TextField
+                               className="patient-subtitle-input"
+                               color="secondary"
                                 onChange={(event) => nameChange(event)}
                             />
                         </div>
@@ -307,7 +310,7 @@ export default function RegistrationPatient() {
                                 Діагноз:
                             </div>
                             <TextField
-                                className="patient-subtitle-input"
+                                color="secondary"
                                 onChange={(event) => diagnoseChange(event)}
                             />
                         </div>
@@ -319,6 +322,7 @@ export default function RegistrationPatient() {
                                     <div className="label-area">Батьки:</div>
 
                                     <TextField
+                                    color="secondary"
                                         onChange={(event) =>
                                             parentsChange(event)
                                         }
@@ -327,6 +331,8 @@ export default function RegistrationPatient() {
                                 <div className="white-stipe-zebra">
                                     <div className="label-area">Стать:</div>
                                     <TextField
+                    
+                                    color="secondary"
                                         select
                                         value={gender}
                                         onChange={(event) =>
@@ -346,6 +352,8 @@ export default function RegistrationPatient() {
                                 <div className="grey-stripe-zebra">
                                     <div className="label-area">Вік:</div>
                                     <TextField
+                                    className="big_input"
+                                    color="secondary"
                                         type="number"
                                         InputLabelProps={{
                                             shrink: true,
@@ -376,6 +384,8 @@ export default function RegistrationPatient() {
                                     <div className="label-area">Місто:</div>
                                     <TextField
                                         onChange={(event) => cityChange(event)}
+                                        color="secondary"
+
                                     />
                                 </div>
                                 <div className="white-stipe-zebra">
@@ -384,6 +394,8 @@ export default function RegistrationPatient() {
                                         onChange={(event) =>
                                             countryChange(event)
                                         }
+                                        color="secondary"
+
                                     />
                                 </div>
                             </div>
@@ -391,6 +403,7 @@ export default function RegistrationPatient() {
                                 <div className="grey-stripe-zebra">
                                     <div className="label-area">Вага:</div>
                                     <TextField
+                                        color="secondary"
                                         type="number"
                                         InputLabelProps={{
                                             shrink: true,
@@ -410,6 +423,7 @@ export default function RegistrationPatient() {
                                 <div className="white-stipe-zebra">
                                     <div className="label-area">Зріст:</div>
                                     <TextField
+                                        color="secondary"
                                         type="number"
                                         InputLabelProps={{
                                             shrink: true,
@@ -431,6 +445,7 @@ export default function RegistrationPatient() {
                                         Група крові:
                                     </div>
                                     <TextField
+                                        color="secondary"
                                         select
                                         value={blood}
                                         onChange={(event) => bloodChange(event)}
@@ -451,19 +466,15 @@ export default function RegistrationPatient() {
                     <Link to="/">
                         <button
                             className="save_button"
-                            style={{
-                                top: '3.1rem',
-                                right: '5.6rem',
-                                cursor: 'pointer',
-                                position: 'absolute',
-                            }}
                             onClick={handleSubmit}
                         >
                             Зберегти
                         </button>
                     </Link>
+                    
                 </div>
+                
             </div>
-        </>
+        </div>
     )
 }

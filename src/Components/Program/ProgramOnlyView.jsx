@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import app from '../../Firebase/firebase'
 import ProgramHeader from '../Header/ProgramHeader'
+import MobileHeader from '../Header/MobileHeader'
 
 import ArrowHeader from './ProgramElement/ArrowHeader'
 
@@ -102,6 +103,7 @@ export default function ProgramOnlyView() {
     return (
         <PaperProvider theme={theme}>
             <>
+                <MobileHeader/>
                 <ProgramHeader />
                 <ArrowHeader />
                 <ul style={{ position: 'relative', right: '4%' }}>

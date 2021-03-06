@@ -4,6 +4,10 @@
     display: flex;
     flex-direction: row;
 }
+.save_button_supervisor_mobile{
+    display: none;
+}
+
 .program_big_flex_container {
     display: flex;
     flex-direction: column;
@@ -11,10 +15,12 @@
     margin-left: 6vw;
     min-width: 90vw;
 }
+
 .each_element_grid_container {
     display: grid;
     grid-template-columns: 34vw auto;
 }
+
 .title_name {
     font-family: Inter;
     font-style: normal;
@@ -24,6 +30,7 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
 .element_name {
     font-family: Inter;
     font-style: normal;
@@ -33,6 +40,7 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
 .element_value {
     font-family: Inter;
     font-style: normal;
@@ -40,6 +48,7 @@
     font-size: 20px;
     line-height: 40px;
 }
+
 .stymul_grid_container {
     display: grid;
     margin-left: -40px;
@@ -50,23 +59,31 @@
     min-width: 200px;
     max-width: 200px;
 }
-.stymuls li:hover{
+
+.stymuls li:hover {
     transform: scale(1.002);
     text-decoration: underline 0.1px;
+
 }
+
 ul {
     list-style-type: none;
+
 }
+
 .step_grid_container {
     display: grid;
     grid-template-columns: 50vw 1vw;
     width: 200px;
 }
-.criterions li:hover{
+
+.criterions li:hover {
     transform: scale(1.002);
     text-decoration: underline 0.1px;
+
 }
-/* .transparent_input input {
+
+.transparent_input input {
     color: #222222;
     width: 100%;
     padding: 6px 8px;
@@ -83,7 +100,7 @@ ul {
     padding: 6px 10px;
     border: black;
     background-color: transparent;
-} */
+}
 .add_button {
     margin-left: -40px;
     background-color: transparent;
@@ -93,78 +110,160 @@ ul {
     height: 45px;
     margin-right: 5px;
 }
+
 .add_button:hover {
     margin-left: -40px;
     background-color: whitesmoke;
 }
-.program_link{
+
+.program_link {
     color: black;
 }
-.program_link:hover{
+
+.program_link:hover {
     color: #48535F;
+
 }
-.delete_criterion{
+
+.delete_criterion {
     margin-left: 30px;
     margin-right: 30px;
     margin-top: 9px;
 }
-.delete_criterion:hover{
+
+.delete_criterion:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
-.delete_stymul:hover{
+
+.delete_stymul:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
+    .save_button_supervisor_mobile{
+        display: initial;
+        background: transparent;
+        color: #EF4F59;
+        padding: .5em 1em;
+        border: 1px solid #ef4f59;
+        cursor: pointer;
+        font-family: Inter;
+        font-weight: 500;
+        line-height: 12px;
+        font-size: 20px;
+        width: 60vw;
+        margin-left: 20vw;
+        margin-right: 20vw;
+        height: 40px;
+        position: relative;    
+
+    }
+    .save_button_supervisor_mobile.btn-background-slide::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        background-color: #ef4f59;
+        transition: transform 300ms ease-in-out;
+        transform: scaleX(0);
+        transform-origin: center;
+      }
+      
+      .save_button_supervisor_mobile.btn-background-slide:hover::before {
+        transform: scaleX(1);
+      }
+      
+      .save_button_supervisor_mobile.btn-background-slide {
+        transition: color 300ms ease-in-out;
+        z-index: 1;
+      }
+      
+      
+      .save_button_supervisor_mobile.btn-background-slide:hover {
+        color: white;
+      }
+
+    .each_element_grid_container {
+        display: grid;
+        grid-template-columns: 34vw auto;
+
+    }
+
     .program_big_flex_container {
         display: flex;
         flex-direction: column;
-        margin-right: 10px;
-        margin-left: 10px;
-        min-width: 90vw;
+        margin-right: 5px;
+        margin-left: -10px;
+        min-width: 95vw;
         max-width: 90vw;
 
     }
-    .title_name {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 17px;
-        line-height: 40px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+
     .element_name {
         font-family: Inter;
         font-style: normal;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 13.5px;
         line-height: 40px;
         padding-left: 10px;
         padding-right: 10px;
     }
+
     .element_value {
-        max-width: 10vw;
+        max-width: 50vw;
         font-family: Inter;
         font-style: normal;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 40px;
+        padding-right: 30px;
+        min-width: 74vw;
+        padding-left: 10px;
+
     }
-   
+
+    .transparent_input {
+        margin-top: 10px;
+        margin-right: 60px;
+        background-color: #F7F7F7;
+        padding: 0px 5px;
+        line-height: 20px;
+        width: 100%;
+        line-height: 30px;
+        height: 40px;
+
+
+    }
+    .transparent_input input:focus {
+        padding: 0px 0px;
+        border: black;
+        background-color: transparent;
+    }
+
+    
+
 }
-@media screen and (min-width:1300px){
-    .element_name{
+
+
+
+@media screen and (min-width: 1300px) {
+    .element_name {
         line-height: 55px;
     }
 }
-@media screen and (min-width:1920px){
-    .element_name{
+
+@media screen and (min-width: 1920px) {
+    .element_name {
         line-height: 60px;
     }
+
     .program_big_flex_container {
-      
+
         margin-right: 7vw;
     }
 

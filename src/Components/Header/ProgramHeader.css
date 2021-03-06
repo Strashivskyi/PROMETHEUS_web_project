@@ -43,7 +43,7 @@
   .save_button.btn-background-slide:hover {
     color: white;
   }
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  @media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
     .full_program_header{
         display:none;
     }
@@ -69,9 +69,12 @@
     }
   }
 
-  @media screen and (min-width:800px) and (max-width:1298px){
+  @media screen and (min-width: 800px) and (max-width: 1298px) {
     .save_button {
-      margin-left: 390px;
-      width: 170px;
+        margin-left: 350px;
+        margin-top: -40px;
+        font-size: 18px;
+        width: 200px;
+        height: 35px;
     }
-  }
+}

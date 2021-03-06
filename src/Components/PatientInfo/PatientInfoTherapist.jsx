@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import app from '../../Firebase/firebase'
 import './PatientInfoPage.css'
 import Header from '../Header/Header'
+import MobileHeader from '../Header/MobileHeader'
+
 import Arrow from '../../assets/arrow.png'
 import Kid from '../../assets/kid.jpg'
 import { Link } from 'react-router-dom'
@@ -31,8 +33,11 @@ export default function PatientInfoTherapist() {
 
     return (
         <>
+            <MobileHeader />
             <Header />
-            <ul>
+            <div >
+            {/* className="grey_back" */}
+            <ul >
                 {patients.map((patient) => (
                     <>
                         {localStorage.setItem('childName', patient.Name)}
@@ -61,10 +66,16 @@ export default function PatientInfoTherapist() {
                             </h2>
                         </div>
                         <div className="patient_grid_container">
+
+                            <img
+                                src={patient.Image}
+                                height="200"
+                                className="mobile_child_image"
+                            />
                             <img
                                 src={patient.Image}
                                 height="270"
-                                style={{ marginTop: '80px' }}
+                                className="child_image"
                             />
                             <div className="column_outer_flex_container">
                                 <div className="kid_name">{patient.Name} </div>
@@ -222,6 +233,7 @@ export default function PatientInfoTherapist() {
                     </>
                 ))}
             </ul>
+            </div>
         </>
     )
 }
