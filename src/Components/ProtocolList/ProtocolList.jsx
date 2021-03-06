@@ -236,46 +236,7 @@ export default function ProtocolList() {
     )
 }
 
-function CreateProgramTemplates(protocols, child) {
-    const db = app.firestore()
 
-    db.collection(localStorage.getItem("proffesion"))
-        .doc(localStorage.getItem('user'))
-        .collection('ProgramTemplates')
-        .add({
-            Age: child.Age,
-            Diagnos: child.Diagnos,
-            KidWeight: child.KidWeight,
-        })
-        .then(function (docRef) {
-            protocols.map((protocol) =>
-                db
-                    .collection(localStorage.getItem("proffesion"))
-                    .doc(localStorage.getItem('user'))
-                    .collection('ProgramTemplates')
-                    .doc(docRef.id)
-                    .collection('protocols')
-                    .add(protocol)
-
-            )
-            db
-                .collection(localStorage.getItem("proffesion"))
-                .doc(localStorage.getItem('user'))
-                .collection('ProgramTemplates')
-                .doc(docRef.id)
-                .set({
-                    Age: child.Age,
-                    Diagnos: child.Diagnos,
-                    KidWeight: child.KidWeight, CountOfProtocol: protocols.length
-                })
-        })
-        .catch(function (error) {
-            console.error('Error adding document: ', error)
-        })
-    setTimeout(() => {
-        alert("Шаблон протоколів успішно створений!")
-    }, 300);
-}
 function addProto(length) {
     const db = app.firestore()
 

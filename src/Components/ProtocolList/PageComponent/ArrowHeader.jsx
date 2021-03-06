@@ -10,7 +10,7 @@ function ArrowHeader() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('User')
+        .collection(localStorage.getItem("proffesion"))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -67,7 +67,7 @@ function ArrowHeader() {
 function addProto(length) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem("proffesion"))   
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))

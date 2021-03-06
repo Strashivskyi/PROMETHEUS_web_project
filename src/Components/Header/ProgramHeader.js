@@ -15,19 +15,11 @@ function ProgramHeader() {
     let childName = localStorage.getItem('child')
 
     const exportUsersToExcel = (userEmail, kidName) => {
-        console.log(fetch(`http://localhost:5000/files/${userEmail}/${kidName}`))
-
-        try {
-            fetch(`http://localhost:5000/files/${userEmail}/${kidName}`).then((data) => {
-                setFileGenerated(data.status) // 200
-            })
-          } catch(err) {
-            console.log(err); // Failed to fetch
-          }
-        
+        console.log(fetch(`https://john-steck-api.herokuapp.com/files/${userEmail}/${kidName}`))
+        fetch(`https://john-steck-api.herokuapp.com/files/${userEmail}/${kidName}`).then((data) => {
+            setFileGenerated(data.status) // 200
+        })
     }
-
-
     return (
         <>
          <div className="full_program_header">

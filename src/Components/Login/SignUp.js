@@ -13,7 +13,7 @@ function SignUp() {
     return (
         <>
             <MobileHeader/>
-            <MobileRegistration/>
+            {/* <MobileRegistration/> */}
             <div className="image-form-division-sign-up">
                 <div className="image" />
                 <div className="form">
