@@ -2,11 +2,12 @@ import React from 'react'
 import Header from '../Header/Header'
 import './TherapyResult.css'
 import Arrow from '../../assets/arrow.png'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router'
 import PaginationRounded from './Pagination'
 import MobileHeader from '../Header/MobileHeader'
-const TherapyResult = () => {
-    var history = useHistory()
+function TherapyResult ({history}) {
+
 
     return (
         <>
@@ -41,10 +42,10 @@ const TherapyResult = () => {
                 </p>
                 <br />
                 <br />
-                <PaginationRounded />
+                <PaginationRounded history={history}/>
             </div>
         </>
     )
 }
 
-export default TherapyResult
+export default withRouter(TherapyResult)

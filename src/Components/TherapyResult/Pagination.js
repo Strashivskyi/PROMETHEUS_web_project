@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const PaginationRounded = () => {
+function PaginationRounded ({history}) {
     const classes = useStyles()
     const [files, setFiles] = useState([])
     const [loading, setLoading] = useState(false)
@@ -66,7 +66,7 @@ const PaginationRounded = () => {
                 {files
                     .slice((page - 1) * filesPerPage, page * filesPerPage)
                     .map((file) => {
-                        return <File file={file} loading={loading} />
+                        return <File history={history} file={file} loading={loading} />
                     })}
                 {/* 'Divider' protrudes to the left || Need to fix or delete */}
                 {/* <Divider /> */}
