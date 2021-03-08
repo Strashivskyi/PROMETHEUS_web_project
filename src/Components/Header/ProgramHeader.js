@@ -18,7 +18,8 @@ function ProgramHeader() {
         console.log(fetch(`https://john-steck-api.herokuapp.com/files/${userEmail}/${kidName}`))
         fetch(`https://john-steck-api.herokuapp.com/files/${userEmail}/${kidName}`).then((data) => {
             setFileGenerated(data.status) // 200
-        })
+        },
+        alert("Поточну програму успішно оновлено!"))
     }
     return (
         <>

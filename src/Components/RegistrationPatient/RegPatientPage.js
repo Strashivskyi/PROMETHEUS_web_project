@@ -214,7 +214,9 @@ export default function RegistrationPatient() {
                 BloodType: blood,
                 Image:
                     'https://pulson.ru/wp-content/uploads/2013/10/krasivyie-foto-detey4.jpg',
-            })
+            } ,
+            alert(`Пацієнт ${name} успішно доданий!`))
+           
     }
 
     return (

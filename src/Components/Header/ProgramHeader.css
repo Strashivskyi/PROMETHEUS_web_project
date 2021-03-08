@@ -50,29 +50,29 @@
   }
   @media screen and (min-width:1299px)and (max-width:1499px){
     .save_button{
-      margin-left: 700px;
-      margin-top: -10px;
-    }
+      margin-left: 415px;
+      margin-top: -538px;
+  }
   }
   @media screen and (min-width:1500px){
     .save_button{
-      margin-left: 900px;
-      margin-top: -20px;
+      margin-left: 623px;
+      margin-top: -548px;
     }
   }
   @media screen and (min-width:1920px){
     .save_button{
-      margin-left: 1150px;
+      margin-left: 1000px;
       font-size: 24px;
       height: 56px;
-      margin-top: -10px;
+      margin-top: -562px;
     }
   }
 
   @media screen and (min-width: 800px) and (max-width: 1298px) {
     .save_button {
         margin-left: 350px;
-        margin-top: -40px;
+        margin-top: -870px;
         font-size: 18px;
         width: 200px;
         height: 35px;

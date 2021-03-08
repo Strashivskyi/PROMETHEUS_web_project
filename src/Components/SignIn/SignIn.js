@@ -66,7 +66,11 @@ function SignIn({ history }) {
                 } else {
                     alert('please verify your email')
                 }
-            } catch (error) { }
+            } catch (error) {
+                if (!error.toString().includes("TypeError")) {
+                    alert(error)
+                }
+             }
         },
         [history]
     )

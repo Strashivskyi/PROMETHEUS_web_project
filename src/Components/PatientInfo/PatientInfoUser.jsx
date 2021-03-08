@@ -389,7 +389,7 @@ function DeleteTherapist(therapistId) {
         .collection('Patient')
         .doc(localStorage.getItem('child'))
         .delete()
-
+        alert(`Видалено терапіста за електронною поштою ${therapistId}`)
 }
 
 function addTherapist(therapistInput) {
@@ -408,6 +408,7 @@ function addTherapist(therapistInput) {
                         .collection('Therapists')
                         .doc(therapistInput)
                         .set({ Name: doc.data().Name })
+                        alert(`Терапіст ${doc.data().Name} доданий за електронною поштою ${therapistInput}`)
                 } else {
                     alert('Необхідно вказати дійсну пошту терапевта')
                 }

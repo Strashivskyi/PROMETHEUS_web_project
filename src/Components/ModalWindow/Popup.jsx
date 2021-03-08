@@ -7,8 +7,8 @@ const Popup = props => {
       <div className="box">
         <span className="close-icon" onClick={props.handleClose}>x</span>
         {props.content}
-        <button onClick={() => CreateProgramTemplates(props.protocols, props.child, "Private")}className="button_private">Приватний</button>
-        <button onClick={() => CreateProgramTemplates(props.protocols, props.child, "Public")}className="button_public">Публічний</button>
+        <button onClick={() => CreateProgramTemplates(props.protocols, props.child, "Приватний")}className="button_private">Приватний</button>
+        <button onClick={() => CreateProgramTemplates(props.protocols, props.child, "Публічний")}className="button_public">Публічний</button>
       </div>
     </div>
   );
@@ -19,7 +19,7 @@ export default Popup;
 
 function CreateProgramTemplates(protocols, child, typeTemplates) {
   const db = app.firestore()
-  if (typeTemplates == "Private") {
+  if (typeTemplates == "Приватний") {
       db.collection(localStorage.getItem("proffesion"))
           .doc(localStorage.getItem('user'))
           .collection('ProgramTemplates')
@@ -54,7 +54,7 @@ function CreateProgramTemplates(protocols, child, typeTemplates) {
               console.error('Error adding document: ', error)
           })
   }
-  if (typeTemplates == "Public") {
+  if (typeTemplates == "Публічний") {
       db
           .collection('ProgramTemplates')
           .add({
@@ -84,7 +84,7 @@ function CreateProgramTemplates(protocols, child, typeTemplates) {
           })
   }
  
-      alert("Шаблон протоколів успішно створений!")
+      alert(`${typeTemplates} шаблон протоколів успішно створений!`)
  
       setTimeout(() => {
         window.location.reload()
