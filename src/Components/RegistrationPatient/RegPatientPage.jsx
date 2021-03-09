@@ -11,8 +11,8 @@ import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import app from '../../Firebase/firebase'
 import './RegPatientPage.css'
-import MobileHeader from '../Header/MobileHeader'
-import "./RegPatientPage.css"
+import default_avatar from '../../assets/default_avatar.png';
+import {withRouter}  from "react-router";
 
 /* -
 ----------------------------
@@ -22,7 +22,7 @@ import "./RegPatientPage.css"
 const Button = styled(MuiButton)(spacing)
 
 const CenteredContent = styled.div`
-    text-align: center;
+  text-align: center;
 `
 
 /* -
@@ -68,7 +68,7 @@ const currenciesBlood = [
         label: '2+',
     },
     {
-        value: '',
+        value: '2-',
         label: '2-',
     },
     {
@@ -79,9 +79,13 @@ const currenciesBlood = [
         value: '1-',
         label: '1-',
     },
+    {
+        value: 'None',
+        label: 'None',
+    },
 ]
 
-export default function RegistrationPatient() {
+function RegistrationPatient({history}) {
     const useStyles = makeStyles((theme) => ({
         rootForTitle: {
             '& .MuiTextField-root': {
@@ -122,6 +126,8 @@ export default function RegistrationPatient() {
     const [blood, setBlood] = useState('')
     const [image, _setImage] = useState(null)
     const inputFileRef = createRef(null)
+
+
 
     // FOR IMAGE
     const cleanup = () => {
@@ -196,32 +202,33 @@ export default function RegistrationPatient() {
     }
 
     async function handleSubmit() {
-        const res = await db
-            .collection(localStorage.getItem('proffesion'))
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .add({
-                Name: name,
-                Diagnos: diagnose,
-                Parents: parents,
-                Gender: gender,
-                Age: age,
-                BirthDate: date,
-                City: city,
-                Country: country,
-                KidWeight: weight,
-                KidHeight: height,
-                BloodType: blood,
-                Image:
-                    'https://pulson.ru/wp-content/uploads/2013/10/krasivyie-foto-detey4.jpg',
-            } ,
-            alert(`Пацієнт ${name} успішно доданий!`))
-           
-    }
+        if (name == "" ||  diagnose == "" || parents == "" || gender == "" ||
+            age == "" || date == "" || city == "" || country == ""){
+            alert("Заповніть всі поля!")
+        } else {
+            const res = await db
+                .collection(localStorage.getItem('proffesion'))
+                .doc(localStorage.getItem('user'))
+                .collection('Patient')
+                .add({
+                    Name: name,
+                    Diagnos: diagnose,
+                    Parents: parents,
+                    Gender: gender,
+                    Age: age,
+                    BirthDate: date,
+                    City: city,
+                    Country: country,
+                    KidWeight: weight,
+                    KidHeight: height,
+                    BloodType: blood,
+                    Image: default_avatar,
+                })
+            history.push('/')
+        }}
 
     return (
-        <div className="general_container">
-            <MobileHeader/>
+        <>
             <SimpleHeader />
             <div
                 className="patient_upper_flex_container"
@@ -260,8 +267,10 @@ export default function RegistrationPatient() {
                             alt="Avatar"
                             src={image}
                             variant="square"
-                            style={{marginLeft: "auto", width: "256px", height: "256px", marginLeft: "auto"}}
-
+                            style={{
+                                width: '256px',
+                                height: '256px',
+                            }}
                         />
                         <input
                             ref={inputFileRef}
@@ -296,9 +305,8 @@ export default function RegistrationPatient() {
                             <div className="label-area">Ім'я та Прізвище:</div>
 
                             <TextField
-                               className="patient-subtitle-input"
-                               color="secondary"
                                 onChange={(event) => nameChange(event)}
+                                require
                             />
                         </div>
                     </div>
@@ -312,7 +320,8 @@ export default function RegistrationPatient() {
                                 Діагноз:
                             </div>
                             <TextField
-                                color="secondary"
+                                require
+                                className="patient-subtitle-input"
                                 onChange={(event) => diagnoseChange(event)}
                             />
                         </div>
@@ -324,7 +333,6 @@ export default function RegistrationPatient() {
                                     <div className="label-area">Батьки:</div>
 
                                     <TextField
-                                    color="secondary"
                                         onChange={(event) =>
                                             parentsChange(event)
                                         }
@@ -333,8 +341,6 @@ export default function RegistrationPatient() {
                                 <div className="white-stipe-zebra">
                                     <div className="label-area">Стать:</div>
                                     <TextField
-                    
-                                    color="secondary"
                                         select
                                         value={gender}
                                         onChange={(event) =>
@@ -354,8 +360,6 @@ export default function RegistrationPatient() {
                                 <div className="grey-stripe-zebra">
                                     <div className="label-area">Вік:</div>
                                     <TextField
-                                    className="big_input"
-                                    color="secondary"
                                         type="number"
                                         InputLabelProps={{
                                             shrink: true,
@@ -386,8 +390,6 @@ export default function RegistrationPatient() {
                                     <div className="label-area">Місто:</div>
                                     <TextField
                                         onChange={(event) => cityChange(event)}
-                                        color="secondary"
-
                                     />
                                 </div>
                                 <div className="white-stipe-zebra">
@@ -396,8 +398,6 @@ export default function RegistrationPatient() {
                                         onChange={(event) =>
                                             countryChange(event)
                                         }
-                                        color="secondary"
-
                                     />
                                 </div>
                             </div>
@@ -405,7 +405,6 @@ export default function RegistrationPatient() {
                                 <div className="grey-stripe-zebra">
                                     <div className="label-area">Вага:</div>
                                     <TextField
-                                        color="secondary"
                                         type="number"
                                         InputLabelProps={{
                                             shrink: true,
@@ -425,7 +424,6 @@ export default function RegistrationPatient() {
                                 <div className="white-stipe-zebra">
                                     <div className="label-area">Зріст:</div>
                                     <TextField
-                                        color="secondary"
                                         type="number"
                                         InputLabelProps={{
                                             shrink: true,
@@ -447,7 +445,6 @@ export default function RegistrationPatient() {
                                         Група крові:
                                     </div>
                                     <TextField
-                                        color="secondary"
                                         select
                                         value={blood}
                                         onChange={(event) => bloodChange(event)}
@@ -465,18 +462,25 @@ export default function RegistrationPatient() {
                             </div>
                         </div>
                     </div>
-                    <Link to="/">
-                        <button
-                            className="save_button"
-                            onClick={handleSubmit}
-                        >
-                            Зберегти
-                        </button>
-                    </Link>
-                    
+
+                    {/*<Link to={}>*/}
+                    <button
+                        className="save_button"
+                        style={{
+                            top: '3.1rem',
+                            right: '5.6rem',
+                            cursor: 'pointer',
+                            position: 'absolute',
+                        }}
+                        onClick={handleSubmit}
+                    >
+                        Зберегти
+                    </button>
+                    {/*</Link>*/}
                 </div>
-                
             </div>
-        </div>
+        </>
     )
 }
+
+export default withRouter(RegistrationPatient)
