@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import app from '../../../Firebase/firebase'
 import { Link } from 'react-router-dom'
 import EditIcon from '../../../assets/edit_new.svg'
+import SecondModal from '../../ModalWindow/SecondModal'
 
 export default function ProtocolItem({
     protocolId,
@@ -24,12 +25,18 @@ export default function ProtocolItem({
     method,
     methodTakingHint,
     reductionСriterion,
-    stepDescription, CriteriongenGenerSkill
+    stepDescription,
+    CriteriongenGenerSkill,
 }) {
     let [colorItem, setColorItem] = useState('')
 
     if (+protocolName % 2 != true) {
         colorItem = '#EEEEEE'
+    }
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggleModal = () => {
+        setIsOpen(!isOpen)
     }
 
     return (
@@ -39,8 +46,8 @@ export default function ProtocolItem({
                 style={{ backgroundColor: colorItem, marginLeft: '5rem' }}
             >
                 <p className="protocol_item_text ">
-                    Протокол {protocolName}{statusCopied}.
-                     {sphereOfDevelopment}.{skill}
+                    Протокол {protocolName}
+                    {statusCopied}.{sphereOfDevelopment}.{skill}
                 </p>
                 <div className="icon_place">
                     <Link
@@ -49,10 +56,7 @@ export default function ProtocolItem({
                         }
                         to="/program"
                     >
-                    <img
-                        className="icon edit_icon"
-                        src={EditIcon}
-                    />
+                        <img className="icon edit_icon" src={EditIcon} />
                     </Link>
 
                     <img
@@ -73,17 +77,37 @@ export default function ProtocolItem({
                                 method,
                                 methodTakingHint,
                                 reductionСriterion,
-                                stepDescription, CriteriongenGenerSkill
+                                stepDescription,
+                                CriteriongenGenerSkill
                             )
                         }
                         src={Duplicate}
                     />
-                    <CheckIsActive className="icon" isActive={isActive} protocolId={protocolId} />
+                    <CheckIsActive
+                        className="icon"
+                        isActive={isActive}
+                        protocolId={protocolId}
+                    />
 
-
+                    {isOpen && (
+                        <SecondModal
+                            content={
+                                <>
+                                    <b className="second-text_modul">
+                                        Ви впевнені, що хочете видалити
+                                        протокол?
+                                    </b>
+                                    <div className="second-button_modul"></div>
+                                </>
+                            }
+                            handleClose={toggleModal}
+                        />
+                    )}
                     <img
                         className="icon"
-                        onClick={() => DeleteProtocol(protocolId)}
+                        onClick={
+                            (() => DeleteProtocol(protocolId), toggleModal)
+                        }
                         src={Delete}
                     />
                 </div>
@@ -107,12 +131,13 @@ function CreateDuplicateProtocol(
     method,
     methodTakingHint,
     reductionСriterion,
-    stepDescription, CriteriongenGenerSkill
+    stepDescription,
+    CriteriongenGenerSkill
 ) {
     localStorage.setItem('program', protocolId)
     const db = app.firestore()
 
-    db.collection(localStorage.getItem("proffesion"))
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -133,34 +158,36 @@ function CreateDuplicateProtocol(
             MethodTakingHint: methodTakingHint,
             ReductionСriterion: reductionСriterion,
             StepDescription: stepDescription,
-            CriteriongenGenerSkill: CriteriongenGenerSkill
+            CriteriongenGenerSkill: CriteriongenGenerSkill,
         })
         .then(function (docRef) {
-            db.collection(localStorage.getItem("proffesion"))
+            db.collection(localStorage.getItem('proffesion'))
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .doc(localStorage.getItem('child'))
-                .collection('Protocols').doc(docRef.id)
-                .collection("CriteriongenGenerSkill")
-                .add({ Text: "" })
+                .collection('Protocols')
+                .doc(docRef.id)
+                .collection('CriteriongenGenerSkill')
+                .add({ Text: '' })
             db.collection('User')
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .doc(localStorage.getItem('child'))
-                .collection('Protocols').doc(docRef.id)
-                .collection("Stimulus")
-                .add({ Name: "" })
-            console.log("Document written with ID: ", docRef.id);
+                .collection('Protocols')
+                .doc(docRef.id)
+                .collection('Stimulus')
+                .add({ Name: '' })
+            console.log('Document written with ID: ', docRef.id)
         })
         .catch(function (error) {
-            console.error("Error adding document: ", error);
-        });
+            console.error('Error adding document: ', error)
+        })
 
     // console.log(data.key)
 }
 function DeleteProtocol(protocolId) {
     const db = app.firestore()
-    db.collection(localStorage.getItem("proffesion"))
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -172,10 +199,10 @@ function DeleteProtocol(protocolId) {
             .doc(terapist)
             .collection('Patient')
             .doc(localStorage.getItem('child'))
-            .collection('Protocols').doc(protocolId).delete()
+            .collection('Protocols')
+            .doc(protocolId)
+            .delete()
     })
-
-
 }
 function CheckIsActive({ isActive, protocolId }) {
     console.log(isActive)
@@ -200,7 +227,7 @@ function CheckIsActive({ isActive, protocolId }) {
 function UpdateActiveStatus(protocolId, valueStatus) {
     const db = app.firestore()
 
-    db.collection(localStorage.getItem("proffesion"))
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
