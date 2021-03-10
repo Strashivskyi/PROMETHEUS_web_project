@@ -9,6 +9,7 @@ import EditIcon from '../../../assets/edit_new.svg'
 import SecondModal from '../../ModalWindow/SecondModal'
 
 export default function ProtocolItem({
+    number,
     protocolId,
     protocolName,
     sphereOfDevelopment,
@@ -30,7 +31,7 @@ export default function ProtocolItem({
 }) {
     let [colorItem, setColorItem] = useState('')
 
-    if (+protocolName % 2 != true) {
+    if (+number % 2 != true) {
         colorItem = '#EEEEEE'
     }
     const [isOpen, setIsOpen] = useState(false)
@@ -46,14 +47,15 @@ export default function ProtocolItem({
                 style={{ backgroundColor: colorItem, marginLeft: '5rem' }}
             >
                 <p className="protocol_item_text ">
-                    Протокол {protocolName}
+                    Протокол {number}
                     {statusCopied}.{sphereOfDevelopment}.{skill}
                 </p>
                 <div className="icon_place">
                     <Link
-                        onClick={() =>
-                            localStorage.setItem('program', protocolId)
-                        }
+                          onClick={() =>
+                            {setData(protocolId,number)}
+                        
+                    }
                         to="/program"
                     >
                         <img className="icon edit_icon" src={EditIcon} />
@@ -91,6 +93,7 @@ export default function ProtocolItem({
 
                     {isOpen && (
                         <SecondModal
+                        protocolId={protocolId}
                             content={
                                 <>
                                     <b className="second-text_modul">
@@ -234,4 +237,8 @@ function UpdateActiveStatus(protocolId, valueStatus) {
         .collection('Protocols')
         .doc(protocolId)
         .update({ IsActive: valueStatus })
+}
+function setData(param1,param2){
+    localStorage.setItem('program', param1)
+    localStorage.setItem("programNumber",param2)
 }

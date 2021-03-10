@@ -2,15 +2,16 @@ import React from "react";
 import './SecondModal.css'
 import app from "../../Firebase/firebase";
 //import DeleteProtocol from '../ProtocolList/PageComponent/ProtocolItem'
-const SecondModal = props => {
+
+function SecondModal({protocolId,handleClose,content}){
   return (
     <div className="second-popup-box">
       <div className="second-box">
-        <span className="second-close-icon" onClick={props.handleClose}>x</span>
-        {props.content}
+        <span className="second-close-icon" onClick={handleClose}>x</span>
+        {content}
         <div className="second-button-popup">
-        <button onClick={props.handleClose} className="second-button_private">Скасувати</button>
-        <button onClick={() => DeleteProtocol(props.protocolId)} className="second-button_public">Підтвердити</button>
+        <button onClick={handleClose} className="second-button_private">Скасувати</button>
+        <button onClick={handleClose,(()=>DeleteProtocol(protocolId))} className="second-button_public">Підтвердити</button>
         </div>
       </div>
     </div>
@@ -20,6 +21,9 @@ const SecondModal = props => {
 export default SecondModal;
 
 function DeleteProtocol(protocolId) {
+
+  console.log(protocolId)
+
     const db = app.firestore()
     db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
@@ -37,6 +41,12 @@ function DeleteProtocol(protocolId) {
             .doc(protocolId)
             .delete()
     })
+
+    alert(`Протокол успішно видалений!`)
+    setTimeout(() => {
+      window.location.reload()
+  }, 100);
+
 }
 
 
