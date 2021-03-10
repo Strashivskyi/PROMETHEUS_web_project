@@ -97,7 +97,7 @@ export default function ProtocolItem({
                                         Ви впевнені, що хочете видалити
                                         протокол?
                                     </b>
-                                    <div className="second-button_modul"></div>
+                                    <div className="second-button_modul"/>
                                 </>
                             }
                             handleClose={toggleModal}

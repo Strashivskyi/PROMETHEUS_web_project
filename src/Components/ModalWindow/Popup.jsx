@@ -8,8 +8,8 @@ const Popup = props => {
         <span className="close-icon" onClick={props.handleClose}>x</span>
         {props.content}
         <div className="button-popup">
-        <button onClick={() => CreateProgramTemplates(props.protocols, props.child, "Приватний")}className="button_private">Приватний</button>
-        <button onClick={() => CreateProgramTemplates(props.protocols, props.child, "Публічний")}className="button_public">Публічний</button>
+        <button onClick={() => CreateProgramTemplates(props.protocols, props.child, "Приватний")} className="button_private">Приватний</button>
+        <button onClick={() => CreateProgramTemplates(props.protocols, props.child, "Публічний")} className="button_public">Публічний</button>
         </div>
       </div>
     </div>
