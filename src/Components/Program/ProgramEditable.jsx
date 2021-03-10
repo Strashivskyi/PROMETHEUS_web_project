@@ -125,7 +125,7 @@ export default function ProgramEditable() {
                                 className="element_name"
                             >
                                 {' '}
-                                Протокол {protocol.ProtocolId}{' '}
+                                Протокол {localStorage.getItem("programNumber")}{' '}
                                 {protocol.StatusCopied}.{' '}
                                 {protocol.SphereOfDevelopment}. {protocol.Skill}
                             </div>

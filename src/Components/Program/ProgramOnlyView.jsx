@@ -114,7 +114,7 @@ export default function ProgramOnlyView() {
                                 className="title_name"
                             >
                                 {' '}
-                                Протокол {protocol.ProtocolId}{' '}
+                                Протокол {localStorage.getItem("programNumber")}{' '}
                                 {protocol.StatusCopied}.{' '}
                                 {protocol.SphereOfDevelopment}. {protocol.Skill}
                             </div>

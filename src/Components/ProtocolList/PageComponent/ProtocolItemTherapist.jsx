@@ -6,6 +6,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 
 export default function ProtocolItemTherapist({
+    number,
     protocolId,
     protocolName,
     sphereOfDevelopment,
@@ -26,11 +27,9 @@ export default function ProtocolItemTherapist({
 }) {
     let [colorItem, setColorItem] = useState('')
 
-
-    if (+protocolName % 2 != true) {
+    if (+number % 2 != true) {
         colorItem = '#EEEEEE'
     }
-
     return (
         <>
             <div
@@ -38,7 +37,7 @@ export default function ProtocolItemTherapist({
                 style={{ backgroundColor: colorItem, marginLeft: '7vw' }}
             >
                 <p className="protocol_item_text ">
-                    Протокол {protocolName} {statusCopied}.{' '}
+                    Протокол {number} {statusCopied}.{' '}
                     {sphereOfDevelopment}. {skill}
                 </p>
                 <div className="icon_place">

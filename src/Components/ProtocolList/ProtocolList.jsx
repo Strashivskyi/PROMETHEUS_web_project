@@ -139,6 +139,7 @@ export default function ProtocolList() {
             unsubscribe()
         }
     }, [])
+    protocols.sort((a, b) => +a.ProtocolId - +b.ProtocolId)
     protocols.map((protocol) => test.push(protocol.id))
     console.log(test)
 
@@ -170,11 +171,16 @@ export default function ProtocolList() {
         }
     }, [])
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenPop, setIsOpenPop] = useState(false);
 
     const togglePopup = () => {
-        setIsOpen(!isOpen);
+        setIsOpenPop(!isOpenPop);
     }
+    let protocolsNumber = []
+    for (let i = 0; i <protocols.length; i++) {
+        protocolsNumber.push(i + 1)
+    }
+    console.log(protocolsNumber)
     return (
         <>
            <MobileHeader />
@@ -187,7 +193,7 @@ export default function ProtocolList() {
                 >
                     <BsPlusCircle />
             </div>
-            {isOpen && <Popup protocols={protocols} child={child[0]}
+            {isOpenPop && <Popup protocols={protocols} child={child[0]}
                 content={<>
                     <b className="text_modul">Будь ласка, оберіть тип даного шаблону:</b>
                     <div className="button_modul">
@@ -198,34 +204,33 @@ export default function ProtocolList() {
             />}
             <div className="create_element" >
                 {/* <ReactSortable list={protocols} setList={setProtocols}> */}
-                {protocols
-                    .sort((a, b) => +a.ProtocolId - +b.ProtocolId)
-                    .map((protocol) => (
+                {protocolsNumber.map((protocol) => (
                         <ProtocolItem
-                            protocolId={protocol.id}
-                            protocolName={protocol.ProtocolId}
-                            sphereOfDevelopment={protocol.SphereOfDevelopment}
+                            number={protocol}
+                            protocolId={protocols[protocol-1].id}
+                            protocolName={protocols[protocol-1].ProtocolId}
+                            sphereOfDevelopment={protocols[protocol-1].SphereOfDevelopment}
                             length={protocols.length}
-                            skill={protocol.Skill}
-                            statusCopied={protocol.StatusCopied}
-                            isActive={protocol.IsActive}
-                            interval={protocol.Interval}
+                            skill={protocols[protocol-1].Skill}
+                            statusCopied={protocols[protocol-1].StatusCopied}
+                            isActive={protocols[protocol-1] .IsActive}
+                            interval={protocols[protocol-1].Interval}
                             correctionProcedureStep1={
-                                protocol.CorrectionProcedureStep1
+                                protocols[protocol-1].CorrectionProcedureStep1
                             }
                             correctionProcedureStep2={
-                                protocol.CorrectionProcedureStep2
+                                protocols[protocol-1].CorrectionProcedureStep2
                             }
                             correctionProcedureStep3={
-                                protocol.CorrectionProcedureStep3
+                                protocols[protocol-1].CorrectionProcedureStep3
                             }
-                            criterionIncrease={protocol.CriterionIncrease}
-                            desirableReaction={protocol.DesirableReaction}
-                            method={protocol.Method}
-                            methodTakingHint={protocol.MethodTakingHint}
-                            reductionСriterion={protocol.ReductionСriterion}
-                            stepDescription={protocol.StepDescription}
-                            CriteriongenGenerSkill={protocol.CriteriongenGenerSkill}
+                            criterionIncrease={protocols[protocol-1].CriterionIncrease}
+                            desirableReaction={protocols[protocol-1].DesirableReaction}
+                            method={protocols[protocol-1].Method}
+                            methodTakingHint={protocols[protocol-1].MethodTakingHint}
+                            reductionСriterion={protocols[protocol-1].ReductionСriterion}
+                            stepDescription={protocols[protocol-1].StepDescription}
+                            CriteriongenGenerSkill={protocols[protocol-1].CriteriongenGenerSkill}
                         />
                     ))}
                 {/* </ReactSortable> */}

@@ -38,6 +38,7 @@ export default function ProtocolList() {
             unsubscribe()
         }
     }, [])
+    protocols.sort((a, b) => +a.ProtocolId - +b.ProtocolId)
     protocols.map((protocol) => test.push(protocol.id))
     console.log(test)
 
@@ -68,7 +69,11 @@ export default function ProtocolList() {
             unsubscribe()
         }
     }, [])
-
+    let protocolsNumber = []
+    for (let i = 0; i <protocols.length; i++) {
+        protocolsNumber.push(i + 1)
+    }
+    console.log(protocolsNumber)
     return (
         <>
             <MobileHeader/>
@@ -111,35 +116,35 @@ export default function ProtocolList() {
                 <h2>Програма</h2>
             </div>
 
-            {protocols
-                .sort((a, b) => +a.ProtocolId - +b.ProtocolId)
-                .map((protocol) => (
-                    <ProtocolItemTherapist
-                        protocolId={protocol.id}
-                        protocolName={protocol.ProtocolId}
-                        sphereOfDevelopment={protocol.SphereOfDevelopment}
-                        length={protocols.length}
-                        skill={protocol.Skill}
-                        statusCopied={protocol.StatusCopied}
-                        isActive={protocol.IsActive}
-                        interval={protocol.Interval}
-                        correctionProcedureStep1={
-                            protocol.CorrectionProcedureStep1
-                        }
-                        correctionProcedureStep2={
-                            protocol.CorrectionProcedureStep2
-                        }
-                        correctionProcedureStep3={
-                            protocol.CorrectionProcedureStep3
-                        }
-                        criterionIncrease={protocol.CriterionIncrease}
-                        desirableReaction={protocol.DesirableReaction}
-                        method={protocol.Method}
-                        methodTakingHint={protocol.MethodTakingHint}
-                        reductionСriterion={protocol.ReductionСriterion}
-                        stepDescription={protocol.StepDescription}
-                    />
-                ))}
+            {protocolsNumber.map((protocol) => (
+                        <ProtocolItemTherapist
+                            number={protocol}
+                            protocolId={protocols[protocol-1].id}
+                            protocolName={protocols[protocol-1].ProtocolId}
+                            sphereOfDevelopment={protocols[protocol-1].SphereOfDevelopment}
+                            length={protocols.length}
+                            skill={protocols[protocol-1].Skill}
+                            statusCopied={protocols[protocol-1].StatusCopied}
+                            isActive={protocols[protocol-1] .IsActive}
+                            interval={protocols[protocol-1].Interval}
+                            correctionProcedureStep1={
+                                protocols[protocol-1].CorrectionProcedureStep1
+                            }
+                            correctionProcedureStep2={
+                                protocols[protocol-1].CorrectionProcedureStep2
+                            }
+                            correctionProcedureStep3={
+                                protocols[protocol-1].CorrectionProcedureStep3
+                            }
+                            criterionIncrease={protocols[protocol-1].CriterionIncrease}
+                            desirableReaction={protocols[protocol-1].DesirableReaction}
+                            method={protocols[protocol-1].Method}
+                            methodTakingHint={protocols[protocol-1].MethodTakingHint}
+                            reductionСriterion={protocols[protocol-1].ReductionСriterion}
+                            stepDescription={protocols[protocol-1].StepDescription}
+                            CriteriongenGenerSkill={protocols[protocol-1].CriteriongenGenerSkill}
+                        />
+                    ))}
         </>
     )
 }
