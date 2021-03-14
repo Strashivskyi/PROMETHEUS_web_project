@@ -1,0 +1,142 @@
+@import url('https://rsms.me/inter/inter.css');
+@import url(//db.onlinewebfonts.com/c/4b62ecafef4891c98fcd1e473603fd2a?family=BUIS);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+.button_patient {
+    border: none;
+    background-color: transparent;
+}
+
+.container {
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.choose-file-title {
+    font-size: 20px;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .choose-file-title {
+        font-size: 6vw;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 539px) {
+
+    .patient_upper_flex_container{
+        margin-left: -80px;
+        text-align: center;
+    }
+
+    .choose-file-title {
+        margin-left: 25vw;
+        text-align: center;
+
+    }
+
+    .container {
+        min-height: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Inter', sans-serif;
+        margin-left: -140px;
+    }
+
+
+}
+
+@media only screen and (min-device-width : 540px) and (max-device-width : 600px) {
+
+    .patient_upper_flex_container{
+        margin-left: -80px;
+        text-align: center;
+    }
+
+    .choose-file-title {
+        margin-left: 20vw;
+        text-align: center;
+
+    }
+
+
+    .button_patient {
+        border: none;
+        background-color: transparent;
+    }
+
+    .container {
+        min-height: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Inter', sans-serif;
+        margin-left: -115px;
+    }
+
+}
+
+@media only screen and (min-device-width : 600px) and (max-device-width : 699px) {
+    .patient_upper_flex_container{
+        margin-left: -40px;
+        text-align: center;
+    }
+
+    .choose-file-title {
+        margin-left: 10vw;
+        text-align: center;
+
+    }
+
+
+    .button_patient {
+        border: none;
+        background-color: transparent;
+    }
+
+    .container {
+        min-height: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Inter', sans-serif;
+        margin-left: -90px;
+    }
+}
+
+@media only screen and (min-device-width : 700px) and (max-device-width : 800px) {
+    .patient_upper_flex_container{
+        margin-left: -40px;
+        text-align: center;
+    }
+
+    .choose-file-title {
+        margin-left: 5vw;
+        text-align: center;
+
+    }
+
+
+    .button_patient {
+        border: none;
+        background-color: transparent;
+    }
+
+    .container {
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Inter', sans-serif;
+        margin-left: -60px;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width:2000px){
+    .choose-file-title {
+        font-size: 30px;
+    }
+}

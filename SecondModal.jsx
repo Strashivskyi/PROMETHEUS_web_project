@@ -2,7 +2,6 @@ import React from "react";
 import './SecondModal.css'
 import app from "../../Firebase/firebase";
 //import DeleteProtocol from '../ProtocolList/PageComponent/ProtocolItem'
-
 function SecondModal({protocolId,handleClose,content}){
   return (
     <div className="second-popup-box">
@@ -21,9 +20,7 @@ function SecondModal({protocolId,handleClose,content}){
 export default SecondModal;
 
 function DeleteProtocol(protocolId) {
-
   console.log(protocolId)
-
     const db = app.firestore()
     db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
@@ -41,12 +38,10 @@ function DeleteProtocol(protocolId) {
             .doc(protocolId)
             .delete()
     })
-
     alert(`Протокол успішно видалений!`)
     setTimeout(() => {
       window.location.reload()
   }, 100);
-
 }
 
 

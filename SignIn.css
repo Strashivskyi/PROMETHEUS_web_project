@@ -1,0 +1,380 @@
+@import url('https://rsms.me/inter/inter.css');
+.mobile_signin_label{
+display: none;
+
+}
+.login_text_input {
+    background: url(/src/assets/emmm.svg) no-repeat left center;
+    background-position: 0px 10px;
+    color: #222222;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 6px;
+    margin-top: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid black;
+    background-color: transparent;
+    font-family: 'Inter', cursive;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 47px;
+}
+.login_text_input input{
+    border: none;
+    width: 104%;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: #F8FCFF;
+    padding-left: 10px;
+    margin-left: -10px;
+
+
+}
+
+.login_text_input_second {
+    background: url(/src/assets/pass.svg) no-repeat left center;
+    background-position: 0px 10px;
+    color: #222222;
+    width: 100%;
+    padding: 12px 60px;
+    padding-bottom: 6px;
+    margin-top: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 3px solid black;
+    background-color: transparent;
+    font-family: 'Inter', cursive;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 47px;
+}
+.login_text_input_second input{
+    border: none;
+    width: 104%;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: #F8FCFF;
+    padding-left: 10px;
+    margin-left: -10px;
+}
+.image-form-division {
+    display: grid;
+    grid-template-columns: 45vw 48vw;
+    margin: 3vw;
+    max-height: 87vh;
+    min-height: 87vh;
+}
+.form {
+    background-color: #f8fcff;
+}
+
+.image {
+    background: url('../../assets/image 27.svg') center no-repeat;
+    background-size: 42vw 90vh;
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 22%;
+    margin-right: 22%;
+    margin-top: 5vh;
+}
+
+.login_checkbox {
+    display: none;
+}
+.still_no_acc {
+    margin-left: 22%;
+    padding-top: 70px;
+    padding-bottom: 10px;
+    color: #48535f;
+    font-weight: 300;
+    display: flex;
+    
+    font-family: 'Inter';
+    font-size: 20px;
+}
+
+.login_link_reg {
+    flex-direction: column;
+    font-weight: 500;
+    color: grey;
+    text-decoration: none;
+}
+.login_link_reg:hover {
+    color: #48535f;
+}
+.forgot_password {
+    margin-left: 22%;
+    display: flex;
+    color: #48535f;
+    font-weight: 300;
+    font-family: 'Inter';
+    font-size: 20px;
+}
+
+input:focus {
+    outline: none;
+}
+input.slide-hover-left-3 {
+    width: 377px;
+    height: 50px;
+    border: 2px solid #48535f;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 37px;
+    font-family: 'Inter', cursive;
+    border: 1px solid #48535f;
+    color: #48535f;
+    margin-top: 70px;
+    font-size: 24px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    display: inline-block;
+    background-image: linear-gradient(0, #48535f, #48535f);
+    background-size: 0;
+    transition: .8s;
+    background-repeat: no-repeat;
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+input.slide-hover-left-3:hover {
+    background-size: 100%;
+    color: #fff;
+}
+
+
+.sign-in-text {
+        font-family: 'Inter', cursive;
+        font-weight: 400;
+        font-size: 40px;
+        text-align: center;
+        color: #222222;
+        line-height: 100px;
+
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
+    .mobile_signin_label{
+        margin-left: 7%;
+        color: #48535F;
+        font-size: 4vw;
+        margin-bottom: -2vw;
+        margin-top: 7vw;
+        display: initial;
+    }
+        ::-webkit-input-placeholder { /* WebKit browsers */
+            color: transparent;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: transparent;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: transparent;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10+ */
+            color: transparent;
+        }
+    .login_text_input {
+        background: url(/src/assets/email_mobile.svg) no-repeat left center;
+        background-position: 2vw 20px;
+        color: #222222;
+        width: 100%;
+        padding: 12px 60px;
+        padding-bottom: 6px;
+        margin-top: 0px;
+        padding-right: 10px;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 0.5vw solid #48535F;
+        background-color: transparent;
+        font-family: 'Inter', cursive;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 47px;
+    }
+    .login_text_input input{
+        border: none;
+        width: 104%;
+        line-height: 40px;
+        font-size: 20px;
+        background-color: #F8FCFF;
+        padding-left: 10px;
+    
+    
+    }
+    
+    .login_text_input_second {
+        background: url(/src/assets/password_mobile.svg) no-repeat left center;
+        background-position: 2vw 20px;
+        color: #222222;
+        width: 100%;
+        padding: 12px 60px;
+        padding-bottom: 6px;
+        margin-top: 0px;
+        padding-right: 10px;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 0.5vw solid #48535F;
+        background-color: transparent;
+        font-family: 'Inter', cursive;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 47px;
+    }
+    .login_text_input_second input{
+        border: none;
+        width: 104%;
+        line-height: 40px;
+        font-size: 20px;
+        background-color: #F8FCFF;
+        padding-left: 10px;
+    
+    }
+    .forgot_password {
+        margin-left: 23%;
+        padding-top: 7vw;
+        display: flex;
+        flex-direction: column;
+        font-size: 6vw;
+    }
+    .still_no_acc {
+        margin-left: 23%;
+        padding-top: 12vw;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        font-size: 6vw;
+    }
+    .signin_line_break{
+        display: initial;
+    }
+    .image-form-division {
+        display: initial;
+        max-height: 150vh;
+        min-height: 100vh;
+        margin-bottom:0px;
+    }
+
+    .login_form {
+        margin-top: -8vh;
+
+
+    }
+    .form {
+        background-color: #f8fcff;
+        min-height: 100vh;
+
+    }
+    .light_blue_back{
+        background-color: #f8fcff;
+    }
+    .image {
+        display: none
+    }
+    .sign-in-text {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 7vw;
+        color: #38414A;
+        padding-top: 2vw;
+        padding-bottom: 10vw;
+
+    }
+    .login_form {
+        margin-left: 17%;
+        margin-right: 17%;
+    }
+    .login_text_input::placeholder{
+        color: #f8fcff;
+    }
+    .login_text_input_second::placeholder {
+        color: #f8fcff;
+
+    }
+
+    input.slide-hover-left-3 {
+        width: 65%;
+        height: 11vw;
+        margin-top: 8vh;
+        font-size: 6vw;
+        font-weight: 400;
+    }
+
+   
+    @media only screen and (min-device-width : 390px) and (max-device-width : 800px) {
+
+        .still_no_acc {
+            margin-left: 7%;
+            margin-right: 7%;
+
+            padding-top: 70px;
+            padding-bottom: 10px;
+            color: #48535f;
+            font-weight: 300;
+            display: flex;
+            flex-direction: row;
+            font-family: 'Inter';
+            font-size: 4.5vw;
+        }
+
+        .forgot_password {
+            margin-left: 7%;
+            margin-right: 7%;
+
+            color: #48535f;
+            font-weight: 300;
+            display: flex;
+            flex-direction: row;
+            font-family: 'Inter';
+            font-size: 4.5vw;
+        }
+        @media only screen and (min-device-width : 480px) and (max-device-width : 800px) {
+            .mobile_signin_label{
+                font-size: 3vw;
+                margin-bottom: -10px;
+            }
+            .login_form {
+                margin-left: 26%;
+                margin-right: 26%;
+            }
+            input.slide-hover-left-3 {
+                width: 65%;
+                height: 60px;
+                font-size: 30px;
+
+
+            }
+            .still_no_acc {
+                margin-left: 12%;
+                font-size: 4vw;
+            }
+            .forgot_password{
+                margin-left: 12%;
+                font-size: 4vw;
+            }
+        }
+
+
+    }
+    
+
+
+
+}
+
+@media screen and (min-width:800px) and (max-width:1300px){
+    .image-form-division {
+        flex-direction: column;
+        grid-template-columns: none;
+       
+    }
+}
+

@@ -1,0 +1,229 @@
+.content-wrapper {
+    display: flex;
+}
+.save_button_add_patient{
+    top: 3.1rem;
+    right: 5.6rem;
+    cursor: pointer;
+    position: absolute;
+}
+.avatar_fuck_it_are_you_kidding_me_am_i_a_joke_for_you{
+margin-left: auto;
+margin-right: auto;
+}
+
+.column-direction-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.patient-title {
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.patient-subtitle {
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.patient-subtitle-label {
+    margin-right: 1rem;
+    font-size: 18px;
+}
+
+.label-area {
+    margin-right: 1rem;
+    font-size: 18px;
+}
+
+.zebra-table {
+    display: flex;
+}
+
+.zebra-table-left-part {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.zebra-table-right-part {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.avatar-reg-wrapper {
+    margin-top: 2rem;
+    margin-left: 8.5rem;
+    margin-right: 4rem;
+}
+
+.grey-stripe-zebra {
+    width: 23rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.5rem;
+    background-color: #eeeeee;
+}
+
+.white-stipe-zebra {
+    width: 23rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+.upload-image-btn {
+    width: 256px;
+}
+@media screen and (min-width: 800px) and (max-width: 1299px) {
+ 
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+      
+    }
+    .column-direction-list {
+        display: flex;
+        flex-direction: column;
+        margin: 40px;
+    }
+
+}
+
+
+
+@media screen and (min-width: 1301px){
+    .save_button_add_patient {
+        margin-top: -20px;
+    } 
+}
+@media screen and (min-width: 320px) and (max-width:800px){
+    .save_button_add_patient{
+        top: 1000px;
+        right: 0rem;
+        cursor: pointer;
+        position: absolute;
+        margin-left: 15vw;
+        margin-right: 27vw;
+    }
+    .general_container{
+        width: 100vw;
+        max-width: 100vw;
+    }
+   
+    .avatar_fuck_it_are_you_kidding_me_am_i_a_joke_for_you{
+        position: absolute;
+        left: 500px;
+        margin-right: auto;
+        }
+
+    .patient-subtitle {
+        margin-left: 4vw;
+    }    
+    .patient-title {
+        margin-left: 4vw;
+    }
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .zebra-table {
+        display: flex;
+        flex-direction: column;
+
+    }
+    .grey-stripe-zebra {
+        width: 90vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 4vw;
+        padding-left: 2vw;
+        background-color: #eeeeee;
+    }
+    .white-stipe-zebra {
+        width: 90vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 4vw;
+        padding-left: 2vw;
+        background-color: #ffffff;
+    }
+    .upload-image-btn {
+        position: absolute;
+        width: 256px;
+    }
+
+    @media screen and (min-width: 320px) and (max-width:440px){
+        .save_button_add_patient{
+            margin-left: 20vw;
+            margin-right: 20vw;
+            width: 60vw;
+            top: 30px;
+            object-position: center;
+            cursor: pointer;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        .patient-subtitle-input{
+            position: relative;
+            right: 5vw;
+        }
+        .big_input{
+            width: 900px;
+        }
+        
+    }
+    @media screen and (min-width: 440px) and (max-width:800px){
+        .save_button_add_patient{
+            margin-left: 30vw;
+            margin-right: 30vw;
+            width: 40vw;
+            top: 30px;
+            object-position: center;
+            cursor: pointer;
+            position: relative;
+            margin-bottom: 60px;
+        }}
+        .grey-stripe-zebra {
+            width: 80vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 10vw;
+            padding-left: 2vw;
+            background-color: #eeeeee;
+        }
+        .white-stipe-zebra {
+            width: 80vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 10vw;
+            padding-left: 2vw;
+            background-color: #ffffff;
+        }
+        .patient-title {
+            margin-left: 10vw;
+        }
+        .patient-subtitle {
+            margin-left: 10vw;
+        }
+
+
+}
+@media screen and (min-width: 320px) and (max-width:1300px){
+.avatar-reg-wrapper {
+    margin-top: 0rem;
+    margin-left: auto;
+    margin-right: auto;
+    object-position: center;
+}
+
+
+}

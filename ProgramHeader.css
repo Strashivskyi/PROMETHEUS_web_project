@@ -1,0 +1,80 @@
+
+.save_button {
+    background: transparent;
+    color: #EF4F59;
+    padding: .5em 1em;
+    border: 1px solid #ef4f59;
+    cursor: pointer;
+    margin-left: 800px;
+    margin-right: 30px;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 12px;
+    font-size: 22px;
+    width: 270px;
+    height: 40px;
+    position: absolute;
+
+  }
+  .save_button.btn-background-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #ef4f59;
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+  
+  .save_button.btn-background-slide:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .save_button.btn-background-slide {
+    transition: color 300ms ease-in-out;
+    z-index: 1;
+  }
+  
+  
+  .save_button.btn-background-slide:hover {
+    color: white;
+  }
+  @media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
+    .full_program_header{
+        display:none;
+    }
+  }
+  @media screen and (min-width:1299px)and (max-width:1499px){
+    .save_button{
+      margin-left: 700px;
+      margin-top: -10px;
+    }
+  }
+  @media screen and (min-width:1500px){
+    .save_button{
+      margin-left: 900px;
+      margin-top: -20px;
+    }
+  }
+  @media screen and (min-width:1920px){
+    .save_button{
+      margin-left: 1150px;
+      font-size: 24px;
+      height: 56px;
+      margin-top: -10px;
+    }
+  }
+
+  @media screen and (min-width: 800px) and (max-width: 1298px) {
+    .save_button {
+        margin-left: 350px;
+        margin-top: -40px;
+        font-size: 18px;
+        width: 200px;
+        height: 35px;
+    }
+}
