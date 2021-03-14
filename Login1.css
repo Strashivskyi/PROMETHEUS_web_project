@@ -1,0 +1,49 @@
+@import url('https://rsms.me/inter/inter.css');
+html {
+    font-family: 'Inter', sans-serif;
+}
+
+.image-form-division-sign-up {
+    display: grid;
+    grid-template-columns: 45vw 48vw;
+    margin: 3vw;
+    max-height: 87vh;
+    min-height: 87vh;
+}
+.form {
+    background-color: #f8fcff;
+}
+.sign-up-text {
+    font-family: 'Inter', cursive;
+    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+    color: #222222;
+    line-height: 100px;
+}
+.image {
+    background: url('../../assets/image 27.svg') center no-repeat;
+    background-size: 42vw 90vh;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
+    .image-form-division-sign-up {
+        display: none;
+    }
+}
+@media screen and (min-width: 800px) and (max-width:1300px){
+    .sign-up-text{
+        font-size: 30px;
+        line-height: 200px;
+    }
+   .image-form-division-sign-up {
+        flex-direction: column;
+        grid-template-columns: none;
+       
+    }
+    .form {
+        margin: 40px;
+    }
+    .image {
+        background-size: 26vw 70vh;
+    }
+}
