@@ -38,9 +38,9 @@ export default function ProtocolList() {
             unsubscribe()
         }
     }, [])
-    protocols.sort((a, b) => +a.ProtocolId - +b.ProtocolId)
     protocols.map((protocol) => test.push(protocol.id))
     console.log(test)
+    protocols.sort((a, b) => +a.ProtocolId - +b.ProtocolId)
 
     localStorage.setItem('protoID', JSON.stringify(test))
 
@@ -74,6 +74,7 @@ export default function ProtocolList() {
         protocolsNumber.push(i + 1)
     }
     console.log(protocolsNumber)
+
     return (
         <>
             <MobileHeader/>

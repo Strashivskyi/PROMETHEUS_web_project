@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Logo from '../../assets/Logo.svg'
 import './ProgramHeader.css'
-
+import { Link } from 'react-router-dom'
 import app from '../../Firebase/firebase'
 
 function signOut() {
@@ -18,8 +18,8 @@ function ProgramHeader() {
         console.log(fetch(`https://john-steck-api.herokuapp.com/files/${userEmail}/${kidName}`))
         fetch(`https://john-steck-api.herokuapp.com/files/${userEmail}/${kidName}`).then((data) => {
             setFileGenerated(data.status) // 200
-        },
-        alert("Поточну програму успішно оновлено!"))
+        })
+        alert("Протокол збережено успішно!")
     }
     return (
         <>
@@ -37,6 +37,7 @@ function ProgramHeader() {
                     }}
                 />
                 <div style={{ position: 'absolute', top: '0.9%', left: '20%' }}>
+                  <Link to='/protocol-list'>
                     <button
                         className="save_button btn-background-slide"
                         style={{ top: '1rem', cursor: 'pointer' }}
@@ -44,6 +45,7 @@ function ProgramHeader() {
                     >
                         Зберегти файл
                     </button>
+                    </Link>
                 </div>
             </div>
             <hr

@@ -12,7 +12,9 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import app from '../../Firebase/firebase'
 import './RegPatientPage.css'
 import default_avatar from '../../assets/default_avatar.png';
-import {withRouter}  from "react-router";
+import { withRouter } from "react-router";
+import MobileHeader from '../Header/MobileHeader'
+import "./RegPatientPage.css"
 
 /* -
 ----------------------------
@@ -22,7 +24,7 @@ import {withRouter}  from "react-router";
 const Button = styled(MuiButton)(spacing)
 
 const CenteredContent = styled.div`
-  text-align: center;
+    text-align: center;
 `
 
 /* -
@@ -85,7 +87,7 @@ const currenciesBlood = [
     },
 ]
 
-function RegistrationPatient({history}) {
+function RegistrationPatient({ history }) {
     const useStyles = makeStyles((theme) => ({
         rootForTitle: {
             '& .MuiTextField-root': {
@@ -126,8 +128,6 @@ function RegistrationPatient({history}) {
     const [blood, setBlood] = useState('')
     const [image, _setImage] = useState(null)
     const inputFileRef = createRef(null)
-
-
 
     // FOR IMAGE
     const cleanup = () => {
@@ -202,8 +202,8 @@ function RegistrationPatient({history}) {
     }
 
     async function handleSubmit() {
-        if (name == "" ||  diagnose == "" || parents == "" || gender == "" ||
-            age == "" || date == "" || city == "" || country == ""){
+        if (name == "" || diagnose == "" || parents == "" || gender == "" ||
+            age == "" || date == "" || city == "" || country == "") {
             alert("Заповніть всі поля!")
         } else {
             const res = await db
@@ -225,10 +225,11 @@ function RegistrationPatient({history}) {
                     Image: default_avatar,
                 })
             history.push('/')
-        }}
-
+        }
+    }
     return (
-        <>
+        <div className="general_container">
+            <MobileHeader />
             <SimpleHeader />
             <div
                 className="patient_upper_flex_container"
@@ -267,10 +268,8 @@ function RegistrationPatient({history}) {
                             alt="Avatar"
                             src={image}
                             variant="square"
-                            style={{
-                                width: '256px',
-                                height: '256px',
-                            }}
+                            style={{ marginLeft: "auto", width: "256px", height: "256px", marginLeft: "auto" }}
+
                         />
                         <input
                             ref={inputFileRef}
@@ -305,8 +304,10 @@ function RegistrationPatient({history}) {
                             <div className="label-area">Ім'я та Прізвище:</div>
 
                             <TextField
-                                onChange={(event) => nameChange(event)}
                                 require
+                                className="patient-subtitle-input"
+                                color="secondary"
+                                onChange={(event) => nameChange(event)}
                             />
                         </div>
                     </div>
@@ -322,6 +323,7 @@ function RegistrationPatient({history}) {
                             <TextField
                                 require
                                 className="patient-subtitle-input"
+                                color="secondary"
                                 onChange={(event) => diagnoseChange(event)}
                             />
                         </div>
@@ -333,6 +335,7 @@ function RegistrationPatient({history}) {
                                     <div className="label-area">Батьки:</div>
 
                                     <TextField
+                                        color="secondary"
                                         onChange={(event) =>
                                             parentsChange(event)
                                         }
@@ -341,6 +344,8 @@ function RegistrationPatient({history}) {
                                 <div className="white-stipe-zebra">
                                     <div className="label-area">Стать:</div>
                                     <TextField
+
+                                        color="secondary"
                                         select
                                         value={gender}
                                         onChange={(event) =>
@@ -360,6 +365,8 @@ function RegistrationPatient({history}) {
                                 <div className="grey-stripe-zebra">
                                     <div className="label-area">Вік:</div>
                                     <TextField
+                                        className="big_input"
+                                        color="secondary"
                                         type="number"
                                         InputLabelProps={{
                                             shrink: true,
@@ -390,6 +397,8 @@ function RegistrationPatient({history}) {
                                     <div className="label-area">Місто:</div>
                                     <TextField
                                         onChange={(event) => cityChange(event)}
+                                        color="secondary"
+
                                     />
                                 </div>
                                 <div className="white-stipe-zebra">
@@ -398,13 +407,16 @@ function RegistrationPatient({history}) {
                                         onChange={(event) =>
                                             countryChange(event)
                                         }
+                                        color="secondary"
+
                                     />
                                 </div>
                             </div>
-                            <div className="zebra-table-right-part">
+                            {/* <div className="zebra-table-right-part">
                                 <div className="grey-stripe-zebra">
                                     <div className="label-area">Вага:</div>
                                     <TextField
+                                        color="secondary"
                                         type="number"
                                         InputLabelProps={{
                                             shrink: true,
@@ -420,10 +432,11 @@ function RegistrationPatient({history}) {
                                             ),
                                         }}
                                     />
-                                </div>
-                                <div className="white-stipe-zebra">
+                                </div> */}
+                            {/* <div className="white-stipe-zebra">
                                     <div className="label-area">Зріст:</div>
                                     <TextField
+                                        color="secondary"
                                         type="number"
                                         InputLabelProps={{
                                             shrink: true,
@@ -439,12 +452,13 @@ function RegistrationPatient({history}) {
                                             ),
                                         }}
                                     />
-                                </div>
-                                <div className="grey-stripe-zebra">
+                                </div> */}
+                            {/* <div className="grey-stripe-zebra">
                                     <div className="label-area">
                                         Група крові:
-                                    </div>
-                                    <TextField
+                                    </div> */}
+                            {/* <TextField
+                                        color="secondary"
                                         select
                                         value={blood}
                                         onChange={(event) => bloodChange(event)}
@@ -457,30 +471,24 @@ function RegistrationPatient({history}) {
                                                 {option.label}
                                             </MenuItem>
                                         ))}
-                                    </TextField>
-                                </div>
-                            </div>
+                                    </TextField> */}
+                            {/* </div> */}
+                            {/* </div> */}
                         </div>
                     </div>
+                    <Link to="/">
+                        <button
+                            className="save_button save_button_add_patient"
+                            onClick={handleSubmit}
+                        >
+                            Зберегти
+                        </button>
+                    </Link>
 
-                    {/*<Link to={}>*/}
-                    <button
-                        className="save_button"
-                        style={{
-                            top: '3.1rem',
-                            right: '5.6rem',
-                            cursor: 'pointer',
-                            position: 'absolute',
-                        }}
-                        onClick={handleSubmit}
-                    >
-                        Зберегти
-                    </button>
-                    {/*</Link>*/}
                 </div>
+
             </div>
-        </>
+        </div>
     )
 }
-
 export default withRouter(RegistrationPatient)

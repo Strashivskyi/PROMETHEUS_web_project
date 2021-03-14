@@ -4,7 +4,7 @@ import './PatientInfoPage.css'
 import Header from '../Header/Header'
 import MobileHeader from '../Header/MobileHeader'
 import Arrow from '../../assets/arrow.png'
-import Kid from '../../assets/kid.jpg'
+import Kid from '../../assets/default_avatar.png'
 import { Link } from 'react-router-dom'
 import Delete from '../../assets/delete.svg'
 
@@ -164,12 +164,12 @@ export default function PatientInfoUser() {
                         </div>
                         <div className="patient_grid_container">
                         <img
-                                    src={patient.Image}
+                                    src={Kid}
                                     height="200"
                                     className="mobile_child_image"
                                 />
                             <img
-                                src={patient.Image}
+                                src={Kid}
                                 height="270"
                                 className="child_image"
                             />
@@ -228,7 +228,7 @@ export default function PatientInfoUser() {
                                         {patient.Country}
                                     </div>
                                 </div>
-                                <div
+                                {/* <div
                                     className="zebra_rows_flex_container"
                                     style={{ backgroundColor: '#EEEEEE' }}
                                 >
@@ -250,8 +250,8 @@ export default function PatientInfoUser() {
                                     <div>Група крові:</div>
                                     <div className="zebra_rows_flex_container_value">
                                         {patient.BloodType}
-                                    </div>
-                                </div>
+                                    </div> */}
+                                {/* </div> */}
                             </div>
                             {/* second column */}
                             <div className="second_column_outer_flex_container">
@@ -390,6 +390,7 @@ function DeleteTherapist(therapistId) {
         .doc(localStorage.getItem('child'))
         .delete()
         alert(`Видалено терапіста за електронною поштою ${therapistId}`)
+
 }
 
 function addTherapist(therapistInput) {
@@ -409,8 +410,26 @@ function addTherapist(therapistInput) {
                         .doc(therapistInput)
                         .set({ Name: doc.data().Name })
                         alert(`Терапіст ${doc.data().Name} доданий за електронною поштою ${therapistInput}`)
+                        fetch(`https://john-steck-api.herokuapp.com/email/reg_child/${localStorage.getItem("Name")+" "+localStorage.getItem("Surname")}/${localStorage.getItem("childName")}/${therapistInput}`).then((data) => {
+                            setFileGenerated(data.status) // 200
+                        })
                 } else {
-                    alert('Необхідно вказати дійсну пошту терапевта')
+                    alert(`Відправлено лист на реєстрацію на ${therapistInput}`)
+                    db.collection('Supervisors')
+                        .doc(localStorage.getItem('user'))
+                        .collection('Patient')
+                        .doc(localStorage.getItem('child'))
+                        .collection('Therapists')
+                        .doc(therapistInput)
+                        .set({ Name: 'Очікуємо реєстрації' })
+
+
+                    db.collection('Therapists')
+                        .doc(therapistInput)
+                        .set({ Name: 'Очікуємо реєстрації' })
+                    fetch(`https://john-steck-api.herokuapp.com/email/reg/${localStorage.getItem("Name")+" "+localStorage.getItem("Surname")}/${localStorage.getItem("childName")}/${therapistInput}`).then((data) => {
+                        setFileGenerated(data.status) // 200
+                    })
                 }
             })
             .catch((error) => {

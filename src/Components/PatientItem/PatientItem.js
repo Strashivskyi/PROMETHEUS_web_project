@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Item, Name, ButtonItem, Amount, Patient } from './PatientItem.styled'
 import { Link } from 'react-router-dom'
+import Kid from '../../assets/default_avatar.png'
 import '../PatientInfo/PatientInfoPage.css'
 import './PatientItem.css'
 function PatientItem({ patients }) {
@@ -10,7 +11,7 @@ function PatientItem({ patients }) {
             {patients.map((patient) => (
                 <Item className="hover_patient" style={{ height: '26rem' }}>
                     <img
-                        src={patient.Image}
+                        src={Kid}
                         width="250"
                         height="240"
                         style={{ marginLeft: '0.8rem', marginTop: '0.9rem' }}

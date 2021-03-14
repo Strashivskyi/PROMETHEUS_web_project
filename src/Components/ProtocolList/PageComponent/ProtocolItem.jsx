@@ -7,7 +7,6 @@ import app from '../../../Firebase/firebase'
 import { Link } from 'react-router-dom'
 import EditIcon from '../../../assets/edit_new.svg'
 import SecondModal from '../../ModalWindow/SecondModal'
-
 export default function ProtocolItem({
     number,
     protocolId,
@@ -26,8 +25,7 @@ export default function ProtocolItem({
     method,
     methodTakingHint,
     reductionСriterion,
-    stepDescription,
-    CriteriongenGenerSkill,
+    stepDescription, CriteriongenGenerSkill
 }) {
     let [colorItem, setColorItem] = useState('')
 
@@ -40,6 +38,7 @@ export default function ProtocolItem({
         setIsOpen(!isOpen)
     }
 
+
     return (
         <>
             <div
@@ -47,18 +46,22 @@ export default function ProtocolItem({
                 style={{ backgroundColor: colorItem, marginLeft: '5rem' }}
             >
                 <p className="protocol_item_text ">
-                    Протокол {number}
-                    {statusCopied}.{sphereOfDevelopment}.{skill}
+                    Протокол {number}{statusCopied}.
+                     {sphereOfDevelopment}.{skill}
                 </p>
                 <div className="icon_place">
                     <Link
-                          onClick={() =>
-                            {setData(protocolId,number)}
-                        
-                    }
+                
+                            onClick={() =>
+                                {setData(protocolId,number)}
+                            
+                        }
                         to="/program"
                     >
-                        <img className="icon edit_icon" src={EditIcon} />
+                    <img
+                        className="icon edit_icon"
+                        src={EditIcon}
+                    />
                     </Link>
 
                     <img
@@ -79,18 +82,12 @@ export default function ProtocolItem({
                                 method,
                                 methodTakingHint,
                                 reductionСriterion,
-                                stepDescription,
-                                CriteriongenGenerSkill
+                                stepDescription, CriteriongenGenerSkill
                             )
                         }
                         src={Duplicate}
                     />
-                    <CheckIsActive
-                        className="icon"
-                        isActive={isActive}
-                        protocolId={protocolId}
-                    />
-
+                    <CheckIsActive className="icon" isActive={isActive} protocolId={protocolId} />
                     {isOpen && (
                         <SecondModal
                         protocolId={protocolId}
@@ -106,11 +103,10 @@ export default function ProtocolItem({
                             handleClose={toggleModal}
                         />
                     )}
+
                     <img
                         className="icon"
-                        onClick={
-                            (() => DeleteProtocol(protocolId), toggleModal)
-                        }
+                        onClick={() => DeleteProtocol(protocolId)}
                         src={Delete}
                     />
                 </div>
@@ -134,13 +130,12 @@ function CreateDuplicateProtocol(
     method,
     methodTakingHint,
     reductionСriterion,
-    stepDescription,
-    CriteriongenGenerSkill
+    stepDescription, CriteriongenGenerSkill
 ) {
     localStorage.setItem('program', protocolId)
     const db = app.firestore()
 
-    db.collection(localStorage.getItem('proffesion'))
+    db.collection(localStorage.getItem("proffesion"))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -149,7 +144,7 @@ function CreateDuplicateProtocol(
             SphereOfDevelopment: sphereOfDevelopment,
             ProtocolId: id,
             Skill: skill,
-            StatusCopied: '(Копія Протокол ' + copiId + ')',
+            StatusCopied: '(Копія Протоколу )',
             IsActive: '0',
             Interval: interval,
             CorrectionProcedureStep1: correctionProcedureStep1,
@@ -161,36 +156,34 @@ function CreateDuplicateProtocol(
             MethodTakingHint: methodTakingHint,
             ReductionСriterion: reductionСriterion,
             StepDescription: stepDescription,
-            CriteriongenGenerSkill: CriteriongenGenerSkill,
+            CriteriongenGenerSkill: CriteriongenGenerSkill
         })
         .then(function (docRef) {
-            db.collection(localStorage.getItem('proffesion'))
+            db.collection(localStorage.getItem("proffesion"))
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .doc(localStorage.getItem('child'))
-                .collection('Protocols')
-                .doc(docRef.id)
-                .collection('CriteriongenGenerSkill')
-                .add({ Text: '' })
+                .collection('Protocols').doc(docRef.id)
+                .collection("CriteriongenGenerSkill")
+                .add({ Text: "" })
             db.collection('User')
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .doc(localStorage.getItem('child'))
-                .collection('Protocols')
-                .doc(docRef.id)
-                .collection('Stimulus')
-                .add({ Name: '' })
-            console.log('Document written with ID: ', docRef.id)
+                .collection('Protocols').doc(docRef.id)
+                .collection("Stimulus")
+                .add({ Name: "" })
+            console.log("Document written with ID: ", docRef.id);
         })
         .catch(function (error) {
-            console.error('Error adding document: ', error)
-        })
+            console.error("Error adding document: ", error);
+        });
 
     // console.log(data.key)
 }
 function DeleteProtocol(protocolId) {
     const db = app.firestore()
-    db.collection(localStorage.getItem('proffesion'))
+    db.collection(localStorage.getItem("proffesion"))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -202,10 +195,10 @@ function DeleteProtocol(protocolId) {
             .doc(terapist)
             .collection('Patient')
             .doc(localStorage.getItem('child'))
-            .collection('Protocols')
-            .doc(protocolId)
-            .delete()
+            .collection('Protocols').doc(protocolId).delete()
     })
+
+
 }
 function CheckIsActive({ isActive, protocolId }) {
     console.log(isActive)
@@ -230,7 +223,7 @@ function CheckIsActive({ isActive, protocolId }) {
 function UpdateActiveStatus(protocolId, valueStatus) {
     const db = app.firestore()
 
-    db.collection(localStorage.getItem('proffesion'))
+    db.collection(localStorage.getItem("proffesion"))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))

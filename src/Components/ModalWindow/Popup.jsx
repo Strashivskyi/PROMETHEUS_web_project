@@ -2,6 +2,7 @@ import React from "react";
 import './Modal.css'
 import app from '../../Firebase/firebase'
 const Popup = props => {
+    console.log(props.protocols)
     return (
         <div className="popup-box">
             <div className="box">
@@ -20,6 +21,8 @@ export default Popup;
 
 
 function CreateProgramTemplates(protocols, child, typeTemplates) {
+    var endCycle=0
+    console.log(protocols)
     const db = app.firestore()
     if (typeTemplates == "Приватний") {
         db.collection(localStorage.getItem("proffesion"))
@@ -55,6 +58,7 @@ function CreateProgramTemplates(protocols, child, typeTemplates) {
             .catch(function (error) {
                 console.error('Error adding document: ', error)
             })
+            endCycle=1
     }
     if (typeTemplates == "Публічний") {
         db
@@ -84,11 +88,14 @@ function CreateProgramTemplates(protocols, child, typeTemplates) {
             .catch(function (error) {
                 console.error('Error adding document: ', error)
             })
+            endCycle=1
     }
 
+  
+if (endCycle==1){         
+setTimeout(() => {
     alert(`${typeTemplates} шаблон протоколів успішно створений!`)
-
-    setTimeout(() => {
         window.location.reload()
-    }, 100);
+    }, );
+}
 }

@@ -5,7 +5,7 @@ import Header from '../Header/Header'
 import MobileHeader from '../Header/MobileHeader'
 
 import Arrow from '../../assets/arrow.png'
-import Kid from '../../assets/kid.jpg'
+import Kid from '../../assets/default_avatar.png'
 import { Link } from 'react-router-dom'
 import Delete from '../../assets/delete.svg'
 
@@ -68,12 +68,12 @@ export default function PatientInfoTherapist() {
                         <div className="patient_grid_container">
 
                             <img
-                                src={patient.Image}
+                                src={Kid}
                                 height="200"
                                 className="mobile_child_image"
                             />
                             <img
-                                src={patient.Image}
+                                src={Kid}
                                 height="270"
                                 className="child_image"
                             />
@@ -132,7 +132,7 @@ export default function PatientInfoTherapist() {
                                         {patient.Country}
                                     </div>
                                 </div>
-                                <div
+                                {/* <div
                                     className="zebra_rows_flex_container"
                                     style={{ backgroundColor: '#EEEEEE' }}
                                 >
@@ -155,9 +155,9 @@ export default function PatientInfoTherapist() {
                                     <div className="zebra_rows_flex_container_value">
                                         {patient.BloodType}
                                     </div>
-                                </div>
-                            </div>
-                            {/* second column */}
+                                </div> */}
+                            </div> 
+                        
                             <div className="second_column_outer_flex_container">
                                 <div
                                     className="zebra_rows_flex_container"

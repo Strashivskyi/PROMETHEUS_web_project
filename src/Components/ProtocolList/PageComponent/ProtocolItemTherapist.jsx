@@ -27,9 +27,11 @@ export default function ProtocolItemTherapist({
 }) {
     let [colorItem, setColorItem] = useState('')
 
+
     if (+number % 2 != true) {
         colorItem = '#EEEEEE'
     }
+
     return (
         <>
             <div
@@ -47,7 +49,7 @@ export default function ProtocolItemTherapist({
                     />
                     <Link
                         onClick={() =>
-                            localStorage.setItem('program', protocolId)
+                            {setData(protocolId,number)}
                         }
                         to="/program"
                     >
@@ -92,4 +94,9 @@ function UpdateActiveStatus(protocolId, valueStatus) {
         .collection('Protocols')
         .doc(protocolId)
         .update({ IsActive: valueStatus })
+}
+
+function setData(param1,param2){
+    localStorage.setItem('program', param1)
+    localStorage.setItem("programNumber",param2)
 }

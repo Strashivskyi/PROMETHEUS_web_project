@@ -10,7 +10,7 @@ function SecondModal({protocolId,handleClose,content}){
         {content}
         <div className="second-button-popup">
         <button onClick={handleClose} className="second-button_private">Скасувати</button>
-        <button onClick={handleClose,(()=>DeleteProtocol(protocolId))} className="second-button_public">Підтвердити</button>
+        <button onClick={(()=>DeleteProtocol(protocolId))} className="second-button_public">Підтвердити</button>
         </div>
       </div>
     </div>

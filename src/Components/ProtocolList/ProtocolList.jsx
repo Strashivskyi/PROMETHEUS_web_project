@@ -171,10 +171,10 @@ export default function ProtocolList() {
         }
     }, [])
 
-    const [isOpenPop, setIsOpenPop] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const togglePopup = () => {
-        setIsOpenPop(!isOpenPop);
+        setIsOpen(!isOpen);
     }
     let protocolsNumber = []
     for (let i = 0; i <protocols.length; i++) {
@@ -193,7 +193,7 @@ export default function ProtocolList() {
                 >
                     <BsPlusCircle />
             </div>
-            {isOpenPop && <Popup protocols={protocols} child={child[0]}
+            {isOpen && <Popup protocols={protocols} child={child[0]}
                 content={<>
                     <b className="text_modul">Будь ласка, оберіть тип даного шаблону:</b>
                     <div className="button_modul">

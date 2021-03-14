@@ -4,6 +4,7 @@ import React from 'react'
 import "./Patients.css"
 import MobileHeader from '../Header/MobileHeader'
 import { Link } from 'react-router-dom'
+import Kid from '../../assets/default_avatar.png'
 import { useEffect, useState } from 'react'
 import { BsPlusCircle } from 'react-icons/bs'
 import Logo from '../../assets/Logo.svg'
@@ -125,7 +126,7 @@ function Patient() {
                 }}
                 className="add_patient_button"
             >
-                <BsPlusCircle size={50} />
+               <BranchingItem/>
             </Link>
             <PatientItem patients={patients} />
         </>
@@ -133,3 +134,18 @@ function Patient() {
 }
 
 export default Patient
+function BranchingItem(){
+    if (localStorage.getItem('proffesion')=='Supervisors'){
+        return(
+            <>
+            <BsPlusCircle size={50} />
+            </>
+        )
+    }
+    if (localStorage.getItem('proffesion')!=='Supervisors'){
+        return(
+            <>
+            </>
+        )
+    }
+}
