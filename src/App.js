@@ -14,6 +14,7 @@ import RenderProgramList from './Components/ProtocolList/ProtocolListBranching'
 import TherapyResult from './Components/TherapyResult/TherapyResult'
 import RegistrationPatient from './Components/RegistrationPatient/RegPatientPage'
 import ProgramTemplate from './Components/ProgramTemplate/ProgramTemplate'
+import ProgramTemplatePublic from './Components/ProgramTemplate/ProgramTemplatePublic'
 
 function App() {
     return (
@@ -66,6 +67,11 @@ function App() {
                             exact
                             path="/program-template"
                             component={ProgramTemplate}
+                        />
+                        <PrivateRouteToLogin
+                            exact
+                            path="/public-template"
+                            component={ProgramTemplatePublic}
                         />
                     </Switch>
          

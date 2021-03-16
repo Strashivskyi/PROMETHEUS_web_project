@@ -360,7 +360,7 @@ export default function PatientInfoUser() {
                             <Link
                                 to={path}
                                 onClick={() =>
-                                    localStorage.setItem('program', 'ok')
+                                   setData()
                                 }
                                 className="patient_page_buttons_program"
                             >
@@ -372,6 +372,11 @@ export default function PatientInfoUser() {
             </ul>
         </div>
     )
+}
+
+function setData(){
+    localStorage.setItem("templateType","private")
+    localStorage.setItem('program', 'ok')
 }
 
 function DeleteTherapist(therapistId) {

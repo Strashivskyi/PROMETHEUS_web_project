@@ -1,0 +1,38 @@
+.buttons-template{
+    display: flex;
+    flex-direction: center;
+    justify-content: space-around;
+} 
+.buttons-template-private{
+    background:transparent;
+    border:none;
+    outline:none;
+    display:block;
+    height:200px;
+    width:200px;
+    cursor:pointer;
+    font-size: 24px;
+    
+
+}
+#temp-button-prv:active{
+    color:#EF4F59;
+    font-weight: bold;
+    
+}
+.buttons-template-public{
+    font-size: 24px;
+    background:transparent;
+    border:none;
+    outline:none;
+    display:block;
+    height:200px;
+    width:250px;
+    cursor:pointer;  
+    font-size: 24px;
+    
+}
+#temp-button-pub:active{
+    font-weight: bold;
+    color:#EF4F59;
+}
