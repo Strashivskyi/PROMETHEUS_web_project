@@ -20,6 +20,7 @@
 }
 
 .protocol_item {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

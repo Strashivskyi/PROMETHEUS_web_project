@@ -55,12 +55,13 @@ function SignIn({ history }) {
 
                             snapshot.docs.map((doc) => {
                                 localStorage.setItem("proffesion", doc.data().Profession)
+                                
                             })
                         } else {
                             console.log('Немає професії')
                         }
                     })
-
+                    
                     localStorage.setItem('user', currentUser.email)
                     history.push('/home')
                 } else {

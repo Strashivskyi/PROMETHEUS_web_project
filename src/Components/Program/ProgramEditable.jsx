@@ -307,6 +307,7 @@ export default function ProgramEditable() {
                                             paddingLeft: '10px',
                                         }}
                                     >
+                                        <option value="false"> </option>
                                         <option value="0">0 секунд</option>
                                         <option value="2">2 секунди</option>
                                         <option value="4">4 секунди</option>
@@ -415,6 +416,8 @@ export default function ProgramEditable() {
                                             paddingLeft: '10px',
                                         }}
                                     >
+                                        <option value="false">
+                                        </option>
                                         <option value="Тимчасова затримка">
                                             Тимчасова затримка
                                         </option>

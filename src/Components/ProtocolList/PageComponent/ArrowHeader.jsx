@@ -76,15 +76,15 @@ function addProto(length) {
             ProtocolId: +length + 1, 
             SphereOfDevelopment: "", 
             Skill: "", 
-            IsActive: '0',
-            Interval: "0",
+            IsActive: "",
+            Interval: "",
             CorrectionProcedureStep1: "",
             CorrectionProcedureStep2: "",
             CorrectionProcedureStep3: "",
             CriterionIncrease: "",
             DesirableReaction: "",
             Method: "",
-            MethodTakingHint: "Тимчасова затримка",
+            MethodTakingHint: "",
             ReductionСriterion: "",
             StepDescription: "",CriteriongenGenerSkill:""
         })

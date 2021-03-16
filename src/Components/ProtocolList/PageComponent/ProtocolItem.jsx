@@ -7,7 +7,7 @@ import app from '../../../Firebase/firebase'
 import { Link } from 'react-router-dom'
 import EditIcon from '../../../assets/edit_new.svg'
 import SecondModal from '../../ModalWindow/SecondModal'
-export default function ProtocolItem({
+export default function ProtocolItem({protocols,
     number,
     protocolId,
     protocolName,
@@ -106,7 +106,7 @@ export default function ProtocolItem({
 
                     <img
                         className="icon"
-                        onClick={() => DeleteProtocol(protocolId)}
+                        onClick={() => DeleteProtocol(protocolId,protocols)}
                         src={Delete}
                     />
                 </div>
@@ -181,7 +181,7 @@ function CreateDuplicateProtocol(
 
     // console.log(data.key)
 }
-function DeleteProtocol(protocolId) {
+function DeleteProtocol(protocolId,protocols) {
     const db = app.firestore()
     db.collection(localStorage.getItem("proffesion"))
         .doc(localStorage.getItem('user'))
@@ -189,7 +189,18 @@ function DeleteProtocol(protocolId) {
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .doc(protocolId)
-        .delete()
+        .delete().then(doc=>{
+            // for (let i = 0; i < protocols.length; i++) {
+            //     console.log("ПІЗДААААА  " + i+1 + "БЛЯДСЬКИЙ ПРІОР " + protocols[i].ProtocolId)
+            //     db.collection(localStorage.getItem("proffesion"))
+            //         .doc(localStorage.getItem('user'))
+            //         .collection('Patient')
+            //         .doc(localStorage.getItem('child'))
+            //         .collection('Protocols').doc(protocols[i].id)
+            //         .update({ ProtocolId: i + 1 })
+        
+            // }
+        })
     JSON.parse(localStorage.getItem('therapistID')).map((terapist) => {
         db.collection('Therapists')
             .doc(terapist)
@@ -197,6 +208,9 @@ function DeleteProtocol(protocolId) {
             .doc(localStorage.getItem('child'))
             .collection('Protocols').doc(protocolId).delete()
     })
+  
+
+   
 
 
 }

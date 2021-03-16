@@ -411,7 +411,7 @@ function addTherapist(therapistInput) {
                         .set({ Name: doc.data().Name })
                         alert(`Терапіст ${doc.data().Name} доданий за електронною поштою ${therapistInput}`)
                         fetch(`https://john-steck-api.herokuapp.com/email/reg_child/${localStorage.getItem("Name")+" "+localStorage.getItem("Surname")}/${localStorage.getItem("childName")}/${therapistInput}`).then((data) => {
-                            setFileGenerated(data.status) // 200
+                          
                         })
                 } else {
                     alert(`Відправлено лист на реєстрацію на ${therapistInput}`)
@@ -428,7 +428,7 @@ function addTherapist(therapistInput) {
                         .doc(therapistInput)
                         .set({ Name: 'Очікуємо реєстрації' })
                     fetch(`https://john-steck-api.herokuapp.com/email/reg/${localStorage.getItem("Name")+" "+localStorage.getItem("Surname")}/${localStorage.getItem("childName")}/${therapistInput}`).then((data) => {
-                        setFileGenerated(data.status) // 200
+                       
                     })
                 }
             })

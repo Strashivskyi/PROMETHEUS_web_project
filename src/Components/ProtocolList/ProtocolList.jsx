@@ -139,7 +139,53 @@ export default function ProtocolList() {
             unsubscribe()
         }
     }, [])
-    protocols.sort((a, b) => +a.ProtocolId - +b.ProtocolId)
+
+    // useEffect(() => {
+    //     const db = app.firestore()
+    //     var test=1
+    //     const unsubscribe = db
+    //         .collection(localStorage.getItem("proffesion"))
+    //         .doc(localStorage.getItem('user'))
+    //         .collection('Patient')
+    //         .doc(localStorage.getItem('child'))
+    //         .collection('Protocols')
+    //         .onSnapshot((snapshot) => {
+    //             if (snapshot.size) {
+    //                 setProtocols(
+    //                     snapshot.docs.sort((a, b) => +a.data().ProtocolId - +b.data().ProtocolId).map((doc) => {
+    //                         db.collection(localStorage.getItem("proffesion"))
+    //                         .doc(localStorage.getItem('user'))
+    //                         .collection('Patient')
+    //                         .doc(localStorage.getItem('child'))
+    //                         .collection('Protocols').doc(doc.data().id)
+    //                         .update({ ProtocolId: test })
+    //                         test+=1
+    //                         console.log("СУКАААААААААААА_1"+ test)
+    //                     })
+                        
+    //                 )
+    //                 console.log('Сука')
+    //                 // for (let i = 0; i < protocols.length; i++) {
+    //                 //     console.log("ПІЗДААААА  " + i+1 + "БЛЯДСЬКИЙ ПРІОР " + protocols[i].ProtocolId)
+    //                 //     db.collection(localStorage.getItem("proffesion"))
+    //                 //         .doc(localStorage.getItem('user'))
+    //                 //         .collection('Patient')
+    //                 //         .doc(localStorage.getItem('child'))
+    //                 //         .collection('Protocols').doc(protocols[i].id)
+    //                 //         .update({ ProtocolId: i + 1 })
+                
+    //                 // }
+
+    //             } else {
+    //                 console.log('Сука1')
+    //             }
+    //         })
+    //     return () => {
+    //         unsubscribe()
+    //     }
+    // }, [])
+    
+
     protocols.map((protocol) => test.push(protocol.id))
     console.log(test)
 
@@ -176,28 +222,179 @@ export default function ProtocolList() {
     const togglePopup = () => {
         setIsOpen(!isOpen);
     }
+
+
+
+
+
+    const [currrentProtocoll, setcurrrentProtocoll] = useState(null)
+    function dragStartHandler(event, protocol) {
+        console.log("DRAG" + protocol.ProtocolId)
+        setcurrrentProtocoll(protocol)
+
+    }
+
+    function dragEndHandler(event, protocol) {
+
+
+    }
+    function dragOverHandler(event) {
+        event.preventDefault()
+        // fetch(`http://127.0.0.1:5000/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
+           
+        // })
+    }
+
+    function dropHandler(event, protocol) {
+
+
+        const db = app.firestore()
+        event.preventDefault()
+        console.log("DROP" + protocol.ProtocolId)
+        setProtocols(protocols.map(proto => {
+
+            // if (proto.ProtocolId == protocol.ProtocolId) {
+            //     db.collection(localStorage.getItem("proffesion"))
+            //     .doc(localStorage.getItem('user'))
+            //     .collection('Patient')
+            //     .doc(localStorage.getItem('child'))
+            //     .collection('Protocols').doc(protocol.id)
+            //     .update({ ProtocolId: currrentProtocoll.ProtocolId })
+            //     fetch(`https://john-steck-api.herokuapp.com/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
+            //     })
+            // }
+
+            // if (proto.ProtocolId == currrentProtocoll.ProtocolId) {
+            //     db.collection(localStorage.getItem("proffesion"))
+            //         .doc(localStorage.getItem('user'))
+            //         .collection('Patient')
+            //         .doc(localStorage.getItem('child'))
+            //         .collection('Protocols').doc(currrentProtocoll.id)
+            //         .update({ ProtocolId: protocol.ProtocolId })
+            //         fetch(`https://john-steck-api.herokuapp.com/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
+            //                 })
+            //     }
+
+            if (proto.ProtocolId == protocol.ProtocolId) {
+                db.collection(localStorage.getItem("proffesion"))
+                    .doc(localStorage.getItem('user'))
+                    .collection('Patient')
+                    .doc(localStorage.getItem('child'))
+                    .collection('Protocols').doc(currrentProtocoll.id)
+                    .update({ ProtocolId: protocol.ProtocolId })
+                    db.collection(localStorage.getItem("proffesion"))
+                    .doc(localStorage.getItem('user'))
+                    .collection('Patient')
+                    .doc(localStorage.getItem('child'))
+                    .collection('Protocols').doc(protocol.id)
+                    .update({ ProtocolId: currrentProtocoll.ProtocolId })
+
+                }
+            // if (proto.ProtocolId == currrentProtocoll.ProtocolId &&Math.abs(currrentProtocoll.ProtocolId-protocol.ProtocolId)!=1 &&currrentProtocoll.ProtocolId>protocol.ProtocolId ) {
+            //     db.collection(localStorage.getItem("proffesion"))
+            //         .doc(localStorage.getItem('user'))
+            //         .collection('Patient')
+            //         .doc(localStorage.getItem('child'))
+            //         .collection('Protocols').doc(currrentProtocoll.id)
+            //         .update({ ProtocolId: protocol.ProtocolId})
+            //     fetch(`https://john-steck-api.herokuapp.com/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
+            //     })
+            // }
+            // if (proto.ProtocolId == currrentProtocoll.ProtocolId &&Math.abs(currrentProtocoll.ProtocolId-protocol.ProtocolId)!=1 &&currrentProtocoll.ProtocolId<protocol.ProtocolId ) {
+            //     db.collection(localStorage.getItem("proffesion"))
+            //         .doc(localStorage.getItem('user'))
+            //         .collection('Patient')
+            //         .doc(localStorage.getItem('child'))
+            //         .collection('Protocols').doc(currrentProtocoll.id)
+            //         .update({ ProtocolId: protocol.ProtocolId+1})
+            //     fetch(`https://john-steck-api.herokuapp.com/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
+            //     })
+            // }
+            // if (proto.ProtocolId == currrentProtocoll.ProtocolId && currrentProtocoll.ProtocolId>protocol.ProtocolId&&currrentProtocoll.ProtocolId-protocol.ProtocolId==1) {
+            //     db.collection(localStorage.getItem("proffesion"))
+            //         .doc(localStorage.getItem('user'))
+            //         .collection('Patient')
+            //         .doc(localStorage.getItem('child'))
+            //         .collection('Protocols').doc(currrentProtocoll.id)
+            //         .update({ ProtocolId: protocol.ProtocolId })
+            //         db.collection(localStorage.getItem("proffesion"))
+            //         .doc(localStorage.getItem('user'))
+            //         .collection('Patient')
+            //         .doc(localStorage.getItem('child'))
+            //         .collection('Protocols').doc(protocol.id)
+            //         .update({ ProtocolId: currrentProtocoll.ProtocolId })
+
+                // fetch(`https://john-steck-api.herokuapp.com/priority_correction/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
+           
+                // })
+
+            // }
+            // if (proto.ProtocolId == currrentProtocoll.ProtocolId && currrentProtocoll.ProtocolId<protocol.ProtocolId&&currrentProtocoll.ProtocolId-protocol.ProtocolId==-1) {
+            //     db.collection(localStorage.getItem("proffesion"))
+            //         .doc(localStorage.getItem('user'))
+            //         .collection('Patient')
+            //         .doc(localStorage.getItem('child'))
+            //         .collection('Protocols').doc(currrentProtocoll.id)
+            //         .update({ ProtocolId: protocol.ProtocolId })
+            //         db.collection(localStorage.getItem("proffesion"))
+            //         .doc(localStorage.getItem('user'))
+            //         .collection('Patient')
+            //         .doc(localStorage.getItem('child'))
+            //         .collection('Protocols').doc(protocol.id)
+            //         .update({ ProtocolId: currrentProtocoll.ProtocolId })
+
+                // fetch(`https://john-steck-api.herokuapp.com/priority_correction/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
+           
+                // })
+
+           
+            // if (visited == true) {
+            //     protocols.sort((a, b) => +a.ProtocolId - +b.ProtocolId)
+            //     for (let i = startVar; i < protocols.length+1 ; i++) {
+            //         db.collection(localStorage.getItem("proffesion"))
+            //             .doc(localStorage.getItem('user'))
+            //             .collection('Patient')
+            //             .doc(localStorage.getItem('child'))
+            //             .collection('Protocols').doc(protocols[i-1])
+            //             .update({ ProtocolId: i })
+            //     }
+            // }
+
+
+            return proto
+        }
+
+        ))
+
+        // fetch(`https://john-steck-api.herokuapp.com/priority_correction/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
+           
+        // })
+    }
+
+    protocols.sort((a, b) => +a.ProtocolId - +b.ProtocolId)
+
     let protocolsNumber = []
-    for (let i = 0; i <protocols.length; i++) {
+    for (let i = 0; i < protocols.length; i++) {
         protocolsNumber.push(i + 1)
     }
     console.log(protocolsNumber)
     return (
         <>
-           <MobileHeader />
+            <MobileHeader />
             <Header />
             <ArrowHeader />
             <button class="create_template_button btn-background-slide" onClick={togglePopup}>Зберегти як шаблон</button>
             <div
-                    onClick={() => addProto(protocols.length)}
-                    className="add-proto-mobile"
-                >
-                    <BsPlusCircle />
+                onClick={() => addProto(protocols.length)}
+                className="add-proto-mobile"
+            >
+                <BsPlusCircle />
             </div>
             {isOpen && <Popup protocols={protocols} child={child[0]}
                 content={<>
                     <b className="text_modul">Будь ласка, оберіть тип даного шаблону:</b>
                     <div className="button_modul">
-                        
+
                     </div>
                 </>}
                 handleClose={togglePopup}
@@ -205,38 +402,50 @@ export default function ProtocolList() {
             <div className="create_element" >
                 {/* <ReactSortable list={protocols} setList={setProtocols}> */}
                 {protocolsNumber.map((protocol) => (
-                        <ProtocolItem
-                            number={protocol}
-                            protocolId={protocols[protocol-1].id}
-                            protocolName={protocols[protocol-1].ProtocolId}
-                            sphereOfDevelopment={protocols[protocol-1].SphereOfDevelopment}
-                            length={protocols.length}
-                            skill={protocols[protocol-1].Skill}
-                            statusCopied={protocols[protocol-1].StatusCopied}
-                            isActive={protocols[protocol-1] .IsActive}
-                            interval={protocols[protocol-1].Interval}
-                            correctionProcedureStep1={
-                                protocols[protocol-1].CorrectionProcedureStep1
-                            }
-                            correctionProcedureStep2={
-                                protocols[protocol-1].CorrectionProcedureStep2
-                            }
-                            correctionProcedureStep3={
-                                protocols[protocol-1].CorrectionProcedureStep3
-                            }
-                            criterionIncrease={protocols[protocol-1].CriterionIncrease}
-                            desirableReaction={protocols[protocol-1].DesirableReaction}
-                            method={protocols[protocol-1].Method}
-                            methodTakingHint={protocols[protocol-1].MethodTakingHint}
-                            reductionСriterion={protocols[protocol-1].ReductionСriterion}
-                            stepDescription={protocols[protocol-1].StepDescription}
-                            CriteriongenGenerSkill={protocols[protocol-1].CriteriongenGenerSkill}
-                        />
-                    ))}
+                    <>
+                        <div draggable='true'
+                            onDragStart={(event) => { dragStartHandler(event, protocols[protocol - 1]) }}
+                            onDragLeave={(event) => { dragEndHandler(event, protocols[protocol - 1]) }}
+                            onDragEnd={(event) => { dragEndHandler(event, protocols[protocol - 1]) }}
+                            onDragOver={(event) => { dragOverHandler(event) }}
+                            onDrop={(event) => { dropHandler(event, protocols[protocol - 1]) }}
+                        >
+                            <ProtocolItem
+                            protocols={protocols}
+
+                                number={protocol}
+                                protocolId={protocols[protocol - 1].id}
+                                protocolName={protocols[protocol - 1].ProtocolId}
+                                sphereOfDevelopment={protocols[protocol - 1].SphereOfDevelopment}
+                                length={protocols.length}
+                                skill={protocols[protocol - 1].Skill}
+                                statusCopied={protocols[protocol - 1].StatusCopied}
+                                isActive={protocols[protocol - 1].IsActive}
+                                interval={protocols[protocol - 1].Interval}
+                                correctionProcedureStep1={
+                                    protocols[protocol - 1].CorrectionProcedureStep1
+                                }
+                                correctionProcedureStep2={
+                                    protocols[protocol - 1].CorrectionProcedureStep2
+                                }
+                                correctionProcedureStep3={
+                                    protocols[protocol - 1].CorrectionProcedureStep3
+                                }
+                                criterionIncrease={protocols[protocol - 1].CriterionIncrease}
+                                desirableReaction={protocols[protocol - 1].DesirableReaction}
+                                method={protocols[protocol - 1].Method}
+                                methodTakingHint={protocols[protocol - 1].MethodTakingHint}
+                                reductionСriterion={protocols[protocol - 1].ReductionСriterion}
+                                stepDescription={protocols[protocol - 1].StepDescription}
+                                CriteriongenGenerSkill={protocols[protocol - 1].CriteriongenGenerSkill}
+                            />
+                        </div>
+                    </>
+                ))}
                 {/* </ReactSortable> */}
-                
+
             </div>
-            
+
         </>
     )
 }
@@ -245,7 +454,7 @@ export default function ProtocolList() {
 function addProto(length) {
     const db = app.firestore()
 
-    db.collection('User')
+    db.collection(localStorage.getItem("proffesion"))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -254,15 +463,15 @@ function addProto(length) {
             ProtocolId: +length + 1, 
             SphereOfDevelopment: "", 
             Skill: "", 
-            IsActive: '0',
-            Interval: "0",
+            IsActive: "",
+            Interval: "",
             CorrectionProcedureStep1: "",
             CorrectionProcedureStep2: "",
             CorrectionProcedureStep3: "",
             CriterionIncrease: "",
             DesirableReaction: "",
             Method: "",
-            MethodTakingHint: "Тимчасова затримка",
+            MethodTakingHint: "",
             ReductionСriterion: "",
             StepDescription: "",CriteriongenGenerSkill:""
         })
