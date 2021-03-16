@@ -5,15 +5,14 @@
 } 
 .buttons-template-private{
     background:transparent;
-    border:none;
     outline:none;
     display:block;
-    height:200px;
+    height:50px;
     width:200px;
     cursor:pointer;
     font-size: 24px;
-    
-
+    border-radius: 3px;
+    margin-top: 15px;
 }
 #temp-button-prv:active{
     color:#EF4F59;
@@ -23,13 +22,14 @@
 .buttons-template-public{
     font-size: 24px;
     background:transparent;
-    border:none;
     outline:none;
     display:block;
-    height:200px;
+    height:50px;
     width:250px;
     cursor:pointer;  
     font-size: 24px;
+    border-radius: 3px;
+    margin-top: 15px;
     
 }
 #temp-button-pub:active{
