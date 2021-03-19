@@ -51,10 +51,10 @@ export default function ProtocolItem({protocols,
                 </p>
                 <div className="icon_place">
                     <Link
-                
+
                             onClick={() =>
                                 {setData(protocolId,number)}
-                            
+
                         }
                         to="/program"
                     >
@@ -106,7 +106,7 @@ export default function ProtocolItem({protocols,
 
                     <img
                         className="icon"
-                        onClick={() => DeleteProtocol(protocolId,protocols)}
+                        onClick={(() => DeleteProtocol(protocolId), toggleModal)}
                         src={Delete}
                     />
                 </div>
@@ -198,7 +198,7 @@ function DeleteProtocol(protocolId,protocols) {
             //         .doc(localStorage.getItem('child'))
             //         .collection('Protocols').doc(protocols[i].id)
             //         .update({ ProtocolId: i + 1 })
-        
+
             // }
         })
     JSON.parse(localStorage.getItem('therapistID')).map((terapist) => {
@@ -208,9 +208,9 @@ function DeleteProtocol(protocolId,protocols) {
             .doc(localStorage.getItem('child'))
             .collection('Protocols').doc(protocolId).delete()
     })
-  
 
-   
+
+
 
 
 }

@@ -7,6 +7,7 @@ import Arrow from '../../assets/arrow.png'
 import Kid from '../../assets/default_avatar.png'
 import { Link } from 'react-router-dom'
 import Delete from '../../assets/delete.svg'
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function PatientInfoUser() {
     let [patients, setPatients] = useState([])
@@ -367,6 +368,32 @@ export default function PatientInfoUser() {
                                 Програма
                             </Link>
                         </div>
+                        <Toaster position="bottom-top" reverseOrder={false}
+                                 toastOptions={{
+                                     style: {
+                                         minWidth: '350px',
+                                         minHeight: '60px',
+                                         paddingLeft: '20px'
+                                     },
+                                     success:{
+                                         minWidth: '600px',
+                                         minHeight: '120px',
+                                         duration : 5000,
+
+                                     },
+                                     loading:{
+                                         minWidth: '600px',
+                                         minHeight: '120px',
+                                         duration : 5000,
+                                         icon: '✉️'
+                                     },
+                                     error:{
+                                         duration : 5000,
+                                         icon: '⚠️'
+                                     }
+
+                                 }}
+                        />
                     </>
                 ))}
             </ul>
@@ -394,7 +421,7 @@ function DeleteTherapist(therapistId) {
         .collection('Patient')
         .doc(localStorage.getItem('child'))
         .delete()
-        alert(`Видалено терапіста за електронною поштою ${therapistId}`)
+        toast.success(`Видалено терапіста за електронною поштою: ${therapistId}`)
 
 }
 
@@ -414,12 +441,12 @@ function addTherapist(therapistInput) {
                         .collection('Therapists')
                         .doc(therapistInput)
                         .set({ Name: doc.data().Name })
-                        alert(`Терапіст ${doc.data().Name} доданий за електронною поштою ${therapistInput}`)
+                        toast.success(`Терапіст ${doc.data().Name} доданий за електронною поштою: ${therapistInput}`)
                         fetch(`https://john-steck-api.herokuapp.com/email/reg_child/${localStorage.getItem("Name")+" "+localStorage.getItem("Surname")}/${localStorage.getItem("childName")}/${therapistInput}`).then((data) => {
                           
                         })
                 } else {
-                    alert(`Відправлено лист на реєстрацію на ${therapistInput}`)
+                    toast.loading(`Відправлено лист на реєстрацію на: ${therapistInput}`)
                     db.collection('Supervisors')
                         .doc(localStorage.getItem('user'))
                         .collection('Patient')
@@ -441,6 +468,6 @@ function addTherapist(therapistInput) {
                 console.log(error)
             })
     } else {
-        alert('Спочатку вкажіть пошту терапевта')
+        toast.error('Спочатку вкажіть пошту терапевта')
     }
 }

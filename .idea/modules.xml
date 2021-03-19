@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/web_PROMETHEUS_project.iml" filepath="$PROJECT_DIR$/.idea/web_PROMETHEUS_project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PROMETHEUS_web_project.iml" filepath="$PROJECT_DIR$/.idea/PROMETHEUS_web_project.iml" />
     </modules>
   </component>
 </project>

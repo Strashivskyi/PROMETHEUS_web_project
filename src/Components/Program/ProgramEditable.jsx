@@ -7,6 +7,7 @@ import ArrowHeader from './ProgramElement/ArrowHeader'
 import StimulusItem from './ProgramElement/StimulusItem'
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
 import MobileHeader from '../Header/MobileHeader'
+import toast, { Toaster } from 'react-hot-toast';
 const theme = {
     ...DefaultTheme,
     roundness: 0,
@@ -712,6 +713,20 @@ export default function ProgramEditable() {
                         Зберегти файл
             </button>
                 <div style={{ height: '100px' }}></div>
+                <Toaster position="bottom-top" reverseOrder={false}
+                         toastOptions={{
+                             style: {
+                                 minWidth: '350px',
+                                 minHeight: '60px',
+                                 paddingLeft: '20px'
+                             },
+                             error:{
+                                 duration : 5000,
+                                 icon: '⚠️'
+                             }
+
+                         }}
+                />
             </>
         </PaperProvider>
     )
@@ -765,7 +780,7 @@ function addStimul(stimulInput) {
         .doc(localStorage.getItem('program'))
         .collection('Stimulus')
         .add({ Name: stimulInput })
-    }else {alert("Неможливо надіслати пустий стимул")}
+    }else {toast.error("Неможливо надіслати пустий стимул")}
 }
 function addSkill(params) {
     const db = app.firestore()

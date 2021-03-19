@@ -6,16 +6,17 @@ import { useHistory } from 'react-router-dom'
 import app from '../../Firebase/firebase'
 import '../Login/Login1.css'
 import './ForgetPassword.css'
+import toast, { Toaster } from 'react-hot-toast';
 
 function recover(Email, history) {
     app.auth()
         .sendPasswordResetEmail(Email)
         .then(function (user) {
-            alert('Please check your email...')
+            toast.loading('Будь ласка, перевірте свою електронну пошту...')
             history.push('/')
         })
         .catch(function (e) {
-            alert(e)
+            toast.error('Помилка')
         })
 }
 
@@ -52,6 +53,22 @@ function ForgetPassword() {
                             Відправити
                         </p>
                     </form>
+                    <Toaster position="bottom-top" reverseOrder={false}
+                             toastOptions={{
+                                 style: {
+                                     minWidth: '430px',
+                                     minHeight: '60px',
+                                     paddingLeft: '20px'
+                                 },
+                                 loading:{
+                                     duration : 5000,
+                                     icon: '✉️'
+                                 },
+
+
+
+                             }}
+                    />
                 </div>
             </div>
         </>

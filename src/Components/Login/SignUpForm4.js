@@ -5,6 +5,8 @@ import 'fontsource-dm-sans'
 import './SignUpForm4.css'
 import { withRouter } from 'react-router'
 import app from '../../Firebase/firebase'
+import toast, { Toaster } from 'react-hot-toast';
+
 
 function SignUpForm4({ history }) {
     localStorage.setItem("step", 4)
@@ -31,10 +33,11 @@ function SignUpForm4({ history }) {
                     addInputRegistr()
                     history.push('/')
                 } else {
-                    alert('Будь ласка, перевірте ваш пароль')
+                    toast.error('Будь ласка, перевірте ваш пароль',  );
+
                 }
             } catch (error) {
-                alert(error)
+                toast.error("Помилка")
             }
         },
         [history]
@@ -90,6 +93,20 @@ function SignUpForm4({ history }) {
                     class="slide-hover-left-4"
                     type="submit"
                     value="Зареєструватись"
+                />
+                <Toaster position="bottom-top" reverseOrder={false}
+                         toastOptions={{
+                             style: {
+                                 minWidth: '350px',
+                                 minHeight: '60px',
+                                 paddingLeft: '20px'
+                             },
+                             error:{
+                                 duration : 5000,
+                                 icon: '⚠️'
+                             }
+
+                             }}
                 />
             </form>
         </div>
