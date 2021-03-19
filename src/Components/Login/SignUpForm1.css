@@ -169,6 +169,7 @@ input[type='button'] {
     margin-bottom: -20px;
 }
 
+
 @media screen and (min-width:800px) and (max-width:1300px){
     .number-buttons {
         display: flex;

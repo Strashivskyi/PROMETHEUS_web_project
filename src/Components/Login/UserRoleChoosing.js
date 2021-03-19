@@ -5,6 +5,7 @@ import 'fontsource-dm-sans'
 import app from '../../Firebase/firebase'
 import SwitchSelector from 'react-switch-selector'
 import './UserRoleChoosing.css'
+import NextButtonComponent from '../Login/NextButtonComponent'
 function SignUpForm3() {
     const options = [
         {
@@ -68,6 +69,7 @@ function SignUpForm3() {
                     </a>
                 </div>
             </div>
+            <NextButtonComponent />
         </div>
     )
 }

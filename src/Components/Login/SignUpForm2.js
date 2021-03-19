@@ -7,6 +7,8 @@ import $ from 'jquery'
 import { useState, useEffect } from 'react'
 import app from '../../Firebase/firebase'
 import './SignUpForm2.css'
+import NextButtonComponent from './NextButtonComponent'
+import BackButtonComponent from '../Login/BackButtonComponent'
 
 function SignUpForm2() {
     
@@ -93,7 +95,10 @@ function SignUpForm2() {
                         placeholder="Місто"
                     />
                 </div>
-            </form>
+               
+            </form> 
+            <NextButtonComponent />
+            <BackButtonComponent />
         </div>
     )
 }

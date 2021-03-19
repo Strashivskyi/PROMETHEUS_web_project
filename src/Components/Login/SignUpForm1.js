@@ -4,6 +4,8 @@ import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
 import { withRouter } from 'react-router'
 import DataPicker from './DataPicker'
+import NextButtonComponent from './NextButtonComponent'
+import BackButtonComponent from '../Login/BackButtonComponent'
 
 function SignUpForm1() {
     localStorage.setItem("step",2)
@@ -78,7 +80,10 @@ function SignUpForm1() {
                         <label for="sketch">Інше</label>
                     </div>
                 </div>
-            </form>
+               
+            </form> 
+             <NextButtonComponent />
+             <BackButtonComponent />
         </div>
     )
 }

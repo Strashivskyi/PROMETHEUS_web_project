@@ -6,6 +6,7 @@ import app from '../../Firebase/firebase'
 import './SignUpForm3.css'
 import Select from 'react-select'
 import { useState } from 'react'
+import NextButtonComponent from './NextButtonComponent'
 
 const options = [
    
@@ -58,7 +59,9 @@ function SignUpForm3() {
                     />
                 </div>
                 <div></div>
+                
             </form>
+            <NextButtonComponent />
         </div>
     )
 }

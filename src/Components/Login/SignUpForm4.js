@@ -5,6 +5,7 @@ import 'fontsource-dm-sans'
 import './SignUpForm4.css'
 import { withRouter } from 'react-router'
 import app from '../../Firebase/firebase'
+import BackButtonComponent from '../Login/BackButtonComponent'
 
 function SignUpForm4({ history }) {
     localStorage.setItem("step", 4)
@@ -92,6 +93,7 @@ function SignUpForm4({ history }) {
                     value="Зареєструватись"
                 />
             </form>
+            <BackButtonComponent />
         </div>
     )
 }

@@ -48,6 +48,7 @@ export default function ProtocolItemTherapist({
                         protocolId={protocolId}
                     />
                     <Link
+                    title="Переглянути"
                         onClick={() =>
                             {setData(protocolId,number)}
                         }
@@ -69,6 +70,7 @@ function CheckIsActive({ isActive, protocolId }) {
     if (isActive == true) {
         return (
             <img
+                title="Активований"
                 onClick={() => UpdateActiveStatus(protocolId, '0')}
                 className="icon"
                 src={Visible}
@@ -77,6 +79,7 @@ function CheckIsActive({ isActive, protocolId }) {
     } else {
         return (
             <img
+                title="Деактивований"
                 onClick={() => UpdateActiveStatus(protocolId, '1')}
                 className="icon"
                 src={UnVisible}

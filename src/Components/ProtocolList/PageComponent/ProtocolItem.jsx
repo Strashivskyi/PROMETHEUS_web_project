@@ -50,6 +50,7 @@ export default function ProtocolItem({protocols,
                      {sphereOfDevelopment}.{skill}
                 </p>
                 <div className="icon_place">
+                    <CheckIsActive  className="icon" isActive={isActive} protocolId={protocolId} />
                     <Link
                 
                             onClick={() =>
@@ -58,13 +59,17 @@ export default function ProtocolItem({protocols,
                         }
                         to="/program"
                     >
+            
                     <img
+                        title="Редагувати"
                         className="icon edit_icon"
                         src={EditIcon}
                     />
                     </Link>
+                    
 
                     <img
+                        title="Дублікат"
                         className="icon"
                         onClick={() =>
                             CreateDuplicateProtocol(
@@ -87,7 +92,7 @@ export default function ProtocolItem({protocols,
                         }
                         src={Duplicate}
                     />
-                    <CheckIsActive className="icon" isActive={isActive} protocolId={protocolId} />
+                    
                     {isOpen && (
                         <SecondModal
                         protocolId={protocolId}
@@ -105,6 +110,7 @@ export default function ProtocolItem({protocols,
                     )}
 
                     <img
+                        title="Видалити"
                         className="icon"
                         onClick={() => DeleteProtocol(protocolId,protocols)}
                         src={Delete}
@@ -113,6 +119,28 @@ export default function ProtocolItem({protocols,
             </div>
         </>
     )
+}
+function CheckIsActive({ isActive, protocolId }) {
+    console.log(isActive)
+    if (isActive == true) {
+        return (
+            <img
+                title="Активований"
+                onClick={() => UpdateActiveStatus(protocolId, '0')}
+                className="icon"
+                src={Visible}
+            />
+        )
+    } else {
+        return (
+            <img
+                title="Деактивований"
+                onClick={() => UpdateActiveStatus(protocolId, '1')}
+                className="icon"
+                src={UnVisible}
+            />
+        )
+    }
 }
 
 function CreateDuplicateProtocol(
@@ -214,26 +242,7 @@ function DeleteProtocol(protocolId,protocols) {
 
 
 }
-function CheckIsActive({ isActive, protocolId }) {
-    console.log(isActive)
-    if (isActive == true) {
-        return (
-            <img
-                onClick={() => UpdateActiveStatus(protocolId, '0')}
-                className="icon"
-                src={Visible}
-            />
-        )
-    } else {
-        return (
-            <img
-                onClick={() => UpdateActiveStatus(protocolId, '1')}
-                className="icon"
-                src={UnVisible}
-            />
-        )
-    }
-}
+
 function UpdateActiveStatus(protocolId, valueStatus) {
     const db = app.firestore()
 
