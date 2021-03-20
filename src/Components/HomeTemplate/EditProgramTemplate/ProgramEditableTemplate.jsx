@@ -98,11 +98,7 @@ export default function ProgramEditableTemplate() {
     let userEmail = localStorage.getItem('user')
   
 
-    const exportUsersToExcel = (userEmail, kidName) => {
-        fetch(`/files/${userEmail}/${kidName}`).then((data) => {
-            setFileGenerated(data.status) // 200
-        })
-    }
+
     return (
         <PaperProvider theme={theme}>
             <>
@@ -622,13 +618,7 @@ export default function ProgramEditableTemplate() {
                         </div>
                     ))}
                 </ul>
-                <button
-                    className="save_button_supervisor_mobile btn-background-slide"
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => exportUsersToExcel(userEmail, childName)}
-                >
-                    Зберегти файл
-            </button>
+             
                 <div style={{ height: '100px' }}></div>
             </>
         </PaperProvider>
