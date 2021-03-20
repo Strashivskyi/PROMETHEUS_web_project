@@ -54,7 +54,7 @@ function Patient() {
             unsubscribe()
         }
     }, [])
-
+  localStorage.setItem("templateType","private")
 localStorage.setItem("homeType","home")
 
     patients = patients.filter((protocol) =>
