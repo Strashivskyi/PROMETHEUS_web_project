@@ -26,7 +26,7 @@ function PatientTemplateSwitch(params) {
                     }}>
                         <GoPrimitiveDot />
                     </div>
-                    <Link to="/home-template"  style={{ color: "black" }}><h1
+                    <Link to="/home-template"  onClick={()=>localStorage.setItem("templateType","private")}style={{ color: "black" }}><h1
                     >Шаблони</h1>
                     </Link>
                 </div>
@@ -57,7 +57,7 @@ function PatientTemplateSwitch(params) {
                     }}>
                         <GoPrimitiveDot />
                     </div>
-                    <Link to="/home-template"  style={{ color:  '#6F6F6F' }}><h1
+                    <Link to="/home-template" onClick={()=>localStorage.setItem("templateType","private")} style={{ color:  '#6F6F6F' }}><h1
                     >Шаблони</h1>
                     </Link>
                 </div>
