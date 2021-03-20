@@ -5,8 +5,9 @@ import 'fontsource-dm-sans'
 import app from '../../Firebase/firebase'
 import SwitchSelector from 'react-switch-selector'
 import './UserRoleChoosing.css'
-import {Link} from "react-router-dom";
 import NextButtonComponent from '../Login/NextButtonComponent'
+import {Link} from "react-router-dom";
+
 function SignUpForm3() {
     const options = [
         {
@@ -76,8 +77,8 @@ function SignUpForm3() {
                 <NextButtonComponent/>
 
             </Link>
-
         </div>
     )
 }
+
 export default SignUpForm3

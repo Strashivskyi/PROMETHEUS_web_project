@@ -9,6 +9,7 @@ import app from '../../Firebase/firebase'
 import './SignUpForm2.css'
 import NextButtonComponent from './NextButtonComponent'
 import BackButtonComponent from '../Login/BackButtonComponent'
+import {Link} from "react-router-dom";
 
 function SignUpForm2() {
     
@@ -96,7 +97,9 @@ function SignUpForm2() {
                     />
                 </div>
                
-                </form>
+
+            </form>
+
             <Link
                 to="/registration/signup4"
             >
@@ -110,6 +113,7 @@ function SignUpForm2() {
             <BackButtonComponent />
 
             </Link>
+
         </div>
     )
 }

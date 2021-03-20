@@ -6,6 +6,7 @@ import './SignUpForm4.css'
 import { withRouter } from 'react-router'
 import app from '../../Firebase/firebase'
 import BackButtonComponent from '../Login/BackButtonComponent'
+import {Link} from "react-router-dom";
 
 function SignUpForm4({ history }) {
     localStorage.setItem("step", 4)
