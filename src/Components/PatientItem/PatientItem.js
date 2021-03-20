@@ -10,13 +10,15 @@ function PatientItem({ patients }) {
         <div className="all_inter">
             {patients.map((patient) => (
                 <Item className="hover_patient" style={{ height: '26rem' }}>
+                   <Link to="/patient"onClick={() =>
+                            localStorage.setItem('child', patient.id)}>
                     <img
                         src={Kid}
                         width="250"
                         height="240"
                         style={{ marginLeft: '0.8rem', marginTop: '0.9rem' }}
                     />
-
+</Link>
                     <Name style={{ marginLeft: "-3.8rem", textAlign: "center", height: '4rem' }}>{patient.Name}</Name>
 
                         <Link to="/patient" className="viewmore_patient button_item" onClick={() =>

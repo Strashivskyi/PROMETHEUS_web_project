@@ -14,8 +14,12 @@ import RenderProgramList from './Components/ProtocolList/ProtocolListBranching'
 import TherapyResult from './Components/TherapyResult/TherapyResult'
 import RegistrationPatient from './Components/RegistrationPatient/RegPatientPage'
 import ProgramTemplate from './Components/ProgramTemplate/ProgramTemplate'
+import HomeTemplate from './Components/HomeTemplate/HomeTemplate'
 import ProgramTemplatePublic from './Components/ProgramTemplate/ProgramTemplatePublic'
-
+import ProtocolListTemplate from './Components/HomeTemplate/TemplateProtocolList/ProtocolListTemplate'
+import ProgramEditableTemplate from "./Components/HomeTemplate/EditProgramTemplate/ProgramEditableTemplate";
+import ListMoreInfoTemplate from "./Components/HomeTemplate/TemplateMoreInfo/ListMoreInfoTemplate";
+import ProgramTemplateView from "./Components/HomeTemplate/TemplateMoreInfo/ProgramTemplateView";
 function App() {
     return (
         <>
@@ -68,11 +72,38 @@ function App() {
                             path="/program-template"
                             component={ProgramTemplate}
                         />
+                              <PrivateRouteToLogin
+                            exact
+                            path="/home-template"
+                            component={HomeTemplate}
+                        />
                         <PrivateRouteToLogin
                             exact
                             path="/public-template"
                             component={ProgramTemplatePublic}
                         />
+                          <PrivateRouteToLogin
+                            exact
+                            path="/create-template"
+                            component={ProtocolListTemplate}
+                        />
+                            <PrivateRouteToLogin
+                            exact
+                            path="/program-template-edit"
+                            component={ProgramEditableTemplate}
+                        />
+                          
+                          <PrivateRouteToLogin
+                            exact
+                            path="/template-more-info"
+                            component={ListMoreInfoTemplate}
+                        />
+                       < PrivateRouteToLogin
+                            exact
+                            path="/template-more-info-protocol"
+                            component={ProgramTemplateView}
+                        />
+
                     </Switch>
          
             </AuthProvider>

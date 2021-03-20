@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import app from '../../Firebase/firebase'
-import ProgramHeader from '../Header/ProgramHeader'
-import MobileHeader from '../Header/MobileHeader'
+import app from '../../../Firebase/firebase'
 
-import ArrowHeader from './ProgramElement/ArrowHeader'
-
+import ArrowHeaderTemplate from './ArrowHeaderTemplate'
+import HeaderHomeTemplate from '../../Header/HeaderHomeTemplate'
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
-import './Program.css'
+
 
 const theme = {
     ...DefaultTheme,
@@ -19,83 +17,68 @@ const theme = {
     },
 }
 
-function RemoveCopiedStatus({ protocol }) {
-    if (protocol.StatusCopied != null) {
-        const db = app.firestore()
-        db.collection(localStorage.getItem('proffesion'))
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .doc(localStorage.getItem('child'))
-            .collection('Protocols')
-            .doc(localStorage.getItem('program'))
-            .update({ StatusCopied: '' })
-    }
 
-    return <></>
-}
 
 // MAIN COMPONENT
 
-export default function ProgramOnlyView() {
+export default function ProgramTemplateView() {
     let [stimulus, setStimulus] = useState([])
 
-    useEffect(() => {
-        const db = app.firestore()
-        const unsubscribe = db
-            .collection(localStorage.getItem('proffesion'))
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .doc(localStorage.getItem('child'))
-            .collection('Protocols')
-            .doc(localStorage.getItem('program'))
-            .collection('Stimulus')
-            .onSnapshot((snapshot) => {
-                if (snapshot.size) {
-                    setStimulus(
-                        snapshot.docs.map((doc) => ({
-                            ...doc.data(),
-                            id: doc.id,
-                        }))
-                    )
-                    console.log('Сука ')
-                } else {
-                    console.log('Сука1')
-                }
-            })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
-
+    
     let [protocols, setProtocols] = useState([])
-
-    useEffect(() => {
-        const db = app.firestore()
-        const unsubscribe = db
-            .collection(localStorage.getItem('proffesion'))
+    if(localStorage.getItem("templateType")=="private"){
+        useEffect(() => {
+            const db = app.firestore()
+            const unsubscribe = db
+            .collection(localStorage.getItem("proffesion"))
             .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .doc(localStorage.getItem('child'))
-            .collection('Protocols')
-            .onSnapshot((snapshot) => {
-                if (snapshot.size) {
-                    setProtocols(
-                        snapshot.docs.map((doc) => ({
-                            ...doc.data(),
-                            id: doc.id,
-                        }))
-                    )
-
-                    console.log('Ok')
-                } else {
-                    console.log('Error in Program/ProgramOnlyView')
-                }
-            })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
-
+            .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+                .onSnapshot((snapshot) => {
+                    if (snapshot.size) {
+                        setProtocols(
+                            snapshot.docs.map((doc) => ({
+                                ...doc.data(),
+                                id: doc.id,
+                            }))
+                        )
+                        console.log('yeah')
+                    } else {
+                        console.log(
+                            'error in ProtocolList/ProtocolListTherapist.js'
+                        )
+                    }
+                })
+            return () => {
+                unsubscribe()
+            }
+        }, [])
+    }
+    if(localStorage.getItem("templateType")=="public"){
+        useEffect(() => {
+            const db = app.firestore()
+            const unsubscribe = db
+            
+            .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+                .onSnapshot((snapshot) => {
+                    if (snapshot.size) {
+                        setProtocols(
+                            snapshot.docs.map((doc) => ({
+                                ...doc.data(),
+                                id: doc.id,
+                            }))
+                        )
+                        console.log('yeah')
+                    } else {
+                        console.log(
+                            'error in ProtocolList/ProtocolListTherapist.js'
+                        )
+                    }
+                })
+            return () => {
+                unsubscribe()
+            }
+        }, [])
+    }
     protocols = protocols.filter((protocol) =>
         protocol.id.includes(localStorage.getItem('program'))
     )
@@ -103,11 +86,11 @@ export default function ProgramOnlyView() {
     return (
         <PaperProvider theme={theme}>
             <>
-                <MobileHeader/>
-                <ProgramHeader />
-                <ArrowHeader />
+            <HeaderHomeTemplate/>
+            <ArrowHeaderTemplate/>
+            
                 <ul style={{ position: 'relative', right: '4%' }}>
-                {protocols.map((protocol) => (
+                    {protocols.map((protocol) => (
                         <div className="program_big_flex_container">
                             <div
                                 style={{ marginBottom: '1rem' }}

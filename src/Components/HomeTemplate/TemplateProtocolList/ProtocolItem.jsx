@@ -50,14 +50,14 @@ export default function ProtocolItem({protocols,
                      {sphereOfDevelopment}.{skill}
                 </p>
                 <div className="icon_place">
-                    <CheckIsActive  className="icon" isActive={isActive} protocolId={protocolId} />
+                    
                     <Link
                 
                             onClick={() =>
                                 {setData(protocolId,number)}
                             
                         }
-                        to="/program"
+                        to="/program-template-edit"
                     >
             
                     <img
@@ -92,7 +92,7 @@ export default function ProtocolItem({protocols,
                         }
                         src={Duplicate}
                     />
-                    
+                    <CheckIsActive  className="icon" isActive={isActive} protocolId={protocolId} />
                     {isOpen && (
                         <SecondModal
                         protocolId={protocolId}
@@ -158,16 +158,14 @@ function CreateDuplicateProtocol(
     method,
     methodTakingHint,
     reductionСriterion,
-    stepDescription, CriteriongenGenerSkill ,instruction1,instruction2,instruction3
+    stepDescription, CriteriongenGenerSkill,instruction1,instruction2,instruction3
 ) {
     localStorage.setItem('program', protocolId)
     const db = app.firestore()
 
-    db.collection(localStorage.getItem("proffesion"))
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
+    db .collection(localStorage.getItem("proffesion"))
+                .doc(localStorage.getItem('user'))
+                .collection('CreateTemplate')
         .add({
             SphereOfDevelopment: sphereOfDevelopment,
             ProtocolId: id,
@@ -186,36 +184,15 @@ function CreateDuplicateProtocol(
             StepDescription: stepDescription,
             CriteriongenGenerSkill: CriteriongenGenerSkill,Instructions1: instruction1,Instructions2: instruction2,Instructions3: instruction3
         })
-        .then(function (docRef) {
-            db.collection(localStorage.getItem("proffesion"))
-                .doc(localStorage.getItem('user'))
-                .collection('Patient')
-                .doc(localStorage.getItem('child'))
-                .collection('Protocols').doc(docRef.id)
-                .collection("CriteriongenGenerSkill")
-                .add({ Text: "" })
-            db.collection('User')
-                .doc(localStorage.getItem('user'))
-                .collection('Patient')
-                .doc(localStorage.getItem('child'))
-                .collection('Protocols').doc(docRef.id)
-                .collection("Stimulus")
-                .add({ Name: "" })
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function (error) {
-            console.error("Error adding document: ", error);
-        });
+        
 
     // console.log(data.key)
 }
 function DeleteProtocol(protocolId,protocols) {
     const db = app.firestore()
-    db.collection(localStorage.getItem("proffesion"))
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
+    db .collection(localStorage.getItem("proffesion"))
+    .doc(localStorage.getItem('user'))
+    .collection('CreateTemplate')
         .doc(protocolId)
         .delete().then(doc=>{
             // for (let i = 0; i < protocols.length; i++) {
@@ -229,13 +206,7 @@ function DeleteProtocol(protocolId,protocols) {
         
             // }
         })
-    JSON.parse(localStorage.getItem('therapistID')).map((terapist) => {
-        db.collection('Therapists')
-            .doc(terapist)
-            .collection('Patient')
-            .doc(localStorage.getItem('child'))
-            .collection('Protocols').doc(protocolId).delete()
-    })
+    
   
 
    
@@ -246,11 +217,9 @@ function DeleteProtocol(protocolId,protocols) {
 function UpdateActiveStatus(protocolId, valueStatus) {
     const db = app.firestore()
 
-    db.collection(localStorage.getItem("proffesion"))
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
+    db .collection(localStorage.getItem("proffesion"))
+                .doc(localStorage.getItem('user'))
+                .collection('CreateTemplate')
         .doc(protocolId)
         .update({ IsActive: valueStatus })
 }

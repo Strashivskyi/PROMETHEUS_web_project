@@ -3,6 +3,7 @@ import Logo from '../../assets/Logo.svg'
 import './ProgramHeader.css'
 import { Link } from 'react-router-dom'
 import app from '../../Firebase/firebase'
+import PatientTemplateSwitch from './PatientTemplateSwitch'
 
 function signOut() {
     localStorage.setItem('user', 'none')
@@ -23,44 +24,52 @@ function ProgramHeader() {
     }
     return (
         <>
-         <div className="full_program_header">
-            <div className="header">
-                <img
-                    src={Logo}
-                    onClick={() => signOut()}
-                    width="220"
-                    style={{
-                        position: 'relative',
-                        left: '4%',
-                        marginTop: '1.1%',
-                        marginBottom: '-20px',
-                    }}
-                />
-                <div style={{ position: 'absolute', top: '0.9%', left: '20%' }}>
-                  <Link to='/protocol-list'>
+        <div className="header">
+                <div style={{ width: '93.2%', alignSelf: "center" }}>
+                    <div style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between"
+                    }}>
+                        <img
+                            src={Logo}
+                            onClick={() => signOut()}
+                            width="14.7%"
+                            style={{
+                                position: 'relative',
+                            }}
+                        />
+                         <PatientTemplateSwitch/>
+    <Link to='/protocol-list'>
+
                     <button
-                        className="save_button btn-background-slide"
+                        className="save_button_header btn-background-slide"
                         style={{ top: '1rem', cursor: 'pointer' }}
                         onClick={() => exportUsersToExcel(userEmail, childName)}
                     >
                         Зберегти файл
                     </button>
                     </Link>
+                       
+                        
+                    
+
+                    </div>
+
+                    <h1
+                        style={{
+                            border: 'none',
+                            borderBottom: ' 1px solid #6F6F6F',
+                            alignSelf: "center",
+
+
+                        }}
+                    />
                 </div>
             </div>
-            <hr
-                style={{
-                    border: 'none',
-                    borderBottom: ' 1px solid #6F6F6F',
-                    position: 'relative',
-                    top: '1.5rem',
-                    left: '1.7%',
-                    width: '93.2%',
-                    marginBottom: '2rem',
-                    marginRight: '4.5rem',
-                }}
-            />
-            </div>
+
+
+            
         </>
     )
 }

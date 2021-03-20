@@ -1,6 +1,7 @@
 import app from '../../Firebase/firebase'
 import PatientItem from '../PatientItem/PatientItem'
 import React from 'react'
+import HeaderHomeTemplate from '../Header/HeaderHomeTemplate'
 import "./Patients.css"
 import MobileHeader from '../Header/MobileHeader'
 import { Link } from 'react-router-dom'
@@ -8,6 +9,7 @@ import Kid from '../../assets/default_avatar.png'
 import { useEffect, useState } from 'react'
 import { BsPlusCircle } from 'react-icons/bs'
 import Logo from '../../assets/Logo.svg'
+import { GoPrimitiveDot } from "react-icons/go";
 function signOut() {
     localStorage.setItem('user', 'none')
     app.auth().signOut()
@@ -39,9 +41,9 @@ function Patient() {
                 if (snapshot.size) {
                     setUser(
                         snapshot.docs.filter((u) =>
-                        u.id.includes(localStorage.getItem('user'))
-                    ).map((doc) => {
-                        localStorage.setItem("telegramUserName", (doc.data().TelegramUserID))
+                            u.id.includes(localStorage.getItem('user'))
+                        ).map((doc) => {
+                            localStorage.setItem("telegramUserName", (doc.data().TelegramUserID))
                         })
                     )
                 } else {
@@ -53,8 +55,8 @@ function Patient() {
         }
     }, [])
 
+localStorage.setItem("homeType","home")
 
-    
     patients = patients.filter((protocol) =>
         protocol.Name.includes(inputSearch)
     )
@@ -62,31 +64,8 @@ function Patient() {
     return (
         <>
             <>
-            <MobileHeader/>
-                <div className="header">
-                    <img
-                        src={Logo}
-                        onClick={() => signOut()}
-                        width="14.7%"
-                        style={{
-                            position: 'relative',
-                            left: '4%',
-                            marginTop: '1.1%',
-                            marginBottom: '-20px',
-                        }}
-                    />
-                    <input className="search" onChange={(e) => (setInputSearch(e.target.value))} type="text" name="search" placeholder="Пошук.."/>
-                    <h1
-                        style={{
-                            border: 'none',
-                            borderBottom: ' 1px solid #6F6F6F',
-                            position: 'relative',
-                            top: '8.2%',
-                            left: '3.33%',
-                            width: '93.2%',
-                        }}
-                    />
-                </div>
+                <MobileHeader />
+                <HeaderHomeTemplate/>
             </>
             <div className="info_title">
                 <div className="inter_fing">
@@ -126,7 +105,7 @@ function Patient() {
                 }}
                 className="add_patient_button"
             >
-               <BranchingItem/>
+                <BranchingItem />
             </Link>
             <PatientItem patients={patients} />
         </>
@@ -134,16 +113,16 @@ function Patient() {
 }
 
 export default Patient
-function BranchingItem(){
-    if (localStorage.getItem('proffesion')=='Supervisors'){
-        return(
+function BranchingItem() {
+    if (localStorage.getItem('proffesion') == 'Supervisors') {
+        return (
             <>
-            <BsPlusCircle size={50} />
+                <BsPlusCircle size={50} />
             </>
         )
     }
-    if (localStorage.getItem('proffesion')!=='Supervisors'){
-        return(
+    if (localStorage.getItem('proffesion') !== 'Supervisors') {
+        return (
             <>
             </>
         )

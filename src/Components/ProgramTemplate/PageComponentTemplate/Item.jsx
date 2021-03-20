@@ -5,8 +5,8 @@ import app from '../../../Firebase/firebase'
 function TemplateItem({ diagnos, age, count, number, idTemplate, history }) {
     return (
         <>
-            <div id="template" className="template_place">
-                <img
+            <div  id="template" className="template_place">
+                <img style={{cursor:"pointer"}}
                     className="template_img"
                     onClick={() => DeleteTemplate(idTemplate)}
                     src={Delete}

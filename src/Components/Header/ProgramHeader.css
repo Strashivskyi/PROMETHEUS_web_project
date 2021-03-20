@@ -16,7 +16,35 @@
     position: absolute;
 
   }
+  .save_button_header {
+    background: transparent;
+    color: #EF4F59;
+  position: relative;
+    border: 1px solid #ef4f59;
+    cursor: pointer;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 12px;
+    font-size: 22px;
+    width: 100%;
+    height: 50%;
+
+
+  }
   .save_button.btn-background-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #ef4f59;
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+  .save_button_header.btn-background-slide::before {
     content: '';
     position: absolute;
     top: 0;
@@ -33,14 +61,25 @@
   .save_button.btn-background-slide:hover::before {
     transform: scaleX(1);
   }
+  .save_button_header.btn-background-slide:hover::before {
+    transform: scaleX(1);
+  }
+  
   
   .save_button.btn-background-slide {
     transition: color 300ms ease-in-out;
     z-index: 1;
   }
   
-  
+    
+  .save_button_header.btn-background-slide {
+    transition: color 300ms ease-in-out;
+    z-index: 1;
+  }
   .save_button.btn-background-slide:hover {
+    color: white;
+  }
+  .save_button_header.btn-background-slide:hover {
     color: white;
   }
   @media only screen and (min-device-width : 320px) and (max-device-width : 800px) {

@@ -233,16 +233,12 @@ export default function ProtocolList() {
         setcurrrentProtocoll(protocol)
 
     }
-
     function dragEndHandler(event, protocol) {
-
-
+        event.target.style.border = 'none'
     }
     function dragOverHandler(event) {
         event.preventDefault()
-        // fetch(`http://127.0.0.1:5000/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
-           
-        // })
+        event.target.style.border = 'solid 3px #c9c9c9'
     }
 
     function dropHandler(event, protocol) {
@@ -250,6 +246,7 @@ export default function ProtocolList() {
 
         const db = app.firestore()
         event.preventDefault()
+        event.target.style.border = 'none'
         console.log("DROP" + protocol.ProtocolId)
         setProtocols(protocols.map(proto => {
 
@@ -438,6 +435,9 @@ export default function ProtocolList() {
                                 reductionСriterion={protocols[protocol - 1].ReductionСriterion}
                                 stepDescription={protocols[protocol - 1].StepDescription}
                                 CriteriongenGenerSkill={protocols[protocol - 1].CriteriongenGenerSkill}
+                                instruction1={protocols[protocol - 1].Instructions1}
+                                instruction2={protocols[protocol - 1].Instructions2}
+                                instruction3={protocols[protocol - 1].Instructions3}
                             />
                         </div>
                     </>
