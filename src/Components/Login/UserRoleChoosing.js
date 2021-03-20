@@ -6,6 +6,8 @@ import app from '../../Firebase/firebase'
 import SwitchSelector from 'react-switch-selector'
 import './UserRoleChoosing.css'
 import NextButtonComponent from '../Login/NextButtonComponent'
+import {Link} from "react-router-dom";
+
 function SignUpForm3() {
     const options = [
         {
@@ -26,8 +28,8 @@ function SignUpForm3() {
         localStorage.setItem('proffesion', newValue.role)
         console.log(newValue.role)
     }
-    localStorage.setItem("step",1)
-    localStorage.setItem("proffesion","Supervisors")
+    localStorage.setItem("step", 1)
+    localStorage.setItem("proffesion", "Supervisors")
     return (
         <div>
             <LoginNavigation colorBackground={"white"} colorText={'#48535F'}/>
@@ -69,8 +71,16 @@ function SignUpForm3() {
                     </a>
                 </div>
             </div>
-            <NextButtonComponent />
+            <Link
+                to="/registration/signup2"
+            >
+                <NextButtonComponent/>
+
+            </Link>
+
+
         </div>
     )
 }
+
 export default SignUpForm3

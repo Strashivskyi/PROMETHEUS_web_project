@@ -6,6 +6,7 @@ import { withRouter } from 'react-router'
 import DataPicker from './DataPicker'
 import NextButtonComponent from './NextButtonComponent'
 import BackButtonComponent from '../Login/BackButtonComponent'
+import {Link} from "react-router-dom";
 
 function SignUpForm1() {
     localStorage.setItem("step",2)
@@ -81,9 +82,19 @@ function SignUpForm1() {
                     </div>
                 </div>
                
-            </form> 
-             <NextButtonComponent />
+            </form>
+            <Link
+                to="/registration/signup3"
+            >
+                <NextButtonComponent/>
+
+            </Link>
+
+            <Link
+                to="/registration"
+            >
              <BackButtonComponent />
+             </Link>
         </div>
     )
 }
