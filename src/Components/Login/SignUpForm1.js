@@ -81,9 +81,19 @@ function SignUpForm1() {
                     </div>
                 </div>
                
-            </form> 
-             <NextButtonComponent />
+                </form>
+            <Link
+                to="/registration/signup3"
+            >
+                <NextButtonComponent/>
+
+            </Link>
+
+            <Link
+                to="/registration"
+            >
              <BackButtonComponent />
+             </Link>
         </div>
     )
 }

@@ -96,9 +96,20 @@ function SignUpForm2() {
                     />
                 </div>
                
-            </form> 
-            <NextButtonComponent />
+                </form>
+            <Link
+                to="/registration/signup4"
+            >
+                <NextButtonComponent/>
+
+            </Link>
+
+            <Link
+                to="/registration/signup2"
+            >
             <BackButtonComponent />
+
+            </Link>
         </div>
     )
 }

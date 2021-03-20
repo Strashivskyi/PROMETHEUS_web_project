@@ -93,7 +93,12 @@ function SignUpForm4({ history }) {
                     value="Зареєструватись"
                 />
             </form>
-            <BackButtonComponent />
+            <Link
+                to="/registration/signup3"
+            >
+                <BackButtonComponent />
+
+            </Link>
         </div>
     )
 }
