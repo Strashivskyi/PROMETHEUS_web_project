@@ -21,7 +21,7 @@ function PaginationRounded ({history}) {
     const [files, setFiles] = useState([])
     const [loading, setLoading] = useState(false)
     const [page, setPage] = useState(1)
-    const [filesPerPage] = useState(4)
+    const [filesPerPage] = useState(2)
 
     console.log('')
     var storageRef = app.storage().ref()

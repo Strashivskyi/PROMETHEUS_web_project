@@ -19,13 +19,13 @@
     margin-left: -4vw;
     margin-top: 2vh;
 }
-.pagination-box:hover{
+.pagination-box:hover {
     transform: slace(2);
 }
 
 .MuiPagination-ul {
     justify-content: center;
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     bottom: 15px;
@@ -33,7 +33,7 @@
     width: 100%;
     margin-top: -25px;
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     .table-wrapper {
         max-width: 90vw;
         display: row;
@@ -41,5 +41,4 @@
         margin-top: 14vw;
         margin-right: 10vw;
     }
-
 }

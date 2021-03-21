@@ -8,53 +8,56 @@
     height: 1rem;
     background-color: transparent !important;
 }
-.icon_patient:hover{
+.icon_patient:hover {
     transform: scale(1.2);
-    transition: 0.1s;    
+    transition: 0.1s;
 }
-.therapist_container{
+.therapist_container {
     font-size: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.add_therapist_container{
+.add_therapist_container {
     display: flex;
     flex-direction: row;
     height: 40px;
     margin-top: 20px;
     gap: 5px;
 }
-.add_therapist_input{
+.add_therapist_input {
     width: 300px;
-    border: 1px solid #EEE;
+    border: 1px solid #eee;
     padding-left: 10px;
     font-size: 20px;
 }
-  .add_therapist_input::placeholder { 
+.add_therapist_input::placeholder {
     color: #48535f;
-  }
-  .add_therapist_input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+}
+.add_therapist_input::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
     color: #48535f;
-  }
-  .add_therapist_input::-moz-placeholder { /* Firefox 19+ */
+}
+.add_therapist_input::-moz-placeholder {
+    /* Firefox 19+ */
     color: #48535f;
-  }
-  .add_therapist_input:-ms-input-placeholder { /* IE 10+ */
+}
+.add_therapist_input:-ms-input-placeholder {
+    /* IE 10+ */
     color: #48535f;
-  }
-  .add_therapist_input:-moz-placeholder { /* Firefox 18- */
+}
+.add_therapist_input:-moz-placeholder {
+    /* Firefox 18- */
     color: #48535f;
-  }
-  .add_therapist_button{
+}
+.add_therapist_button {
     font-size: 24px;
     font-weight: 600;
     color: #48535f;
     background-color: transparent;
-    border: 1px solid #EEE;
+    border: 1px solid #eee;
     height: 40px;
     width: 40px;
-
 }
 
 .patient_grid_container {
@@ -66,9 +69,8 @@
     margin-top: 1rem;
 }
 
-
-.add_therapist_button:hover{
-    background-color: #EEEEEE;
+.add_therapist_button:hover {
+    background-color: #eeeeee;
 }
 .patients_link {
     color: #222222;
@@ -101,8 +103,8 @@
     margin-left: -15px;
     line-height: 40px;
 }
-.zebra_rows_flex_container_value{
-    color:#666666;
+.zebra_rows_flex_container_value {
+    color: #666666;
 }
 
 .second_column_outer_flex_container {
@@ -111,36 +113,52 @@
     margin-top: 128px;
 }
 .patient_page_buttons {
-    display: grid;
-    grid-template-columns: 20vw 20vw;
-    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
     font-size: 20px;
     font-weight: 600;
-    margin-left: 26vw;
     text-align: center;
     gap: 50px;
 }
+
+.patient_page_button_create_info {
+    background-color: #48535f;
+    border: none;
+    color: white;
+    padding: 0.5em 0.75em;
+    font-size: 18px;
+    font-weight: 550;
+}
+
+.patient_page_button_create_info:hover {
+    color: white;
+    background: #36404b;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    transform: scale(1.07);
+    transition: 0.4s;
+}
+
 .patient_page_buttons_therapy {
     background-color: #48535f;
     color: white;
     padding: 0.5em 0.75em;
-    text-decoration: none;
-    min-width: 200px;
+    /*text-decoration: none;
+    min-width: 200px; */
 }
 
 .patient_page_buttons_therapy:hover {
     color: white;
     background: #36404b;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     transform: scale(1.07);
     transition: 0.4s;
 }
 
-
 .patient_page_buttons_therapy:active {
     color: white;
     background: #36404b;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     transform: scale(1.07);
     transition: 0.4s;
 }
@@ -148,54 +166,49 @@
     background-color: #48535f;
     color: white;
     padding: 0.5em 0.75em;
-    text-decoration: none;
-    min-width: 200px;
 }
 
 .patient_page_buttons_program:hover {
     color: white;
     background: #36404b;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     transform: scale(1.07);
     transition: 0.4s;
-
 }
 .patient_page_buttons_program:active {
     color: white;
     background: #36404b;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     transform: scale(1.07);
     transition: 0.4s;
-
 }
 .viewmore_patient {
     color: white;
     text-decoration: none;
 }
-.logo_container{
+.logo_container {
     display: none;
 }
 
-.child_image{
+.child_image {
     display: initial;
     margin-top: 80px;
 }
-.mobile_child_image{
+.mobile_child_image {
     display: none;
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
     .icon_place_therapist {
         width: 97%;
         height: 35%;
         background-color: transparent;
-    
     }
     .second_column_outer_flex_container {
         display: flex;
         flex-direction: column;
         margin-top: 30px;
     }
-    .therapist_container{
+    .therapist_container {
         font-size: 20px;
         margin-left: 70vw;
         margin-right: 20vw;
@@ -204,7 +217,7 @@
         justify-content: space-between;
     }
 
-    .therapist_info{
+    .therapist_info {
         margin-left: -60vw;
     }
     .patient_grid_container {
@@ -215,55 +228,50 @@
         margin-top: 1rem;
     }
 
-    .grey_back{
-        background-color: #EEEEEE;
+    .grey_back {
+        background-color: #eeeeee;
         height: 200vh;
     }
     .diagnosis_flex_container {
         font-size: 5vw;
         margin-left: -1vw;
     }
-    .berrier{
+    .berrier {
         height: 100px;
     }
-    .mobile_child_image{
-            position: relative;
-            display: initial;
-            margin-top: 5vh;
+    .mobile_child_image {
+        position: relative;
+        display: initial;
+        margin-top: 5vh;
     }
     .column_outer_flex_container {
-        /* position: relative; */
         display: initial;
         margin-left: -15vw;
         margin-right: 5vw;
         padding-bottom: 250px;
-
-        
     }
-    .kid_name{
+    .kid_name {
         font-size: 8vw;
         line-height: 11vw;
-
     }
-    
-    .child_image{
+
+    .child_image {
         display: none;
     }
-    .logo_container{
+    .logo_container {
         display: initial;
         min-height: 20vh;
         max-height: 20vh;
     }
 
-    .grey_back{
-        background: #EEEEEE;
+    .grey_back {
+        background: #eeeeee;
         margin-top: -10px;
         min-height: 150vh;
         max-height: 1000vh;
-
     }
-    
-    .responsive_image{
+
+    .responsive_image {
         max-width: 50px;
         max-height: 50px;
     }
@@ -273,25 +281,15 @@
         flex-direction: column;
         font-size: 20px;
         font-weight: 600;
-        margin-left: auto;
-        margin-right: auto;
         text-align: center;
         justify-content: center;
-        gap: 5vh;
+        gap: 2.5vh;
     }
     .patient_page_buttons_therapy {
-        min-width: 69vw;
-        max-width: 78vw;
-        padding: 2vw 0vw;
-
     }
     .patient_page_buttons_program {
-        min-width: 69vw;
-        max-width: 78vw;
-        padding: 2vw 0vw;
-
     }
-    
+
     .zebra_rows_flex_container {
         display: grid;
         grid-template-columns: 40% auto;
@@ -302,58 +300,42 @@
         padding-bottom: 10px;
         min-width: 80vw;
         max-width: 87vw;
-
     }
-    .mobile_child_image{
+    .mobile_child_image {
         margin-left: 5vw;
     }
-    .kid_name{
+    .kid_name {
         margin-left: 1vw;
-
     }
-    
-    @media only screen and (min-device-width : 500px) and (max-device-width : 800px) {
+
+    @media only screen and (min-device-width: 500px) and (max-device-width: 800px) {
         .diagnosis_flex_container {
             font-size: 5vw;
             margin-left: 7vw;
         }
-        .kid_name{
+        .kid_name {
             margin-left: 5vw;
-    
         }
-        .patient_page_buttons{
+        .patient_page_buttons {
             margin-right: auto;
             margin-left: auto;
             margin-left: -5vw;
         }
-        .child_image{
+        .child_image {
             display: initial;
             margin-top: 80px;
             margin-left: 5vw;
         }
-        .mobile_child_image{
+        .mobile_child_image {
             display: none;
         }
 
-        .kid_name{
+        .kid_name {
             margin-top: 3vw;
-    
         }
         .patient_page_buttons_therapy {
-            min-width: 70vw;
-            max-width: 70vw;
-            padding: 2vw 0vw;
-            margin-left: auto;
-            margin-right: auto;
-    
         }
         .patient_page_buttons_program {
-            min-width: 70vw;
-            max-width: 70vw;
-            padding: 2vw 0vw;
-            margin-left: auto;
-            margin-right: auto;
-    
         }
         .zebra_rows_flex_container {
             display: grid;
@@ -366,18 +348,13 @@
             margin-left: 5vw;
             min-width: 75vw;
             max-width: 75vw;
-    
         }
-
     }
-
-
-
 }
 @media screen and (min-width: 1300px) {
     .patient_grid_container {
         display: grid;
-        grid-template-columns: 18vw 30vw 25vw;
+        /* grid-template-columns: 18vw 30vw 25vw; */
         grid-gap: 5vw;
         gap: 5vw;
         margin-right: 70px;
@@ -386,60 +363,48 @@
     }
 
     .patient_page_buttons {
-        grid-template-columns: 25vw 25vw;
-        font-size: 26px;
-        margin-left: 36vw;
     }
+
+    .patient_page_button_create_info {
+    }
+
+    .patient_page_buttons_therapy {
+    }
+    .patient_page_buttons_program {
+    }
+
     .zebra_rows_flex_container {
-        padding-left: 40px;
-        line-height: 60px;
     }
 }
-@media screen and (min-width:800px) and (max-width:1000px){
+@media screen and (min-width: 800px) and (max-width: 1000px) {
     .patient_grid_container {
         flex-direction: column;
         grid-template-columns: none;
-
     }
     .second_column_outer_flex_container {
         margin-top: 5px;
     }
-    .patient_page_buttons{
-        display: flex;
-        justify-content: space-between;
-        margin-right: 250px;
-        margin-left: 18vw;
-        
+    .patient_page_buttons {
     }
-    .patient_page_buttons_therapy{
-        min-width: 290px;
+    .patient_page_buttons_therapy {
     }
 }
-@media screen and (min-width:1001px) and (max-width:1300px){
+@media screen and (min-width: 1001px) and (max-width: 1300px) {
     .patient_grid_container {
         flex-direction: column;
         grid-template-columns: none;
-
     }
     .second_column_outer_flex_container {
         margin-top: 5px;
         margin-right: 400px;
     }
-    .patient_page_buttons{
-        display: flex;
-        justify-content: space-between;
-        margin-right: 250px;
-        margin-left: 18vw;
-        
+    .patient_page_buttons {
     }
     .patient_page_buttons_program {
-        min-width: 300px;
     }
-    .patient_page_buttons_therapy{
-        min-width: 300px;
+    .patient_page_buttons_therapy {
     }
     .column_outer_flex_container {
-        
         margin-right: 120px;
-}
+    }
 }
