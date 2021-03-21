@@ -57,6 +57,11 @@ export default function PatientInfoUser() {
             .doc(localStorage.getItem('child'))
             .collection('Therapists')
             .onSnapshot((snapshot) => {
+                db
+            .collection('Supervisors')
+            .doc(localStorage.getItem('user'))
+            .collection('Patient')
+            .doc(localStorage.getItem('child')).update({Supervisor:localStorage.getItem("user")})
                 if (snapshot.size) {
                     setTherapists(
                         snapshot.docs.map((doc) => ({

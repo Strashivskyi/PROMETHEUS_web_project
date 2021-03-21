@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import app from '../../../Firebase/firebase'
-import  ProtocolItemTemplate from './ProtocolItemTemplate'
+import  ProtocolItemTemplateEdit from './ProtocolItemTemplateEdit'
 
 import { Link } from 'react-router-dom'
 import ArrowHeaderTemplate from './ArrowHeaderTemplate'
@@ -55,7 +55,7 @@ export default function ListMoreInfoPrivate() {
         
             {protocolsNumber.map((protocol) => (
 
-                        < ProtocolItemTemplate
+                        < ProtocolItemTemplateEdit
                             number={protocol}
                             protocolId={protocols[protocol-1].id}
                             protocolName={protocols[protocol-1].ProtocolId}

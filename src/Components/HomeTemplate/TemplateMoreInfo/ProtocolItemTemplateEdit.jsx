@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-
+import app from '../../../Firebase/firebase'
+import Delete from '../../../assets/delete.svg'
 export default function ProtocolItemTemplate({
     number,
     protocolId,
@@ -31,13 +32,8 @@ export default function ProtocolItemTemplate({
 
     return (
         <>
-            <Link
-                title="Переглянути"
-                onClick={() => { setData(protocolId, number) }
-                }
-                to="template-more-info-protocol"
-            >
-                <div 
+            
+                <div
                     className="protocol_item"
                     style={{ backgroundColor: colorItem, marginLeft: '7vw' }}
                 >
@@ -46,7 +42,15 @@ export default function ProtocolItemTemplate({
                         {sphereOfDevelopment}. {skill}
                     </p>
                     <div className="icon_place">
-                   
+                        <>
+                            <img
+                                title="Видалити"
+                                className="icon"
+                                onClick={() => DeleteProtocol(protocolId)}
+                                src={Delete}
+                            />
+                        </>
+
                         <Link
                             title="Переглянути"
                             onClick={() => { setData(protocolId, number) }
@@ -58,14 +62,27 @@ export default function ProtocolItemTemplate({
                                 color="black"
                             />
                         </Link>
-                        
+
                     </div>
                 </div>
-            </Link>
+            
         </>
     )
 }
 
+
+
+
+function DeleteProtocol(protocolId) {
+    const db = app.firestore()
+    db.collection(localStorage.getItem("proffesion"))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+        .doc(protocolId)
+        .delete().then(doc => {
+         
+        })
+}
 
 function setData(param1, param2) {
     localStorage.setItem('program', param1)

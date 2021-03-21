@@ -223,6 +223,7 @@ function RegistrationPatient({ history }) {
                     KidHeight: height,
                     BloodType: blood,
                     Image: default_avatar,
+                    Supervisor:localStorage.getItem("user"),
                 })
             history.push('/')
         }
