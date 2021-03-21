@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import app from '../../Firebase/firebase'
 import './PatientInfoPage.css'
 import Header from '../Header/Header'
 import MobileHeader from '../Header/MobileHeader'
 import Arrow from '../../assets/arrow.png'
 import Kid from '../../assets/default_avatar.png'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Delete from '../../assets/delete.svg'
 
 export default function PatientInfoUser() {
@@ -57,11 +57,11 @@ export default function PatientInfoUser() {
             .doc(localStorage.getItem('child'))
             .collection('Therapists')
             .onSnapshot((snapshot) => {
-                db
-            .collection('Supervisors')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .doc(localStorage.getItem('child')).update({Supervisor:localStorage.getItem("user")})
+                db.collection('Supervisors')
+                    .doc(localStorage.getItem('user'))
+                    .collection('Patient')
+                    .doc(localStorage.getItem('child'))
+                    .update({Supervisor: localStorage.getItem('user')})
                 if (snapshot.size) {
                     setTherapists(
                         snapshot.docs.map((doc) => ({
@@ -88,7 +88,7 @@ export default function PatientInfoUser() {
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .get()
-            setPatients(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            setPatients(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
         }
         fetchData()
     }, [])
@@ -136,7 +136,7 @@ export default function PatientInfoUser() {
     }
     localStorage.setItem('childData', JSON.stringify(patients[0]))
     return (
-        <div >
+        <div>
             <MobileHeader />
             <Header />
             <ul>
@@ -145,7 +145,7 @@ export default function PatientInfoUser() {
                         {localStorage.setItem('childName', patient.Name)}
 
                         <div className="patient_upper_flex_container">
-                            <h2 style={{ marginLeft: '4rem' }}>
+                            <h2 style={{marginLeft: '4rem'}}>
                                 <Link to="/" className="patients_link">
                                     Пацієнти
                                 </Link>
@@ -162,7 +162,7 @@ export default function PatientInfoUser() {
                             />
                             <h2
                                 className="patients_link"
-                                style={{ color: '#6F6F6F' }}
+                                style={{color: '#6F6F6F'}}
                             >
                                 {patient.Name}
                             </h2>
@@ -184,13 +184,13 @@ export default function PatientInfoUser() {
                                     <h7 className="">
                                         Діагноз: &nbsp;&nbsp;&nbsp;&nbsp;
                                     </h7>
-                                    <div style={{ color: '#6F6F6F' }}>
+                                    <div style={{color: '#6F6F6F'}}>
                                         {patient.Diagnos}
                                     </div>
                                 </div>
                                 <div
                                     className="zebra_rows_flex_container"
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                 >
                                     <div>Батьки:</div>
                                     <div className="zebra_rows_flex_container_value">
@@ -205,7 +205,7 @@ export default function PatientInfoUser() {
                                 </div>
                                 <div
                                     className="zebra_rows_flex_container"
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                 >
                                     <div>Вік:</div>
                                     <div className="zebra_rows_flex_container_value">
@@ -220,7 +220,7 @@ export default function PatientInfoUser() {
                                 </div>
                                 <div
                                     className="zebra_rows_flex_container"
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                 >
                                     <div>Місто:</div>
                                     <div className="zebra_rows_flex_container_value">
@@ -274,9 +274,7 @@ export default function PatientInfoUser() {
                                             .sort((a, b) => +a.id - +b.id)
                                             .map((therapist) => (
                                                 <>
-                                                    <div
-                                                        className="therapist_container"
-                                                    >
+                                                    <div className="therapist_container">
                                                         <div>
                                                             {therapist.Name}
                                                             <div
@@ -304,13 +302,9 @@ export default function PatientInfoUser() {
                                                     </div>
                                                 </>
                                             ))}
-
                                     </div>
 
-                                    <div
-                                        className="add_therapist_container"
-
-                                    >
+                                    <div className="add_therapist_container">
                                         <button
                                             onClick={() =>
                                                 addTherapist(therapistInput)
@@ -335,10 +329,16 @@ export default function PatientInfoUser() {
                             </div>
                         </div>
                         <div className="patient_page_buttons">
+                            <button
+                                onClick={() => tempFunctionThatNeedToChange()}
+                                className="patient_page_button_create_info"
+                            >
+                                Згенерувати звіт за останні 7 днів
+                            </button>
                             <Link
                                 to={{
                                     pathname: '/patient/result_of_therapy',
-                                    myCustomProps: { patient },
+                                    myCustomProps: {patient},
                                 }}
                                 className="patient_page_buttons_therapy"
                             >
@@ -346,9 +346,7 @@ export default function PatientInfoUser() {
                             </Link>
                             <Link
                                 to={path}
-                                onClick={() =>
-                                    setData()
-                                }
+                                onClick={() => setData()}
                                 className="patient_page_buttons_program"
                             >
                                 Програма
@@ -361,8 +359,21 @@ export default function PatientInfoUser() {
     )
 }
 
+function tempFunctionThatNeedToChange() {
+    try {
+        fetch(
+            `https://john-steck-api.herokuapp.com/progress/${localStorage.getItem(
+                'user'
+            )}/${localStorage.getItem('child')}`
+        )
+        alert('Файл успішно згенеровано')
+    } catch {
+        alert('Помилка при генерації файлу')
+    }
+}
+
 function setData() {
-    localStorage.setItem("templateType", "private")
+    localStorage.setItem('templateType', 'private')
     localStorage.setItem('program', 'ok')
 }
 
@@ -382,7 +393,6 @@ function DeleteTherapist(therapistId) {
         .doc(localStorage.getItem('child'))
         .delete()
     alert(`Видалено терапіста за електронною поштою ${therapistId}`)
-
 }
 
 function addTherapist(therapistInput) {
@@ -400,11 +410,21 @@ function addTherapist(therapistInput) {
                         .doc(localStorage.getItem('child'))
                         .collection('Therapists')
                         .doc(therapistInput)
-                        .set({ Name: doc.data().Name })
-                    alert(`Терапіст ${doc.data().Name} доданий за електронною поштою ${therapistInput}`)
-                    fetch(`https://john-steck-api.herokuapp.com/email/reg_child/${localStorage.getItem("Name") + " " + localStorage.getItem("Surname")}/${localStorage.getItem("childName")}/${therapistInput}`).then((data) => {
-
-                    })
+                        .set({Name: doc.data().Name})
+                    alert(
+                        `Терапіст ${
+                            doc.data().Name
+                        } доданий за електронною поштою ${therapistInput}`
+                    )
+                    fetch(
+                        `https://john-steck-api.herokuapp.com/email/reg_child/${
+                            localStorage.getItem('Name') +
+                            ' ' +
+                            localStorage.getItem('Surname')
+                        }/${localStorage.getItem(
+                            'childName'
+                        )}/${therapistInput}`
+                    ).then((data) => {})
                 } else {
                     alert(`Відправлено лист на реєстрацію на ${therapistInput}`)
                     db.collection('Supervisors')
@@ -413,15 +433,20 @@ function addTherapist(therapistInput) {
                         .doc(localStorage.getItem('child'))
                         .collection('Therapists')
                         .doc(therapistInput)
-                        .set({ Name: 'Очікуємо реєстрації' })
-
+                        .set({Name: 'Очікуємо реєстрації'})
 
                     db.collection('Therapists')
                         .doc(therapistInput)
-                        .set({ Name: 'Очікуємо реєстрації' })
-                    fetch(`https://john-steck-api.herokuapp.com/email/reg/${localStorage.getItem("Name") + " " + localStorage.getItem("Surname")}/${localStorage.getItem("childName")}/${therapistInput}`).then((data) => {
-
-                    })
+                        .set({Name: 'Очікуємо реєстрації'})
+                    fetch(
+                        `https://john-steck-api.herokuapp.com/email/reg/${
+                            localStorage.getItem('Name') +
+                            ' ' +
+                            localStorage.getItem('Surname')
+                        }/${localStorage.getItem(
+                            'childName'
+                        )}/${therapistInput}`
+                    ).then((data) => {})
                 }
             })
             .catch((error) => {
