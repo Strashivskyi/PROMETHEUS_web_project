@@ -52,9 +52,6 @@ function ProgramHeader() {
                         Зберегти файл
                     </button>
                     </Link>
-                       
-                        
-                    
 
                     </div>
 

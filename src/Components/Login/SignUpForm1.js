@@ -20,6 +20,7 @@ function SignUpForm1() {
     localStorage.setItem('Gender', sex)
     console.log(sex)
 
+    
     const [formData,setFormData] = useState({
         isAgree : false,
         gender : ""

@@ -484,7 +484,6 @@ function RegistrationPatient({ history }) {
                             value="Зберегти"
                         />
                             
-                       
                     </Link>
 
                 </div>

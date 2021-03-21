@@ -569,7 +569,6 @@ export default function ProgramEditable() {
                                 </div>
                                 {/*step 2*/}
 
-
                                 {/* <Step2 Instructions2={protocol.Instructions2} /> */}
                                 <div className="element_name">
                                     Інструкції до етапу 2 :

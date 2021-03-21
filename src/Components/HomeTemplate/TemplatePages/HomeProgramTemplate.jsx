@@ -5,6 +5,7 @@ import app from '../../../Firebase/firebase'
 import TemplateItem from '../PageComponent/Item'
 import ButtonsTemplate from '../TemplatePages/ButtonsTemplate'
 
+
 function HomeProgramTemplate({ history,countProto }) {
     const [programTemplates, setProgramTemplates] = useState([])
 let btnText="Створити шаблон з нуля"

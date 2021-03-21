@@ -67,7 +67,6 @@
     transform: scaleX(1);
   }
   
-  
   .save_button.btn-background-slide {
     transition: color 300ms ease-in-out;
     z-index: 1;
