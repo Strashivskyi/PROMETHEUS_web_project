@@ -138,6 +138,7 @@ export default function ProgramEditable() {
                                     Сфера розвитку:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати сферу розвитку..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -160,6 +161,7 @@ export default function ProgramEditable() {
                                     Навик:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати навик..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -190,6 +192,7 @@ export default function ProgramEditable() {
                                     Метод:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати метод..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -209,6 +212,7 @@ export default function ProgramEditable() {
                                     Бажана реакція:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати бажану реакцію..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -247,6 +251,7 @@ export default function ProgramEditable() {
                                     >
                                         <div style={{ backgroundColor: '#EEEEEE' }}>
                                             <TextInput
+                                                placeholder="Вказати критерій..."
                                                 className="element_value"
                                                 multiline="true"
                                                 underlineColor="transparent"
@@ -287,6 +292,7 @@ export default function ProgramEditable() {
                                     Рівні інтенсивності підказки:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати рівні інтенсивності підказки..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -310,6 +316,7 @@ export default function ProgramEditable() {
                                     підказки:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати критерій..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -337,6 +344,7 @@ export default function ProgramEditable() {
                                     підказки:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати критерій..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -442,43 +450,28 @@ export default function ProgramEditable() {
                                         ))}
 
                                         <div
-                                            style={{
-                                                display: 'flex',
-                                                flexDirection: 'row',
-                                            }}
+                                            className="add_stymul_container"
+
                                         >
                                             <button
                                                 onClick={() =>
                                                     addStimul(stimulInput)
                                                 }
-                                                className="add_button"
+                                                className="add_stymul_button"
                                             >
-                                                <h1
-                                                    style={{
-                                                        marginTop: '5px',
-                                                        marginBottom: '5px',
-                                                        textAlign: 'center',
-                                                        width: '22px',
-                                                        height: '20px',
-                                                        color: '#4d4d4d',
-                                                        fontSize: '20px',
-                                                    }}
-                                                >
-                                                    +
-                                                </h1>
-                                            </button>
-                                            <div className="transparent_input">
-                                                <input
-                                                    type="text"
-                                                    onChange={(event) =>
-                                                        setStimulInput(
-                                                            event.target.value
-                                                        )
-                                                    }
-                                                    name="name"
-                                                    placeholder="Додати стимул...."
-                                                />
-                                            </div>
+                                                +
+                                        </button>
+                                            <input
+                                                type="text"
+                                                onChange={(event) =>
+                                                    setStimulInput(
+                                                        event.target.value
+                                                    )
+                                                }
+                                                name="name"
+                                                placeholder="Додати за поштою...."
+                                                className="add_stymul_input"
+                                            />
                                         </div>
                                     </ul>
                                 </div>
@@ -498,6 +491,7 @@ export default function ProgramEditable() {
                                     Опис етапів:
                                 </div>
                                 <TextInput
+                                    placeholder="Додати опис етапів..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -529,6 +523,7 @@ export default function ProgramEditable() {
                                     Процедура корекції неправильної відповіді:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати процедуру корекції неправильної відповіді..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -555,6 +550,7 @@ export default function ProgramEditable() {
                                 </div>
                                 <div className="element_value">
                                     <TextInput
+                                        placeholder="Додати інструкції до етапу..."
                                         className="element_value"
                                         multiline="true"
                                         underlineColor="transparent"
@@ -581,6 +577,7 @@ export default function ProgramEditable() {
                                 </div>
                                 <div className="element_value">
                                     <TextInput
+                                        placeholder="Додати інструкції до етапу..."
                                         className="element_value"
                                         multiline="true"
                                         underlineColor="transparent"
@@ -609,6 +606,7 @@ export default function ProgramEditable() {
                                 </div>
                                 <div className="element_value">
                                     <TextInput
+                                        placeholder="Додати інструкції до етапу..."
                                         className="element_value"
                                         multiline="true"
                                         underlineColor="transparent"

@@ -52,7 +52,7 @@ function ProgramTemplate({ history }) {
                     {' '}
                     Створити програму на основі шаблону серед наведених нижче АБО
                 </div>
-                <Link className="template_link" to="/protocol-list">
+                <Link className="template_link btn-background-slide" to="/protocol-list">
                     Створити пусту програму
                 </Link>
             </div>

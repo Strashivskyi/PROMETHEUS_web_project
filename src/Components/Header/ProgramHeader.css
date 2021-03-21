@@ -1,4 +1,6 @@
-
+.ionkid_logo:hover{
+  cursor: pointer;
+}
 .save_button {
     background: transparent;
     color: #EF4F59;

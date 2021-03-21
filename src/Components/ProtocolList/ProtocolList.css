@@ -20,7 +20,6 @@
 }
 
 .protocol_item {
-    cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -85,7 +84,6 @@
 .create_template_button {
     background: transparent;
     color: #EF4F59;
-    padding: .5em 1em;
     border: 1px solid #ef4f59;
     cursor: pointer;
     margin-left: 1000px;

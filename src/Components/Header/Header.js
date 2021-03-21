@@ -28,6 +28,8 @@ function Header() {
                             style={{
                                 position: 'relative',
                             }}
+                            className = "logo_hover"
+
                         />
                             <PatientTemplateSwitch/>
 

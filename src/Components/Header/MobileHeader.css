@@ -1,6 +1,9 @@
 .logo_container{
     display:none;
 }
+.sign_out_button:hover{
+    cursor: pointer;
+}
 @media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
     .logo_container{
         min-height: 5vw;

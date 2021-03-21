@@ -38,6 +38,7 @@ function ProgramHeader() {
                             style={{
                                 position: 'relative',
                             }}
+                            className="ionkid_logo"
                         />
                          <PatientTemplateSwitch/>
     <Link to='/protocol-list'>

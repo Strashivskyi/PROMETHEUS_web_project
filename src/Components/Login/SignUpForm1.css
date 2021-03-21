@@ -26,6 +26,8 @@ html {
 .number-button:hover {
     background-color: #ffffff;
     color: #48535f;
+    cursor: pointer;
+
 }
 .number-button:focus {
     background-color: #ffffff;

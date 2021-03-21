@@ -132,7 +132,7 @@ export default function PatientInfoUser() {
     localStorage.setItem('childData', JSON.stringify(patients[0]))
     return (
         <div >
-            <MobileHeader/>
+            <MobileHeader />
             <Header />
             <ul>
                 {patients.map((patient) => (
@@ -163,11 +163,11 @@ export default function PatientInfoUser() {
                             </h2>
                         </div>
                         <div className="patient_grid_container">
-                        <img
-                                    src={Kid}
-                                    height="200"
-                                    className="mobile_child_image"
-                                />
+                            <img
+                                src={Kid}
+                                height="200"
+                                className="mobile_child_image"
+                            />
                             <img
                                 src={Kid}
                                 height="270"
@@ -270,7 +270,7 @@ export default function PatientInfoUser() {
                                             .map((therapist) => (
                                                 <>
                                                     <div
-                                                        className = "therapist_container"
+                                                        className="therapist_container"
                                                     >
                                                         <div>
                                                             {therapist.Name}
@@ -299,50 +299,32 @@ export default function PatientInfoUser() {
                                                     </div>
                                                 </>
                                             ))}
-                                   
+
                                     </div>
-                                   
+
                                     <div
-                                        className="add_patient_container"
-                                        style={{
-                                            display: 'flex',
-                                            flexDirection: 'row',
-                                            marginLeft: '2rem',
-                                        }}
+                                        className="add_therapist_container"
+
                                     >
                                         <button
                                             onClick={() =>
                                                 addTherapist(therapistInput)
                                             }
-                                            className="add_button"
+                                            className="add_therapist_button"
                                         >
-                                            <h1
-                                                
-                                                style={{
-                                                    marginTop: '5px',
-                                                    marginBottom: '5px',
-                                                    textAlign: 'center',
-                                                    width: '22px',
-                                                    height: '20px',
-                                                    color: '#4d4d4d',
-                                                    fontSize: '20px',
-                                                }}
-                                            >
-                                                +
-                                            </h1>
+                                            +
                                         </button>
-                                        <div className="transparent_input">
-                                            <input
-                                                type="text"
-                                                onChange={(event) =>
-                                                    setTherapistInput(
-                                                        event.target.value
-                                                    )
-                                                }
-                                                name="name"
-                                                placeholder="Додати за поштою...."
-                                            />
-                                        </div>
+                                        <input
+                                            type="text"
+                                            onChange={(event) =>
+                                                setTherapistInput(
+                                                    event.target.value
+                                                )
+                                            }
+                                            name="name"
+                                            placeholder="Додати за поштою...."
+                                            className="add_therapist_input"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -360,7 +342,7 @@ export default function PatientInfoUser() {
                             <Link
                                 to={path}
                                 onClick={() =>
-                                   setData()
+                                    setData()
                                 }
                                 className="patient_page_buttons_program"
                             >
@@ -374,8 +356,8 @@ export default function PatientInfoUser() {
     )
 }
 
-function setData(){
-    localStorage.setItem("templateType","private")
+function setData() {
+    localStorage.setItem("templateType", "private")
     localStorage.setItem('program', 'ok')
 }
 
@@ -389,12 +371,12 @@ function DeleteTherapist(therapistId) {
         .collection('Therapists')
         .doc(therapistId)
         .delete()
-        db.collection('Therapists')
+    db.collection('Therapists')
         .doc(therapistId)
         .collection('Patient')
         .doc(localStorage.getItem('child'))
         .delete()
-        alert(`Видалено терапіста за електронною поштою ${therapistId}`)
+    alert(`Видалено терапіста за електронною поштою ${therapistId}`)
 
 }
 
@@ -414,10 +396,10 @@ function addTherapist(therapistInput) {
                         .collection('Therapists')
                         .doc(therapistInput)
                         .set({ Name: doc.data().Name })
-                        alert(`Терапіст ${doc.data().Name} доданий за електронною поштою ${therapistInput}`)
-                        fetch(`https://john-steck-api.herokuapp.com/email/reg_child/${localStorage.getItem("Name")+" "+localStorage.getItem("Surname")}/${localStorage.getItem("childName")}/${therapistInput}`).then((data) => {
-                          
-                        })
+                    alert(`Терапіст ${doc.data().Name} доданий за електронною поштою ${therapistInput}`)
+                    fetch(`https://john-steck-api.herokuapp.com/email/reg_child/${localStorage.getItem("Name") + " " + localStorage.getItem("Surname")}/${localStorage.getItem("childName")}/${therapistInput}`).then((data) => {
+
+                    })
                 } else {
                     alert(`Відправлено лист на реєстрацію на ${therapistInput}`)
                     db.collection('Supervisors')
@@ -432,8 +414,8 @@ function addTherapist(therapistInput) {
                     db.collection('Therapists')
                         .doc(therapistInput)
                         .set({ Name: 'Очікуємо реєстрації' })
-                    fetch(`https://john-steck-api.herokuapp.com/email/reg/${localStorage.getItem("Name")+" "+localStorage.getItem("Surname")}/${localStorage.getItem("childName")}/${therapistInput}`).then((data) => {
-                       
+                    fetch(`https://john-steck-api.herokuapp.com/email/reg/${localStorage.getItem("Name") + " " + localStorage.getItem("Surname")}/${localStorage.getItem("childName")}/${therapistInput}`).then((data) => {
+
                     })
                 }
             })

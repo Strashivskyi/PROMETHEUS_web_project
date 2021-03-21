@@ -37,6 +37,9 @@
         background-size: 22px;
 
 }
+.logo_hover:hover{
+    cursor: pointer;
+}
 @media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
     .header{
         display: none;
