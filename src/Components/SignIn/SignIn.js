@@ -6,6 +6,7 @@ import './SignIn.css'
 import { AuthContext } from '../../Firebase/AuthSetup/Auth'
 import { Link } from 'react-router-dom'
 import MobileHeader from '../Header/MobileHeader'
+import toast, { Toaster } from 'react-hot-toast';
 
 function SignIn({ history }) {
     const { currentUser } = useContext(AuthContext)
@@ -65,11 +66,11 @@ function SignIn({ history }) {
                     localStorage.setItem('user', currentUser.email)
                     history.push('/home')
                 } else {
-                    alert('please verify your email')
+                    toast.loading('Будь ласка, підтвердьте свою електронну пошту...')
                 }
             } catch (error) {
                 if (!error.toString().includes("TypeError")) {
-                    alert(error)
+                    toast.error('Помилка')
                 }
             }
         },
@@ -130,6 +131,23 @@ function SignIn({ history }) {
                                 Відновити пароль
                         </Link>
                         </div>
+                        <Toaster position="bottom-top" reverseOrder={false}
+                                 toastOptions={{
+                                     style: {
+                                         minWidth: '430px',
+                                         minHeight: '60px',
+                                         paddingLeft: '20px'
+                                     },
+                                     loading:{
+
+                                         duration : 5000,
+                                         icon: '✉️'
+                                     },
+
+
+
+                                 }}
+                        />
                     </div>
                 </div>
             </div>

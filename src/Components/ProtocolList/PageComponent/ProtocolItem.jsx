@@ -2,12 +2,13 @@ import Duplicate from '../../../assets/duplicate_task.svg'
 import Visible from '../../../assets/visible.svg'
 import UnVisible from '../../../assets/unVisible.svg'
 import Delete from '../../../assets/delete.svg'
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react'
 import app from '../../../Firebase/firebase'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import EditIcon from '../../../assets/edit_new.svg'
 import SecondModal from '../../ModalWindow/SecondModal'
-export default function ProtocolItem({protocols,
+export default function ProtocolItem({
+    protocols,
     number,
     protocolId,
     protocolName,
@@ -25,7 +26,11 @@ export default function ProtocolItem({protocols,
     method,
     methodTakingHint,
     reductionСriterion,
-    stepDescription, CriteriongenGenerSkill,instruction1,instruction2,instruction3
+    stepDescription,
+    CriteriongenGenerSkill,
+    instruction1,
+    instruction2,
+    instruction3,
 }) {
     let [colorItem, setColorItem] = useState('')
 
@@ -38,35 +43,34 @@ export default function ProtocolItem({protocols,
         setIsOpen(!isOpen)
     }
 
-
     return (
         <>
             <div
                 className="protocol_item"
-                style={{ backgroundColor: colorItem, marginLeft: '5rem' }}
+                style={{backgroundColor: colorItem, marginLeft: '5rem'}}
             >
                 <p className="protocol_item_text ">
-                    Протокол {number}{statusCopied}.
-                     {sphereOfDevelopment}.{skill}
+                    Протокол {number}
+                    {statusCopied}.{sphereOfDevelopment}.{skill}
                 </p>
                 <div className="icon_place">
-                    <CheckIsActive  className="icon" isActive={isActive} protocolId={protocolId} />
+                    <CheckIsActive
+                        className="icon"
+                        isActive={isActive}
+                        protocolId={protocolId}
+                    />
                     <Link
-                
-                            onClick={() =>
-                                {setData(protocolId,number)}
-                            
-                        }
+                        onClick={() => {
+                            setData(protocolId, number)
+                        }}
                         to="/program"
                     >
-            
-                    <img
-                        title="Редагувати"
-                        className="icon edit_icon"
-                        src={EditIcon}
-                    />
+                        <img
+                            title="Редагувати"
+                            className="icon edit_icon"
+                            src={EditIcon}
+                        />
                     </Link>
-                    
 
                     <img
                         title="Дублікат"
@@ -87,22 +91,26 @@ export default function ProtocolItem({protocols,
                                 method,
                                 methodTakingHint,
                                 reductionСriterion,
-                                stepDescription, CriteriongenGenerSkill,instruction1,instruction2,instruction3
+                                stepDescription,
+                                CriteriongenGenerSkill,
+                                instruction1,
+                                instruction2,
+                                instruction3
                             )
                         }
                         src={Duplicate}
                     />
-                    
+
                     {isOpen && (
                         <SecondModal
-                        protocolId={protocolId}
+                            protocolId={protocolId}
                             content={
                                 <>
                                     <b className="second-text_modul">
                                         Ви впевнені, що хочете видалити
                                         протокол?
                                     </b>
-                                    <div className="second-button_modul"/>
+                                    <div className="second-button_modul" />
                                 </>
                             }
                             handleClose={toggleModal}
@@ -112,7 +120,9 @@ export default function ProtocolItem({protocols,
                     <img
                         title="Видалити"
                         className="icon"
-                        onClick={() => DeleteProtocol(protocolId,protocols)}
+                        onClick={
+                            (() => DeleteProtocol(protocolId), toggleModal)
+                        }
                         src={Delete}
                     />
                 </div>
@@ -120,7 +130,7 @@ export default function ProtocolItem({protocols,
         </>
     )
 }
-function CheckIsActive({ isActive, protocolId }) {
+function CheckIsActive({isActive, protocolId}) {
     console.log(isActive)
     if (isActive == true) {
         return (
@@ -158,12 +168,16 @@ function CreateDuplicateProtocol(
     method,
     methodTakingHint,
     reductionСriterion,
-    stepDescription, CriteriongenGenerSkill ,instruction1,instruction2,instruction3
+    stepDescription,
+    CriteriongenGenerSkill,
+    instruction1,
+    instruction2,
+    instruction3
 ) {
     localStorage.setItem('program', protocolId)
     const db = app.firestore()
 
-    db.collection(localStorage.getItem("proffesion"))
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
@@ -184,40 +198,46 @@ function CreateDuplicateProtocol(
             MethodTakingHint: methodTakingHint,
             ReductionСriterion: reductionСriterion,
             StepDescription: stepDescription,
-            CriteriongenGenerSkill: CriteriongenGenerSkill,Instructions1: instruction1,Instructions2: instruction2,Instructions3: instruction3
+            CriteriongenGenerSkill: CriteriongenGenerSkill,
+            Instructions1: instruction1,
+            Instructions2: instruction2,
+            Instructions3: instruction3,
         })
         .then(function (docRef) {
-            db.collection(localStorage.getItem("proffesion"))
+            db.collection(localStorage.getItem('proffesion'))
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .doc(localStorage.getItem('child'))
-                .collection('Protocols').doc(docRef.id)
-                .collection("CriteriongenGenerSkill")
-                .add({ Text: "" })
+                .collection('Protocols')
+                .doc(docRef.id)
+                .collection('CriteriongenGenerSkill')
+                .add({Text: ''})
             db.collection('User')
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .doc(localStorage.getItem('child'))
-                .collection('Protocols').doc(docRef.id)
-                .collection("Stimulus")
-                .add({ Name: "" })
-            console.log("Document written with ID: ", docRef.id);
+                .collection('Protocols')
+                .doc(docRef.id)
+                .collection('Stimulus')
+                .add({Name: ''})
+            console.log('Document written with ID: ', docRef.id)
         })
         .catch(function (error) {
-            console.error("Error adding document: ", error);
-        });
+            console.error('Error adding document: ', error)
+        })
 
     // console.log(data.key)
 }
-function DeleteProtocol(protocolId,protocols) {
+function DeleteProtocol(protocolId, protocols) {
     const db = app.firestore()
-    db.collection(localStorage.getItem("proffesion"))
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .doc(protocolId)
-        .delete().then(doc=>{
+        .delete()
+        .then((doc) => {
             // for (let i = 0; i < protocols.length; i++) {
             //     console.log("ПІЗДААААА  " + i+1 + "БЛЯДСЬКИЙ ПРІОР " + protocols[i].ProtocolId)
             //     db.collection(localStorage.getItem("proffesion"))
@@ -226,7 +246,6 @@ function DeleteProtocol(protocolId,protocols) {
             //         .doc(localStorage.getItem('child'))
             //         .collection('Protocols').doc(protocols[i].id)
             //         .update({ ProtocolId: i + 1 })
-        
             // }
         })
     JSON.parse(localStorage.getItem('therapistID')).map((terapist) => {
@@ -234,27 +253,24 @@ function DeleteProtocol(protocolId,protocols) {
             .doc(terapist)
             .collection('Patient')
             .doc(localStorage.getItem('child'))
-            .collection('Protocols').doc(protocolId).delete()
+            .collection('Protocols')
+            .doc(protocolId)
+            .delete()
     })
-  
-
-   
-
-
 }
 
 function UpdateActiveStatus(protocolId, valueStatus) {
     const db = app.firestore()
 
-    db.collection(localStorage.getItem("proffesion"))
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .doc(protocolId)
-        .update({ IsActive: valueStatus })
+        .update({IsActive: valueStatus})
 }
-function setData(param1,param2){
+function setData(param1, param2) {
     localStorage.setItem('program', param1)
-    localStorage.setItem("programNumber",param2)
+    localStorage.setItem('programNumber', param2)
 }

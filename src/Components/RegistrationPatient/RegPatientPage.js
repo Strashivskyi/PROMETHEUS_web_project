@@ -14,6 +14,7 @@ import './RegPatientPage.css'
 import default_avatar from '../../assets/default_avatar.png';
 import { withRouter } from "react-router";
 import MobileHeader from '../Header/MobileHeader'
+import toast, { Toaster } from 'react-hot-toast';
 
 /* -
 ----------------------------
@@ -203,7 +204,7 @@ function RegistrationPatient({ history }) {
     async function handleSubmit() {
         if (name == "" || diagnose == "" || parents == "" || gender == "" ||
             age == "" || date == "" || city == "" || country == "") {
-            alert("Заповніть всі поля!")
+                toast.error("Заповніть всі поля!")
         } else {
             const res = await db
                 .collection(localStorage.getItem('proffesion'))
@@ -483,8 +484,21 @@ function RegistrationPatient({ history }) {
                             onClick={handleSubmit}
                             value="Зберегти"
                         />
-                            
                     </Link>
+                    <Toaster position="bottom-top" reverseOrder={false}
+                            toastOptions={{
+                                 style: {
+                                     minWidth: '350px',
+                                     minHeight: '60px',
+                                     paddingLeft: '20px'
+                                 },
+                                 error:{
+                                     duration : 5000,
+                                     icon: '⚠️'
+                                 }
+
+                             }}
+                    />
 
                 </div>
 

@@ -7,6 +7,7 @@ import Arrow from '../../assets/arrow.png'
 import Kid from '../../assets/default_avatar.png'
 import {Link} from 'react-router-dom'
 import Delete from '../../assets/delete.svg'
+import toast, {Toaster} from 'react-hot-toast'
 
 export default function PatientInfoUser() {
     let [patients, setPatients] = useState([])
@@ -330,7 +331,7 @@ export default function PatientInfoUser() {
                         </div>
                         <div className="patient_page_buttons">
                             <button
-                                onClick={() => tempFunctionThatNeedToChange()}
+                                onClick={() => uploadGraphsForSevenDaysToDB()}
                                 className="patient_page_button_create_info"
                             >
                                 Згенерувати звіт за останні 7 днів
@@ -352,6 +353,32 @@ export default function PatientInfoUser() {
                                 Програма
                             </Link>
                         </div>
+                        <Toaster
+                            position="bottom-top"
+                            reverseOrder={false}
+                            toastOptions={{
+                                style: {
+                                    minWidth: '350px',
+                                    minHeight: '60px',
+                                    paddingLeft: '20px',
+                                },
+                                success: {
+                                    minWidth: '600px',
+                                    minHeight: '120px',
+                                    duration: 5000,
+                                },
+                                loading: {
+                                    minWidth: '600px',
+                                    minHeight: '120px',
+                                    duration: 5000,
+                                    icon: '✉️',
+                                },
+                                error: {
+                                    duration: 5000,
+                                    icon: '⚠️',
+                                },
+                            }}
+                        />
                     </>
                 ))}
             </ul>
@@ -359,16 +386,16 @@ export default function PatientInfoUser() {
     )
 }
 
-function tempFunctionThatNeedToChange() {
+function uploadGraphsForSevenDaysToDB() {
     try {
         fetch(
             `https://john-steck-api.herokuapp.com/progress/${localStorage.getItem(
                 'user'
             )}/${localStorage.getItem('child')}`
         )
-        alert('Файл успішно згенеровано')
+        toast.success('Файл успішно згенеровано')
     } catch {
-        alert('Помилка при генерації файлу')
+        toast.error('Помилка при генерації файлу')
     }
 }
 
@@ -392,7 +419,7 @@ function DeleteTherapist(therapistId) {
         .collection('Patient')
         .doc(localStorage.getItem('child'))
         .delete()
-    alert(`Видалено терапіста за електронною поштою ${therapistId}`)
+    toast.success(`Видалено терапіста за електронною поштою: ${therapistId}`)
 }
 
 function addTherapist(therapistInput) {
@@ -411,10 +438,10 @@ function addTherapist(therapistInput) {
                         .collection('Therapists')
                         .doc(therapistInput)
                         .set({Name: doc.data().Name})
-                    alert(
+                    toast.success(
                         `Терапіст ${
                             doc.data().Name
-                        } доданий за електронною поштою ${therapistInput}`
+                        } доданий за електронною поштою: ${therapistInput}`
                     )
                     fetch(
                         `https://john-steck-api.herokuapp.com/email/reg_child/${
@@ -426,7 +453,9 @@ function addTherapist(therapistInput) {
                         )}/${therapistInput}`
                     ).then((data) => {})
                 } else {
-                    alert(`Відправлено лист на реєстрацію на ${therapistInput}`)
+                    toast.loading(
+                        `Відправлено лист на реєстрацію на: ${therapistInput}`
+                    )
                     db.collection('Supervisors')
                         .doc(localStorage.getItem('user'))
                         .collection('Patient')
@@ -453,6 +482,6 @@ function addTherapist(therapistInput) {
                 console.log(error)
             })
     } else {
-        alert('Спочатку вкажіть пошту терапевта')
+        toast.error('Спочатку вкажіть пошту терапевта')
     }
 }
