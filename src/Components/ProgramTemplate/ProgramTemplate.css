@@ -4,16 +4,17 @@
     padding: 1em 1em;
     border: 1px solid #ef4f59;
     cursor: pointer;
-    margin-left: 900px;
-    margin-right: 30px;
-    margin-top: -20px;
+    margin-left: 60%;
+    /* margin-right: 30px; */
+    /* margin-top: -20px; */
     font-family: Inter;
     font-weight: 500;
     line-height: 20px;
     font-size: 22px;
-    width: 290px;
-    height: 20px;
+    width: 28%;
+    height: 1%;
     position: absolute;
+    text-align: center;
 
   }
   .template_link.btn-background-slide::before {
@@ -90,29 +91,15 @@
         margin-left: 120px;
         font-size: 20px;
         margin-top: 20px;
+        
     }
     .template_link {
        
-        width: 300px;
-        height: 43px;
+        width: 25%;
+        height: 2.6%;
         font-size: 17px;
-        margin-right: 90px;
-        margin-top: 20px;
-}
-}
-@media screen and (min-width: 800px) and (max-width:1298px){
-    .templates_string {
-        margin-right: 60px;
-        margin-left: 120px;
-        font-size: 20px;
-        margin-top: 20px;
-    }
-    .template_link {
-       
-        width: 300px;
-        height: 43px;
-        font-size: 17px;
-        margin-right: 90px;
-        margin-top: 20px;
+        margin-left: 60%;
+        /* margin-top: 20px; */
+        text-align: center;
 }
 }

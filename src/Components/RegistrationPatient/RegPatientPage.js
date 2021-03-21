@@ -14,7 +14,6 @@ import './RegPatientPage.css'
 import default_avatar from '../../assets/default_avatar.png';
 import { withRouter } from "react-router";
 import MobileHeader from '../Header/MobileHeader'
-import "./RegPatientPage.css"
 
 /* -
 ----------------------------
@@ -478,12 +477,14 @@ function RegistrationPatient({ history }) {
                         </div>
                     </div>
                     <Link to="/">
-                        <button
+                        <input
+                            type="submit"
                             className="save_button save_button_add_patient"
                             onClick={handleSubmit}
-                        >
-                            Зберегти
-                        </button>
+                            value="Зберегти"
+                        />
+                            
+                       
                     </Link>
 
                 </div>

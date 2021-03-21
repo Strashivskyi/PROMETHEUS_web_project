@@ -49,7 +49,7 @@ if(countProto!=0){
                     {' '}
                     Переглянути шаблони програм АБО
                 </div>
-                <Link style={{width:"25%"}} className="template_link" to="/create-template">
+                <Link  className="template_link" to="/create-template">
                {btnText}
                 </Link>
             </div>

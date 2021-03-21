@@ -1,5 +1,6 @@
 import ProgramHeader from '../Header/ProgramHeader'
 import './Program.css'
+import './ProgramTest.css'
 import { TextInput } from 'react-native-paper'
 import React, { useEffect, useState } from 'react'
 import app from '../../Firebase/firebase'
@@ -450,14 +451,12 @@ export default function ProgramEditable() {
                                         ))}
 
                                         <div
-                                            className="add_stymul_container"
-
-                                        >
+                                            className="add_stymul_container_test" >
                                             <button
                                                 onClick={() =>
                                                     addStimul(stimulInput)
                                                 }
-                                                className="add_stymul_button"
+                                                className="add_stymul_button_test"
                                             >
                                                 +
                                         </button>
@@ -469,8 +468,8 @@ export default function ProgramEditable() {
                                                     )
                                                 }
                                                 name="name"
-                                                placeholder="Додати за поштою...."
-                                                className="add_stymul_input"
+                                                placeholder="Додати стимул...."
+                                                className="add_stymul_input_test"
                                             />
                                         </div>
                                     </ul>

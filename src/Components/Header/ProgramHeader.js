@@ -44,6 +44,7 @@ function ProgramHeader() {
     <Link to='/protocol-list'>
 
                     <button
+                        type="submit"
                         className="save_button_header btn-background-slide"
                         style={{ top: '1rem', cursor: 'pointer' }}
                         onClick={() => exportUsersToExcel(userEmail, childName)}

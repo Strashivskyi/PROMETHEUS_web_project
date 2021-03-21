@@ -19,6 +19,23 @@ function SignUpForm1() {
     const [sex, setSex] = useState('')
     localStorage.setItem('Gender', sex)
     console.log(sex)
+
+    const [formData,setFormData] = useState({
+        isAgree : false,
+        gender : ""
+    })
+
+    const handleChanage = event =>{
+        const target = event.target
+        const name = target.name
+        const value = target.value
+        setFormData({
+            ...formData,
+            [name] : value
+        })
+        console.log(target.value)
+    }
+
  
     return (
         <div className="first_sign">
@@ -52,31 +69,37 @@ function SignUpForm1() {
                 <p className="gender">Стать</p>
                 <div className="gender_container">
                     <div className="group">
-                        <input
-                            onClick={() => setSex('Чоловіча')}
+                    <input
+                            onClick={handleChanage} checked={formData.gender=="male"}
                             className="gender_checks"
+                            name="gender"
                             type="checkbox"
                             id="xd"
+                            value="male"
                         />
                         <label for="xd">Чоловіча</label>
                     </div>
 
                     <div className="group">
                         <input
-                            onClick={() => setSex('Жіноча')}
+                            onClick={handleChanage} checked={formData.gender=="female"}
                             type="checkbox"
+                            name="gender"
                             id="figma"
                             className="gender_checks"
+                            value="female"
                         />
                         <label for="figma">Жіноча</label>
                     </div>
 
                     <div className="group">
                         <input
-                            onClick={() => setSex('Інше')}
+                            onClick={handleChanage} checked={formData.gender=="other"}
                             type="checkbox"
+                            name="gender"
                             id="sketch"
                             className="gender_checks"
+                            value="other"
                         />
                         <label for="sketch">Інше</label>
                     </div>
