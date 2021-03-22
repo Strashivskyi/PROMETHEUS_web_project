@@ -9,6 +9,7 @@ import Plus from '../../../assets/Plus.svg'
 
 function HomeProgramTemplate({ history,countProto }) {
     const [programTemplates, setProgramTemplates] = useState([])
+    localStorage.setItem("homeType","createTemplate")
 let btnText="Створити шаблон з нуля"
 if(countProto!=0){
  

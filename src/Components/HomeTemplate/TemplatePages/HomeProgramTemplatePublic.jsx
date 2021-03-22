@@ -9,6 +9,7 @@ import './HomeProgramTemplate.css'
 function HomeProgramTemplatePublic({history,countProto}) {
     const [programTemplates, setProgramTemplates] = useState([])
     let btnText="Створити шаблон з нуля"
+    localStorage.setItem("homeType","createTemplate")
     if(countProto!=0){
         btnText="Продовжіть створення шаблону"
     }

@@ -8,5 +8,5 @@ const app = firebase.initializeApp({
     projectId: 'ionkid-abd2f',
     storageBucket: 'ionkid-abd2f.appspot.com',
 })
-
-export default app
+let storage = firebase.storage();
+export {storage,app as default };

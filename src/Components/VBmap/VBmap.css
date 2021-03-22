@@ -1,0 +1,59 @@
+.submit-button {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.file-form {
+    height: 80px;
+}
+
+.file-box {
+    position: relative;
+    border: 1px solid rgba(197, 207, 210, 0.5);
+    border-radius: 5px;
+    right: 31%;
+    top: 2.5rem;
+    cursor: pointer;
+    transition: .2s linear;
+    text-align: left;
+    display: inline-block;
+    /*overflow: hidden;*/
+}
+
+.file-box:hover {
+    background-color: rgba(197, 207, 210, 0.5)
+}
+
+.file-name {
+    padding-top: 5px;
+    height: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.file-img {
+    /*height: 64px;*/
+    width: 64px;
+    cursor: pointer;
+    z-index: 10;
+    vertical-align: middle;
+    /*display: inline-block;*/
+}
+
+.close-img {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 1px;
+    right: 1px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close-img:hover {
+    height: 26px;
+    width: 26px;
+    transition: .3s linear;
+    top: 0;
+    right: 0;
+}
