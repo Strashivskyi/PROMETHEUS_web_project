@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import app from '../../Firebase/firebase'
 import React from 'react'
 import Logo from '../../assets/Logo.svg'
-
+import "./HomeHeader.css"
 import PatientTemplateSwitch from "./PatientTemplateSwitch";
 function signOut() {
     localStorage.setItem('user', 'none')
@@ -20,6 +20,7 @@ function HeaderHomeTemplate(params) {
                         justifyContent: "space-between"
                     }}>
                         <img
+                            className="hover_on_logo"
                             src={Logo}
                             onClick={() => signOut()}
                             width="14.7%"

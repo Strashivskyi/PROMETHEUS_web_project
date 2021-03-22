@@ -47,7 +47,7 @@ export default function ProtocolItem({
         <>
             <div
                 className="protocol_item"
-                style={{backgroundColor: colorItem, marginLeft: '5rem'}}
+                style={{ backgroundColor: colorItem }}
             >
                 <p className="protocol_item_text ">
                     Протокол {number}

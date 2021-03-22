@@ -161,8 +161,20 @@ ul {
     cursor: pointer;
     transform: scale(1.1);
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
 
+    .add_stymul_input{
+        width: 10vw;
+        font-size: 17px;
+    }
+    }
 @media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
+    .add_stymul_input{
+        width: 300px;
+        border: 1px solid #EEE;
+        padding-left: 10px;
+        font-size: 20px;
+    }
     .save_button_supervisor_mobile{
         display: initial;
         background: transparent;

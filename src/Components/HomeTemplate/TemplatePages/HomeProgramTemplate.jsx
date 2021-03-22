@@ -4,14 +4,15 @@ import React, { useEffect, useState } from 'react'
 import app from '../../../Firebase/firebase'
 import TemplateItem from '../PageComponent/Item'
 import ButtonsTemplate from '../TemplatePages/ButtonsTemplate'
-
+import './HomeProgramTemplate.css'
+import Plus from '../../../assets/Plus.svg'
 
 function HomeProgramTemplate({ history,countProto }) {
     const [programTemplates, setProgramTemplates] = useState([])
 let btnText="Створити шаблон з нуля"
 if(countProto!=0){
  
-    btnText="Продовжіть створення шаблону"
+    btnText = "Cтворити шаблон"
 }
     useEffect(() => {
         const db = app.firestore()
@@ -45,17 +46,16 @@ if(countProto!=0){
 
     return (
         <>   
-            <div className="template_title">
-                <div className="templates_string">
-                    {' '}
-                    Переглянути шаблони програм АБО
-                </div>
-                <Link  className="template_link" to="/create-template">
-               {btnText}
-                </Link>
-            </div>
             <ButtonsTemplate />
             <div className="template-grid">
+                <div className="create_template_ingrid_button">
+                    <div className="add_template">
+                        <div className="create_template_text">{btnText}</div>
+                        <Link to="/create-template">
+                            <img className="plus_sign_button" src={Plus}></img>
+                        </Link>
+                    </div>
+                </div>
                 {someList.map((idEl) => (
                     <TemplateItem
                         history={history}

@@ -1,11 +1,13 @@
 .buttons-template{
     display: flex;
-    flex-direction: center;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: center;
     margin-top: 30px;
 } 
+
 .buttons-template-private{
-    background:transparent;
+    margin-right: 35px;
+    background: transparent;
     outline:none;
     display:block;
     height:50px;
@@ -14,12 +16,11 @@
     font-size: 24px;
     border-radius: 3px;
     margin-top: 15px;
+    color: #EF4F59;
+    border: none;
 }
-#temp-button-prv:active{
-    color:#EF4F59;
-    font-weight: bold;
-    
-}
+
+
 .buttons-template-public{
     font-size: 24px;
     background:transparent;
@@ -31,9 +32,17 @@
     font-size: 24px;
     border-radius: 3px;
     margin-top: 15px;
-    
+    border: none;
+    color: #48535F;
+
 }
-#temp-button-pub:active{
-    font-weight: bold;
-    color:#EF4F59;
+.buttons-template-public:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+
+}
+.buttons-template-private:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+
 }

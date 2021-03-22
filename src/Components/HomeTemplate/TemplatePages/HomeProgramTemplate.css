@@ -1,0 +1,72 @@
+
+.create_template_ingrid_button{
+    width: 285px;
+    height: 185px;
+    background-color: #eeeeee;
+    border-radius: 6px;
+    align-content: center;
+
+}
+.create_template_ingrid_button:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+
+}
+.plus_sign_button{
+    margin-left: 22%;
+    margin-right: 22%;
+}
+.plus_sign_button:hover{
+   transform: scale(1.1);
+   transition: 0.3s;
+}
+.create_template_text{
+    text-align: center;
+    font-weight: 600;
+    font-size: 25px;
+}
+.create_template_continue {
+    background: transparent;
+    color: #EF4F59;
+    padding: 1em 1em;
+    border: 1px solid #ef4f59;
+    cursor: pointer;
+    margin-left: 900px;
+    margin-right: 30px;
+    margin-top: -20px;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 20px;
+    font-size: 22px;
+    width: 290px;
+    height: 20px;
+    position: absolute;
+
+  }
+  .create_template_continue.btn-background-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #ef4f59;
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+  
+  .create_template_continue.btn-background-slide:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .create_template_continue.btn-background-slide {
+    transition: color 300ms ease-in-out;
+    z-index: 1;
+  }
+  
+  
+  .create_template_continue.btn-background-slide:hover {
+    color: white;
+  }

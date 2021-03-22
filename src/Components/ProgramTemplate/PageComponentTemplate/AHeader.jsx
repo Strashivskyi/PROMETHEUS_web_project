@@ -27,7 +27,6 @@ function AHeader() {
                     <Link
                         to="/patient"
                         className="patients_link"
-                        style={{ color: '#6F6F6F' }}
                     >
                         {localStorage.getItem('childName')}
                     </Link>
@@ -42,7 +41,8 @@ function AHeader() {
                         color: 'black',
                     }}
                 />
-                <h2>Програма</h2>
+                <h2 style={{ color: '#6F6F6F' }}
+                >Програма</h2>
             </div>
         </>
     )

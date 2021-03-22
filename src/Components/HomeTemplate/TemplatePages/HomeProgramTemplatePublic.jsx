@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import app from '../../../Firebase/firebase'
 import TemplateItem from '../PageComponent/ItemPublic'
 import ButtonsTemplate from '../../HomeTemplate/TemplatePages/ButtonsTemplate'
+import './HomeProgramTemplate.css'
 
 function HomeProgramTemplatePublic({history,countProto}) {
     const [programTemplates, setProgramTemplates] = useState([])
@@ -42,15 +43,7 @@ function HomeProgramTemplatePublic({history,countProto}) {
     return (
 
         <>   
-            <div className="template_title">
-                <div className="templates_string">
-                    {' '}
-                     Переглянути шаблони програм АБО
-                </div>
-                <Link style={{width:"25%"}}  className="template_link" to="/create-template" >
-                   {btnText}
-                </Link>
-            </div>
+
             <ButtonsTemplate />
             <div className="template-grid">
                 {someList.map((idEl) => (

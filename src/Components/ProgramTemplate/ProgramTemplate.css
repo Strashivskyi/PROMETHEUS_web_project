@@ -44,34 +44,12 @@
   .template_link.btn-background-slide:hover {
     color: white;
   }
-.template_place {
-    width: 200px;
-    height: 110px;
-    background-color: #eeeeee;
-    border: 1px solid #eeeeee;
-    overflow: hidden;
-    padding: 20px;
-    margin: 55px;
-    transition: 0.5s linear;
-    box-shadow: none;
 
-}
-.template_place:hover{
-    cursor: pointer;
-
-}
 .template-grid {
     display: flex;
     flex-wrap: wrap;
 }
 
-.template_img {
-    margin-left: 180px;
-}
-.template_img:hover {
-    cursor: pointer;
-        
-    }
 .template_categories {
     font-weight: bold;
 }
@@ -85,6 +63,10 @@
     margin-left: 120px;
     font-size: 24px;
 }
+.template_title {
+    display: flex;
+    flex-direction: column;
+}
 @media screen and (min-width: 800px) and (max-width:1298px){
     .templates_string {
         margin-right: 60px;
@@ -93,13 +75,8 @@
         margin-top: 20px;
         
     }
-    .template_link {
-       
-        width: 25%;
-        height: 2.6%;
-        font-size: 17px;
-        margin-left: 60%;
-        /* margin-top: 20px; */
-        text-align: center;
-}
+    .template_title {
+        display: flex;
+        flex-direction: column;
+    }
 }
