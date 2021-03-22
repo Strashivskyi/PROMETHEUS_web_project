@@ -8,7 +8,7 @@ import Kid from '../../assets/default_avatar.png'
 import {Link} from 'react-router-dom'
 import Delete from '../../assets/delete.svg'
 import toast, {Toaster} from 'react-hot-toast'
-import About from "../VBmap/VBmap";
+import About from '../VBmap/VBmap'
 
 export default function PatientInfoUser() {
     let [patients, setPatients] = useState([])
@@ -235,16 +235,19 @@ export default function PatientInfoUser() {
                                         {patient.Country}
                                     </div>
                                 </div>
-                           <div
+                                <div
                                     className="zebra_rows_flex_container"
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                 >
-                                    <div>Рівень оцінки вербальних навичок(VB-MAPP):</div>
+                                    <div>
+                                        Рівень оцінки вербальних
+                                        навичок(VB-MAPP):
+                                    </div>
                                     <div className="zebra_rows_flex_container_value">
-                                       <About/>
+                                        <About />
                                     </div>
                                 </div>
-                                     {/* 
+                                {/* 
                                 <div className="zebra_rows_flex_container">
                                     <div>Зріст:</div>
                                     <div className="zebra_rows_flex_container_value">
@@ -354,8 +357,6 @@ export default function PatientInfoUser() {
                             >
                                 Програма
                             </Link>
-
-                            
                         </div>
                         <Toaster
                             position="bottom-top"
@@ -390,13 +391,15 @@ export default function PatientInfoUser() {
     )
 }
 
-function uploadGraphsForSevenDaysToDB() {
+const uploadGraphsForSevenDaysToDB = () => {
     try {
-        fetch(
+        window.open(
             `https://john-steck-api.herokuapp.com/progress/${localStorage.getItem(
                 'user'
-            )}/${localStorage.getItem('child')}`
+            )}/${localStorage.getItem('child')}`,
+            '_blank'
         )
+
         toast.success('Файл успішно згенеровано')
     } catch {
         toast.error('Помилка при генерації файлу')
