@@ -391,13 +391,18 @@ export default function PatientInfoUser() {
     )
 }
 
-const uploadGraphsForSevenDaysToDB = () => {
+function uploadGraphsForSevenDaysToDB() {
     try {
-        window.open(
+        fetch(
             `https://john-steck-api.herokuapp.com/progress/${localStorage.getItem(
                 'user'
-            )}/${localStorage.getItem('child')}`,
-            '_blank'
+            )}/${localStorage.getItem('child')}`
+        ).then(
+            window.open(
+                `https://john-steck-api.herokuapp.com/get_progress_file/${localStorage.getItem(
+                    'user'
+                )}/${localStorage.getItem('child')}`
+            )
         )
 
         toast.success('Файл успішно згенеровано')
