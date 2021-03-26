@@ -121,7 +121,7 @@ export default function ProtocolItem({
                         title="Видалити"
                         className="icon"
                         onClick={
-                            (() => DeleteProtocol(protocolId), toggleModal)
+                            (() => DeleteProtocol(protocolId))//, toggleModal
                         }
                         src={Delete}
                     />
@@ -247,6 +247,8 @@ function DeleteProtocol(protocolId, protocols) {
             //         .collection('Protocols').doc(protocols[i].id)
             //         .update({ ProtocolId: i + 1 })
             // }
+        })
+        fetch(`https://john-steck-api.herokuapp.com/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
         })
     JSON.parse(localStorage.getItem('therapistID')).map((terapist) => {
         db.collection('Therapists')

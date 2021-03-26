@@ -1,11 +1,17 @@
 
 .create_template_ingrid_button{
-    width: 285px;
-    height: 185px;
+    width: 18%;
+
     background-color: #eeeeee;
     border-radius: 6px;
-    align-content: center;
 
+    display: flex;
+
+}
+.add_template{
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
 }
 .create_template_ingrid_button:hover{
     transform: scale(1.1);
@@ -13,8 +19,7 @@
 
 }
 .plus_sign_button{
-    margin-left: 22%;
-    margin-right: 22%;
+  align-self: center;
 }
 .plus_sign_button:hover{
    transform: scale(1.1);
@@ -22,8 +27,10 @@
 }
 .create_template_text{
     text-align: center;
+    justify-content: center;
     font-weight: 600;
     font-size: 25px;
+    width: 100%;
 }
 .create_template_continue {
     background: transparent;

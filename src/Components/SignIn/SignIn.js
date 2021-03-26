@@ -70,7 +70,7 @@ function SignIn({ history }) {
                 }
             } catch (error) {
                 if (!error.toString().includes("TypeError")) {
-                    toast.error('Помилка')
+                    toast.error(error.toString())
                 }
             }
         },
