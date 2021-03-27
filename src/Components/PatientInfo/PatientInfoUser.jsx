@@ -171,12 +171,12 @@ export default function PatientInfoUser() {
                         </div>
                         <div className="patient_grid_container">
                             <img
-                                src={Kid}
+                                src={patient.Image}
                                 height="200"
                                 className="mobile_child_image"
                             />
                             <img
-                                src={Kid}
+                                src={patient.Image}
                                 height="270"
                                 className="child_image"
                             />

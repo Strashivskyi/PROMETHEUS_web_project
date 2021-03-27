@@ -1,20 +1,20 @@
-import React, { useState, createRef } from 'react'
+import React, {useState, createRef} from 'react'
 import SimpleHeader from '../Header/SimpleHeader'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Arrow from '../../assets/arrow.png'
 import MenuItem from '@material-ui/core/MenuItem'
-import { Avatar, Button as MuiButton } from '@material-ui/core'
-import { spacing } from '@material-ui/system'
+import {Avatar, Button as MuiButton} from '@material-ui/core'
+import {spacing} from '@material-ui/system'
 import styled from 'styled-components'
-import { makeStyles } from '@material-ui/core/styles'
+import {makeStyles} from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import app from '../../Firebase/firebase'
 import './RegPatientPage.css'
-import default_avatar from '../../assets/default_avatar.png';
-import { withRouter } from "react-router";
+import default_avatar from '../../assets/default_avatar.png'
+import Redirect, {withRouter} from 'react-router'
 import MobileHeader from '../Header/MobileHeader'
-import toast, { Toaster } from 'react-hot-toast';
+import toast, {Toaster} from 'react-hot-toast'
 
 /* -
 ----------------------------
@@ -35,59 +35,59 @@ const CenteredContent = styled.div`
 
 const currenciesGenders = [
     {
-        value: 'male',
+        value: 'чоловік',
         label: 'чоловік',
     },
     {
-        value: 'female',
+        value: 'жінка',
         label: 'жінка',
     },
     {
-        value: 'other',
+        value: 'інше',
         label: 'інше',
     },
 ]
 
-const currenciesBlood = [
-    {
-        value: '4+',
-        label: '4+',
-    },
-    {
-        value: '4-',
-        label: '4-',
-    },
-    {
-        value: '3+',
-        label: '3+',
-    },
-    {
-        value: '3-',
-        label: '3-',
-    },
-    {
-        value: '2+',
-        label: '2+',
-    },
-    {
-        value: '2-',
-        label: '2-',
-    },
-    {
-        value: '1+',
-        label: '1+',
-    },
-    {
-        value: '1-',
-        label: '1-',
-    },
-    {
-        value: 'None',
-        label: 'None',
-    },
-]
+// const currenciesBlood = [
+//     {
+//         value: '4+',
+//         label: '4+',
+//     },
+//     {
+//         value: '4-',
+//         label: '4-',
+//     },
+//     {
+//         value: '3+',
+//         label: '3+',
+//     },
+//     {
+//         value: '3-',
+//         label: '3-',
+//     },
+//     {
+//         value: '2+',
+//         label: '2+',
+//     },
+//     {
+//         value: '2-',
+//         label: '2-',
+//     },
+//     {
+//         value: '1+',
+//         label: '1+',
+//     },
+//     {
+//         value: '1-',
+//         label: '1-',
+//     },
+//     {
+//         value: 'None',
+//         label: 'None',
+//     },
+// ]
 
-function RegistrationPatient({ history }) {
+function RegistrationPatient({history}) {
     const useStyles = makeStyles((theme) => ({
         rootForTitle: {
             '& .MuiTextField-root': {
@@ -123,10 +123,11 @@ function RegistrationPatient({ history }) {
     const [date, setDate] = useState('')
     const [city, setCity] = useState('')
     const [country, setCountry] = useState('')
-    const [weight, setWeight] = useState('')
-    const [height, setHeight] = useState('')
-    const [blood, setBlood] = useState('')
+    // const [weight, setWeight] = useState('')
+    // const [height, setHeight] = useState('')
+    // const [blood, setBlood] = useState('')
     const [image, _setImage] = useState(null)
+    const [imageBase64String, setImageBase64String] = useState(default_avatar)
     const inputFileRef = createRef(null)
 
     // FOR IMAGE
@@ -144,10 +145,14 @@ function RegistrationPatient({ history }) {
 
     const handleOnChange = (event) => {
         const newImage = event.target?.files?.[0]
-
         if (newImage) {
             setImage(URL.createObjectURL(newImage))
         }
+        const reader = new FileReader()
+        reader.onloadend = () => {
+            setImageBase64String(reader.result)
+        }
+        reader.readAsDataURL(newImage)
     }
 
     /**
@@ -189,22 +194,30 @@ function RegistrationPatient({ history }) {
     const countryChange = (event) => {
         setCountry(event.target.value)
     }
-    const weightChange = (event) => {
-        setWeight(event.target.value)
-    }
-    const heightChange = (event) => {
-        setHeight(event.target.value)
-        console.log(height)
-    }
-    const bloodChange = (event) => {
-        setBlood(event.target.value)
-        console.log(blood)
-    }
+    // const weightChange = (event) => {
+    //     setWeight(event.target.value)
+    // }
+    // const heightChange = (event) => {
+    //     setHeight(event.target.value)
+    //     console.log(height)
+    // }
+    // const bloodChange = (event) => {
+    //     setBlood(event.target.value)
+    //     console.log(blood)
+    // }
 
     async function handleSubmit() {
-        if (name == "" || diagnose == "" || parents == "" || gender == "" ||
-            age == "" || date == "" || city == "" || country == "") {
-                toast.error("Заповніть всі поля!")
+        if (
+            name == '' ||
+            diagnose == '' ||
+            parents == '' ||
+            gender == '' ||
+            age == '' ||
+            date == '' ||
+            city == '' ||
+            country == ''
+        ) {
+            toast.error('Заповніть всі поля!')
         } else {
             const res = await db
                 .collection(localStorage.getItem('proffesion'))
@@ -219,13 +232,13 @@ function RegistrationPatient({ history }) {
                     BirthDate: date,
                     City: city,
                     Country: country,
-                    KidWeight: weight,
-                    KidHeight: height,
-                    BloodType: blood,
-                    Image: default_avatar,
-                    Supervisor:localStorage.getItem("user"),
+                    // KidWeight: weight,
+                    // KidHeight: height,
+                    // BloodType: blood,
+                    Image: imageBase64String,
+                    Supervisor: localStorage.getItem('user'),
                 })
-            history.push('/')
+            // history.push('/')
         }
     }
     return (
@@ -234,9 +247,9 @@ function RegistrationPatient({ history }) {
             <SimpleHeader />
             <div
                 className="patient_upper_flex_container"
-                style={{ marginTop: '10px' }}
+                style={{marginTop: '10px'}}
             >
-                <h2 style={{ marginLeft: '100px' }}>
+                <h2 style={{marginLeft: '100px'}}>
                     <Link to="/" className="patients_link">
                         Пацієнти
                     </Link>
@@ -269,8 +282,12 @@ function RegistrationPatient({ history }) {
                             alt="Avatar"
                             src={image}
                             variant="square"
-                            style={{ marginLeft: "auto", width: "256px", height: "256px", marginLeft: "auto" }}
-
+                            style={{
+                                marginLeft: 'auto',
+                                width: '256px',
+                                height: '256px',
+                                marginLeft: 'auto',
+                            }}
                         />
                         <input
                             ref={inputFileRef}
@@ -345,7 +362,6 @@ function RegistrationPatient({ history }) {
                                 <div className="white-stipe-zebra">
                                     <div className="label-area">Стать:</div>
                                     <TextField
-
                                         color="secondary"
                                         select
                                         value={gender}
@@ -399,7 +415,6 @@ function RegistrationPatient({ history }) {
                                     <TextField
                                         onChange={(event) => cityChange(event)}
                                         color="secondary"
-
                                     />
                                 </div>
                                 <div className="white-stipe-zebra">
@@ -409,7 +424,6 @@ function RegistrationPatient({ history }) {
                                             countryChange(event)
                                         }
                                         color="secondary"
-
                                     />
                                 </div>
                             </div>
@@ -485,23 +499,22 @@ function RegistrationPatient({ history }) {
                             value="Зберегти"
                         />
                     </Link>
-                    <Toaster position="bottom-top" reverseOrder={false}
-                            toastOptions={{
-                                 style: {
-                                     minWidth: '350px',
-                                     minHeight: '60px',
-                                     paddingLeft: '20px'
-                                 },
-                                 error:{
-                                     duration : 5000,
-                                     icon: '⚠️'
-                                 }
-
-                             }}
+                    <Toaster
+                        position="bottom-top"
+                        reverseOrder={false}
+                        toastOptions={{
+                            style: {
+                                minWidth: '350px',
+                                minHeight: '60px',
+                                paddingLeft: '20px',
+                            },
+                            error: {
+                                duration: 5000,
+                                icon: '⚠️',
+                            },
+                        }}
                     />
-
                 </div>
-
             </div>
         </div>
     )
