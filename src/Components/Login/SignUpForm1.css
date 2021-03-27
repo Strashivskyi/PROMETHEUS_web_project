@@ -27,7 +27,6 @@ html {
     background-color: #ffffff;
     color: #48535f;
     cursor: pointer;
-
 }
 .number-button:focus {
     background-color: #ffffff;
@@ -64,16 +63,14 @@ html {
     font-weight: 400;
     font-size: 25px;
     line-height: 47px;
-    
 }
-.input_text_name input{
+.input_text_name input {
     border: none;
     width: 100%;
     line-height: 40px;
     font-size: 20px;
-    background-color: #F8FCFF ;
+    background-color: #f8fcff;
     padding-left: 10px;
-    
 }
 
 input[type='button'] {
@@ -171,19 +168,18 @@ input[type='button'] {
     margin-bottom: -20px;
 }
 
-
-@media screen and (min-width:800px) and (max-width:1300px){
+@media screen and (min-width: 800px) and (max-width: 1300px) {
     .number-buttons {
         display: flex;
         justify-content: space-between;
     }
-    .have_acc{
+    .have_acc {
         position: absolute;
     }
 }
 
-@media screen and (min-width:1520px) and (max-width:2000px) {
-    .number-buttons{ 
+@media screen and (min-width: 1520px) and (max-width: 2000px) {
+    .number-buttons {
         display: flex;
         justify-content: space-between;
     }

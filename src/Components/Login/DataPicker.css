@@ -1,17 +1,16 @@
-
-.container_calendar{
+.container_calendar {
     display: flex;
     flex-wrap: wrap;
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 30px;
 }
-.textField_calendar{
+.textField_calendar {
     width: 100%;
     font-weight: 500;
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    .container_calendar{
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .container_calendar {
         display: flex;
         flex-wrap: wrap;
         margin-left: 10%;
@@ -19,8 +18,8 @@
         margin-top: 10vw;
     }
 }
-@media only screen and (min-device-width : 480px) and (max-device-width : 800px) {
-    .container_calendar{
+@media only screen and (min-device-width: 480px) and (max-device-width: 800px) {
+    .container_calendar {
         display: flex;
         flex-wrap: wrap;
         margin-left: 30%;

@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import TextField from '@material-ui/core/TextField'
-import "./DataPicker.css"
-
-
+import './DataPicker.css'
 
 const DataPicker = () => {
     const [data, setData] = useState('')
@@ -18,7 +16,7 @@ const DataPicker = () => {
                 className="textField_calendar"
                 color="secondary"
                 size="medium"
-                fullWidth 
+                fullWidth
             />
         </form>
     )

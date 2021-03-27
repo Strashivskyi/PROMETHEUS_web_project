@@ -9,12 +9,12 @@ html {
 .patient_inter {
     font-family: 'Inter', sans-serif;
 }
-.hover_patient:hover{
+.hover_patient:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     transition: 0.4s;
 }
-.button_item{
+.button_item {
     margin-left: 8%;
     margin-right: 8%;
     background: #48535f;
@@ -24,14 +24,12 @@ html {
     border: none;
     color: white;
     text-decoration: none;
-
 }
 
-.button_item:hover{
+.button_item:hover {
     background: #36404b;
     cursor: pointer;
-    box-shadow: 0 0 1px rgba(0,0,0,0.5); 
-
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 }
 .viewmore_patient:hover {
     color: white;

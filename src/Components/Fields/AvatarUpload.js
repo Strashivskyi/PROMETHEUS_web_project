@@ -1,11 +1,11 @@
-import { Avatar, Button as MuiButton } from '@material-ui/core'
-import { grey } from '@material-ui/core/colors'
+import {Avatar, Button as MuiButton} from '@material-ui/core'
+import {grey} from '@material-ui/core/colors'
 import {
     CloudUpload as MuiCloudUpload,
     Delete as MuiDelete,
 } from '@material-ui/icons'
-import { spacing } from '@material-ui/system'
-import React, { createRef, useState } from 'react'
+import {spacing} from '@material-ui/system'
+import React, {createRef, useState} from 'react'
 import styled from 'styled-components'
 
 /* -

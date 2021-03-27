@@ -1,8 +1,8 @@
 import './ProgramTemplate.css'
 import Delete from '../../assets/delete.svg'
-import { Link } from 'react-router-dom'
-import { withRouter, Redirect } from 'react-router'
-import React, { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom'
+import {withRouter, Redirect} from 'react-router'
+import React, {useEffect, useState} from 'react'
 import app from '../../Firebase/firebase'
 import Header from '../Header/Header'
 import AHeader from './PageComponentTemplate/AHeader'
@@ -48,7 +48,8 @@ function ProgramTemplate({history}) {
             <div className="template_title">
                 <div className="templates_string">
                     {' '}
-                    Створити програму на основі шаблону серед наведених нижче АБО
+                    Створити програму на основі шаблону серед наведених нижче
+                    АБО
                 </div>
                 <Link className="template_link" to="/protocol-list">
                     Створити пусту програму

@@ -1,12 +1,12 @@
-import React, { useCallback, useContext } from 'react'
-import { useState } from 'react'
-import { withRouter, Redirect } from 'react-router'
-import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
+import React, {useCallback, useContext} from 'react'
+import {useState} from 'react'
+import {withRouter, Redirect} from 'react-router'
+import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import app from '../../Firebase/firebase'
 import '../Login/Login1.css'
 import './ForgetPassword.css'
-import toast, { Toaster } from 'react-hot-toast';
+import toast, {Toaster} from 'react-hot-toast'
 
 function recover(Email, history) {
     app.auth()
@@ -53,21 +53,20 @@ function ForgetPassword() {
                             Відправити
                         </p>
                     </form>
-                    <Toaster position="bottom-top" reverseOrder={false}
-                             toastOptions={{
-                                 style: {
-                                     minWidth: '430px',
-                                     minHeight: '60px',
-                                     paddingLeft: '20px'
-                                 },
-                                 loading:{
-                                     duration : 5000,
-                                     icon: '✉️'
-                                 },
-
-
-
-                             }}
+                    <Toaster
+                        position="bottom-top"
+                        reverseOrder={false}
+                        toastOptions={{
+                            style: {
+                                minWidth: '430px',
+                                minHeight: '60px',
+                                paddingLeft: '20px',
+                            },
+                            loading: {
+                                duration: 5000,
+                                icon: '✉️',
+                            },
+                        }}
                     />
                 </div>
             </div>

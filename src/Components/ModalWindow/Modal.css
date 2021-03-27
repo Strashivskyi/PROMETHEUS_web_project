@@ -6,9 +6,9 @@
     top: 0;
     left: 0;
     z-index: 9999;
-  }
-   
-  .box {
+}
+
+.box {
     position: relative;
     width: 40%;
     margin: 0 auto;
@@ -20,9 +20,9 @@
     padding: 20px;
     border: 1px solid #999;
     overflow: auto;
-  }
-   
-  .close-icon {
+}
+
+.close-icon {
     content: 'x';
     cursor: pointer;
     position: fixed;
@@ -36,8 +36,8 @@
     text-align: center;
     border: 1px solid #999;
     font-size: 20px;
-  }
-  .button_private{
+}
+.button_private {
     margin-left: 8%;
     margin-right: 8%;
     background: #48535f;
@@ -47,9 +47,8 @@
     border: none;
     color: white;
     text-decoration: none;
-
-  }
-  .button_public{
+}
+.button_public {
     margin-left: 8%;
     margin-right: 8%;
     background: #48535f;
@@ -59,20 +58,19 @@
     border: none;
     color: white;
     text-decoration: none;
-  }
-  .text_modul{
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      font-size: 22px;
-      text-align: center;
-  }
-  .button_modul{
-      display: flex;
-      flex-direction: row;
-      margin-top: 50px;
-      
-  }
-  .button-popup{
+}
+.text_modul {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
     text-align: center;
-  }
+}
+.button_modul {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+.button-popup {
+    text-align: center;
+}

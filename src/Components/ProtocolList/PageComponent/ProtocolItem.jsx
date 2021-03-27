@@ -45,10 +45,7 @@ export default function ProtocolItem({
 
     return (
         <>
-            <div
-                className="protocol_item"
-                style={{ backgroundColor: colorItem }}
-            >
+            <div className="protocol_item" style={{backgroundColor: colorItem}}>
                 <p className="protocol_item_text ">
                     Протокол {number}
                     {statusCopied}.{sphereOfDevelopment}.{skill}
@@ -121,7 +118,7 @@ export default function ProtocolItem({
                         title="Видалити"
                         className="icon"
                         onClick={
-                            (() => DeleteProtocol(protocolId))//, toggleModal
+                            () => DeleteProtocol(protocolId) //, toggleModal
                         }
                         src={Delete}
                     />
@@ -248,8 +245,11 @@ function DeleteProtocol(protocolId, protocols) {
             //         .update({ ProtocolId: i + 1 })
             // }
         })
-        fetch(`https://john-steck-api.herokuapp.com/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
-        })
+    fetch(
+        `https://john-steck-api.herokuapp.com/priority_correction/${localStorage.getItem(
+            'user'
+        )}/${localStorage.getItem('child')}`
+    ).then((data) => {})
     JSON.parse(localStorage.getItem('therapistID')).map((terapist) => {
         db.collection('Therapists')
             .doc(terapist)

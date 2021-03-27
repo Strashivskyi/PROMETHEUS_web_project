@@ -5,9 +5,9 @@ import Patient from './Components/Patient/Patient'
 import ForgetPassword from './Components/SignIn/ForgetPassword'
 import PrivateRouteToReg from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToReg'
 import RenderProgram from './Components/Program/ProgramBranching'
-import { AuthProvider } from './Firebase/AuthSetup/Auth'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { HashRouter } from 'react-router-dom'
+import {AuthProvider} from './Firebase/AuthSetup/Auth'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {HashRouter} from 'react-router-dom'
 import PrivateRouteToLogin from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToLogin'
 import PatientInfoRender from './Components/PatientInfo/PatientInfoBranching'
 import RenderProgramList from './Components/ProtocolList/ProtocolListBranching'
@@ -17,15 +17,14 @@ import ProgramTemplate from './Components/ProgramTemplate/ProgramTemplate'
 import HomeTemplate from './Components/HomeTemplate/HomeTemplate'
 import ProgramTemplatePublic from './Components/ProgramTemplate/ProgramTemplatePublic'
 import ProtocolListTemplate from './Components/HomeTemplate/TemplateProtocolList/ProtocolListTemplate'
-import ProgramEditableTemplate from "./Components/HomeTemplate/EditProgramTemplate/ProgramEditableTemplate";
-import ListMoreInfoTemplate from "./Components/HomeTemplate/TemplateMoreInfo/ListMoreInfoTemplate";
-import ProgramTemplateView from "./Components/HomeTemplate/TemplateMoreInfo/ProgramTemplateView";
+import ProgramEditableTemplate from './Components/HomeTemplate/EditProgramTemplate/ProgramEditableTemplate'
+import ListMoreInfoTemplate from './Components/HomeTemplate/TemplateMoreInfo/ListMoreInfoTemplate'
+import ProgramTemplateView from './Components/HomeTemplate/TemplateMoreInfo/ProgramTemplateView'
 function App() {
     return (
         <>
-        <HashRouter>
-            <AuthProvider>
-                
+            <HashRouter>
+                <AuthProvider>
                     <Switch>
                         <Route exact path="/" component={SignIn} />
                         <PrivateRouteToLogin
@@ -72,7 +71,7 @@ function App() {
                             path="/program-template"
                             component={ProgramTemplate}
                         />
-                              <PrivateRouteToLogin
+                        <PrivateRouteToLogin
                             exact
                             path="/home-template"
                             component={HomeTemplate}
@@ -82,31 +81,29 @@ function App() {
                             path="/public-template"
                             component={ProgramTemplatePublic}
                         />
-                          <PrivateRouteToLogin
+                        <PrivateRouteToLogin
                             exact
                             path="/create-template"
                             component={ProtocolListTemplate}
                         />
-                            <PrivateRouteToLogin
+                        <PrivateRouteToLogin
                             exact
                             path="/program-template-edit"
                             component={ProgramEditableTemplate}
                         />
-                          
-                          <PrivateRouteToLogin
+
+                        <PrivateRouteToLogin
                             exact
                             path="/template-more-info"
                             component={ListMoreInfoTemplate}
                         />
-                       < PrivateRouteToLogin
+                        <PrivateRouteToLogin
                             exact
                             path="/template-more-info-protocol"
                             component={ProgramTemplateView}
                         />
-
                     </Switch>
-         
-            </AuthProvider>
+                </AuthProvider>
             </HashRouter>
         </>
     )

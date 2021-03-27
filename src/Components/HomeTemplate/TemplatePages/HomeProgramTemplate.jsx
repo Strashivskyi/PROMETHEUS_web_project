@@ -1,24 +1,23 @@
-import { Link } from 'react-router-dom'
-import { withRouter, Redirect } from 'react-router'
-import React, { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom'
+import {withRouter, Redirect} from 'react-router'
+import React, {useEffect, useState} from 'react'
 import app from '../../../Firebase/firebase'
 import TemplateItem from '../PageComponent/Item'
 import ButtonsTemplate from '../TemplatePages/ButtonsTemplate'
 import './HomeProgramTemplate.css'
 import Plus from '../../../assets/Plus.svg'
 
-function HomeProgramTemplate({ history,countProto }) {
+function HomeProgramTemplate({history, countProto}) {
     const [programTemplates, setProgramTemplates] = useState([])
-    localStorage.setItem("homeType","createTemplate")
-let btnText="Створити шаблон з нуля"
-if(countProto!=0){
- 
-    btnText = "Cтворити шаблон"
-}
+    localStorage.setItem('homeType', 'createTemplate')
+    let btnText = 'Створити шаблон з нуля'
+    if (countProto != 0) {
+        btnText = 'Cтворити шаблон'
+    }
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection(localStorage.getItem("proffesion"))
+            .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('user'))
             .collection('ProgramTemplates')
             .onSnapshot((snapshot) => {
@@ -46,7 +45,7 @@ if(countProto!=0){
     console.log(someList)
 
     return (
-        <>   
+        <>
             <ButtonsTemplate />
             <div className="template-grid">
                 <div className="create_template_ingrid_button">

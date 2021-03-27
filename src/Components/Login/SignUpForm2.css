@@ -69,14 +69,13 @@ input[type='file'] {
     font-size: 25px;
     line-height: 47px;
 }
-.input-city input{
+.input-city input {
     border: none;
     width: 100%;
     line-height: 40px;
     font-size: 20px;
-    background-color: #F8FCFF;
+    background-color: #f8fcff;
     padding-left: 10px;
-
 }
 /* .input-city input:-webkit-autofill{
     background-color: #FFF;

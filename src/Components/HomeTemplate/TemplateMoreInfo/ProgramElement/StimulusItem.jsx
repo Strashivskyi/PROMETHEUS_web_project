@@ -1,6 +1,6 @@
 import Delete from '../../../../assets/delete.png'
 import app from '../../../../Firebase/firebase'
-function StimulusItem({ name, stimulId }) {
+function StimulusItem({name, stimulId}) {
     return (
         <div className="stymuls">
             <li>
@@ -27,12 +27,13 @@ function StimulusItem({ name, stimulId }) {
 export default StimulusItem
 function DeleteStimul(stimulId) {
     const db = app.firestore()
-    db .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
         .collection('Stimulus')
         .doc(stimulId)
         .delete()
-
 }

@@ -1,14 +1,13 @@
-import { Link } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom'
+import React, {useEffect, useState} from 'react'
 import Arrow from '../../../assets/arrow.png'
 import Delete from '../../../assets/delete.svg'
 import app from '../../../Firebase/firebase'
 function AHeader() {
-    
     return (
         <>
             <div className="patient_upper_flex_container">
-                <h2 style={{ marginLeft: '6rem' }}>
+                <h2 style={{marginLeft: '6rem'}}>
                     <Link to="/" className="patients_link">
                         Пацієнти
                     </Link>
@@ -24,10 +23,7 @@ function AHeader() {
                     }}
                 />
                 <h2>
-                    <Link
-                        to="/patient"
-                        className="patients_link"
-                    >
+                    <Link to="/patient" className="patients_link">
                         {localStorage.getItem('childName')}
                     </Link>
                 </h2>
@@ -41,8 +37,7 @@ function AHeader() {
                         color: 'black',
                     }}
                 />
-                <h2 style={{ color: '#6F6F6F' }}
-                >Програма</h2>
+                <h2 style={{color: '#6F6F6F'}}>Програма</h2>
             </div>
         </>
     )

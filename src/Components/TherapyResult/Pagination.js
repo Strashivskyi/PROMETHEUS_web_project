@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, {useState, useEffect} from 'react'
 import Pagination from '@material-ui/lab/Pagination'
-import { List, makeStyles, Divider, Box } from '@material-ui/core'
+import {List, makeStyles, Divider, Box} from '@material-ui/core'
 import app from '../../Firebase/firebase'
 import File from './File'
 import './Pagination.css'
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-function PaginationRounded ({history}) {
+function PaginationRounded({history}) {
     const classes = useStyles()
     const [files, setFiles] = useState([])
     const [loading, setLoading] = useState(false)
@@ -61,12 +61,18 @@ function PaginationRounded ({history}) {
         <>
             <div
                 className="table-wrapper"
-                style={{ position: 'relative', bottom: '5rem' }}
+                style={{position: 'relative', bottom: '5rem'}}
             >
                 {files
                     .slice((page - 1) * filesPerPage, page * filesPerPage)
                     .map((file) => {
-                        return <File history={history} file={file} loading={loading} />
+                        return (
+                            <File
+                                history={history}
+                                file={file}
+                                loading={loading}
+                            />
+                        )
                     })}
                 {/* 'Divider' protrudes to the left || Need to fix or delete */}
                 {/* <Divider /> */}
@@ -83,7 +89,7 @@ function PaginationRounded ({history}) {
                     shape="rounded"
                     showFirstButton
                     showLastButton
-                    classes={{ ul: classes.paginator }}
+                    classes={{ul: classes.paginator}}
                 />
             </Box>
         </>

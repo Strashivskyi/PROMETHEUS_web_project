@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import './SignUpForm1.css'
 import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
-import { withRouter } from 'react-router'
+import {withRouter} from 'react-router'
 import DataPicker from './DataPicker'
 import NextButtonComponent from './NextButtonComponent'
 import BackButtonComponent from '../Login/BackButtonComponent'
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom'
 
 function SignUpForm1() {
-    localStorage.setItem("step",2)
+    localStorage.setItem('step', 2)
     const [firstName, setFirstName] = useState('')
     localStorage.setItem('Name', firstName)
     console.log(firstName)
@@ -20,24 +20,22 @@ function SignUpForm1() {
     localStorage.setItem('Gender', sex)
     console.log(sex)
 
-    
-    const [formData,setFormData] = useState({
-        isAgree : false,
-        gender : ""
+    const [formData, setFormData] = useState({
+        isAgree: false,
+        gender: '',
     })
 
-    const handleChanage = event =>{
+    const handleChanage = (event) => {
         const target = event.target
         const name = target.name
         const value = target.value
         setFormData({
             ...formData,
-            [name] : value
+            [name]: value,
         })
         console.log(target.value)
     }
 
- 
     return (
         <div className="first_sign">
             <LoginNavigation />
@@ -70,8 +68,9 @@ function SignUpForm1() {
                 <p className="gender">Стать</p>
                 <div className="gender_container">
                     <div className="group">
-                    <input
-                            onClick={handleChanage} checked={formData.gender=="male"}
+                        <input
+                            onClick={handleChanage}
+                            checked={formData.gender == 'male'}
                             className="gender_checks"
                             name="gender"
                             type="checkbox"
@@ -83,7 +82,8 @@ function SignUpForm1() {
 
                     <div className="group">
                         <input
-                            onClick={handleChanage} checked={formData.gender=="female"}
+                            onClick={handleChanage}
+                            checked={formData.gender == 'female'}
                             type="checkbox"
                             name="gender"
                             id="figma"
@@ -95,7 +95,8 @@ function SignUpForm1() {
 
                     <div className="group">
                         <input
-                            onClick={handleChanage} checked={formData.gender=="other"}
+                            onClick={handleChanage}
+                            checked={formData.gender == 'other'}
                             type="checkbox"
                             name="gender"
                             id="sketch"
@@ -105,22 +106,15 @@ function SignUpForm1() {
                         <label for="sketch">Інше</label>
                     </div>
                 </div>
-               
+            </form>
 
-                </form>
-
-            <Link
-                to="/registration/signup3"
-            >
-                <NextButtonComponent/>
-
+            <Link to="/registration/signup3">
+                <NextButtonComponent />
             </Link>
 
-            <Link
-                to="/registration"
-            >
-             <BackButtonComponent />
-             </Link>
+            <Link to="/registration">
+                <BackButtonComponent />
+            </Link>
         </div>
     )
 }

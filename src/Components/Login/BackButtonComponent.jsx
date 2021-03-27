@@ -1,9 +1,9 @@
 import React from 'react'
 import './UserRoleChoosing.css'
 
-export default function BackButtonComponent(){
+export default function BackButtonComponent() {
     return (
-        <div> 
+        <div>
             <div className="icon_back"></div>
         </div>
     )

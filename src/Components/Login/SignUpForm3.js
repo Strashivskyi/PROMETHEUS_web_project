@@ -5,27 +5,25 @@ import 'fontsource-dm-sans'
 import app from '../../Firebase/firebase'
 import './SignUpForm3.css'
 import Select from 'react-select'
-import { useState } from 'react'
+import {useState} from 'react'
 import NextButtonComponent from './NextButtonComponent'
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom'
 
 const options = [
-   
-    { value: 'therapist', label: 'терапевт' },
-    { value: 'ordinary doctor', label: 'звичайний лікар' },
-    { value: 'psychologist', label: 'психолог' },
-    { value: 'child psychologist', label: 'дитячий психолог' },
+    {value: 'therapist', label: 'терапевт'},
+    {value: 'ordinary doctor', label: 'звичайний лікар'},
+    {value: 'psychologist', label: 'психолог'},
+    {value: 'child psychologist', label: 'дитячий психолог'},
 ]
 
 function SignUpForm3() {
-  
     const [profession, setProfession] = useState('')
     console.log(profession)
- 
+
     const [organization, setOrganization] = useState('')
     localStorage.setItem('Organization', organization)
     console.log(organization)
-    
+
     return (
         <div>
             <LoginNavigation />
@@ -60,16 +58,11 @@ function SignUpForm3() {
                     />
                 </div>
                 <div></div>
-                
             </form>
-            <Link
-                to="/registration/signup4"
-            >
-                <NextButtonComponent/>
-
+            <Link to="/registration/signup4">
+                <NextButtonComponent />
             </Link>
         </div>
     )
 }
 export default SignUpForm3
-

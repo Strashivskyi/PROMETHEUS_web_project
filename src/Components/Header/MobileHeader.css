@@ -1,11 +1,11 @@
-.logo_container{
-    display:none;
+.logo_container {
+    display: none;
 }
-.sign_out_button:hover{
+.sign_out_button:hover {
     cursor: pointer;
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
-    .logo_container{
+@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
+    .logo_container {
         min-height: 5vw;
         max-height: 10vh;
         margin-bottom: -40px;

@@ -1,7 +1,6 @@
 @import url('https://rsms.me/inter/inter.css');
-.mobile_signin_label{
-display: none;
-
+.mobile_signin_label {
+    display: none;
 }
 .login_text_input {
     background: url(/src/assets/emmm.svg) no-repeat left center;
@@ -21,16 +20,14 @@ display: none;
     font-size: 25px;
     line-height: 47px;
 }
-.login_text_input input{
+.login_text_input input {
     border: none;
     width: 104%;
     line-height: 40px;
     font-size: 20px;
-    background-color: #F8FCFF;
+    background-color: #f8fcff;
     padding-left: 10px;
     margin-left: -10px;
-
-
 }
 
 .login_text_input_second {
@@ -51,12 +48,12 @@ display: none;
     font-size: 25px;
     line-height: 47px;
 }
-.login_text_input_second input{
+.login_text_input_second input {
     border: none;
     width: 104%;
     line-height: 40px;
     font-size: 20px;
-    background-color: #F8FCFF;
+    background-color: #f8fcff;
     padding-left: 10px;
     margin-left: -10px;
 }
@@ -94,7 +91,7 @@ display: none;
     color: #48535f;
     font-weight: 300;
     display: flex;
-    
+
     font-family: 'Inter';
     font-size: 20px;
 }
@@ -138,7 +135,7 @@ input.slide-hover-left-3 {
     display: inline-block;
     background-image: linear-gradient(0, #48535f, #48535f);
     background-size: 0;
-    transition: .8s;
+    transition: 0.8s;
     background-repeat: no-repeat;
     transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
@@ -148,38 +145,40 @@ input.slide-hover-left-3:hover {
     color: #fff;
 }
 
-
 .sign-in-text {
-        font-family: 'Inter', cursive;
-        font-weight: 400;
-        font-size: 40px;
-        text-align: center;
-        color: #222222;
-        line-height: 100px;
-
+    font-family: 'Inter', cursive;
+    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+    color: #222222;
+    line-height: 100px;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
-    .mobile_signin_label{
+@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
+    .mobile_signin_label {
         margin-left: 7%;
-        color: #48535F;
+        color: #48535f;
         font-size: 4vw;
         margin-bottom: -2vw;
         margin-top: 7vw;
         display: initial;
     }
-        ::-webkit-input-placeholder { /* WebKit browsers */
-            color: transparent;
-        }
-        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-            color: transparent;
-        }
-        ::-moz-placeholder { /* Mozilla Firefox 19+ */
-            color: transparent;
-        }
-        :-ms-input-placeholder { /* Internet Explorer 10+ */
-            color: transparent;
-        }
+    ::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: transparent;
+    }
+    :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: transparent;
+    }
+    ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: transparent;
+    }
+    :-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: transparent;
+    }
     .login_text_input {
         background: url(/src/assets/email_mobile.svg) no-repeat left center;
         background-position: 2vw 20px;
@@ -191,24 +190,22 @@ input.slide-hover-left-3:hover {
         padding-right: 10px;
         box-sizing: border-box;
         border: none;
-        border-bottom: 0.5vw solid #48535F;
+        border-bottom: 0.5vw solid #48535f;
         background-color: transparent;
         font-family: 'Inter', cursive;
         font-weight: 400;
         font-size: 25px;
         line-height: 47px;
     }
-    .login_text_input input{
+    .login_text_input input {
         border: none;
         width: 104%;
         line-height: 40px;
         font-size: 20px;
-        background-color: #F8FCFF;
+        background-color: #f8fcff;
         padding-left: 10px;
-    
-    
     }
-    
+
     .login_text_input_second {
         background: url(/src/assets/password_mobile.svg) no-repeat left center;
         background-position: 2vw 20px;
@@ -220,21 +217,20 @@ input.slide-hover-left-3:hover {
         padding-right: 10px;
         box-sizing: border-box;
         border: none;
-        border-bottom: 0.5vw solid #48535F;
+        border-bottom: 0.5vw solid #48535f;
         background-color: transparent;
         font-family: 'Inter', cursive;
         font-weight: 400;
         font-size: 25px;
         line-height: 47px;
     }
-    .login_text_input_second input{
+    .login_text_input_second input {
         border: none;
         width: 104%;
         line-height: 40px;
         font-size: 20px;
-        background-color: #F8FCFF;
+        background-color: #f8fcff;
         padding-left: 10px;
-    
     }
     .forgot_password {
         margin-left: 23%;
@@ -251,31 +247,28 @@ input.slide-hover-left-3:hover {
         flex-direction: column;
         font-size: 6vw;
     }
-    .signin_line_break{
+    .signin_line_break {
         display: initial;
     }
     .image-form-division {
         display: initial;
         max-height: 150vh;
         min-height: 100vh;
-        margin-bottom:0px;
+        margin-bottom: 0px;
     }
 
     .login_form {
         margin-top: -8vh;
-
-
     }
     .form {
         background-color: #f8fcff;
         min-height: 100vh;
-
     }
-    .light_blue_back{
+    .light_blue_back {
         background-color: #f8fcff;
     }
     .image {
-        display: none
+        display: none;
     }
     .sign-in-text {
         position: relative;
@@ -283,21 +276,19 @@ input.slide-hover-left-3:hover {
         margin-right: auto;
         text-align: center;
         font-size: 7vw;
-        color: #38414A;
+        color: #38414a;
         padding-top: 2vw;
         padding-bottom: 10vw;
-
     }
     .login_form {
         margin-left: 17%;
         margin-right: 17%;
     }
-    .login_text_input::placeholder{
+    .login_text_input::placeholder {
         color: #f8fcff;
     }
     .login_text_input_second::placeholder {
         color: #f8fcff;
-
     }
 
     input.slide-hover-left-3 {
@@ -308,9 +299,7 @@ input.slide-hover-left-3:hover {
         font-weight: 400;
     }
 
-   
-    @media only screen and (min-device-width : 390px) and (max-device-width : 800px) {
-
+    @media only screen and (min-device-width: 390px) and (max-device-width: 800px) {
         .still_no_acc {
             margin-left: 7%;
             margin-right: 7%;
@@ -336,8 +325,8 @@ input.slide-hover-left-3:hover {
             font-family: 'Inter';
             font-size: 4.5vw;
         }
-        @media only screen and (min-device-width : 480px) and (max-device-width : 800px) {
-            .mobile_signin_label{
+        @media only screen and (min-device-width: 480px) and (max-device-width: 800px) {
+            .mobile_signin_label {
                 font-size: 3vw;
                 margin-bottom: -10px;
             }
@@ -349,32 +338,22 @@ input.slide-hover-left-3:hover {
                 width: 65%;
                 height: 60px;
                 font-size: 30px;
-
-
             }
             .still_no_acc {
                 margin-left: 12%;
                 font-size: 4vw;
             }
-            .forgot_password{
+            .forgot_password {
                 margin-left: 12%;
                 font-size: 4vw;
             }
         }
-
-
     }
-    
-
-
-
 }
 
-@media screen and (min-width:800px) and (max-width:1300px){
+@media screen and (min-width: 800px) and (max-width: 1300px) {
     .image-form-division {
         flex-direction: column;
         grid-template-columns: none;
-       
     }
 }
-

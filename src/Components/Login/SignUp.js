@@ -5,14 +5,14 @@ import SignUpForm4 from './SignUpForm4'
 import PrivateRouteToReg from '../../Firebase/AuthSetup/PrivateRoute/PrivateRouteToReg'
 import MobileHeader from '../Header/MobileHeader'
 import MobileRegistration from './MobileRegistration'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { HashRouter} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {HashRouter} from 'react-router-dom'
 import './Login1.css'
 
 function SignUp() {
     return (
         <>
-            <MobileHeader/>
+            <MobileHeader />
             {/* <MobileRegistration/> */}
             <div className="image-form-division-sign-up">
                 <div className="image" />
@@ -41,7 +41,7 @@ function SignUp() {
                                 component={SignUpForm4}
                             />
                         </Switch>
-                        </HashRouter>
+                    </HashRouter>
                 </div>
             </div>
         </>

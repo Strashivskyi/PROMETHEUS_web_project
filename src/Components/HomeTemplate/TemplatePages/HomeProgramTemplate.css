@@ -1,31 +1,28 @@
-
-.create_template_ingrid_button{
+.create_template_ingrid_button {
     width: 18%;
 
     background-color: #eeeeee;
     border-radius: 6px;
 
     display: flex;
-
 }
-.add_template{
-  width: 100%;
-  flex-direction: column;
-  text-align: center;
+.add_template {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
 }
-.create_template_ingrid_button:hover{
+.create_template_ingrid_button:hover {
     transform: scale(1.1);
     transition: 0.3s;
-
 }
-.plus_sign_button{
-  align-self: center;
+.plus_sign_button {
+    align-self: center;
 }
-.plus_sign_button:hover{
-   transform: scale(1.1);
-   transition: 0.3s;
+.plus_sign_button:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
 }
-.create_template_text{
+.create_template_text {
     text-align: center;
     justify-content: center;
     font-weight: 600;
@@ -34,7 +31,7 @@
 }
 .create_template_continue {
     background: transparent;
-    color: #EF4F59;
+    color: #ef4f59;
     padding: 1em 1em;
     border: 1px solid #ef4f59;
     cursor: pointer;
@@ -48,9 +45,8 @@
     width: 290px;
     height: 20px;
     position: absolute;
-
-  }
-  .create_template_continue.btn-background-slide::before {
+}
+.create_template_continue.btn-background-slide::before {
     content: '';
     position: absolute;
     top: 0;
@@ -62,18 +58,17 @@
     transition: transform 300ms ease-in-out;
     transform: scaleX(0);
     transform-origin: center;
-  }
-  
-  .create_template_continue.btn-background-slide:hover::before {
+}
+
+.create_template_continue.btn-background-slide:hover::before {
     transform: scaleX(1);
-  }
-  
-  .create_template_continue.btn-background-slide {
+}
+
+.create_template_continue.btn-background-slide {
     transition: color 300ms ease-in-out;
     z-index: 1;
-  }
-  
-  
-  .create_template_continue.btn-background-slide:hover {
+}
+
+.create_template_continue.btn-background-slide:hover {
     color: white;
-  }
+}

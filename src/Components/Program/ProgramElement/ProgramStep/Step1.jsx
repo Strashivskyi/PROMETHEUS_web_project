@@ -1,7 +1,7 @@
 import React from 'react'
 import app from '../../../../Firebase/firebase'
-import { TextInput } from 'react-native-paper'
-function Step1({ Instructions1 }) {
+import {TextInput} from 'react-native-paper'
+function Step1({Instructions1}) {
     return (
         <>
             <div className="element_name">Інструкції до етапу:</div>
@@ -13,9 +13,9 @@ function Step1({ Instructions1 }) {
                     selectionColor="primary"
                     placeholder={Instructions1}
                     onChange={(event) => addInstruction(event.target.value)}
-                    style={{ fontSize: '20px' }}
+                    style={{fontSize: '20px'}}
                     raised
-                    theme={{ colors: { background: '#fcfcfc' } }}
+                    theme={{colors: {background: '#fcfcfc'}}}
                 />
             </div>
         </>
@@ -30,5 +30,5 @@ function addInstruction(instructionInput) {
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .doc(localStorage.getItem('program'))
-        .set({ Instructions1: instructionInput })
+        .set({Instructions1: instructionInput})
 }

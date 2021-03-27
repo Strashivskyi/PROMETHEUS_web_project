@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Arrow from '../../../assets/arrow.png'
 import '../Program.css'
 import '../../PatientItem/PatientItem.css'
@@ -7,9 +7,9 @@ function ArrowHeader() {
         <>
             <div
                 className="patient_upper_flex_container"
-                style={{ marginTop: '10px' }}
+                style={{marginTop: '10px'}}
             >
-                <h2 style={{ marginLeft: '100px' }}>
+                <h2 style={{marginLeft: '100px'}}>
                     <Link to="/" className="patients_link">
                         Пацієнти
                     </Link>
@@ -25,10 +25,7 @@ function ArrowHeader() {
                     }}
                 />
                 <h2>
-                    <Link
-                        to="/patient"
-                        className="patients_link"
-                    >
+                    <Link to="/patient" className="patients_link">
                         {localStorage.getItem('childName')}
                     </Link>
                 </h2>
@@ -43,10 +40,7 @@ function ArrowHeader() {
                     }}
                 />
                 <h2>
-                    <Link
-                        className="program_link"
-                        to="/protocol-list"
-                    >
+                    <Link className="program_link" to="/protocol-list">
                         Програма
                     </Link>
                 </h2>

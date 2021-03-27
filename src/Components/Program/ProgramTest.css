@@ -1,4 +1,4 @@
-.add_stymul_container_test{
+.add_stymul_container_test {
     display: flex;
     flex-direction: row;
     height: 40px;
@@ -6,33 +6,37 @@
     gap: 5px;
     margin-left: -40px;
 }
-.add_stymul_input_test{
+.add_stymul_input_test {
     width: 300px;
-    border: 1px solid #EEE;
+    border: 1px solid #eee;
     padding-left: 10px;
     font-size: 20px;
 }
-  .add_stymul_input_test::placeholder { 
+.add_stymul_input_test::placeholder {
     color: #48535f;
-  }
-  .add_stymul_input_test::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+}
+.add_stymul_input_test::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
     color: #48535f;
-  }
-  .add_stymul_input_test::-moz-placeholder { /* Firefox 19+ */
+}
+.add_stymul_input_test::-moz-placeholder {
+    /* Firefox 19+ */
     color: #48535f;
-  }
-  .add_stymul_input_test:-ms-input-placeholder { /* IE 10+ */
+}
+.add_stymul_input_test:-ms-input-placeholder {
+    /* IE 10+ */
     color: #48535f;
-  }
-  .add_stymul_inpu_testt:-moz-placeholder { /* Firefox 18- */
+}
+.add_stymul_inpu_testt:-moz-placeholder {
+    /* Firefox 18- */
     color: #48535f;
-  }
-  .add_stymul_button_test{
+}
+.add_stymul_button_test {
     font-size: 24px;
     font-weight: 600;
     color: #48535f;
     background-color: transparent;
-    border: 1px solid #EEE;
+    border: 1px solid #eee;
     height: 40px;
     width: 40px;
 }

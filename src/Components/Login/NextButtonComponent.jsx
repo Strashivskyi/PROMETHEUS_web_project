@@ -1,9 +1,9 @@
 import React from 'react'
 import './UserRoleChoosing.css'
 
-export default function NextButtonComponent(){
+export default function NextButtonComponent() {
     return (
-        <div> 
+        <div>
             <div className="icon_next"></div>
         </div>
     )

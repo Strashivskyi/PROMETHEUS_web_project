@@ -2,14 +2,14 @@ import app from '../../Firebase/firebase'
 import PatientItem from '../PatientItem/PatientItem'
 import React from 'react'
 import HeaderHomeTemplate from '../Header/HeaderHomeTemplate'
-import "./Patients.css"
+import './Patients.css'
 import MobileHeader from '../Header/MobileHeader'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Kid from '../../assets/default_avatar.png'
-import { useEffect, useState } from 'react'
-import { BsPlusCircle } from 'react-icons/bs'
+import {useEffect, useState} from 'react'
+import {BsPlusCircle} from 'react-icons/bs'
 import Logo from '../../assets/Logo.svg'
-import { GoPrimitiveDot } from "react-icons/go";
+import {GoPrimitiveDot} from 'react-icons/go'
 function signOut() {
     localStorage.setItem('user', 'none')
     app.auth().signOut()
@@ -27,11 +27,10 @@ function Patient() {
                 .doc(localStorage.getItem('user'))
                 .collection('Patient')
                 .get()
-            setPatients(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            setPatients(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
         }
         fetchData()
     }, [])
-
 
     useEffect(() => {
         const db = app.firestore()
@@ -40,11 +39,16 @@ function Patient() {
             .onSnapshot((snapshot) => {
                 if (snapshot.size) {
                     setUser(
-                        snapshot.docs.filter((u) =>
-                            u.id.includes(localStorage.getItem('user'))
-                        ).map((doc) => {
-                            localStorage.setItem("telegramUserName", (doc.data().TelegramUserID))
-                        })
+                        snapshot.docs
+                            .filter((u) =>
+                                u.id.includes(localStorage.getItem('user'))
+                            )
+                            .map((doc) => {
+                                localStorage.setItem(
+                                    'telegramUserName',
+                                    doc.data().TelegramUserID
+                                )
+                            })
                     )
                 } else {
                     console.log('Сука1')
@@ -54,8 +58,8 @@ function Patient() {
             unsubscribe()
         }
     }, [])
-  localStorage.setItem("templateType","private")
-localStorage.setItem("homeType","home")
+    localStorage.setItem('templateType', 'private')
+    localStorage.setItem('homeType', 'home')
 
     patients = patients.filter((protocol) =>
         protocol.Name.includes(inputSearch)
@@ -65,7 +69,7 @@ localStorage.setItem("homeType","home")
         <>
             <>
                 <MobileHeader />
-                <HeaderHomeTemplate/>
+                <HeaderHomeTemplate />
             </>
             <div className="info_title">
                 <div className="inter_fing">
@@ -75,7 +79,7 @@ localStorage.setItem("homeType","home")
                             marginTop: '45px',
                             fontSize: '25px',
                             color: '#6F6F6F',
-                            fontWeight: '700'
+                            fontWeight: '700',
                         }}
                     >
                         Пацієнти
@@ -87,7 +91,7 @@ localStorage.setItem("homeType","home")
                             marginBottom: '20px',
 
                             fontSize: '20px',
-                            color: "#48535f"
+                            color: '#48535f',
                         }}
                     >
                         Кількість: {patients.length}
@@ -122,9 +126,6 @@ function BranchingItem() {
         )
     }
     if (localStorage.getItem('proffesion') !== 'Supervisors') {
-        return (
-            <>
-            </>
-        )
+        return <></>
     }
 }

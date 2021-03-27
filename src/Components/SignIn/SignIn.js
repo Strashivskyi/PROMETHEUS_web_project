@@ -1,31 +1,36 @@
-import React, { useCallback, useContext } from 'react'
-import { withRouter, Redirect } from 'react-router'
+import React, {useCallback, useContext} from 'react'
+import {withRouter, Redirect} from 'react-router'
 import app from '../../Firebase/firebase'
 import '../Login/Login1.css'
 import './SignIn.css'
-import { AuthContext } from '../../Firebase/AuthSetup/Auth'
-import { Link } from 'react-router-dom'
+import {AuthContext} from '../../Firebase/AuthSetup/Auth'
+import {Link} from 'react-router-dom'
 import MobileHeader from '../Header/MobileHeader'
-import toast, { Toaster } from 'react-hot-toast';
+import toast, {Toaster} from 'react-hot-toast'
 
-function SignIn({ history }) {
-    const { currentUser } = useContext(AuthContext)
+function SignIn({history}) {
+    const {currentUser} = useContext(AuthContext)
     const handleLogin = useCallback(
         async (event) => {
             event.preventDefault()
-            const { email, password } = event.target.elements
+            const {email, password} = event.target.elements
 
             const db = app.firestore()
-            await db.collection('Users').where("Email", '==', email.value).onSnapshot((snapshot) => {
-                if (snapshot.size) {
-
-                    snapshot.docs.map((doc) => {
-                        localStorage.setItem("proffesion", doc.data().Profession)
-                    })
-                } else {
-                    console.log('Немає професії')
-                }
-            })
+            await db
+                .collection('Users')
+                .where('Email', '==', email.value)
+                .onSnapshot((snapshot) => {
+                    if (snapshot.size) {
+                        snapshot.docs.map((doc) => {
+                            localStorage.setItem(
+                                'proffesion',
+                                doc.data().Profession
+                            )
+                        })
+                    } else {
+                        console.log('Немає професії')
+                    }
+                })
             // .collection('Patient')
             // .doc(localStorage.getItem('child'))
             // .collection('Protocols')
@@ -50,26 +55,31 @@ function SignIn({ history }) {
                     .auth()
                     .signInWithEmailAndPassword(email.value, password.value)
                 if (currentUser.emailVerified == true) {
+                    await db
+                        .collection('Users')
+                        .where('Email', '==', email.value)
+                        .onSnapshot((snapshot) => {
+                            if (snapshot.size) {
+                                snapshot.docs.map((doc) => {
+                                    localStorage.setItem(
+                                        'proffesion',
+                                        doc.data().Profession
+                                    )
+                                })
+                            } else {
+                                console.log('Немає професії')
+                            }
+                        })
 
-                    await db.collection('Users').where("Email", '==', email.value).onSnapshot((snapshot) => {
-                        if (snapshot.size) {
-
-                            snapshot.docs.map((doc) => {
-                                localStorage.setItem("proffesion", doc.data().Profession)
-                                
-                            })
-                        } else {
-                            console.log('Немає професії')
-                        }
-                    })
-                    
                     localStorage.setItem('user', currentUser.email)
                     history.push('/home')
                 } else {
-                    toast.loading('Будь ласка, підтвердьте свою електронну пошту...')
+                    toast.loading(
+                        'Будь ласка, підтвердьте свою електронну пошту...'
+                    )
                 }
             } catch (error) {
-                if (!error.toString().includes("TypeError")) {
+                if (!error.toString().includes('TypeError')) {
                     toast.error(error.toString())
                 }
             }
@@ -101,7 +111,6 @@ function SignIn({ history }) {
                             </div>
                             <div className="mobile_signin_label">Пароль</div>
                             <div className="login_text_input_second">
-
                                 <input
                                     type="password"
                                     id="lname"
@@ -118,35 +127,36 @@ function SignIn({ history }) {
                         <div className="still_no_acc">
                             <span className="still_no_acc_text">
                                 Досі немає акаунту? &nbsp;&nbsp;&nbsp;
-                        </span>{' '}
+                            </span>{' '}
                             <Link className="login_link_reg" to="/registration">
                                 Зареєструватись
-                        </Link>
+                            </Link>
                         </div>
                         <div className="forgot_password">
                             <span className="forgot_password_text">
                                 Забули пароль? &nbsp;&nbsp;&nbsp;
-                        </span>{' '}
-                            <Link className="login_link_reg" to="/forgetPassword">
+                            </span>{' '}
+                            <Link
+                                className="login_link_reg"
+                                to="/forgetPassword"
+                            >
                                 Відновити пароль
-                        </Link>
+                            </Link>
                         </div>
-                        <Toaster position="bottom-top" reverseOrder={false}
-                                 toastOptions={{
-                                     style: {
-                                         minWidth: '430px',
-                                         minHeight: '60px',
-                                         paddingLeft: '20px'
-                                     },
-                                     loading:{
-
-                                         duration : 5000,
-                                         icon: '✉️'
-                                     },
-
-
-
-                                 }}
+                        <Toaster
+                            position="bottom-top"
+                            reverseOrder={false}
+                            toastOptions={{
+                                style: {
+                                    minWidth: '430px',
+                                    minHeight: '60px',
+                                    paddingLeft: '20px',
+                                },
+                                loading: {
+                                    duration: 5000,
+                                    icon: '✉️',
+                                },
+                            }}
                         />
                     </div>
                 </div>

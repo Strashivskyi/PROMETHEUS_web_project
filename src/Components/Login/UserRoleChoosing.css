@@ -28,7 +28,7 @@ a:hover {
     font-family: 'Inter';
     font-size: 20px;
 }
-.icon_next{
+.icon_next {
     display: flex;
     position: static;
     width: 100%;
@@ -41,7 +41,7 @@ a:hover {
     margin-left: 85%;
     background: url(/src/assets/next_button.svg) no-repeat left center;
 }
-.icon_back{
+.icon_back {
     background: url(/src/assets/back_button.svg) no-repeat left center;
     display: flex;
     position: static;
@@ -51,9 +51,8 @@ a:hover {
     padding-right: 30px;
     padding-bottom: 30px;
     padding-left: 30px;
-    
 }
-@media screen and (min-width:1920px){
+@media screen and (min-width: 1920px) {
     .before_register {
         font-size: 30px;
         text-align: center;
@@ -68,12 +67,12 @@ a:hover {
     a:hover {
         color: #48535f;
     }
-    
+
     .have_acc {
         margin-left: 32%;
         padding-top: 110px;
         padding-bottom: 10px;
-    
+
         color: #48535f;
         font-weight: 300;
         display: flex;

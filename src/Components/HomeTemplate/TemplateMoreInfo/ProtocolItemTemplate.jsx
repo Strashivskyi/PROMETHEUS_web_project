@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { AiOutlineArrowRight } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+import {useState} from 'react'
+import {AiOutlineArrowRight} from 'react-icons/ai'
+import {Link} from 'react-router-dom'
 
 export default function ProtocolItemTemplate({
     number,
@@ -24,7 +24,6 @@ export default function ProtocolItemTemplate({
 }) {
     let [colorItem, setColorItem] = useState('')
 
-
     if (+number % 2 != true) {
         colorItem = '#EEEEEE'
     }
@@ -33,32 +32,32 @@ export default function ProtocolItemTemplate({
         <>
             <Link
                 title="Переглянути"
-                onClick={() => { setData(protocolId, number) }
-                }
+                onClick={() => {
+                    setData(protocolId, number)
+                }}
                 to="template-more-info-protocol"
             >
-                <div 
+                <div
                     className="protocol_item"
-                    style={{ backgroundColor: colorItem, marginLeft: '7vw' }}
+                    style={{backgroundColor: colorItem, marginLeft: '7vw'}}
                 >
                     <p className="protocol_item_text ">
-                        Протокол {number} {statusCopied}.{' '}
-                        {sphereOfDevelopment}. {skill}
+                        Протокол {number} {statusCopied}. {sphereOfDevelopment}.{' '}
+                        {skill}
                     </p>
                     <div className="icon_place">
-                   
                         <Link
                             title="Переглянути"
-                            onClick={() => { setData(protocolId, number) }
-                            }
+                            onClick={() => {
+                                setData(protocolId, number)
+                            }}
                             to="template-more-info-protocol"
                         >
                             <AiOutlineArrowRight
-                                className='icon go_icon'
+                                className="icon go_icon"
                                 color="black"
                             />
                         </Link>
-                        
                     </div>
                 </div>
             </Link>
@@ -66,8 +65,7 @@ export default function ProtocolItemTemplate({
     )
 }
 
-
 function setData(param1, param2) {
     localStorage.setItem('program', param1)
-    localStorage.setItem("programNumber", param2)
+    localStorage.setItem('programNumber', param2)
 }

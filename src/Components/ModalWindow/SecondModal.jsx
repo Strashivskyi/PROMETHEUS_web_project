@@ -1,28 +1,39 @@
-import React from "react";
+import React from 'react'
 import './SecondModal.css'
-import app from "../../Firebase/firebase";
+import app from '../../Firebase/firebase'
 //import DeleteProtocol from '../ProtocolList/PageComponent/ProtocolItem'
 
-function SecondModal({protocolId,handleClose,content}){
-  return (
-    <div className="second-popup-box">
-      <div className="second-box">
-        <span className="second-close-icon" onClick={handleClose}>x</span>
-        {content}
-        <div className="second-button-popup">
-        <button onClick={handleClose} className="second-button_private">Скасувати</button>
-        <button onClick={(()=>DeleteProtocol(protocolId))} className="second-button_public">Підтвердити</button>
+function SecondModal({protocolId, handleClose, content}) {
+    return (
+        <div className="second-popup-box">
+            <div className="second-box">
+                <span className="second-close-icon" onClick={handleClose}>
+                    x
+                </span>
+                {content}
+                <div className="second-button-popup">
+                    <button
+                        onClick={handleClose}
+                        className="second-button_private"
+                    >
+                        Скасувати
+                    </button>
+                    <button
+                        onClick={() => DeleteProtocol(protocolId)}
+                        className="second-button_public"
+                    >
+                        Підтвердити
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
-};
- 
-export default SecondModal;
+    )
+}
+
+export default SecondModal
 
 function DeleteProtocol(protocolId) {
-
-  console.log(protocolId)
+    console.log(protocolId)
 
     const db = app.firestore()
     db.collection(localStorage.getItem('proffesion'))
@@ -44,9 +55,6 @@ function DeleteProtocol(protocolId) {
 
     alert(`Протокол успішно видалений!`)
     setTimeout(() => {
-      window.location.reload()
-  }, 100);
-
+        window.location.reload()
+    }, 100)
 }
-
-

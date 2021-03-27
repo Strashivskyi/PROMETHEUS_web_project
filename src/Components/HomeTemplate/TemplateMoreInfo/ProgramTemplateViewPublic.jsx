@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import app from '../../../Firebase/firebase'
 
 import ArrowHeaderTemplate from './ArrowHeaderTemplate'
 import HeaderHomeTemplate from '../../Header/HeaderHomeTemplate'
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
-
+import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
 
 const theme = {
     ...DefaultTheme,
@@ -17,41 +16,40 @@ const theme = {
     },
 }
 
-
-
 // MAIN COMPONENT
 
 export default function ProgramTemplateViewPublic() {
     let [stimulus, setStimulus] = useState([])
 
-    
     let [protocols, setProtocols] = useState([])
-    
-        useEffect(() => {
-            const db = app.firestore()
-            const unsubscribe = db
-            
-            .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
-                .onSnapshot((snapshot) => {
-                    if (snapshot.size) {
-                        setProtocols(
-                            snapshot.docs.map((doc) => ({
-                                ...doc.data(),
-                                id: doc.id,
-                            }))
-                        )
-                        console.log('yeah')
-                    } else {
-                        console.log(
-                            'error in ProtocolList/ProtocolListTherapist.js'
-                        )
-                    }
-                })
-            return () => {
-                unsubscribe()
-            }
-        }, [])
-    
+
+    useEffect(() => {
+        const db = app.firestore()
+        const unsubscribe = db
+
+            .collection('ProgramTemplates')
+            .doc(localStorage.getItem('templateIdMore'))
+            .collection('protocols')
+            .onSnapshot((snapshot) => {
+                if (snapshot.size) {
+                    setProtocols(
+                        snapshot.docs.map((doc) => ({
+                            ...doc.data(),
+                            id: doc.id,
+                        }))
+                    )
+                    console.log('yeah')
+                } else {
+                    console.log(
+                        'error in ProtocolList/ProtocolListTherapist.js'
+                    )
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
+
     protocols = protocols.filter((protocol) =>
         protocol.id.includes(localStorage.getItem('program'))
     )
@@ -59,25 +57,27 @@ export default function ProgramTemplateViewPublic() {
     return (
         <PaperProvider theme={theme}>
             <>
-            <HeaderHomeTemplate/>
-            <ArrowHeaderTemplate/>
-            
-                <ul style={{ position: 'relative', right: '4%' }}>
+                <HeaderHomeTemplate />
+                <ArrowHeaderTemplate />
+
+                <ul style={{position: 'relative', right: '4%'}}>
                     {protocols.map((protocol) => (
                         <div className="program_big_flex_container">
                             <div
-                                style={{ marginBottom: '1rem' }}
+                                style={{marginBottom: '1rem'}}
                                 className="title_name"
                             >
                                 {' '}
-                                Протокол {localStorage.getItem("programNumber")}{' '}
+                                Протокол {localStorage.getItem(
+                                    'programNumber'
+                                )}{' '}
                                 {protocol.StatusCopied}.{' '}
                                 {protocol.SphereOfDevelopment}. {protocol.Skill}
                             </div>
-                           
+
                             <div className="each_element_grid_container">
                                 <div
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                     className="element_name"
                                 >
                                     Сфера розвитку:
@@ -96,7 +96,7 @@ export default function ProgramTemplateViewPublic() {
                                 </div>
 
                                 <div
-                                    style={{ marginTop: '1rem' }}
+                                    style={{marginTop: '1rem'}}
                                     className="element_name"
                                 >
                                     Навик:
@@ -114,14 +114,14 @@ export default function ProgramTemplateViewPublic() {
                                 </div>
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                     className="element_name"
                                 >
                                     Метод:
@@ -139,7 +139,7 @@ export default function ProgramTemplateViewPublic() {
                                 </div>
                                 <div
                                     className="element_name"
-                                    style={{ paddingTop: '1rem' }}
+                                    style={{paddingTop: '1rem'}}
                                 >
                                     Бажана реакція:
                                 </div>
@@ -156,28 +156,30 @@ export default function ProgramTemplateViewPublic() {
                                 </div>
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <>
-            <div
-                style={{ backgroundColor: '#EEEEEE' }}
-                className="element_name"
-            >
-                Критерій узагальнення навику:{' '}
-            </div>
-            <div
-                style={{ backgroundColor: '#EEEEEE' }}
-                className="element_value"
-            >
-                <div style={{ backgroundColor: '#EEEEEE' }}>
-                {protocol.CriteriongenGenerSkill}
-                </div>
-            </div>
-        </>
+                                    <div
+                                        style={{backgroundColor: '#EEEEEE'}}
+                                        className="element_name"
+                                    >
+                                        Критерій узагальнення навику:{' '}
+                                    </div>
+                                    <div
+                                        style={{backgroundColor: '#EEEEEE'}}
+                                        className="element_value"
+                                    >
+                                        <div
+                                            style={{backgroundColor: '#EEEEEE'}}
+                                        >
+                                            {protocol.CriteriongenGenerSkill}
+                                        </div>
+                                    </div>
+                                </>
                                 <div
                                     className="element_name"
                                     style={{
@@ -194,26 +196,26 @@ export default function ProgramTemplateViewPublic() {
                                 ></div>
                                 <div
                                     className="element_name"
-                                    style={{ paddingTop: '1rem' }}
+                                    style={{paddingTop: '1rem'}}
                                 >
                                     Рівні інтенсивності підказки:
                                 </div>
                                 <div
                                     className="element_value"
-                                    style={{ paddingTop: '1rem' }}
+                                    style={{paddingTop: '1rem'}}
                                 >
                                     {protocol.Interval}
                                     <div
                                         className="element_name"
-                                        style={{ minHeight: '1rem' }}
+                                        style={{minHeight: '1rem'}}
                                     ></div>
                                     <div
                                         className="element_value"
-                                        style={{ minHeight: '1rem' }}
+                                        style={{minHeight: '1rem'}}
                                     ></div>
                                 </div>
                                 <div
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                     className="element_name"
                                 >
                                     Критерій зниження рівня інтенсивності
@@ -230,11 +232,11 @@ export default function ProgramTemplateViewPublic() {
                                 </div>
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div className="element_name">
                                     Критерій підвищення рівня інтенсивності
@@ -242,17 +244,17 @@ export default function ProgramTemplateViewPublic() {
                                 </div>
                                 <div
                                     className="element_value"
-                                    style={{ fontSize: '20px' }}
+                                    style={{fontSize: '20px'}}
                                 >
                                     {protocol.CriterionIncrease}
                                 </div>
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     style={{
@@ -288,11 +290,11 @@ export default function ProgramTemplateViewPublic() {
                                 ></div>
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
 
                                 <div className="element_name">
@@ -300,7 +302,7 @@ export default function ProgramTemplateViewPublic() {
                                 </div>
                                 <div
                                     className="element_value"
-                                    style={{ lineHeight: '18px' }}
+                                    style={{lineHeight: '18px'}}
                                 >
                                     <ul>
                                         {stimulus.map((stimul) => (
@@ -314,16 +316,16 @@ export default function ProgramTemplateViewPublic() {
                                 </div>
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
 
                                 <div
                                     className="element_name"
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                 >
                                     Опис етапів:
                                 </div>
@@ -339,16 +341,16 @@ export default function ProgramTemplateViewPublic() {
                                 {/*step 1*/}
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
-                            
+
                                 <div
                                     className="element_name"
-                                    style={{ backgroundColor: 'white' }}
+                                    style={{backgroundColor: 'white'}}
                                 >
                                     Процедура корекції неправильної відповіді:
                                 </div>
@@ -366,20 +368,26 @@ export default function ProgramTemplateViewPublic() {
                                 </div>
                                 {/* <Step1 Instructions1={protocol.Instructions1}/> */}
 
-                                <div className="element_name" style={{ backgroundColor: '#EEEEEE'}}>
+                                <div
+                                    className="element_name"
+                                    style={{backgroundColor: '#EEEEEE'}}
+                                >
                                     Інструкції до етапу 1:
                                 </div>
                                 <div className="element_value">
                                     <div
                                         className="element_value"
                                         placeholder={protocol.Instructions1}
-                                        style={{ fontSize: '20px' ,backgroundColor: '#EEEEEE' }}
+                                        style={{
+                                            fontSize: '20px',
+                                            backgroundColor: '#EEEEEE',
+                                        }}
                                     >
                                         {protocol.Instructions1}
                                     </div>
                                 </div>
                                 {/*step 2*/}
-                                
+
                                 {/* <Step2 Instructions2={protocol.Instructions2} /> */}
                                 <div className="element_name">
                                     Інструкції до етапу 2:
@@ -387,22 +395,27 @@ export default function ProgramTemplateViewPublic() {
                                 <div className="element_value">
                                     <div
                                         className="element_value"
-                                        style={{ fontSize: '20px' }}
+                                        style={{fontSize: '20px'}}
                                     >
                                         {protocol.Instructions2}
                                     </div>
                                 </div>
                                 {/*step 3*/}
-                               
-                                
+
                                 {/* <Step3  Instructions3={protocol.Instructions3}/> */}
-                                <div className="element_name" style={{ backgroundColor: '#EEEEEE'}}>
+                                <div
+                                    className="element_name"
+                                    style={{backgroundColor: '#EEEEEE'}}
+                                >
                                     Інструкції до етапу3:
                                 </div>
                                 <div className="element_value">
                                     <div
                                         className="element_value"
-                                        style={{ backgroundColor: '#EEEEEE',fontSize: '20px' }}
+                                        style={{
+                                            backgroundColor: '#EEEEEE',
+                                            fontSize: '20px',
+                                        }}
                                     >
                                         {protocol.Instructions3}
                                     </div>
@@ -411,7 +424,7 @@ export default function ProgramTemplateViewPublic() {
                         </div>
                     ))}
                 </ul>
-                <div style={{ height: '100px' }}></div>
+                <div style={{height: '100px'}}></div>
             </>
         </PaperProvider>
     )

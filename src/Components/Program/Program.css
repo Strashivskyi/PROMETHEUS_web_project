@@ -1,5 +1,5 @@
 @import url('https://rsms.me/inter/inter.css');
-.add_stymul_container{
+.add_stymul_container {
     display: flex;
     flex-direction: row;
     height: 40px;
@@ -7,42 +7,45 @@
     gap: 5px;
     margin-left: -40px;
 }
-.add_stymul_input{
+.add_stymul_input {
     width: 300px;
-    border: 1px solid #EEE;
+    border: 1px solid #eee;
     padding-left: 10px;
     font-size: 20px;
 }
-  .add_stymul_input::placeholder { 
+.add_stymul_input::placeholder {
     color: #48535f;
-  }
-  .add_stymul_input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+}
+.add_stymul_input::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
     color: #48535f;
-  }
-  .add_stymul_input::-moz-placeholder { /* Firefox 19+ */
+}
+.add_stymul_input::-moz-placeholder {
+    /* Firefox 19+ */
     color: #48535f;
-  }
-  .add_stymul_input:-ms-input-placeholder { /* IE 10+ */
+}
+.add_stymul_input:-ms-input-placeholder {
+    /* IE 10+ */
     color: #48535f;
-  }
-  .add_stymul_input:-moz-placeholder { /* Firefox 18- */
+}
+.add_stymul_input:-moz-placeholder {
+    /* Firefox 18- */
     color: #48535f;
-  }
-  .add_stymul_button{
+}
+.add_stymul_button {
     font-size: 24px;
     font-weight: 600;
     color: #48535f;
     background-color: transparent;
-    border: 1px solid #EEE;
+    border: 1px solid #eee;
     height: 40px;
     width: 40px;
-
 }
 .program_upper_flex_container {
     display: flex;
     flex-direction: row;
 }
-.save_button_supervisor_mobile{
+.save_button_supervisor_mobile {
     display: none;
 }
 
@@ -101,12 +104,10 @@
 .stymuls li:hover {
     transform: scale(1.002);
     text-decoration: underline 0.1px;
-
 }
 
 ul {
     list-style-type: none;
-
 }
 
 .step_grid_container {
@@ -118,9 +119,7 @@ ul {
 .criterions li:hover {
     transform: scale(1.002);
     text-decoration: underline 0.1px;
-
 }
-
 
 .add_button {
     margin-left: -40px;
@@ -142,8 +141,7 @@ ul {
 }
 
 .program_link:hover {
-    color: #48535F;
-
+    color: #48535f;
 }
 
 .delete_criterion {
@@ -162,24 +160,23 @@ ul {
     transform: scale(1.1);
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
-
-    .add_stymul_input{
+    .add_stymul_input {
         width: 10vw;
         font-size: 17px;
     }
-    }
+}
 @media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
-    .add_stymul_input{
+    .add_stymul_input {
         width: 300px;
-        border: 1px solid #EEE;
+        border: 1px solid #eee;
         padding-left: 10px;
         font-size: 20px;
     }
-    .save_button_supervisor_mobile{
+    .save_button_supervisor_mobile {
         display: initial;
         background: transparent;
-        color: #EF4F59;
-        padding: .5em 1em;
+        color: #ef4f59;
+        padding: 0.5em 1em;
         border: 1px solid #ef4f59;
         cursor: pointer;
         font-family: Inter;
@@ -190,8 +187,7 @@ ul {
         margin-left: 20vw;
         margin-right: 20vw;
         height: 40px;
-        position: relative;    
-
+        position: relative;
     }
     .save_button_supervisor_mobile.btn-background-slide::before {
         content: '';
@@ -205,26 +201,24 @@ ul {
         transition: transform 300ms ease-in-out;
         transform: scaleX(0);
         transform-origin: center;
-      }
-      
-      .save_button_supervisor_mobile.btn-background-slide:hover::before {
+    }
+
+    .save_button_supervisor_mobile.btn-background-slide:hover::before {
         transform: scaleX(1);
-      }
-      
-      .save_button_supervisor_mobile.btn-background-slide {
+    }
+
+    .save_button_supervisor_mobile.btn-background-slide {
         transition: color 300ms ease-in-out;
         z-index: 1;
-      }
-      
-      
-      .save_button_supervisor_mobile.btn-background-slide:hover {
+    }
+
+    .save_button_supervisor_mobile.btn-background-slide:hover {
         color: white;
-      }
+    }
 
     .each_element_grid_container {
         display: grid;
         grid-template-columns: 34vw auto;
-
     }
 
     .program_big_flex_container {
@@ -234,7 +228,6 @@ ul {
         margin-left: -10px;
         min-width: 95vw;
         max-width: 90vw;
-
     }
 
     .element_name {
@@ -257,16 +250,8 @@ ul {
         padding-right: 30px;
         min-width: 74vw;
         padding-left: 10px;
-
     }
-
-    
-
-    
-
 }
-
-
 
 @media screen and (min-width: 1300px) {
     .element_name {
@@ -280,8 +265,6 @@ ul {
     }
 
     .program_big_flex_container {
-
         margin-right: 7vw;
     }
-
 }

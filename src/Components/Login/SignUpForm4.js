@@ -1,16 +1,16 @@
-import React, { useCallback, useState } from 'react'
+import React, {useCallback, useState} from 'react'
 import './SignUpForm1.css'
 import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
 import './SignUpForm4.css'
-import { withRouter } from 'react-router'
+import {withRouter} from 'react-router'
 import app from '../../Firebase/firebase'
 import BackButtonComponent from '../Login/BackButtonComponent'
-import {Link} from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
+import {Link} from 'react-router-dom'
+import toast, {Toaster} from 'react-hot-toast'
 
-function SignUpForm4({ history }) {
-    localStorage.setItem("step", 4)
+function SignUpForm4({history}) {
+    localStorage.setItem('step', 4)
     const handleSignUp = useCallback(
         async (event) => {
             event.preventDefault()
@@ -34,10 +34,10 @@ function SignUpForm4({ history }) {
                     addInputRegistr()
                     history.push('/')
                 } else {
-                    toast.error('Будь ласка, перевірте ваш пароль',  );
+                    toast.error('Будь ласка, перевірте ваш пароль')
                 }
             } catch (error) {
-                toast.error("Помилка")
+                toast.error('Помилка')
             }
         },
         [history]
@@ -94,26 +94,24 @@ function SignUpForm4({ history }) {
                     type="submit"
                     value="Зареєструватись"
                 />
-                <Toaster position="bottom-top" reverseOrder={false}
-                         toastOptions={{
-                             style: {
-                                 minWidth: '350px',
-                                 minHeight: '60px',
-                                 paddingLeft: '20px'
-                             },
-                             error:{
-                                 duration : 5000,
-                                 icon: '⚠️'
-                             }
-
-                             }}
+                <Toaster
+                    position="bottom-top"
+                    reverseOrder={false}
+                    toastOptions={{
+                        style: {
+                            minWidth: '350px',
+                            minHeight: '60px',
+                            paddingLeft: '20px',
+                        },
+                        error: {
+                            duration: 5000,
+                            icon: '⚠️',
+                        },
+                    }}
                 />
             </form>
-            <Link
-                to="/registration/signup3"
-            >
+            <Link to="/registration/signup3">
                 <BackButtonComponent />
-
             </Link>
         </div>
     )
@@ -134,10 +132,10 @@ function addInputRegistr() {
             PhoneNumber: localStorage.getItem('PhoneNumber'),
             TelegramUserID: '',
         })
-        db.collection("Users")
+    db.collection('Users')
         .doc()
         .set({
-            Email:localStorage.getItem('userEmail'),
+            Email: localStorage.getItem('userEmail'),
             Profession: localStorage.getItem('proffesion'),
         })
 }

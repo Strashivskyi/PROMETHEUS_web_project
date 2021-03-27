@@ -1,8 +1,8 @@
-import { TextInput } from 'react-native-paper'
-import React, { useEffect, useState } from 'react'
+import {TextInput} from 'react-native-paper'
+import React, {useEffect, useState} from 'react'
 import app from '../../../Firebase/firebase'
 import StimulusItem from './ProgramElement/StimulusItem'
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
+import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
 import HeaderHomeTemplate from '../../Header/HeaderHomeTemplate'
 import ArrowHeaderEdit from '../PageComponent/ArrowHeaderEdit'
 const theme = {
@@ -16,14 +16,17 @@ const theme = {
     },
 }
 
-function RemoveCopiedStatus({ protocol }) {
+function RemoveCopiedStatus({protocol}) {
     if (protocol.StatusCopied != null) {
-        const db = app.firestore()
-        .collection(localStorage.getItem("proffesion"))
+        const db = app
+            .firestore()
+            .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('user'))
-            .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+            .collection('ProgramTemplates')
+            .doc(localStorage.getItem('templateIdMore'))
+            .collection('protocols')
             .doc(localStorage.getItem('program'))
-            .update({ StatusCopied: '' })
+            .update({StatusCopied: ''})
     }
 
     return <></>
@@ -32,17 +35,17 @@ function RemoveCopiedStatus({ protocol }) {
 // MAIN COMPONENT
 
 export default function ProgramEditableTemplate() {
-
-  
     let [stimulus, setStimulus] = useState([])
     let [stimulInput, setStimulInput] = useState('')
 
     useEffect(() => {
         const db = app.firestore()
-        const unsubscribe = 
-        db.collection(localStorage.getItem("proffesion"))
-        .doc(localStorage.getItem('user'))
-        .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+        const unsubscribe = db
+            .collection(localStorage.getItem('proffesion'))
+            .doc(localStorage.getItem('user'))
+            .collection('ProgramTemplates')
+            .doc(localStorage.getItem('templateIdMore'))
+            .collection('protocols')
             .doc(localStorage.getItem('program'))
             .collection('Stimulus')
             .onSnapshot((snapshot) => {
@@ -67,10 +70,12 @@ export default function ProgramEditableTemplate() {
 
     useEffect(() => {
         const db = app.firestore()
-        const unsubscribe = 
-        db  .collection(localStorage.getItem("proffesion"))
-        .doc(localStorage.getItem('user'))
-        .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+        const unsubscribe = db
+            .collection(localStorage.getItem('proffesion'))
+            .doc(localStorage.getItem('user'))
+            .collection('ProgramTemplates')
+            .doc(localStorage.getItem('templateIdMore'))
+            .collection('protocols')
             .onSnapshot((snapshot) => {
                 if (snapshot.size) {
                     setProtocols(
@@ -96,31 +101,30 @@ export default function ProgramEditableTemplate() {
     const [fileGenerated, setFileGenerated] = useState(0)
 
     let userEmail = localStorage.getItem('user')
-  
-
 
     return (
         <PaperProvider theme={theme}>
             <>
-
                 <HeaderHomeTemplate />
                 <ArrowHeaderEdit />
-                <ul style={{ position: 'relative', right: '4%' }}>
-                {protocols.map((protocol) => (
+                <ul style={{position: 'relative', right: '4%'}}>
+                    {protocols.map((protocol) => (
                         <div className="program_big_flex_container">
                             <div
-                                style={{ marginBottom: '1rem' }}
+                                style={{marginBottom: '1rem'}}
                                 className="element_name"
                             >
                                 {' '}
-                                Протокол {localStorage.getItem("programNumber")}{' '}
+                                Протокол {localStorage.getItem(
+                                    'programNumber'
+                                )}{' '}
                                 {protocol.StatusCopied}.{' '}
                                 {protocol.SphereOfDevelopment}. {protocol.Skill}
                             </div>
                             <RemoveCopiedStatus protocol={protocol} />
                             <div className="each_element_grid_container">
                                 <div
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                     className="element_name"
                                 >
                                     Сфера розвитку:
@@ -131,10 +135,10 @@ export default function ProgramEditableTemplate() {
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.SphereOfDevelopment}
-                                    style={{ fontSize: '20px' }}
+                                    style={{fontSize: '20px'}}
                                     raised
                                     theme={{
-                                        colors: { background: '#fcfcfc' },
+                                        colors: {background: '#fcfcfc'},
                                     }}
                                     onChange={(e) =>
                                         addSphereOfDevelopment(e.target.value)
@@ -142,7 +146,7 @@ export default function ProgramEditableTemplate() {
                                 />
 
                                 <div
-                                    style={{ marginTop: '1rem' }}
+                                    style={{marginTop: '1rem'}}
                                     className="element_name"
                                 >
                                     Навик:
@@ -159,20 +163,20 @@ export default function ProgramEditableTemplate() {
                                     }}
                                     raised
                                     theme={{
-                                        colors: { background: 'transparent' },
+                                        colors: {background: 'transparent'},
                                     }}
                                     onChange={(e) => addSkill(e.target.value)}
                                 />
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                     className="element_name"
                                 >
                                     Метод:
@@ -183,16 +187,16 @@ export default function ProgramEditableTemplate() {
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.Method}
-                                    style={{ fontSize: '20px' }}
+                                    style={{fontSize: '20px'}}
                                     raised
                                     theme={{
-                                        colors: { background: '#fcfcfc' },
+                                        colors: {background: '#fcfcfc'},
                                     }}
                                     onChange={(e) => addMethod(e.target.value)}
                                 />
                                 <div
                                     className="element_name"
-                                    style={{ paddingTop: '1rem' }}
+                                    style={{paddingTop: '1rem'}}
                                 >
                                     Бажана реакція:
                                 </div>
@@ -208,7 +212,7 @@ export default function ProgramEditableTemplate() {
                                     }}
                                     raised
                                     theme={{
-                                        colors: { background: 'transparent' },
+                                        colors: {background: 'transparent'},
                                     }}
                                     onChange={(e) =>
                                         addDesirableReaction(e.target.value)
@@ -216,44 +220,51 @@ export default function ProgramEditableTemplate() {
                                 />
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <>
                                     <div
-                                        style={{ backgroundColor: '#EEEEEE' }}
+                                        style={{backgroundColor: '#EEEEEE'}}
                                         className="element_name"
                                     >
                                         Критерій узагальнення навику:{' '}
                                     </div>
                                     <div
-                                        style={{ backgroundColor: '#EEEEEE' }}
+                                        style={{backgroundColor: '#EEEEEE'}}
                                         className="element_value"
                                     >
-                                        <div style={{ backgroundColor: '#EEEEEE' }}>
+                                        <div
+                                            style={{backgroundColor: '#EEEEEE'}}
+                                        >
                                             <TextInput
                                                 className="element_value"
                                                 multiline="true"
                                                 underlineColor="transparent"
                                                 selectionColor="primary"
-                                                defaultValue={protocol.CriteriongenGenerSkill}
-                                                style={{ fontSize: '20px' }}
+                                                defaultValue={
+                                                    protocol.CriteriongenGenerSkill
+                                                }
+                                                style={{fontSize: '20px'}}
                                                 raised
                                                 theme={{
-                                                    colors: { background: '#fcfcfc' },
+                                                    colors: {
+                                                        background: '#fcfcfc',
+                                                    },
                                                 }}
                                                 onChange={(e) =>
-                                                    addCriteriongenGenerSkill(e.target.value)
+                                                    addCriteriongenGenerSkill(
+                                                        e.target.value
+                                                    )
                                                 }
                                             />
                                         </div>
                                     </div>
                                 </>
 
-
                                 <div
                                     className="element_name"
                                     style={{
@@ -270,7 +281,7 @@ export default function ProgramEditableTemplate() {
                                 ></div>
                                 <div
                                     className="element_name"
-                                    style={{ paddingTop: '1rem' }}
+                                    style={{paddingTop: '1rem'}}
                                 >
                                     Рівні інтенсивності підказки:
                                 </div>
@@ -280,10 +291,13 @@ export default function ProgramEditableTemplate() {
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.Interval}
-                                    style={{ fontSize: '20px', backgroundColor: 'white' }}
+                                    style={{
+                                        fontSize: '20px',
+                                        backgroundColor: 'white',
+                                    }}
                                     raised
                                     theme={{
-                                        colors: { backgroundColor: 'white' },
+                                        colors: {backgroundColor: 'white'},
                                     }}
                                     onChange={(e) =>
                                         addInterval(e.target.value)
@@ -291,7 +305,7 @@ export default function ProgramEditableTemplate() {
                                 />
 
                                 <div
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                     className="element_name"
                                 >
                                     Критерій зниження рівня інтенсивності
@@ -303,10 +317,10 @@ export default function ProgramEditableTemplate() {
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.ReductionСriterion}
-                                    style={{ fontSize: '20px' }}
+                                    style={{fontSize: '20px'}}
                                     raised
                                     theme={{
-                                        colors: { background: '#fcfcfc' },
+                                        colors: {background: '#fcfcfc'},
                                     }}
                                     onChange={(e) =>
                                         addReductionСriterion(e.target.value)
@@ -314,11 +328,11 @@ export default function ProgramEditableTemplate() {
                                 />
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div className="element_name">
                                     Критерій підвищення рівня інтенсивності
@@ -333,19 +347,19 @@ export default function ProgramEditableTemplate() {
                                     onChange={(e) =>
                                         addCriterionIncrease(e.target.value)
                                     }
-                                    style={{ fontSize: '20px' }}
+                                    style={{fontSize: '20px'}}
                                     raised
                                     theme={{
-                                        colors: { background: 'transparent' },
+                                        colors: {background: 'transparent'},
                                     }}
                                 />
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     style={{
@@ -381,8 +395,7 @@ export default function ProgramEditableTemplate() {
                                             paddingLeft: '10px',
                                         }}
                                     >
-                                        <option value="false">
-                                        </option>
+                                        <option value="false"></option>
                                         <option value="Тимчасова затримка">
                                             Тимчасова затримка
                                         </option>
@@ -407,11 +420,11 @@ export default function ProgramEditableTemplate() {
                                 ></div>
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
 
                                 <div className="element_name">
@@ -419,7 +432,7 @@ export default function ProgramEditableTemplate() {
                                 </div>
                                 <div
                                     className="element_value"
-                                    style={{ lineHeight: '18px' }}
+                                    style={{lineHeight: '18px'}}
                                 >
                                     <ul>
                                         {stimulus.map((stimul) => (
@@ -472,16 +485,16 @@ export default function ProgramEditableTemplate() {
                                 </div>
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
 
                                 <div
                                     className="element_name"
-                                    style={{ backgroundColor: '#EEEEEE' }}
+                                    style={{backgroundColor: '#EEEEEE'}}
                                 >
                                     Опис етапів:
                                 </div>
@@ -491,10 +504,10 @@ export default function ProgramEditableTemplate() {
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.StepDescription}
-                                    style={{ fontSize: '20px' }}
+                                    style={{fontSize: '20px'}}
                                     raised
                                     theme={{
-                                        colors: { background: '#fcfcfc' },
+                                        colors: {background: '#fcfcfc'},
                                     }}
                                     onChange={(event) =>
                                         setStepDescription(event.target.value)
@@ -503,16 +516,16 @@ export default function ProgramEditableTemplate() {
                                 {/*step 1*/}
                                 <div
                                     className="element_name"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
                                 <div
                                     className="element_value"
-                                    style={{ minHeight: '1rem' }}
+                                    style={{minHeight: '1rem'}}
                                 ></div>
 
                                 <div
                                     className="element_name"
-                                    style={{ backgroundColor: 'white' }}
+                                    style={{backgroundColor: 'white'}}
                                 >
                                     Процедура корекції неправильної відповіді:
                                 </div>
@@ -521,7 +534,7 @@ export default function ProgramEditableTemplate() {
                                     multiline="true"
                                     underlineColor="transparent"
                                     selectionColor="primary"
-                                    background='white'
+                                    background="white"
                                     defaultValue={
                                         protocol.CorrectionProcedureStep1
                                     }
@@ -530,15 +543,21 @@ export default function ProgramEditableTemplate() {
                                             event.target.value
                                         )
                                     }
-                                    style={{ fontSize: '20px', backgroundColor: 'white' }}
+                                    style={{
+                                        fontSize: '20px',
+                                        backgroundColor: 'white',
+                                    }}
                                     raised
                                     theme={{
-                                        colors: { background: 'white' },
+                                        colors: {background: 'white'},
                                     }}
                                 />
                                 {/* <Step1 Instructions1={protocol.Instructions1}/> */}
 
-                                <div className="element_name" style={{ backgroundColor: '#EEEEEE' }}>
+                                <div
+                                    className="element_name"
+                                    style={{backgroundColor: '#EEEEEE'}}
+                                >
                                     Інструкції до етапу 1:
                                 </div>
                                 <div className="element_value">
@@ -551,7 +570,10 @@ export default function ProgramEditableTemplate() {
                                         onChange={(event) =>
                                             addInstruction1(event.target.value)
                                         }
-                                        style={{ backgroundColor: '#EEEEEE', fontSize: '20px' }}
+                                        style={{
+                                            backgroundColor: '#EEEEEE',
+                                            fontSize: '20px',
+                                        }}
                                         raised
                                         theme={{
                                             colors: {
@@ -561,7 +583,6 @@ export default function ProgramEditableTemplate() {
                                     />
                                 </div>
                                 {/*step 2*/}
-
 
                                 {/* <Step2 Instructions2={protocol.Instructions2} /> */}
                                 <div className="element_name">
@@ -592,7 +613,10 @@ export default function ProgramEditableTemplate() {
                                 {/*step 3*/}
 
                                 {/* <Step3  Instructions3={protocol.Instructions3}/> */}
-                                <div className="element_name" style={{ backgroundColor: "#EEEEEE" }}>
+                                <div
+                                    className="element_name"
+                                    style={{backgroundColor: '#EEEEEE'}}
+                                >
                                     Інструкції до етапу 3:
                                 </div>
                                 <div className="element_value">
@@ -605,7 +629,10 @@ export default function ProgramEditableTemplate() {
                                         onChange={(event) =>
                                             addInstruction3(event.target.value)
                                         }
-                                        style={{ backgroundColor: '#EEEEEE', fontSize: '20px' }}
+                                        style={{
+                                            backgroundColor: '#EEEEEE',
+                                            fontSize: '20px',
+                                        }}
                                         raised
                                         theme={{
                                             colors: {
@@ -618,8 +645,8 @@ export default function ProgramEditableTemplate() {
                         </div>
                     ))}
                 </ul>
-             
-                <div style={{ height: '100px' }}></div>
+
+                <div style={{height: '100px'}}></div>
             </>
         </PaperProvider>
     )
@@ -631,173 +658,209 @@ export default function ProgramEditableTemplate() {
 
 function addInstruction1(instructionInput) {
     const db = app.firestore()
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ Instructions1: instructionInput })
+        .update({Instructions1: instructionInput})
 }
 
 function addInstruction2(instructionInput) {
     const db = app.firestore()
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ Instructions2: instructionInput })
+        .update({Instructions2: instructionInput})
 }
 
 function addInstruction3(instructionInput) {
     const db = app.firestore()
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ Instructions3: instructionInput })
+        .update({Instructions3: instructionInput})
 }
 
 function addStimul(stimulInput) {
     const db = app.firestore()
     if (stimulInput != '') {
-        db  .collection(localStorage.getItem("proffesion"))
-        .doc(localStorage.getItem('user'))
-        .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+        db.collection(localStorage.getItem('proffesion'))
+            .doc(localStorage.getItem('user'))
+            .collection('ProgramTemplates')
+            .doc(localStorage.getItem('templateIdMore'))
+            .collection('protocols')
             .doc(localStorage.getItem('program'))
             .collection('Stimulus')
-            .add({ Name: stimulInput })
-    } else { alert("Неможливо надіслати пустий стимул") }
+            .add({Name: stimulInput})
+    } else {
+        alert('Неможливо надіслати пустий стимул')
+    }
 }
 function addSkill(params) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ Skill: params })
+        .update({Skill: params})
     console.log(params)
 }
 
 function addMethod(params) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ Method: params })
+        .update({Method: params})
     console.log(params)
 }
 function addDesirableReaction(params) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ DesirableReaction: params })
+        .update({DesirableReaction: params})
     console.log(params)
 }
 
 function addReductionСriterion(params) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ ReductionСriterion: params })
+        .update({ReductionСriterion: params})
     console.log(params)
 }
 
 function addCriterionIncrease(params) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ CriterionIncrease: params })
+        .update({CriterionIncrease: params})
     console.log(params)
 }
 
 function setStepDescription(params) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ StepDescription: params })
+        .update({StepDescription: params})
     console.log(params)
 }
 function setCorrectionProcedureStep3(params) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ CorrectionProcedureStep3: params })
+        .update({CorrectionProcedureStep3: params})
     console.log(params)
 }
 function setCorrectionProcedureStep2(params) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ CorrectionProcedureStep2: params })
+        .update({CorrectionProcedureStep2: params})
     console.log(params)
 }
 function setCorrectionProcedureStep1(params) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ CorrectionProcedureStep1: params })
+        .update({CorrectionProcedureStep1: params})
     console.log(params)
 }
 
 function addSphereOfDevelopment(sphereOfDevelopment) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ SphereOfDevelopment: sphereOfDevelopment })
+        .update({SphereOfDevelopment: sphereOfDevelopment})
     console.log(sphereOfDevelopment)
 }
 
 function addInterval(interval) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ Interval: interval })
+        .update({Interval: interval})
 }
 
 function addMethodTakingHint(method) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ MethodTakingHint: method })
+        .update({MethodTakingHint: method})
 }
 function addCriteriongenGenerSkill(generSkill) {
     const db = app.firestore()
 
-    db  .collection(localStorage.getItem("proffesion"))
-    .doc(localStorage.getItem('user'))
-    .collection('ProgramTemplates').doc(localStorage.getItem("templateIdMore")).collection('protocols')
+    db.collection(localStorage.getItem('proffesion'))
+        .doc(localStorage.getItem('user'))
+        .collection('ProgramTemplates')
+        .doc(localStorage.getItem('templateIdMore'))
+        .collection('protocols')
         .doc(localStorage.getItem('program'))
-        .update({ CriteriongenGenerSkill: generSkill })
+        .update({CriteriongenGenerSkill: generSkill})
 }

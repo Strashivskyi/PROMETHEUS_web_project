@@ -1,6 +1,6 @@
 import Delete from '../../../../assets/delete.png'
 import app from '../../../../Firebase/firebase'
-function StimulusItem({ name, stimulId }) {
+function StimulusItem({name, stimulId}) {
     return (
         <div className="stymuls">
             <li>
@@ -36,5 +36,4 @@ function DeleteStimul(stimulId) {
         .collection('Stimulus')
         .doc(stimulId)
         .delete()
-
 }

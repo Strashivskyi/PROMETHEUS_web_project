@@ -1,17 +1,17 @@
-import { Link } from 'react-router-dom'
-import { withRouter, Redirect } from 'react-router'
-import React, { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom'
+import {withRouter, Redirect} from 'react-router'
+import React, {useEffect, useState} from 'react'
 import app from '../../../Firebase/firebase'
 import TemplateItem from '../PageComponent/ItemPublic'
 import ButtonsTemplate from '../../HomeTemplate/TemplatePages/ButtonsTemplate'
 import './HomeProgramTemplate.css'
 
-function HomeProgramTemplatePublic({history,countProto}) {
+function HomeProgramTemplatePublic({history, countProto}) {
     const [programTemplates, setProgramTemplates] = useState([])
-    let btnText="Створити шаблон з нуля"
-    localStorage.setItem("homeType","createTemplate")
-    if(countProto!=0){
-        btnText="Продовжіть створення шаблону"
+    let btnText = 'Створити шаблон з нуля'
+    localStorage.setItem('homeType', 'createTemplate')
+    if (countProto != 0) {
+        btnText = 'Продовжіть створення шаблону'
     }
     useEffect(() => {
         const db = app.firestore()
@@ -42,9 +42,7 @@ function HomeProgramTemplatePublic({history,countProto}) {
     console.log(someList)
 
     return (
-
-        <>   
-
+        <>
             <ButtonsTemplate />
             <div className="template-grid">
                 {someList.map((idEl) => (

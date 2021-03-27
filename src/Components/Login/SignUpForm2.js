@@ -4,15 +4,14 @@ import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
 import Upload from '../../assets/Vector.svg'
 import $ from 'jquery'
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react'
 import app from '../../Firebase/firebase'
 import './SignUpForm2.css'
 import NextButtonComponent from './NextButtonComponent'
 import BackButtonComponent from '../Login/BackButtonComponent'
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom'
 
 function SignUpForm2() {
-    
     const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState()
     useEffect(() => {
@@ -42,7 +41,7 @@ function SignUpForm2() {
     const [city, setCity] = useState('')
     localStorage.setItem('City', city)
     console.log(city)
-    localStorage.setItem("step",3)
+    localStorage.setItem('step', 3)
     return (
         <div>
             <LoginNavigation />
@@ -96,24 +95,15 @@ function SignUpForm2() {
                         placeholder="Місто"
                     />
                 </div>
-               
-
             </form>
 
-            <Link
-                to="/registration/signup4"
-            >
-                <NextButtonComponent/>
-
+            <Link to="/registration/signup4">
+                <NextButtonComponent />
             </Link>
 
-            <Link
-                to="/registration/signup2"
-            >
-            <BackButtonComponent />
-
+            <Link to="/registration/signup2">
+                <BackButtonComponent />
             </Link>
-
         </div>
     )
 }

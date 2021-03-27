@@ -1,9 +1,9 @@
 import Visible from '../../../assets/visible.svg'
 import UnVisible from '../../../assets/unVisible.svg'
-import { useState } from 'react'
+import {useState} from 'react'
 import app from '../../../Firebase/firebase'
-import { AiOutlineArrowRight } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+import {AiOutlineArrowRight} from 'react-icons/ai'
+import {Link} from 'react-router-dom'
 
 export default function ProtocolItemTherapist({
     number,
@@ -27,7 +27,6 @@ export default function ProtocolItemTherapist({
 }) {
     let [colorItem, setColorItem] = useState('')
 
-
     if (+number % 2 != true) {
         colorItem = '#EEEEEE'
     }
@@ -36,11 +35,11 @@ export default function ProtocolItemTherapist({
         <>
             <div
                 className="protocol_item"
-                style={{ backgroundColor: colorItem, marginLeft: '7vw' }}
+                style={{backgroundColor: colorItem, marginLeft: '7vw'}}
             >
                 <p className="protocol_item_text ">
-                    Протокол {number} {statusCopied}.{' '}
-                    {sphereOfDevelopment}. {skill}
+                    Протокол {number} {statusCopied}. {sphereOfDevelopment}.{' '}
+                    {skill}
                 </p>
                 <div className="icon_place">
                     <CheckIsActive
@@ -48,14 +47,14 @@ export default function ProtocolItemTherapist({
                         protocolId={protocolId}
                     />
                     <Link
-                    title="Переглянути"
-                        onClick={() =>
-                            {setData(protocolId,number)}
-                        }
+                        title="Переглянути"
+                        onClick={() => {
+                            setData(protocolId, number)
+                        }}
                         to="/program"
                     >
                         <AiOutlineArrowRight
-                            className='icon go_icon'
+                            className="icon go_icon"
                             color="black"
                         />
                     </Link>
@@ -65,7 +64,7 @@ export default function ProtocolItemTherapist({
     )
 }
 
-function CheckIsActive({ isActive, protocolId }) {
+function CheckIsActive({isActive, protocolId}) {
     console.log(isActive)
     if (isActive == true) {
         return (
@@ -90,16 +89,16 @@ function CheckIsActive({ isActive, protocolId }) {
 function UpdateActiveStatus(protocolId, valueStatus) {
     const db = app.firestore()
 
-    db.collection(localStorage.getItem("proffesion"))
+    db.collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('user'))
         .collection('Patient')
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .doc(protocolId)
-        .update({ IsActive: valueStatus })
+        .update({IsActive: valueStatus})
 }
 
-function setData(param1,param2){
+function setData(param1, param2) {
     localStorage.setItem('program', param1)
-    localStorage.setItem("programNumber",param2)
+    localStorage.setItem('programNumber', param2)
 }

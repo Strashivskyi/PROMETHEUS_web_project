@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
 }
-.create_element{
+.create_element {
     margin-right: 50px;
     margin-left: 50px;
 }
@@ -30,7 +30,6 @@
 .protocol_item:hover {
     transform: scale(1.004);
     transition: 0.2s;
-
 }
 
 .icon_place {
@@ -52,9 +51,9 @@
     width: 1rem;
     height: 1rem;
 }
-.icon:hover{
+.icon:hover {
     transform: scale(1.2);
-    transition: 0.1s;    
+    transition: 0.1s;
 }
 .add-proto {
     position: absolute;
@@ -65,7 +64,7 @@
     width: 3rem;
     cursor: pointer;
 }
-.add-proto:hover{
+.add-proto:hover {
     transform: scale(1.2);
     transition: 0.2s;
 }
@@ -83,7 +82,7 @@
 
 .create_template_button {
     background: transparent;
-    color: #EF4F59;
+    color: #ef4f59;
     border: 1px solid #ef4f59;
     cursor: pointer;
     margin-left: 1000px;
@@ -96,9 +95,8 @@
     width: 270px;
     height: 40px;
     position: absolute;
-
-  }
-  .create_template_button.btn-background-slide::before {
+}
+.create_template_button.btn-background-slide::before {
     content: '';
     position: absolute;
     top: 0;
@@ -110,55 +108,49 @@
     transition: transform 300ms ease-in-out;
     transform: scaleX(0);
     transform-origin: center;
-  }
-  
-  .create_template_button.btn-background-slide:hover::before {
+}
+
+.create_template_button.btn-background-slide:hover::before {
     transform: scaleX(1);
-  }
-  
-  .create_template_button.btn-background-slide {
+}
+
+.create_template_button.btn-background-slide {
     transition: color 300ms ease-in-out;
     z-index: 1;
-  }
-  
-  
-  .create_template_button.btn-background-slide:hover {
+}
+
+.create_template_button.btn-background-slide:hover {
     color: white;
-  }
-  .go_icon{
-      transform: scale(1.5);
-  }
-  .go_icon:hover{
+}
+.go_icon {
+    transform: scale(1.5);
+}
+.go_icon:hover {
     transform: scale(1.8);
 }
-.edit_icon:hover{
+.edit_icon:hover {
     transform: scale(3.5);
-    transition: 0.1s;  
-
+    transition: 0.1s;
 }
 .edit_icon {
     position: relative;
     transform: scale(3);
     width: 1vw;
     height: 1vw;
-
 }
-.add-proto-mobile{
+.add-proto-mobile {
     position: relative;
     top: -1000px;
 }
 
-  @media only screen and (min-device-width : 320px) and (max-device-width : 800px) {
-    
-    .add-proto-mobile:hover{
+@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
+    .add-proto-mobile:hover {
         transform: scale(2.5);
         transition: 0.2s;
         margin-top: -2vw;
         margin-left: 81vw;
-
-
     }
-    .add-proto-mobile{
+    .add-proto-mobile {
         position: relative;
         right: 0%;
         top: 0rem;
@@ -169,12 +161,11 @@
         margin-top: -3vw;
         margin-left: 80vw;
         transform: scale(2);
-
     }
     .create_template_button {
         background: transparent;
-        color: #EF4F59;
-        padding: .5em 1em;
+        color: #ef4f59;
+        padding: 0.5em 1em;
         margin-left: 9vw;
         margin-right: 0px;
         margin-top: 5vw;
@@ -182,20 +173,18 @@
         width: 50%;
         height: 9vw;
         position: relative;
-    
-      }
-    .go_icon{
+    }
+    .go_icon {
         position: relative;
         top: 1vw;
     }
-    .go_icon:hover{
+    .go_icon:hover {
         top: 1.5vw;
     }
-    .edit_icon:hover{
+    .edit_icon:hover {
         transform: scale(3.5);
-        transition: 0.1s;  
+        transition: 0.1s;
         top: 3.2vw;
-
     }
     .edit_icon {
         position: relative;
@@ -203,15 +192,13 @@
         transform: scale(3);
         width: 10vw;
         height: 10vw;
-        margin-top: 30px;  
-
+        margin-top: 30px;
     }
-    
+
     .icon_place {
         width: 97%;
         height: 35%;
-        background-color: #EEEEEE;
-
+        background-color: #eeeeee;
     }
     .icon {
         cursor: pointer;
@@ -236,8 +223,8 @@
         flex-direction: column;
         width: 100%;
         height: 25vw;
-        border: solid #AAAAAA 1.4px;
-        background-color: #FFF !important;
+        border: solid #aaaaaa 1.4px;
+        background-color: #fff !important;
         margin: auto;
         margin-bottom: 20px;
     }
@@ -255,49 +242,41 @@
         position: relative;
         color: #000000;
     }
-    .add_protocol{
+    .add_protocol {
         height: 15vw;
-        border: solid #AAAAAA 1px;
+        border: solid #aaaaaa 1px;
         display: flex;
         flex-direction: row;
         width: 87%;
         margin: 0.5rem 0vw 0rem 6vw;
         margin-left: 6.5vw;
-
     }
-    
-    .add_protocol_text{
+
+    .add_protocol_text {
         font-size: 5vw;
         padding-top: 4%;
         padding-left: 4%;
-
     }
-    .add_protocol_img{
+    .add_protocol_img {
         height: 10vw;
         padding-left: 10%;
         padding-top: 2%;
-
-
     }
-    @media only screen and (min-device-width : 480px) and (max-device-width : 800px) {
-        .add-proto-mobile{
+    @media only screen and (min-device-width: 480px) and (max-device-width: 800px) {
+        .add-proto-mobile {
             margin-top: 0vw;
             transform: scale(3);
-
         }
-        .add-proto-mobile:hover{
+        .add-proto-mobile:hover {
             transform: scale(3.6);
             transition: 0.2s;
             margin-top: 1vw;
             margin-left: 81vw;
-    
-    
         }
-        } 
+    }
 }
 
-  
-  @media screen and (min-width: 1300px) {
+@media screen and (min-width: 1300px) {
     .create_template_button {
         background: transparent;
         color: #ef4f59;
@@ -341,30 +320,22 @@
         margin-top: 2.5rem;
     }
 }
-@media screen and (min-width: 800px) and (max-width: 1300px){
+@media screen and (min-width: 800px) and (max-width: 1300px) {
     .edit_icon {
-
         width: 1.7vw;
         height: 1.7vw;
-    
     }
-    .create_element{
+    .create_element {
         margin-top: 90px;
     }
-    .create_template_button{
+    .create_template_button {
         margin-left: 200px;
         margin-top: 5px;
-
-
     }
-    @media screen and (min-width: 1000px) and (max-width: 1300px){
+    @media screen and (min-width: 1000px) and (max-width: 1300px) {
         .edit_icon {
-    
             width: 1.3vw;
             height: 1.3vw;
-        
         }
-    
     }
 }
-

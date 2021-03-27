@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import app from '../../Firebase/firebase'
 import ProtocolItemTherapist from './PageComponent/ProtocolItemTherapist'
 import Header from '../Header/Header'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Arrow from '../../assets/arrow.png'
 import './ProtocolList.css'
 import MobileHeader from '../Header/MobileHeader'
@@ -70,17 +70,17 @@ export default function ProtocolList() {
         }
     }, [])
     let protocolsNumber = []
-    for (let i = 0; i <protocols.length; i++) {
+    for (let i = 0; i < protocols.length; i++) {
         protocolsNumber.push(i + 1)
     }
     console.log(protocolsNumber)
 
     return (
         <>
-            <MobileHeader/>
+            <MobileHeader />
             <Header />
             <div className="patient_upper_flex_container">
-                <h2 style={{ marginLeft: '6rem' }}>
+                <h2 style={{marginLeft: '6rem'}}>
                     <Link to="/" className="patients_link">
                         Пацієнти
                     </Link>
@@ -99,7 +99,7 @@ export default function ProtocolList() {
                     <Link
                         to="/patient"
                         className="patients_link"
-                        style={{ color: '#6F6F6F' }}
+                        style={{color: '#6F6F6F'}}
                     >
                         {localStorage.getItem('childName')}
                     </Link>
@@ -118,34 +118,44 @@ export default function ProtocolList() {
             </div>
 
             {protocolsNumber.map((protocol) => (
-                        <ProtocolItemTherapist
-                            number={protocol}
-                            protocolId={protocols[protocol-1].id}
-                            protocolName={protocols[protocol-1].ProtocolId}
-                            sphereOfDevelopment={protocols[protocol-1].SphereOfDevelopment}
-                            length={protocols.length}
-                            skill={protocols[protocol-1].Skill}
-                            statusCopied={protocols[protocol-1].StatusCopied}
-                            isActive={protocols[protocol-1] .IsActive}
-                            interval={protocols[protocol-1].Interval}
-                            correctionProcedureStep1={
-                                protocols[protocol-1].CorrectionProcedureStep1
-                            }
-                            correctionProcedureStep2={
-                                protocols[protocol-1].CorrectionProcedureStep2
-                            }
-                            correctionProcedureStep3={
-                                protocols[protocol-1].CorrectionProcedureStep3
-                            }
-                            criterionIncrease={protocols[protocol-1].CriterionIncrease}
-                            desirableReaction={protocols[protocol-1].DesirableReaction}
-                            method={protocols[protocol-1].Method}
-                            methodTakingHint={protocols[protocol-1].MethodTakingHint}
-                            reductionСriterion={protocols[protocol-1].ReductionСriterion}
-                            stepDescription={protocols[protocol-1].StepDescription}
-                            CriteriongenGenerSkill={protocols[protocol-1].CriteriongenGenerSkill}
-                        />
-                    ))}
+                <ProtocolItemTherapist
+                    number={protocol}
+                    protocolId={protocols[protocol - 1].id}
+                    protocolName={protocols[protocol - 1].ProtocolId}
+                    sphereOfDevelopment={
+                        protocols[protocol - 1].SphereOfDevelopment
+                    }
+                    length={protocols.length}
+                    skill={protocols[protocol - 1].Skill}
+                    statusCopied={protocols[protocol - 1].StatusCopied}
+                    isActive={protocols[protocol - 1].IsActive}
+                    interval={protocols[protocol - 1].Interval}
+                    correctionProcedureStep1={
+                        protocols[protocol - 1].CorrectionProcedureStep1
+                    }
+                    correctionProcedureStep2={
+                        protocols[protocol - 1].CorrectionProcedureStep2
+                    }
+                    correctionProcedureStep3={
+                        protocols[protocol - 1].CorrectionProcedureStep3
+                    }
+                    criterionIncrease={
+                        protocols[protocol - 1].CriterionIncrease
+                    }
+                    desirableReaction={
+                        protocols[protocol - 1].DesirableReaction
+                    }
+                    method={protocols[protocol - 1].Method}
+                    methodTakingHint={protocols[protocol - 1].MethodTakingHint}
+                    reductionСriterion={
+                        protocols[protocol - 1].ReductionСriterion
+                    }
+                    stepDescription={protocols[protocol - 1].StepDescription}
+                    CriteriongenGenerSkill={
+                        protocols[protocol - 1].CriteriongenGenerSkill
+                    }
+                />
+            ))}
         </>
     )
 }
