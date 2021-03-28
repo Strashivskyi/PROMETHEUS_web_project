@@ -6,6 +6,8 @@ import TemplateItem from '../PageComponent/Item'
 import ButtonsTemplate from '../TemplatePages/ButtonsTemplate'
 import './HomeProgramTemplate.css'
 import Plus from '../../../assets/Plus.svg'
+import MobileHeader from '../../Header/MobileHeader'
+
 
 function HomeProgramTemplate({history, countProto}) {
     const [programTemplates, setProgramTemplates] = useState([])
@@ -46,6 +48,8 @@ function HomeProgramTemplate({history, countProto}) {
 
     return (
         <>
+            <MobileHeader/>
+            <Link to="/#/home" className="mobile_home_link">Пацієнти</Link>
             <ButtonsTemplate />
             <div className="template-grid">
                 <div className="create_template_ingrid_button">

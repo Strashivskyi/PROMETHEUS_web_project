@@ -5,6 +5,8 @@ import app from '../../../Firebase/firebase'
 import TemplateItem from '../PageComponent/ItemPublic'
 import ButtonsTemplate from '../../HomeTemplate/TemplatePages/ButtonsTemplate'
 import './HomeProgramTemplate.css'
+import MobileHeader from '../../Header/MobileHeader'
+
 
 function HomeProgramTemplatePublic({history, countProto}) {
     const [programTemplates, setProgramTemplates] = useState([])
@@ -43,6 +45,8 @@ function HomeProgramTemplatePublic({history, countProto}) {
 
     return (
         <>
+            <MobileHeader/>
+            <Link to="/#/home" className="mobile_home_link">Пацієнти</Link>
             <ButtonsTemplate />
             <div className="template-grid">
                 {someList.map((idEl) => (

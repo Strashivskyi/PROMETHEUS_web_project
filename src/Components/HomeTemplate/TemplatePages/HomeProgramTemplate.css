@@ -1,10 +1,9 @@
 .create_template_ingrid_button {
-    width: 18%;
-
     background-color: #eeeeee;
     border-radius: 6px;
-
     display: flex;
+    width: 284px;
+    height: 187px;
 }
 .add_template {
     width: 100%;
@@ -71,4 +70,14 @@
 
 .create_template_continue.btn-background-slide:hover {
     color: white;
+}
+.mobile_home_link {
+    display: none;
+}
+
+@media screen and (min-width: 320px) and (max-width: 800px) {
+    .mobile_home_link {
+        font-size: 4vw;
+        display: initial;
+    }
 }

@@ -7,7 +7,7 @@ html {
     display: grid;
     grid-template-columns: 45vw 48vw;
     margin: 3vw;
-    max-height: 87vh;
+    max-height: 100vh;
     min-height: 87vh;
 }
 .form {
@@ -30,19 +30,28 @@ html {
         display: none;
     }
 }
-@media screen and (min-width: 800px) and (max-width: 1300px) {
+@media screen and (min-width: 800px) and (max-width: 950px) {
     .sign-up-text {
         font-size: 30px;
         line-height: 200px;
     }
     .image-form-division-sign-up {
-        flex-direction: column;
+        display: initial;
         grid-template-columns: none;
     }
     .form {
         margin: 40px;
+        height: 120vh;
     }
     .image {
-        background-size: 26vw 70vh;
+        display: none;
+    }
+    .sign-up-text {
+        font-family: 'Inter', cursive;
+        font-weight: 400;
+        font-size: 40px;
+        text-align: center;
+        color: #222222;
+        line-height: 85px;
     }
 }

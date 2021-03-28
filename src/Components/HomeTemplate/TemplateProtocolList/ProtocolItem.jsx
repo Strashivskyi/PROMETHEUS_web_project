@@ -7,6 +7,7 @@ import app from '../../../Firebase/firebase'
 import {Link} from 'react-router-dom'
 import EditIcon from '../../../assets/edit_new.svg'
 import SecondModal from '../../ModalWindow/SecondModal'
+import './ProtocolListTemplate'
 export default function ProtocolItem({
     protocols,
     number,
@@ -45,10 +46,7 @@ export default function ProtocolItem({
 
     return (
         <>
-            <div
-                className="protocol_item"
-                style={{backgroundColor: colorItem, marginLeft: '5rem'}}
-            >
+            <div className="protocol_item" style={{backgroundColor: colorItem}}>
                 <p className="protocol_item_text ">
                     Протокол {number}
                     {statusCopied}.{sphereOfDevelopment}.{skill}

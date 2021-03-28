@@ -1,79 +1,47 @@
-.template_link {
-    background: transparent;
-    color: #ef4f59;
-    padding: 1em 1em;
-    border: 1px solid #ef4f59;
-    cursor: pointer;
-    margin-left: 60%;
-    /* margin-right: 30px; */
-    /* margin-top: -20px; */
-    font-family: Inter;
-    font-weight: 500;
-    line-height: 20px;
-    font-size: 22px;
-    width: 28%;
-    height: 1%;
-    position: absolute;
-    text-align: center;
-}
-.template_link.btn-background-slide::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    background-color: #ef4f59;
-    transition: transform 300ms ease-in-out;
-    transform: scaleX(0);
-    transform-origin: center;
-}
-
-.template_link.btn-background-slide:hover::before {
-    transform: scaleX(1);
-}
-
-.template_link.btn-background-slide {
-    transition: color 300ms ease-in-out;
-    z-index: 1;
-}
-
-.template_link.btn-background-slide:hover {
-    color: white;
-}
-
 .template-grid {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    margin: auto;
 }
 
 .template_categories {
     font-weight: bold;
 }
-.template_title {
-    display: flex;
-    flex-direction: row;
-}
 
-.templates_string {
-    margin-right: 60px;
-    margin-left: 120px;
-    font-size: 24px;
-}
-.template_title {
+.choose_create_way {
+    padding-top: 30px;
+    color: #48535f;
+    font-weight: 300;
     display: flex;
-    flex-direction: column;
+    font-family: 'Inter';
+    font-size: 24px;
+    justify-content: center;
 }
-@media screen and (min-width: 800px) and (max-width: 1298px) {
-    .templates_string {
-        margin-right: 60px;
-        margin-left: 120px;
-        font-size: 20px;
-        margin-top: 20px;
-    }
-    .template_title {
+.or_italic {
+    font-style: italic;
+}
+.new_program_way {
+    font-weight: 500;
+    text-decoration: none;
+    color: #ef4f59;
+}
+.new_program_way:hover {
+    font-weight: 600;
+    text-decoration: none;
+    color: #ef4f59;
+}
+@media screen and (min-width: 320px) and (max-width: 600px) {
+    .choose_create_way {
+        padding-top: 30px;
+        color: #48535f;
+        font-weight: 300;
         display: flex;
         flex-direction: column;
+        font-family: 'Inter';
+        font-size: 5vw;
+        justify-content: center;
+        align-items: center;
     }
 }

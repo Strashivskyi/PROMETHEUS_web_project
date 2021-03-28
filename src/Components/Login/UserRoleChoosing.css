@@ -18,10 +18,10 @@ a:hover {
 }
 
 .have_acc {
-    margin-left: 27%;
     padding-top: 70px;
     padding-bottom: 10px;
-
+    display: flex;
+    justify-content: center;
     color: #48535f;
     font-weight: 300;
     display: flex;
@@ -66,17 +66,5 @@ a:hover {
     }
     a:hover {
         color: #48535f;
-    }
-
-    .have_acc {
-        margin-left: 32%;
-        padding-top: 110px;
-        padding-bottom: 10px;
-
-        color: #48535f;
-        font-weight: 300;
-        display: flex;
-        font-family: 'Inter';
-        font-size: 20px;
     }
 }

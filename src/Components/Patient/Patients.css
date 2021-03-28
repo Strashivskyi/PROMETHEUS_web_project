@@ -8,12 +8,21 @@ html {
     transform: scale(1.3);
     transition: 0.2s;
 }
+.mobile_home_link_templates {
+    display: none;
+}
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
     .add_patient_button {
         position: relative;
         margin-top: -20px;
         margin-right: -110px;
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
+    .mobile_home_link_templates {
+        display: initial;
+        font-size: 4vw;
     }
 }
 

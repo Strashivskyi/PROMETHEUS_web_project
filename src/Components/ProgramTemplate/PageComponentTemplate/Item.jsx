@@ -35,7 +35,6 @@ function TemplateItem({diagnos, age, count, number, idTemplate, history}) {
                     </button>
                 </div>
             </div>
-            F
         </>
     )
 }

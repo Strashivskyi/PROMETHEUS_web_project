@@ -2,6 +2,7 @@
 .mobile_signin_label {
     display: none;
 }
+
 .login_text_input {
     background: url(/src/assets/emmm.svg) no-repeat left center;
     background-position: 0px 10px;
@@ -351,9 +352,40 @@ input.slide-hover-left-3:hover {
     }
 }
 
-@media screen and (min-width: 800px) and (max-width: 1300px) {
+@media screen and (min-width: 800px) and (max-width: 950px) {
     .image-form-division {
-        flex-direction: column;
-        grid-template-columns: none;
+        display: initial;
+        max-height: 150vh;
+        min-height: 150vh;
+        margin-bottom: 0px;
+    }
+    .form {
+        background-color: #f8fcff;
+        height: 98vh;
+    }
+}
+@media screen and (min-width: 950px) and (max-width: 1300px) {
+    input.slide-hover-left-3 {
+        width: 90%;
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+    .still_no_acc {
+        margin: auto;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .forgot_password {
+        margin: auto;
+        display: flex;
+        padding-bottom: 40px;
+        display: flex;
+        justify-content: center;
+    }
+    .login_form {
+        margin-left: 10%;
+        margin-right: 10%;
     }
 }

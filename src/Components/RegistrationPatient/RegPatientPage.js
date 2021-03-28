@@ -12,7 +12,7 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import app from '../../Firebase/firebase'
 import './RegPatientPage.css'
 import default_avatar from '../../assets/default_avatar.png'
-import Redirect, {withRouter} from 'react-router'
+import {withRouter} from 'react-router'
 import MobileHeader from '../Header/MobileHeader'
 import toast, {Toaster} from 'react-hot-toast'
 
@@ -35,57 +35,57 @@ const CenteredContent = styled.div`
 
 const currenciesGenders = [
     {
-        value: 'чоловік',
+        value: 'male',
         label: 'чоловік',
     },
     {
-        value: 'жінка',
+        value: 'female',
         label: 'жінка',
     },
     {
-        value: 'інше',
+        value: 'other',
         label: 'інше',
     },
 ]
 
-// const currenciesBlood = [
-//     {
-//         value: '4+',
-//         label: '4+',
-//     },
-//     {
-//         value: '4-',
-//         label: '4-',
-//     },
-//     {
-//         value: '3+',
-//         label: '3+',
-//     },
-//     {
-//         value: '3-',
-//         label: '3-',
-//     },
-//     {
-//         value: '2+',
-//         label: '2+',
-//     },
-//     {
-//         value: '2-',
-//         label: '2-',
-//     },
-//     {
-//         value: '1+',
-//         label: '1+',
-//     },
-//     {
-//         value: '1-',
-//         label: '1-',
-//     },
-//     {
-//         value: 'None',
-//         label: 'None',
-//     },
-// ]
+const currenciesBlood = [
+    {
+        value: '4+',
+        label: '4+',
+    },
+    {
+        value: '4-',
+        label: '4-',
+    },
+    {
+        value: '3+',
+        label: '3+',
+    },
+    {
+        value: '3-',
+        label: '3-',
+    },
+    {
+        value: '2+',
+        label: '2+',
+    },
+    {
+        value: '2-',
+        label: '2-',
+    },
+    {
+        value: '1+',
+        label: '1+',
+    },
+    {
+        value: '1-',
+        label: '1-',
+    },
+    {
+        value: 'None',
+        label: 'None',
+    },
+]
 
 function RegistrationPatient({history}) {
     const useStyles = makeStyles((theme) => ({
@@ -123,11 +123,10 @@ function RegistrationPatient({history}) {
     const [date, setDate] = useState('')
     const [city, setCity] = useState('')
     const [country, setCountry] = useState('')
-    // const [weight, setWeight] = useState('')
-    // const [height, setHeight] = useState('')
-    // const [blood, setBlood] = useState('')
+    const [weight, setWeight] = useState('')
+    const [height, setHeight] = useState('')
+    const [blood, setBlood] = useState('')
     const [image, _setImage] = useState(null)
-    const [imageBase64String, setImageBase64String] = useState(default_avatar)
     const inputFileRef = createRef(null)
 
     // FOR IMAGE
@@ -145,14 +144,10 @@ function RegistrationPatient({history}) {
 
     const handleOnChange = (event) => {
         const newImage = event.target?.files?.[0]
+
         if (newImage) {
             setImage(URL.createObjectURL(newImage))
         }
-        const reader = new FileReader()
-        reader.onloadend = () => {
-            setImageBase64String(reader.result)
-        }
-        reader.readAsDataURL(newImage)
     }
 
     /**
@@ -194,17 +189,17 @@ function RegistrationPatient({history}) {
     const countryChange = (event) => {
         setCountry(event.target.value)
     }
-    // const weightChange = (event) => {
-    //     setWeight(event.target.value)
-    // }
-    // const heightChange = (event) => {
-    //     setHeight(event.target.value)
-    //     console.log(height)
-    // }
-    // const bloodChange = (event) => {
-    //     setBlood(event.target.value)
-    //     console.log(blood)
-    // }
+    const weightChange = (event) => {
+        setWeight(event.target.value)
+    }
+    const heightChange = (event) => {
+        setHeight(event.target.value)
+        console.log(height)
+    }
+    const bloodChange = (event) => {
+        setBlood(event.target.value)
+        console.log(blood)
+    }
 
     async function handleSubmit() {
         if (
@@ -232,13 +227,13 @@ function RegistrationPatient({history}) {
                     BirthDate: date,
                     City: city,
                     Country: country,
-                    // KidWeight: weight,
-                    // KidHeight: height,
-                    // BloodType: blood,
-                    Image: imageBase64String,
+                    KidWeight: weight,
+                    KidHeight: height,
+                    BloodType: blood,
+                    Image: default_avatar,
                     Supervisor: localStorage.getItem('user'),
                 })
-            // history.push('/')
+            history.push('/')
         }
     }
     return (

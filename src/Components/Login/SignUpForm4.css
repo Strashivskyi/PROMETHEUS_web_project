@@ -128,7 +128,6 @@ input:focus {
 input.slide-hover-left-4 {
     height: 50px;
     width: 350px;
-    left: 10px;
     border: 2px solid #48535f;
     margin-right: auto;
     margin-left: auto;
@@ -148,6 +147,8 @@ input.slide-hover-left-4 {
     transition: 0.8s;
     background-repeat: no-repeat;
     transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    display: flex;
+    justify-content: center;
 }
 
 input.slide-hover-left-4:hover {
@@ -161,10 +162,23 @@ input.slide-hover-left-4:hover {
     }
 }
 
-@media screen and (min-width: 800px) and (max-width: 1300px) {
+@media screen and (min-width: 800px) and (max-width: 950px) {
     input.slide-hover-left-4 {
         width: 396px;
         margin-top: 70px;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+}
+@media screen and (min-width: 950px) and (max-width: 1300px) {
+    .forth_form {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    input.slide-hover-left-4 {
+        width: 70%;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
     }
 }

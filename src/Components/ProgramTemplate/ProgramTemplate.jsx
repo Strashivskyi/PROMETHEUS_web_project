@@ -9,6 +9,7 @@ import AHeader from './PageComponentTemplate/AHeader'
 import TemplateItem from './PageComponentTemplate/Item'
 import ButtonsTemplate from '../ProgramTemplate/ButtonsTemplate'
 import './ButtonsTemplate.css'
+import MobileHeader from '../Header/MobileHeader'
 
 function ProgramTemplate({history}) {
     const [programTemplates, setProgramTemplates] = useState([])
@@ -45,18 +46,13 @@ function ProgramTemplate({history}) {
 
     return (
         <>
+            <MobileHeader />
             <Header />
             <AHeader />
-            <div className="template_title">
-                <div className="templates_string">
-                    {' '}
-                    Створити програму на основі шаблону серед наведених нижче
-                    АБО
-                </div>
-                <Link
-                    className="template_link btn-background-slide"
-                    to="/protocol-list"
-                >
+            <div className="choose_create_way">
+                <span className="template_way">Обрати шаблон &nbsp;</span>{' '}
+                <span className="template_way">або &nbsp;</span>{' '}
+                <Link className="new_program_way" to="/protocol-list">
                     Створити пусту програму
                 </Link>
             </div>

@@ -1,0 +1,72 @@
+.create_template_button {
+    background: transparent;
+    color: #ef4f59;
+    border: 1px solid #ef4f59;
+    cursor: pointer;
+    margin-right: 30px;
+    margin-top: -45px;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 12px;
+    font-size: 22px;
+    width: 270px;
+    height: 40px;
+    position: absolute;
+}
+.create_template_button.btn-background-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #ef4f59;
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: center;
+}
+
+.create_template_button.btn-background-slide:hover::before {
+    transform: scaleX(1);
+}
+
+.create_template_button.btn-background-slide {
+    transition: color 300ms ease-in-out;
+    z-index: 1;
+}
+
+.create_template_button.btn-background-slide:hover {
+    color: white;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
+    .create_template_button {
+        background: transparent;
+        color: #ef4f59;
+        padding: 0.5em 1em;
+        margin-left: 9vw;
+        margin-right: 0px;
+        margin-top: 5vw;
+        font-size: 4vw;
+        width: 50%;
+        height: 9vw;
+        position: relative;
+    }
+    .create_element {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .protocol_item {
+        width: 90vw;
+    }
+    .add-proto {
+        display: none;
+    }
+}
+@media only screen and (min-device-width: 800px) and (max-device-width: 1300px) {
+    .create_template_button {
+        margin-left: 200px;
+        margin-top: 5px;
+    }
+}

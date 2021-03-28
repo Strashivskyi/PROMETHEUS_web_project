@@ -395,6 +395,8 @@ export default function ProgramEditable() {
                                     style={{
                                         backgroundColor: '#EEEEEE',
                                         paddingTop: '1rem',
+                                        minWidth: "auto",
+                                        maxWidth: "auto"
                                     }}
                                     className="element_value"
                                 >
@@ -405,16 +407,8 @@ export default function ProgramEditable() {
                                                 event.target.value
                                             )
                                         }
-                                        style={{
-                                            marginLeft: '-1rem',
-                                            background: '#F8FCFF',
-                                            border: '2px solid #CCE9FF',
-                                            boxSizing: 'border-box',
-                                            height: '40px',
-                                            fontSize: '20px',
-                                            lineHeight: '20px',
-                                            paddingLeft: '10px',
-                                        }}
+                                        className="select_way"
+
                                     >
                                         <option value="false"></option>
                                         <option value="Тимчасова затримка">
@@ -463,12 +457,12 @@ export default function ProgramEditable() {
                                             />
                                         ))}
 
-                                        <div className="add_stymul_container_test">
+                                        <div className="add_stymul_container">
                                             <button
                                                 onClick={() =>
                                                     addStimul(stimulInput)
                                                 }
-                                                className="add_stymul_button_test"
+                                                className="add_stymul_button"
                                             >
                                                 +
                                             </button>
@@ -481,7 +475,7 @@ export default function ProgramEditable() {
                                                 }
                                                 name="name"
                                                 placeholder="Додати стимул...."
-                                                className="add_stymul_input_test"
+                                                className="add_stymul_input"
                                             />
                                         </div>
                                     </ul>
@@ -565,7 +559,6 @@ export default function ProgramEditable() {
                                 >
                                     Інструкції до етапу 1:
                                 </div>
-                                <div className="element_value">
                                     <TextInput
                                         placeholder="Додати інструкції до етапу..."
                                         className="element_value"
@@ -587,14 +580,12 @@ export default function ProgramEditable() {
                                             },
                                         }}
                                     />
-                                </div>
                                 {/*step 2*/}
 
                                 {/* <Step2 Instructions2={protocol.Instructions2} /> */}
                                 <div className="element_name">
                                     Інструкції до етапу 2 :
                                 </div>
-                                <div className="element_value">
                                     <TextInput
                                         placeholder="Додати інструкції до етапу..."
                                         className="element_value"
@@ -616,7 +607,6 @@ export default function ProgramEditable() {
                                             },
                                         }}
                                     />
-                                </div>
                                 {/*step 3*/}
 
                                 {/* <Step3  Instructions3={protocol.Instructions3}/> */}
@@ -626,7 +616,6 @@ export default function ProgramEditable() {
                                 >
                                     Інструкції до етапу 3:
                                 </div>
-                                <div className="element_value">
                                     <TextInput
                                         placeholder="Додати інструкції до етапу..."
                                         className="element_value"
@@ -648,7 +637,6 @@ export default function ProgramEditable() {
                                             },
                                         }}
                                     />
-                                </div>
                             </div>
                         </div>
                     ))}

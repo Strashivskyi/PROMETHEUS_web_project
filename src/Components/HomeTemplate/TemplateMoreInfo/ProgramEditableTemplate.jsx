@@ -5,6 +5,8 @@ import StimulusItem from './ProgramElement/StimulusItem'
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
 import HeaderHomeTemplate from '../../Header/HeaderHomeTemplate'
 import ArrowHeaderEdit from '../PageComponent/ArrowHeaderEdit'
+import './ProgramTemplate.css'
+import MobileHeader from '../../Header/MobileHeader'
 const theme = {
     ...DefaultTheme,
     roundness: 0,
@@ -105,6 +107,7 @@ export default function ProgramEditableTemplate() {
     return (
         <PaperProvider theme={theme}>
             <>
+                <MobileHeader />
                 <HeaderHomeTemplate />
                 <ArrowHeaderEdit />
                 <ul style={{position: 'relative', right: '4%'}}>
@@ -130,6 +133,7 @@ export default function ProgramEditableTemplate() {
                                     Сфера розвитку:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати сферу розвитку..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -152,6 +156,7 @@ export default function ProgramEditableTemplate() {
                                     Навик:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати навик..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -182,6 +187,7 @@ export default function ProgramEditableTemplate() {
                                     Метод:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати метод..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -201,6 +207,7 @@ export default function ProgramEditableTemplate() {
                                     Бажана реакція:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати бажану реакцію..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -241,6 +248,7 @@ export default function ProgramEditableTemplate() {
                                             style={{backgroundColor: '#EEEEEE'}}
                                         >
                                             <TextInput
+                                                placeholder="Вказати критерій..."
                                                 className="element_value"
                                                 multiline="true"
                                                 underlineColor="transparent"
@@ -286,6 +294,7 @@ export default function ProgramEditableTemplate() {
                                     Рівні інтенсивності підказки:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати рівні інтенсивності підказки..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -312,6 +321,7 @@ export default function ProgramEditableTemplate() {
                                     підказки:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати критерій..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -339,6 +349,7 @@ export default function ProgramEditableTemplate() {
                                     підказки:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати критерій..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -374,6 +385,8 @@ export default function ProgramEditableTemplate() {
                                     style={{
                                         backgroundColor: '#EEEEEE',
                                         paddingTop: '1rem',
+                                        minWidth: 'auto',
+                                        maxWidth: 'auto',
                                     }}
                                     className="element_value"
                                 >
@@ -384,16 +397,7 @@ export default function ProgramEditableTemplate() {
                                                 event.target.value
                                             )
                                         }
-                                        style={{
-                                            marginLeft: '-1rem',
-                                            background: '#F8FCFF',
-                                            border: '2px solid #CCE9FF',
-                                            boxSizing: 'border-box',
-                                            height: '40px',
-                                            fontSize: '20px',
-                                            lineHeight: '20px',
-                                            paddingLeft: '10px',
-                                        }}
+                                        className="select_way"
                                     >
                                         <option value="false"></option>
                                         <option value="Тимчасова затримка">
@@ -442,44 +446,26 @@ export default function ProgramEditableTemplate() {
                                             />
                                         ))}
 
-                                        <div
-                                            style={{
-                                                display: 'flex',
-                                                flexDirection: 'row',
-                                            }}
-                                        >
+                                        <div className="add_stymul_container">
                                             <button
                                                 onClick={() =>
                                                     addStimul(stimulInput)
                                                 }
-                                                className="add_button"
+                                                className="add_stymul_button"
                                             >
-                                                <h1
-                                                    style={{
-                                                        marginTop: '5px',
-                                                        marginBottom: '5px',
-                                                        textAlign: 'center',
-                                                        width: '22px',
-                                                        height: '20px',
-                                                        color: '#4d4d4d',
-                                                        fontSize: '20px',
-                                                    }}
-                                                >
-                                                    +
-                                                </h1>
+                                                +
                                             </button>
-                                            <div className="transparent_input">
-                                                <input
-                                                    type="text"
-                                                    onChange={(event) =>
-                                                        setStimulInput(
-                                                            event.target.value
-                                                        )
-                                                    }
-                                                    name="name"
-                                                    placeholder="Додати стимул...."
-                                                />
-                                            </div>
+                                            <input
+                                                type="text"
+                                                onChange={(event) =>
+                                                    setStimulInput(
+                                                        event.target.value
+                                                    )
+                                                }
+                                                name="name"
+                                                placeholder="Додати стимул...."
+                                                className="add_stymul_input"
+                                            />
                                         </div>
                                     </ul>
                                 </div>
@@ -499,6 +485,7 @@ export default function ProgramEditableTemplate() {
                                     Опис етапів:
                                 </div>
                                 <TextInput
+                                    placeholder="Додати опис етапів..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -530,6 +517,7 @@ export default function ProgramEditableTemplate() {
                                     Процедура корекції неправильної відповіді:
                                 </div>
                                 <TextInput
+                                    placeholder="Вказати процедуру корекції неправильної відповіді..."
                                     className="element_value"
                                     multiline="true"
                                     underlineColor="transparent"
@@ -560,56 +548,54 @@ export default function ProgramEditableTemplate() {
                                 >
                                     Інструкції до етапу 1:
                                 </div>
-                                <div className="element_value">
-                                    <TextInput
-                                        className="element_value"
-                                        multiline="true"
-                                        underlineColor="transparent"
-                                        selectionColor="primary"
-                                        defaultValue={protocol.Instructions1}
-                                        onChange={(event) =>
-                                            addInstruction1(event.target.value)
-                                        }
-                                        style={{
-                                            backgroundColor: '#EEEEEE',
-                                            fontSize: '20px',
-                                        }}
-                                        raised
-                                        theme={{
-                                            colors: {
-                                                background: 'transparent',
-                                            },
-                                        }}
-                                    />
-                                </div>
+                                <TextInput
+                                    placeholder="Додати інструкції до етапу..."
+                                    className="element_value"
+                                    multiline="true"
+                                    underlineColor="transparent"
+                                    selectionColor="primary"
+                                    defaultValue={protocol.Instructions1}
+                                    onChange={(event) =>
+                                        addInstruction1(event.target.value)
+                                    }
+                                    style={{
+                                        backgroundColor: '#EEEEEE',
+                                        fontSize: '20px',
+                                    }}
+                                    raised
+                                    theme={{
+                                        colors: {
+                                            background: 'transparent',
+                                        },
+                                    }}
+                                />
                                 {/*step 2*/}
 
                                 {/* <Step2 Instructions2={protocol.Instructions2} /> */}
                                 <div className="element_name">
                                     Інструкції до етапу 2 :
                                 </div>
-                                <div className="element_value">
-                                    <TextInput
-                                        className="element_value"
-                                        multiline="true"
-                                        underlineColor="transparent"
-                                        selectionColor="primary"
-                                        defaultValue={protocol.Instructions2}
-                                        onChange={(event) =>
-                                            addInstruction2(event.target.value)
-                                        }
-                                        style={{
-                                            fontSize: '20px',
-                                            background: 'white',
-                                        }}
-                                        raised
-                                        theme={{
-                                            colors: {
-                                                background: 'transparent',
-                                            },
-                                        }}
-                                    />
-                                </div>
+                                <TextInput
+                                    placeholder="Додати інструкції до етапу..."
+                                    className="element_value"
+                                    multiline="true"
+                                    underlineColor="transparent"
+                                    selectionColor="primary"
+                                    defaultValue={protocol.Instructions2}
+                                    onChange={(event) =>
+                                        addInstruction2(event.target.value)
+                                    }
+                                    style={{
+                                        fontSize: '20px',
+                                        background: 'white',
+                                    }}
+                                    raised
+                                    theme={{
+                                        colors: {
+                                            background: 'transparent',
+                                        },
+                                    }}
+                                />
                                 {/*step 3*/}
 
                                 {/* <Step3  Instructions3={protocol.Instructions3}/> */}
@@ -619,28 +605,27 @@ export default function ProgramEditableTemplate() {
                                 >
                                     Інструкції до етапу 3:
                                 </div>
-                                <div className="element_value">
-                                    <TextInput
-                                        className="element_value"
-                                        multiline="true"
-                                        underlineColor="transparent"
-                                        selectionColor="primary"
-                                        defaultValue={protocol.Instructions3}
-                                        onChange={(event) =>
-                                            addInstruction3(event.target.value)
-                                        }
-                                        style={{
-                                            backgroundColor: '#EEEEEE',
-                                            fontSize: '20px',
-                                        }}
-                                        raised
-                                        theme={{
-                                            colors: {
-                                                background: 'transparent',
-                                            },
-                                        }}
-                                    />
-                                </div>
+                                <TextInput
+                                    placeholder="Додати інструкції до етапу..."
+                                    className="element_value"
+                                    multiline="true"
+                                    underlineColor="transparent"
+                                    selectionColor="primary"
+                                    defaultValue={protocol.Instructions3}
+                                    onChange={(event) =>
+                                        addInstruction3(event.target.value)
+                                    }
+                                    style={{
+                                        backgroundColor: '#EEEEEE',
+                                        fontSize: '20px',
+                                    }}
+                                    raised
+                                    theme={{
+                                        colors: {
+                                            background: 'transparent',
+                                        },
+                                    }}
+                                />
                             </div>
                         </div>
                     ))}

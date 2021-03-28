@@ -5,6 +5,7 @@ import ProtocolItemTemplateEdit from './ProtocolItemTemplateEdit'
 import {Link} from 'react-router-dom'
 import ArrowHeaderTemplate from './ArrowHeaderTemplate'
 import HeaderHomeTemplate from '../../Header/HeaderHomeTemplate'
+import MobileHeader from '../../Header/MobileHeader'
 
 export default function ListMoreInfoPrivate() {
     const [protocols, setProtocols] = useState([])
@@ -46,6 +47,7 @@ export default function ListMoreInfoPrivate() {
 
     return (
         <>
+            <MobileHeader />
             <HeaderHomeTemplate />
             <ArrowHeaderTemplate />
 

@@ -79,17 +79,6 @@
 .upload-image-btn {
     width: 256px;
 }
-@media screen and (min-width: 800px) and (max-width: 1299px) {
-    .content-wrapper {
-        display: flex;
-        flex-direction: column;
-    }
-    .column-direction-list {
-        display: flex;
-        flex-direction: column;
-        margin: 40px;
-    }
-}
 
 @media screen and (min-width: 1301px) {
     .save_button_add_patient {
@@ -209,11 +198,16 @@
         margin-left: 10vw;
     }
 }
-@media screen and (min-width: 320px) and (max-width: 1300px) {
+@media screen and (min-width: 320px) and (max-width: 800px) {
     .avatar-reg-wrapper {
         margin-top: 0rem;
         margin-left: auto;
         margin-right: auto;
         object-position: center;
+    }
+}
+@media screen and (min-width: 800px) and (max-width: 950px) {
+    .avatar-reg-wrapper {
+        margin-left: 2rem;
     }
 }

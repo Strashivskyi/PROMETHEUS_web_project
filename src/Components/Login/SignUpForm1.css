@@ -173,8 +173,15 @@ input[type='button'] {
         display: flex;
         justify-content: space-between;
     }
-    .have_acc {
-        position: absolute;
+}
+
+@media screen and (min-width: 950px) and (max-width: 1300px) {
+    .form-itself {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .gender_container {
+        margin-left: 10%;
     }
 }
 

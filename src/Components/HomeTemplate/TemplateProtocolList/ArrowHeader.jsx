@@ -4,6 +4,7 @@ import Arrow from '../../../assets/arrow.png'
 import ArrowHeaderSimple from '../PageComponent/ArrowHeaderSimple'
 import app from '../../../Firebase/firebase'
 import {BsPlusCircle} from 'react-icons/bs'
+import './ProtocolListTemplate'
 
 function ArrowHeader() {
     const [protocols, setProtocols] = useState([])

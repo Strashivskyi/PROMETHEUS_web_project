@@ -3,8 +3,11 @@ import app from '../../../Firebase/firebase'
 import ProtocolItem from './ProtocolItem'
 import HeaderHomeTemplate from '../../Header/HeaderHomeTemplate'
 import ArrowHeader from './ArrowHeader'
+import MobileHeader from '../../Header/MobileHeader'
 import Popup from './Popup'
+import {BsPlusCircle} from 'react-icons/bs'
 import {withRouter} from 'react-router'
+import './ProtocolListTemplate.css'
 function ProtocolListTemplate({history}) {
     let test = []
     localStorage.setItem('homeType', 'createTemplate')
@@ -90,6 +93,7 @@ function ProtocolListTemplate({history}) {
 
     return (
         <>
+            <MobileHeader />
             <HeaderHomeTemplate />
             <ArrowHeader />
             <button
@@ -98,6 +102,12 @@ function ProtocolListTemplate({history}) {
             >
                 Зберегти шаблон
             </button>
+            <div
+                onClick={() => addProto(protocols.length)}
+                className="add-proto-mobile"
+            >
+                <BsPlusCircle />
+            </div>
 
             {isOpen && (
                 <Popup

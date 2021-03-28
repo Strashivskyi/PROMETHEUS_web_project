@@ -141,7 +141,7 @@ export default function PatientInfoUser() {
         <div>
             <MobileHeader />
             <Header />
-            <ul>
+            <ul className="no_left">
                 {patients.map((patient) => (
                     <>
                         {localStorage.setItem('childName', patient.Name)}
