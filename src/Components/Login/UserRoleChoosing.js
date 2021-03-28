@@ -5,7 +5,7 @@ import 'fontsource-dm-sans'
 import app from '../../Firebase/firebase'
 import SwitchSelector from 'react-switch-selector'
 import './UserRoleChoosing.css'
-import NextButtonComponent from '../Login/NextButtonComponent'
+
 import {Link} from 'react-router-dom'
 
 function SignUpForm3() {
@@ -71,8 +71,11 @@ function SignUpForm3() {
                     </a>
                 </div>
             </div>
+            <div className="nav_button_box"></div>
             <Link to="/registration/signup2">
-                <NextButtonComponent />
+                <div>
+                    <div className="icon_next"></div>
+                </div>
             </Link>
         </div>
     )

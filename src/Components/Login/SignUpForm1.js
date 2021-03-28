@@ -4,8 +4,7 @@ import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
 import {withRouter} from 'react-router'
 import DataPicker from './DataPicker'
-import NextButtonComponent from './NextButtonComponent'
-import BackButtonComponent from '../Login/BackButtonComponent'
+import './UserRoleChoosing.css'
 import {Link} from 'react-router-dom'
 
 function SignUpForm1() {
@@ -107,14 +106,14 @@ function SignUpForm1() {
                     </div>
                 </div>
             </form>
-
-            <Link to="/registration/signup3">
-                <NextButtonComponent />
-            </Link>
-
-            <Link to="/registration">
-                <BackButtonComponent />
-            </Link>
+            <div className="nav_button_box">
+                <Link to="/registration">
+                    <div className="icon_back"></div>
+                </Link>
+                <Link to="/registration/signup3">
+                    <div className="icon_next"></div>
+                </Link>
+            </div>
         </div>
     )
 }

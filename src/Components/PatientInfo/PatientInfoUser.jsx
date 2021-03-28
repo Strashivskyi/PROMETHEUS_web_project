@@ -240,8 +240,8 @@ export default function PatientInfoUser() {
                                     style={{backgroundColor: '#EEEEEE'}}
                                 >
                                     <div>
-                                        Рівень оцінки вербальних
-                                        навичок(VB-MAPP):
+                                        Рівень оцінки вербальних навичок
+                                        (VB-MAPP):
                                     </div>
                                     <div className="zebra_rows_flex_container_value">
                                         <About />

@@ -29,28 +29,25 @@ a:hover {
     font-size: 20px;
 }
 .icon_next {
-    display: flex;
-    position: static;
     width: 100%;
-    height: 100%;
     padding-top: 30px;
-    padding-right: 30px;
+    padding-right: 13vh;
     padding-bottom: 30px;
-    padding-left: 30px;
-    padding-bottom: 6px;
-    margin-left: 85%;
+
     background: url(/src/assets/next_button.svg) no-repeat left center;
 }
 .icon_back {
     background: url(/src/assets/back_button.svg) no-repeat left center;
-    display: flex;
-    position: static;
     width: 100%;
-    height: 100%;
     padding-top: 30px;
     padding-right: 30px;
     padding-bottom: 30px;
     padding-left: 30px;
+}
+.nav_button_box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6%;
 }
 @media screen and (min-width: 1920px) {
     .before_register {

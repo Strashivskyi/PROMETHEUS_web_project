@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom'
 import app from '../../Firebase/firebase'
 import React from 'react'
+import SignOut from '../../assets/SignOut.svg'
 import Logo from '../../assets/Logo.svg'
 import './HomeHeader.css'
 import PatientTemplateSwitch from './PatientTemplateSwitch'
@@ -23,7 +24,6 @@ function HeaderHomeTemplate(params) {
                         <img
                             className="hover_on_logo"
                             src={Logo}
-                            onClick={() => signOut()}
                             width="14.7%"
                             style={{
                                 position: 'relative',
@@ -37,6 +37,17 @@ function HeaderHomeTemplate(params) {
                             type="text"
                             name="search"
                             placeholder="‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎ ‎Пошук.."
+                        />
+                        <img
+                            src={SignOut}
+                            onClick={() => signOut()}
+                            className="sign_out_button_header"
+                            width="4%"
+                            style={{
+                                cursor: 'pointer',
+                                position: 'relative',
+                                marginLeft: '10%',
+                            }}
                         />
                     </div>
 

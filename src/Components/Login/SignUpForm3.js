@@ -6,7 +6,7 @@ import app from '../../Firebase/firebase'
 import './SignUpForm3.css'
 import Select from 'react-select'
 import {useState} from 'react'
-import NextButtonComponent from './NextButtonComponent'
+import './UserRoleChoosing.css'
 import {Link} from 'react-router-dom'
 
 const options = [
@@ -59,9 +59,13 @@ function SignUpForm3() {
                 </div>
                 <div></div>
             </form>
-            <Link to="/registration/signup4">
-                <NextButtonComponent />
-            </Link>
+            <div className="nav_button_box">
+                <Link to="/registration/signup4">
+                    <div>
+                        <div className="icon_next"></div>
+                    </div>
+                </Link>
+            </div>
         </div>
     )
 }

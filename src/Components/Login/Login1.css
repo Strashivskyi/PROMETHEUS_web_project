@@ -30,7 +30,7 @@ html {
         display: none;
     }
 }
-@media screen and (min-width: 800px) and (max-width: 950px) {
+@media screen and (min-width: 800px) and (max-width: 1000px) {
     .sign-up-text {
         font-size: 30px;
         line-height: 200px;

@@ -7,8 +7,7 @@ import $ from 'jquery'
 import {useState, useEffect} from 'react'
 import app from '../../Firebase/firebase'
 import './SignUpForm2.css'
-import NextButtonComponent from './NextButtonComponent'
-import BackButtonComponent from '../Login/BackButtonComponent'
+import './UserRoleChoosing.css'
 import {Link} from 'react-router-dom'
 
 function SignUpForm2() {
@@ -96,14 +95,18 @@ function SignUpForm2() {
                     />
                 </div>
             </form>
-
-            <Link to="/registration/signup4">
-                <NextButtonComponent />
-            </Link>
-
-            <Link to="/registration/signup2">
-                <BackButtonComponent />
-            </Link>
+            <div className="nav_button_box">
+                <Link to="/registration/signup2">
+                    <div>
+                        <div className="icon_back"></div>
+                    </div>
+                </Link>
+                <Link to="/registration/signup4">
+                    <div>
+                        <div className="icon_next"></div>
+                    </div>
+                </Link>
+            </div>
         </div>
     )
 }

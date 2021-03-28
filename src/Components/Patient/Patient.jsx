@@ -69,7 +69,12 @@ function Patient() {
         <>
             <>
                 <MobileHeader />
-                <Link to="/home-template" className="mobile_home_link_templates">Шаблони</Link>
+                <Link
+                    to="/home-template"
+                    className="mobile_home_link_templates"
+                >
+                    Шаблони
+                </Link>
                 <HeaderHomeTemplate />
             </>
             <div className="info_title">

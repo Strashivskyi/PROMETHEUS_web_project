@@ -16,6 +16,7 @@
     text-align: start;
     border-bottom: silver solid 2px;
     background-color: white;
+    display: none;
 
     /* background-image: url(/src/assets/icon.png);
     background-position: left center; 
@@ -23,6 +24,7 @@
 
     /* padding: 1% 2% 0.5% 4; */
 }
+
 .search::placeholder {
     background: url(/src/assets/icon.png) no-repeat scroll left center;
 

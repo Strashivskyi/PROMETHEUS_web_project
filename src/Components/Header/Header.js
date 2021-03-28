@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './ProgramHeader.css'
 import './Header.css'
+import SignOut from '../../assets/SignOut.svg'
 import Logo from '../../assets/Logo.svg'
 import app from '../../Firebase/firebase'
 import PatientTemplateSwitch from './PatientTemplateSwitch'
@@ -24,7 +25,6 @@ function Header() {
                     >
                         <img
                             src={Logo}
-                            onClick={() => signOut()}
                             width="14.7%"
                             style={{
                                 position: 'relative',
@@ -38,6 +38,18 @@ function Header() {
                             type="text"
                             name="search"
                             placeholder=" ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎ Пошук.."
+                        />
+
+                        <img
+                            src={SignOut}
+                            onClick={() => signOut()}
+                            className="sign_out_button_header"
+                            width="4%"
+                            style={{
+                                cursor: 'pointer',
+                                position: 'relative',
+                                marginLeft: '10%',
+                            }}
                         />
                     </div>
 

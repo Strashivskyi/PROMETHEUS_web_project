@@ -5,7 +5,7 @@ import 'fontsource-dm-sans'
 import './SignUpForm4.css'
 import {withRouter} from 'react-router'
 import app from '../../Firebase/firebase'
-import BackButtonComponent from '../Login/BackButtonComponent'
+import './UserRoleChoosing.css'
 import {Link} from 'react-router-dom'
 import toast, {Toaster} from 'react-hot-toast'
 
@@ -110,9 +110,13 @@ function SignUpForm4({history}) {
                     }}
                 />
             </form>
-            <Link to="/registration/signup3">
-                <BackButtonComponent />
-            </Link>
+            <div className="nav_button_box">
+                <Link to="/registration/signup3">
+                    <div>
+                        <div className="icon_back"></div>
+                    </div>
+                </Link>
+            </div>
         </div>
     )
 }

@@ -74,3 +74,12 @@
 .button-popup {
     text-align: center;
 }
+@media screen and (max-width: 1262px) {
+    .button-popup {
+        display: flex;
+        flex-direction: column;
+    }
+    .button_public {
+        margin-top: 3%;
+    }
+}
