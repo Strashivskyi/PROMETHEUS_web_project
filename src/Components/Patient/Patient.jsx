@@ -32,8 +32,8 @@ function Patient() {
 
     return (
         <div className="container">
+            <MobileHeader className="row" />
             <HeaderHomeTemplate className="row" />
-            <MobileHeader/>
 
             <div className="row">
                 <div className="col-3" />

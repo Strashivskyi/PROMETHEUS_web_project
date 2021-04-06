@@ -8,8 +8,6 @@
 .patient_number {
     color: var(--lightgrey);
     font-size: 20px;
-    margin-bottom: 1em;
-
 }
 .plus_button {
     color: var(--darkgrey);
@@ -18,12 +16,3 @@
     transform: scale(1.1);
     
 }
-@media screen and (min-width: 0px) and (max-width: 768px) {
-    .patient_number {
-        display: none;
-    }
-    .plus_button {
-        display: none;
-    }
-}
-
