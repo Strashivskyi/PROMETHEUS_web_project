@@ -3,16 +3,9 @@
     font-weight: 700;
     text-decoration: none;
     color: var(--darkgrey);
-    cursor: pointer;
 }
 
 .flex_container {
     display: flex;
     flex-direction: row;
-}
-.supervisor_choice_link {
-    text-align: right;
-}
-.therapist_choice_link {
-    text-align: center;
 }
