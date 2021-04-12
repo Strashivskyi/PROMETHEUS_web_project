@@ -64,6 +64,7 @@ function PaginationRounded({history}) {
                 style={{position: 'relative', bottom: '5rem'}}
             >
                 {files
+                    .sort((a, b) => (a > b ? -1 : 1))
                     .slice((page - 1) * filesPerPage, page * filesPerPage)
                     .map((file) => {
                         return (
