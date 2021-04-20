@@ -15,39 +15,17 @@ function PatientItem({patients}) {
                         onClick={() =>
                             localStorage.setItem('child', patient.id)
                         }
-                        className="patient_general_link"
-
                     >
                         <div className="button_container">
-                        <img
-                                src={patient.Image}
-                                width="250"
-                                height="240"
-                                className="patient_image"
-                            />
-                            <img
-                                src={patient.Image}
-                                width="100"
-                                height="100"
-                                className="patient_image_mobile"
-                            />
+                            <img src={patient.Image} width="250" height="240" className="patient_image"/>
                         </div>
                         <div className="patient_name text-align-center">
                             {patient.Name}
                         </div>
                         <div className="button_container">
-                        <Link
-                                to="/patient"
-                                className="button-view-patient"
-                                onClick={() =>
-                                    localStorage.setItem('child', patient.id)
-                                }
-                            >
-                                Переглянути
-                            </Link>
                             <Link
                                 to="/patient"
-                                className="button-view-patient-mobile"
+                                className="button_view"
                                 onClick={() =>
                                     localStorage.setItem('child', patient.id)
                                 }

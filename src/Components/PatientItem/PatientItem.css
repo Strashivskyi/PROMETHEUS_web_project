@@ -6,39 +6,32 @@
 .hover_patient {
     display: inline-block;
     background: #ffffff;
+    margin: 25px;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
     width: 275px;
     height: 370px;
     box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24),
         0px 3px 8px -1px rgba(50, 50, 71, 0.05);
     border-radius: 2px;
-    margin-right: 1vw;
-    margin-left: 1vw;
-    margin-bottom: 2vw;
-}
-.patient_general_link {
-    text-decoration: none;
 }
 .button_container {
     display: flex;
     justify-content: center;
 }
-.button-view-patient {
-    text-decoration: none;
+.button_view {
     background: #48535f;
     padding: 0.5em 4em;
+    height: 40px;
     border-radius: 3px;
     border: none;
     color: white;
+    text-decoration: none;
 }
-.button-view-patient-mobile {
-    display: none;
-}
-
 .patient_image {
     margin-top: 3em;
 }
-.button-view-patient:hover {
-    text-decoration: none;
+.button_view:hover {
     background: #36404b;
     cursor: pointer;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
@@ -47,39 +40,4 @@
     color: #16192c;
     font-family: Inter;
     font-style: normal;
-    margin-bottom: 1em;
-}
-.patient_image_mobile {
-    display: none;
-}
-@media screen and (min-width: 0px) and (max-width: 768px) {
-    .hover_patient {
-        display: flex;
-        flex-direction: row;
-        background: #ffffff;
-        width: 80vw;
-        height: 10em;
-        box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24),
-            0px 3px 8px -1px rgba(50, 50, 71, 0.05);
-        border-radius: 2px;
-        margin-right: 1vw;
-        margin-left: 1vw;
-        margin-bottom: 2vw;
-    }
-    .patient_general_link {
-        display: flex;
-        flex-direction: row;
-    }
-    .patient_image_mobile {
-        display: initial;
-    }
-    .patient_image {
-        display: none;
-    }
-    .button-view-patient {
-        display: none;
-    }
-    .button-view-patient-mobile {
-        display: initial;
-    }
 }
