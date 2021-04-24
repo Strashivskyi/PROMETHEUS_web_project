@@ -9,6 +9,7 @@ import StimulusItem from './ProgramElement/StimulusItem'
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
 import MobileHeader from '../Header/MobileHeader'
 import toast, {Toaster} from 'react-hot-toast'
+import TreeArrowHeader from '../ArrowHeader/TreeArrowHeader'
 
 const theme = {
     ...DefaultTheme,
@@ -119,7 +120,7 @@ export default function ProgramEditable() {
             <>
                 <MobileHeader />
                 <ProgramHeader />
-                <ArrowHeader />
+                <TreeArrowHeader patient={localStorage.getItem("childName")} page={"Програма"}/>
                 <ul style={{position: 'relative', right: '4%'}}>
                     {protocols.map((protocol) => (
                         <div className="program_big_flex_container">
