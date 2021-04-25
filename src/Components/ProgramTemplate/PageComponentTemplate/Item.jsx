@@ -1,34 +1,62 @@
 import Delete from '../../../assets/trash.svg'
 import './Items.css'
 import app from '../../../Firebase/firebase'
+import React, {useEffect, useState} from 'react'
+function TemplateItem({ number, date,history}) {
 
-function TemplateItem({diagnos, age, count, number, idTemplate, history}) {
+
+    const [programTemplates, setProgramTemplates] = useState([])
+
+    useEffect(() => {
+        const db = app.firestore()
+        const unsubscribe = db.collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection("Supervisors")
+        .doc(localStorage.getItem('child'))
+        .collection("History").doc(date).collection("protocols")
+            .onSnapshot((snapshot) => {
+                if (snapshot.size) {
+                    setProgramTemplates(
+                        snapshot.docs.map((doc) => ({
+                            ...doc.data(),
+                            id: doc.id,
+                        }))
+                    )
+
+                    console.log('Сука ')
+                } else {
+                    console.log('Сука1')
+                }
+            })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
     return (
         <>
-            <div id="template" className="template_place">
+            <div id="template" className="template_place" style={{height:"12.5rem"}}>
                 <div className="template_program_name">Програма: {number}</div>
                 <div className="grid_display_diagnosis">
                     <div className="template_date">Дата створення/редагування:</div>
-                    <div className="template_date_value">04.01.2021</div>
+                    <div className="template_date_value">{date}</div>
                 </div>
                 <div className="grid_display_numbers">
-                    {/*<div className="template_age white_back">Вік:</div>*/}
-                    {/*<div className="template_age_value white_back">{age}</div>*/}
+        
                     <div className="template_protocols">
                         Кількість протоколів:
                     </div>
-                    <div className="template_protocols_value">{count}</div>
+                    <div className="template_protocols_value">{programTemplates.length}</div>
                 </div>
                 <div className="template_buttons_container">
                     <img
                         className="template_img"
-                        onClick={() => DeleteTemplate(idTemplate)}
+                        // onClick={() => DeleteTemplate(idTemplate)}
                         src={Delete}
                     ></img>
                     <button
                         className="choose_template_button"
                         onClick={() =>
-                            CreateDuplicateTemplate(idTemplate, history)
+                            GoToHistory(history,date)
                         }
                     >
                         переглянути
@@ -40,44 +68,9 @@ function TemplateItem({diagnos, age, count, number, idTemplate, history}) {
 }
 export default TemplateItem
 
-function CreateDuplicateTemplate(idTemplate, history) {
-    const db = app.firestore()
-
-    console.log(
-        db
-            .collection(localStorage.getItem('proffesion'))
-            .doc(localStorage.getItem('user'))
-            .collection('ProgramTemplates')
-            .doc(idTemplate)
-            .collection('protocols')
-            .onSnapshot((snapshot) => {
-                if (snapshot.size) {
-                    snapshot.docs.map((doc) => {
-                        db.collection(localStorage.getItem('proffesion'))
-                            .doc(localStorage.getItem('user'))
-                            .collection('Patient')
-                            .doc(localStorage.getItem('child'))
-                            .collection('Protocols')
-                            .add(doc.data())
-                        console.log(doc.data())
-                    })
-
-                    console.log('Сука ')
-                } else {
-                    console.log(
-                        'Error in Components/ProgramTemplate/PageComponentTemplate/Item.jsx'
-                    )
-                }
-            })
-    )
+function GoToHistory(history,date) {
+    
     history.push('/history-protocol-list')
+    localStorage.setItem("DateHistory",date)
 }
 
-function DeleteTemplate(idTemplate) {
-    const db = app.firestore()
-    db.collection(localStorage.getItem('proffesion'))
-        .doc(localStorage.getItem('user'))
-        .collection('ProgramTemplates')
-        .doc(idTemplate)
-        .delete()
-}
