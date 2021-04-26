@@ -2,6 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
+import './bootstrap-grid.min.css'
+import './normalize.min.css'
+import './reset.min.css'
 
 ReactDOM.render(
     <React.StrictMode>

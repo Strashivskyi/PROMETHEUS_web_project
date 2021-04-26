@@ -1,47 +1,53 @@
 import SignUpForm1 from './SignUpForm1'
 import SignUpForm2 from './SignUpForm2'
-import UserRoleChoosing from './UserRoleChoosing'
 import SignUpForm4 from './SignUpForm4'
 import PrivateRouteToReg from '../../Firebase/AuthSetup/PrivateRoute/PrivateRouteToReg'
-import MobileHeader from '../Header/MobileHeader'
-import MobileRegistration from './MobileRegistration'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {HashRouter} from 'react-router-dom'
-import './Login1.css'
+import Logo from '../../assets/image 27.svg'
+import './../Authentification/SignIn2.css'
+import './SignUp.css'
 
 function SignUp() {
     return (
         <>
-            <MobileHeader />
-            {/* <MobileRegistration/> */}
-            <div className="image-form-division-sign-up">
-                <div className="image" />
-                <div className="form">
-                    <div className="sign-up-text">Реєстрація</div>
-                    <HashRouter>
-                        <Switch>
-                            <PrivateRouteToReg
-                                exact
-                                path="/registration"
-                                component={UserRoleChoosing}
-                            />
-                            <PrivateRouteToReg
-                                exact
-                                path="/registration/signup2"
-                                component={SignUpForm1}
-                            />
-                            <PrivateRouteToReg
-                                exact
-                                path="/registration/signup3"
-                                component={SignUpForm2}
-                            />
-                            <PrivateRouteToReg
-                                exact
-                                path="/registration/signup4"
-                                component={SignUpForm4}
-                            />
-                        </Switch>
-                    </HashRouter>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <img
+                        src={Logo}
+                        alt="big logo"
+                        class="signup_logo col-8 col-md-5"
+                    />
+                </div>
+                <div className="row  justify-content-center">
+                    <span className="sign-up-text col-12 col-md-8 col-xl-6 text-align-center">
+                        Реєстрація
+                    </span>
+                </div>
+                <div class="row justify-content-center">
+                    <div className="col-12 col-md-8 col-xl-6 row signup-form justify-content-center">
+                        <div className="col-12 row sign-up-cont justify-content-center">
+                            <HashRouter className="col-12 row">
+                                <Switch>
+                                    <PrivateRouteToReg
+                                        exact
+                                        path="/registration"
+                                        component={SignUpForm1}
+                                    />
+                                    <PrivateRouteToReg
+                                        exact
+                                        path="/registration/signup1"
+                                        component={SignUpForm2}
+                                    />
+                                    <PrivateRouteToReg
+                                        exact
+                                        path="/registration/signup2"
+                                        component={SignUpForm4}
+                                    />
+                                </Switch>
+                            </HashRouter>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

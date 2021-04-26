@@ -1,0 +1,25 @@
+.signup-form {
+    background-color: var(--blue);
+    height: 60vh;
+}
+.signup_logo {
+    height: 22vh;
+}
+.sign-up-text {
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-top: 1em;
+    line-height: 2em;
+    background-color: var(--blue);
+}
+
+@media screen and (min-width: 0px) and (max-width: 720px) {
+    .sign-up-text {
+        line-height: 1.8em;
+        font-size: 1.8em;
+        font-weight: 500;
+    }
+    .signup-form {
+        height: 80vh;
+    }
+}

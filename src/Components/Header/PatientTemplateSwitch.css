@@ -1,0 +1,18 @@
+.flex_header {
+    display: flex;
+    flex-direction: row;
+}
+.patients_switcher_links {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 22px;
+}
+
+.some_i_forgot_for_what_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chosen_link {
+    color: var(--lightgrey);
+}

@@ -10,8 +10,6 @@ function signOut() {
     app.auth().signOut()
 }
 function Header() {
-    let someText = `&#8203`
-
     return (
         <>
             <div className="header">
@@ -37,7 +35,7 @@ function Header() {
                             className="search"
                             type="text"
                             name="search"
-                            placeholder=" ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎ Пошук.."
+                            placeholder="Пошук.."
                         />
 
                         <img

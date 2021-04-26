@@ -1,8 +1,14 @@
+@import url('https://rsms.me/inter/inter.css');
+:root {
+    --red: #ef4f59;
+    --darkgrey: #48535f;
+    --lightgrey: #6f6f6f;
+    --black: #222222;
+    --blue: #f8fcff;
+}
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-        'Helvetica Neue', sans-serif;
+    font-family: 'Inter';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

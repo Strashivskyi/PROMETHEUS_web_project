@@ -1,0 +1,22 @@
+.header_bootstrap {
+    height: 5em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.header_bootstrap_logo {
+    height: 4em;
+}
+.header_bootstrap_switcher {
+    height: 5em;
+}
+.header_bootstrap_door {
+    height: 3em;
+}
+.header_line {
+    height: 1px;
+    width: 100%;
+    background-color: black;
+}
+.main_header_content_container {
+    margin-bottom: 0.8em;
+}

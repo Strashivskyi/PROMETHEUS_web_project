@@ -1,8 +1,8 @@
 import './App.css'
 import SignUp from './Components/Login/SignUp'
-import SignIn from './Components/SignIn/SignIn'
+import SignIn from './Components/Authentification/SignIn2'
 import Patient from './Components/Patient/Patient'
-import ForgetPassword from './Components/SignIn/ForgetPassword'
+import ForgotPassword from './Components/Authentification/ForgotPassword'
 import PrivateRouteToReg from './Firebase/AuthSetup/PrivateRoute/PrivateRouteToReg'
 import RenderProgram from './Components/Program/ProgramBranching'
 import {AuthProvider} from './Firebase/AuthSetup/Auth'
@@ -35,7 +35,7 @@ function App() {
                         <Route
                             exact
                             path="/forgetPassword"
-                            component={ForgetPassword}
+                            component={ForgotPassword}
                         />
                         <PrivateRouteToLogin
                             exact

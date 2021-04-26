@@ -6,7 +6,7 @@
     background-color: transparent;
 }
 
-.container {
+.container_file {
     min-height: 50px;
     display: flex;
     flex-direction: column;

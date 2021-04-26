@@ -1,16 +1,18 @@
 import React from 'react'
-import './SignUpForm1.css'
 import LoginNavigation from './Navigation/LoginNavigation'
 import 'fontsource-dm-sans'
-import Upload from '../../assets/Vector.svg'
 import $ from 'jquery'
 import {useState, useEffect} from 'react'
-import app from '../../Firebase/firebase'
-import './SignUpForm2.css'
-import './UserRoleChoosing.css'
 import {Link} from 'react-router-dom'
+import './SignUpForm2.css'
+import {withRouter} from 'react-router'
+import Country from '../../assets/earth_signup.svg'
+import City from '../../assets/city_signup.svg'
+import Caret from '../../assets/CaretRight.svg'
+import CaretLeft from '../../assets/CaretLeft.svg'
 
 function SignUpForm2() {
+    localStorage.setItem('step', 2)
     const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState()
     useEffect(() => {
@@ -40,78 +42,89 @@ function SignUpForm2() {
     const [city, setCity] = useState('')
     localStorage.setItem('City', city)
     console.log(city)
-    localStorage.setItem('step', 3)
     return (
-        <div>
-            <LoginNavigation />
-
-            <form className="form-second-personal-data">
-                <p className="personal_text">Особиста інформація</p>
-
-                <div className="custom_image_input">
-                    <label for="image_input">
-                        <img
-                            src={Upload}
-                            height="25"
-                            style={{
-                                cursor: 'pointer',
-                                marginLeft: '25px',
-                                marginRight: '15px',
-                                marginTop: '9px',
-                                color: '#EEEEEE',
-                            }}
+        <div class="container">
+            <div class="row justify-content-center">
+                <LoginNavigation class="col-6" />
+                <form className="form-itself col-12 row justify-content-center">
+                    <div className="col-12 row justify-content-center">
+                        <label
+                            for="image_input"
+                            className="col-12 row justify-content-center"
+                        >
+                            <div
+                                id="div1"
+                                className="col-4 image_container_simulator"
+                            >
+                                Завантажити фото
+                            </div>
+                        </label>
+                        <input
+                            className="col-12"
+                            type="file"
+                            id="image_input"
+                            onChange={onSelectFile}
                         />
-                        <span className="download_image" id="file-chosen">
-                            Завантажити фото профілю
-                        </span>
-                        <hr />
-                    </label>
-                    <input
-                        type="file"
-                        id="image_input"
-                        onChange={onSelectFile}
-                    />
-                </div>
-                {selectedFile && <img src={preview} className="input_image" />}
-                <div id="div1" className="image_container_simulator">
-                    Фото
-                </div>
-                <div className="input-city">
-                    <input
-                        onChange={(event) => setCountry(event.target.value)}
-                        type="text"
-                        id="fname"
-                        name="firstname"
-                        placeholder="Країна"
-                    />
-                </div>
-                <div className="input-city">
-                    <input
-                        onChange={(event) => setCity(event.target.value)}
-                        type="text"
-                        id="fname"
-                        name="firstname"
-                        placeholder="Місто"
-                    />
-                </div>
-            </form>
-            <div className="nav_button_box">
-                <Link to="/registration/signup2">
-                    <div>
-                        <div className="icon_back"></div>
                     </div>
-                </Link>
-                <Link to="/registration/signup4">
-                    <div>
-                        <div className="icon_next"></div>
+                    {selectedFile && (
+                        <img src={preview} className="col-4 input_image" />
+                    )}
+                    <div className="col-12 row justify-content-center">
+                        <div class="col-10 col-md-7 row input-image">
+                            <img
+                                src={Country}
+                                alt="person image"
+                                className="signin-icons col-3"
+                            />
+                            <input
+                                onChange={(event) =>
+                                    setCountry(event.target.value)
+                                }
+                                type="text"
+                                id="fname"
+                                name="firstname"
+                                placeholder="Країна"
+                                className="transparent-input col-9"
+                            />
+                            <hr className="input_line signin-input-line col-12" />
+                        </div>
+                        <div class="col-10 col-md-7 row input-image">
+                            <img
+                                src={City}
+                                alt="person image"
+                                className="signin-icons col-3"
+                            />
+                            <input
+                                onChange={(event) =>
+                                    setCity(event.target.value)
+                                }
+                                type="text"
+                                id="fname"
+                                name="firstname"
+                                placeholder="Місто"
+                                className="transparent-input col-9"
+                            />
+                            <hr className="input_line signin-input-line col-12" />
+                        </div>
                     </div>
-                </Link>
+                </form>
+                <div className="easy_nav_box_2 col-12 row">
+                    <Link to="/registration/" className="col-3 easy_nav">
+                        <img
+                            src={CaretLeft}
+                            alt="tick image"
+                            className="col-3"
+                        />
+                        Назад
+                    </Link>
+                    <div className="col-6" />
+                    <Link to="/registration/signup2" className="col-3 easy_nav">
+                        Далі
+                        <img src={Caret} alt="tick image" className="col-3" />
+                    </Link>
+                </div>
             </div>
         </div>
     )
 }
-export default SignUpForm2
-// function addSecondInputRegistr(photo, country, city) {
-//     const db = app.firestore();
-//     db.collection("User").doc(localStorage.getItem("user")).set({Photo: photo, Country: country, City: city})
-// }
+export default withRouter(SignUpForm2)

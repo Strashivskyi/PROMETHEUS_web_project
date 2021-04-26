@@ -1,5 +1,7 @@
 import React from 'react'
 import './ProgramHeader.css'
+import './MobileHeader.css'
+
 import Logo from '../../assets/Logo.svg'
 import SignOut from '../../assets/SignOut.svg'
 
@@ -11,7 +13,7 @@ function signOut() {
 
 function MobileHeader() {
     return (
-        <div className="logo_container">
+        <div className="logo_new_container">
             <img
                 src={SignOut}
                 onClick={() => signOut()}

@@ -4,16 +4,10 @@ import React from 'react'
 import HeaderHomeTemplate from '../Header/HeaderHomeTemplate'
 import './Patients.css'
 import MobileHeader from '../Header/MobileHeader'
+import SupervisorTherapistNav from './SupervisorTherapistNav'
 import {Link} from 'react-router-dom'
-import Kid from '../../assets/default_avatar.png'
 import {useEffect, useState} from 'react'
 import {BsPlusCircle} from 'react-icons/bs'
-import Logo from '../../assets/Logo.svg'
-import {GoPrimitiveDot} from 'react-icons/go'
-function signOut() {
-    localStorage.setItem('user', 'none')
-    app.auth().signOut()
-}
 function Patient() {
     let [patients, setPatients] = useState([])
     let [user, setUser] = useState([])
@@ -51,7 +45,7 @@ function Patient() {
                             })
                     )
                 } else {
-                    console.log('Сука1')
+                    console.log('HappyEaster')
                 }
             })
         return () => {
@@ -66,59 +60,28 @@ function Patient() {
     )
 
     return (
-        <>
-            <>
-                <MobileHeader />
-                <Link
-                    to="/home-template"
-                    className="mobile_home_link_templates"
-                >
-                    Шаблони
-                </Link>
-                <HeaderHomeTemplate />
-            </>
-            <div className="info_title">
-                <div className="inter_fing">
-                    <div
-                        style={{
-                            marginLeft: '105px',
-                            marginTop: '45px',
-                            fontSize: '25px',
-                            color: '#6F6F6F',
-                            fontWeight: '700',
-                        }}
-                    >
-                        Пацієнти
-                    </div>
-                    <div
-                        style={{
-                            marginLeft: '105px',
-                            marginTop: '40px',
-                            marginBottom: '20px',
+        <div className="container">
+            <MobileHeader className="row" />
+            <HeaderHomeTemplate className="row" />
 
-                            fontSize: '20px',
-                            color: '#48535f',
-                        }}
-                    >
-                        Кількість: {patients.length}
-                    </div>
+            <div className="row">
+                <div className="col-3" />
+                <SupervisorTherapistNav className="col-4 col-md-6 row" />
+                <div className="col-1 col-md-2" />
+                <Link
+                    to="/patient_registration"
+                    className="col-2 col-md-1 place_right_horizontal"
+                >
+                    <BranchingItem />
+                </Link>
+            </div>
+            <div className="row">
+                <div className="col-6 patient_number">
+                    Кількість пацієнтів: {patients.length}
                 </div>
             </div>
-
-            <Link
-                to="/patient_registration"
-                style={{
-                    position: 'absolute',
-                    top: '11.5rem',
-                    right: '10rem',
-                    color: 'grey',
-                }}
-                className="add_patient_button"
-            >
-                <BranchingItem />
-            </Link>
             <PatientItem patients={patients} />
-        </>
+        </div>
     )
 }
 
@@ -127,7 +90,7 @@ function BranchingItem() {
     if (localStorage.getItem('proffesion') == 'Supervisors') {
         return (
             <>
-                <BsPlusCircle size={50} />
+                <BsPlusCircle size={50} className="plus_button" />
             </>
         )
     }

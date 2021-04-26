@@ -1,0 +1,25 @@
+.number-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1.5em;
+}
+.number-button {
+    background-color: #48535f;
+    border: 2px solid #48535f;
+    height: 2.2em;
+    width: 2.2em;
+    font-size: 1.3em;
+    color: #ffffff;
+    font-weight: 400;
+    border-radius: 50%;
+}
+.number-button:hover {
+    background-color: #ffffff;
+    color: #48535f;
+    cursor: pointer;
+}
+.number-button:focus {
+    background-color: #ffffff;
+    color: #48535f;
+}

@@ -1,48 +1,40 @@
-import React, {useEffect, useState} from 'react'
-import {Item, Name, ButtonItem, Amount, Patient} from './PatientItem.styled'
+import React from 'react'
 import {Link} from 'react-router-dom'
-import Kid from '../../assets/default_avatar.png'
 import '../PatientInfo/PatientInfoPage.css'
 import './PatientItem.css'
+import './../Authentification/SignIn2.css'
+
 function PatientItem({patients}) {
     console.log(patients)
     return (
-        <div className="all_inter">
+        <div>
             {patients.map((patient) => (
-                <Item className="hover_patient" style={{height: '26rem'}}>
+                <div className="hover_patient">
                     <Link
                         to="/patient"
                         onClick={() =>
                             localStorage.setItem('child', patient.id)
                         }
                     >
-                        <img
-                            src={patient.Image}
-                            width="250"
-                            height="240"
-                            style={{marginLeft: '0.8rem', marginTop: '0.9rem'}}
-                        />
+                        <div className="button_container">
+                            <img src={patient.Image} width="250" height="240" className="patient_image"/>
+                        </div>
+                        <div className="patient_name text-align-center">
+                            {patient.Name}
+                        </div>
+                        <div className="button_container">
+                            <Link
+                                to="/patient"
+                                className="button_view"
+                                onClick={() =>
+                                    localStorage.setItem('child', patient.id)
+                                }
+                            >
+                                Переглянути
+                            </Link>
+                        </div>
                     </Link>
-                    <Name
-                        style={{
-                            marginLeft: '-3.8rem',
-                            textAlign: 'center',
-                            height: '4rem',
-                        }}
-                    >
-                        {patient.Name}
-                    </Name>
-
-                    <Link
-                        to="/patient"
-                        className="viewmore_patient button_item"
-                        onClick={() =>
-                            localStorage.setItem('child', patient.id)
-                        }
-                    >
-                        Переглянути
-                    </Link>
-                </Item>
+                </div>
             ))}
         </div>
     )

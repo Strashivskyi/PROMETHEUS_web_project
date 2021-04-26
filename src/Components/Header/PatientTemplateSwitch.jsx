@@ -1,39 +1,30 @@
 import {Link} from 'react-router-dom'
-import {GoPrimitiveDot} from 'react-icons/go'
+import './PatientTemplateSwitch.css'
+import './../Authentification/SignIn2.css'
+import './../Authentification/SignIn2.css'
+
 function PatientTemplateSwitch(params) {
     if (localStorage.getItem('homeType') == 'home') {
         return (
             <>
-                <div
-                    style={{
-                        width: '35%',
-                        height: '5%',
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignSelf: 'center',
-                        justifyContent: 'center',
-                        fontSize: '80%',
-                    }}
-                >
-                    <Link to="/home" style={{color: '#6F6F6F'}}>
-                        <h1>Пацієнти</h1>
-                    </Link>
-                    <div
-                        style={{
-                            alignSelf: 'center',
-                            margin: '1.5% 1% 0 1%',
-                        }}
+                <div className="col-6 row some_i_forgot_for_what_container justify-content-center">
+                    <Link
+                        to="/home"
+                        className="col-5 patients_switcher_links text-align-right chosen_link"
                     >
-                        <GoPrimitiveDot />
+                        Пацієнти
+                    </Link>
+                    <div className="col-1 text-align-center text-align-center ">
+                        -
                     </div>
                     <Link
+                        className="col-5 patients_switcher_links text-align-left"
                         to="/home-template"
                         onClick={() =>
                             localStorage.setItem('templateType', 'private')
                         }
-                        style={{color: 'black'}}
                     >
-                        <h1>Шаблони</h1>
+                        Шаблони
                     </Link>
                 </div>
             </>
@@ -42,35 +33,22 @@ function PatientTemplateSwitch(params) {
     if (localStorage.getItem('homeType') != 'home') {
         return (
             <>
-                <div
-                    style={{
-                        width: '30%',
-                        height: '5%',
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'center',
-                        fontSize: '80%',
-                    }}
-                >
-                    <Link to="/home" style={{color: 'black'}}>
-                        <h1>Пацієнти</h1>
-                    </Link>
-                    <div
-                        style={{
-                            alignSelf: 'center',
-                            margin: '1.5% 1% 0 1%',
-                        }}
+                <div className="col-6 row some_i_forgot_for_what_container justify-content-center">
+                    <Link
+                        to="/home"
+                        className="col-5 patients_switcher_links text-align-right"
                     >
-                        <GoPrimitiveDot />
-                    </div>
+                        Пацієнти
+                    </Link>
+                    <div className="col-1 text-align-center">-</div>
                     <Link
                         to="/home-template"
                         onClick={() =>
                             localStorage.setItem('templateType', 'private')
                         }
-                        style={{color: '#6F6F6F'}}
+                        className="col-5 patients_switcher_links text-align-left chosen_link"
                     >
-                        <h1>Шаблони</h1>
+                        Шаблони
                     </Link>
                 </div>
             </>

@@ -55,7 +55,7 @@ function TherapyResult({history}) {
                     </Link>
                 </h2>
             </div>
-            <div className="container">
+            <div className="container_file">
                 <p class="choose-file-title">
                     Натисніть на файл, щоб завантажити його
                 </p>

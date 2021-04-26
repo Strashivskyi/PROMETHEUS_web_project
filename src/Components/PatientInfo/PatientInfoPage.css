@@ -189,9 +189,6 @@
     color: white;
     text-decoration: none;
 }
-.logo_container {
-    display: none;
-}
 
 .child_image {
     display: initial;
@@ -275,11 +272,6 @@
 
     .child_image {
         display: none;
-    }
-    .logo_container {
-        display: initial;
-        min-height: 20vh;
-        max-height: 20vh;
     }
 
     .grey_back {

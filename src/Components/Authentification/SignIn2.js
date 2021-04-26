@@ -1,12 +1,14 @@
 import React, {useCallback, useContext} from 'react'
 import {withRouter, Redirect} from 'react-router'
 import app from '../../Firebase/firebase'
-import '../Login/Login1.css'
-import './SignIn.css'
+import './SignIn2.css'
 import {AuthContext} from '../../Firebase/AuthSetup/Auth'
 import {Link} from 'react-router-dom'
 import MobileHeader from '../Header/MobileHeader'
 import toast, {Toaster} from 'react-hot-toast'
+import Logo from '../../assets/image 27.svg'
+import Email from '../../assets/email_signup.svg'
+import Password from '../../assets/password_signup.svg'
 
 function SignIn({history}) {
     const {currentUser} = useContext(AuthContext)
@@ -31,24 +33,6 @@ function SignIn({history}) {
                         console.log('Немає професії')
                     }
                 })
-            // .collection('Patient')
-            // .doc(localStorage.getItem('child'))
-            // .collection('Protocols')
-            // .doc(localStorage.getItem('program'))
-            // .collection('Stimulus')
-            // .onSnapshot((snapshot) => {
-            //     if (snapshot.size) {
-            //         setStimulus(
-            //             snapshot.docs.map((doc) => ({
-            //                 ...doc.data(),
-            //                 id: doc.id,
-            //             }))
-            //         )
-            //         console.log('Сука ')
-            //     } else {
-            //         console.log('Сука1')
-            //     }
-            // })
 
             try {
                 await app
@@ -90,52 +74,73 @@ function SignIn({history}) {
         localStorage.setItem('user', currentUser.email)
         return <Redirect to="/home" />
     }
-
     return (
         <>
             <MobileHeader />
-            <div className="light_blue_back">
-                <div className="image-form-division">
-                    <div className="image" />
-                    <div className="form">
-                        <div className="sign-in-text"> Увійти на сайт</div>
-                        <form className="login_form" onSubmit={handleLogin}>
-                            <div className="mobile_signin_label">Email</div>
-                            <div className="login_text_input">
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 signin-image-container">
+                        <img
+                            src={Logo}
+                            alt="big logo"
+                            class="authentification_logo"
+                        />
+                    </div>
+
+                    <div class="col-12 col-sm-9 col-lg-6 signin-content-container row justify-content-center">
+                        <div class="col-12 text-align-center enter-site">
+                            {' '}
+                            Увійти на сайт
+                        </div>
+                        <form
+                            class="col-9 col-sm-8 col-lg-7 row justify-content-center signin_form"
+                            onSubmit={handleLogin}
+                        >
+                            <div class="col-12 row input-image">
+                                <img
+                                    src={Email}
+                                    alt="envelope image"
+                                    className="signin-icons col-4 col-lg-3"
+                                />
                                 <input
                                     type="text"
                                     id="fname"
                                     name="email"
                                     placeholder="Email"
+                                    className="transparent-input col-8 col-lg-9"
                                 />
+                                <hr className="input_line col-12" />
                             </div>
-                            <div className="mobile_signin_label">Пароль</div>
-                            <div className="login_text_input_second">
+                            <div class="col-12 row input-image">
+                                <img
+                                    src={Password}
+                                    alt="envelope image"
+                                    className="signin-icons  col-4 col-lg-3"
+                                />
                                 <input
                                     type="password"
                                     id="lname"
                                     name="password"
                                     placeholder="Пароль"
+                                    className="transparent-input col-8 col-lg-9"
                                 />
+                                <hr className="input_line signin-input-line col-12" />
                             </div>
                             <input
-                                class="slide-hover-left-3"
+                                class="signin-input signin-position-input col-11"
                                 type="submit"
                                 value="Увійти"
                             />
                         </form>
-                        <div className="still_no_acc">
-                            <span className="still_no_acc_text">
-                                Досі немає акаунту? &nbsp;&nbsp;&nbsp;
-                            </span>{' '}
+                        <div className="element-align-center still_no_acc">
+                            <span>Досі немає акаунту? &nbsp;&nbsp;&nbsp;</span>{' '}
                             <Link className="login_link_reg" to="/registration">
                                 Зареєструватись
                             </Link>
                         </div>
-                        <div className="forgot_password">
-                            <span className="forgot_password_text">
-                                Забули пароль? &nbsp;&nbsp;&nbsp;
-                            </span>{' '}
+                        <div className="element-align-center forgot_password">
+                            <span>Забули пароль? &nbsp;&nbsp;&nbsp;</span>{' '}
                             <Link
                                 className="login_link_reg"
                                 to="/forgetPassword"

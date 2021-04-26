@@ -1,35 +1,18 @@
-@import url('https://rsms.me/inter/inter.css');
-
-html {
-    font-family: 'Inter', sans-serif;
-}
-
-.add_patient_button:hover {
-    transform: scale(1.3);
-    transition: 0.2s;
-}
 .mobile_home_link_templates {
     display: none;
 }
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-    .add_patient_button {
-        position: relative;
-        margin-top: -20px;
-        margin-right: -110px;
-    }
+.place_right_horizontal {
+    display: flex;
+    justify-content: right;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
-    .mobile_home_link_templates {
-        display: initial;
-        font-size: 4vw;
-    }
+.patient_number {
+    color: var(--lightgrey);
+    font-size: 20px;
 }
-
-@media only screen and (min-device-width: 415px) {
-    .add_patient_button {
-        position: relative;
-        margin-top: -20px;
-        margin-right: -20px;
-    }
+.plus_button {
+    color: var(--darkgrey);
+}
+.plus_button:hover {
+    transform: scale(1.1);
+    
 }

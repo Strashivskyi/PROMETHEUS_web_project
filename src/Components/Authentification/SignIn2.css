@@ -1,0 +1,127 @@
+@import url('https://rsms.me/inter/inter.css');
+body {
+    overflow-x: hidden;
+}
+.input-image {
+    height: 4em;
+}
+.authentification_logo {
+    width: 100%;
+}
+
+.signin-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signin-content-container {
+    background: #f8fcff;
+    height: 90vh;
+    position: relative;
+    top: 5vh;
+}
+.text-align-center {
+    text-align: center;
+}
+.text-align-right {
+    text-align: right;
+}
+.text-align-left {
+    text-align: left;
+}
+.enter-site {
+    font-size: 2em;
+    color: var(--black);
+    line-height: 5em;
+}
+.signinspace {
+    height: 5vh;
+}
+
+.signin-icons {
+    width: 3em !important;
+    height: 3em !important;
+}
+
+.transparent-input {
+    border: none;
+    background-color: transparent;
+    font-size: 1.1em;
+}
+.input_line {
+    color: var(--black);
+    position: relative;
+    bottom: 1em;
+}
+
+input:focus {
+    outline: none;
+}
+input.signin-input {
+    height: 2em;
+    font-family: 'Inter', cursive;
+    border: 1px solid #48535f;
+    border-radius: 4px;
+    color: #48535f;
+    font-size: 1.5em;
+    font-weight: 400;
+    background: transparent;
+    cursor: pointer;
+    background-image: linear-gradient(0, #48535f, #48535f);
+    background-size: 0;
+    transition: 0.8s;
+    background-repeat: no-repeat;
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+input.signin-position-input {
+    margin-top: 4em;
+}
+
+input.signin-input:hover {
+    background-size: 100%;
+    color: #fff;
+}
+.still_no_acc {
+    padding-top: 70px;
+    padding-bottom: 10px;
+    color: var(--lightgrey);
+    font-weight: 300;
+    display: flex;
+    font-family: 'Inter';
+    font-size: 20px;
+}
+
+.login_link_reg {
+    flex-direction: column;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--lightgrey);
+}
+.login_link_reg:hover {
+    color: var(--darkgrey);
+}
+.forgot_password {
+    display: flex;
+    color: var(--lightgrey);
+    font-weight: 300;
+    font-family: 'Inter';
+    font-size: 20px;
+}
+.element-align-center {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 0px) and (max-width: 992px) {
+    .signin-image-container {
+        display: none;
+    }
+}
+@media screen and (min-width: 0px) and (max-width: 576px) {
+    body {
+        font-size: 3vw;
+    }
+    input.signin-input {
+        margin-top: 2em;
+    }
+}
