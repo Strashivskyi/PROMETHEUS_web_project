@@ -17,44 +17,13 @@ function SignIn({history}) {
             event.preventDefault()
             const {email, password} = event.target.elements
 
-            const db = app.firestore()
-            await db
-                .collection('Users')
-                .where('Email', '==', email.value)
-                .onSnapshot((snapshot) => {
-                    if (snapshot.size) {
-                        snapshot.docs.map((doc) => {
-                            localStorage.setItem(
-                                'proffesion',
-                                doc.data().Profession
-                            )
-                        })
-                    } else {
-                        console.log('Немає професії')
-                    }
-                })
-
+            
             try {
                 await app
                     .auth()
                     .signInWithEmailAndPassword(email.value, password.value)
                 if (currentUser.emailVerified == true) {
-                    await db
-                        .collection('Users')
-                        .where('Email', '==', email.value)
-                        .onSnapshot((snapshot) => {
-                            if (snapshot.size) {
-                                snapshot.docs.map((doc) => {
-                                    localStorage.setItem(
-                                        'proffesion',
-                                        doc.data().Profession
-                                    )
-                                })
-                            } else {
-                                console.log('Немає професії')
-                            }
-                        })
-
+                    localStorage.setItem('proffesion',"Supervisors")
                     localStorage.setItem('user', currentUser.email)
                     history.push('/home')
                 } else {
@@ -71,6 +40,7 @@ function SignIn({history}) {
         [history]
     )
     if (currentUser && currentUser.emailVerified == true) {
+        localStorage.setItem('proffesion',"Supervisors")
         localStorage.setItem('user', currentUser.email)
         return <Redirect to="/home" />
     }

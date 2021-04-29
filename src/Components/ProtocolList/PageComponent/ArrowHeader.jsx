@@ -10,9 +10,9 @@ function ArrowHeader() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection(localStorage.getItem('proffesion'))
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
+        .collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .onSnapshot((snapshot) => {
@@ -80,9 +80,9 @@ function ArrowHeader() {
 function addProto(length) {
     const db = app.firestore()
 
-    db.collection(localStorage.getItem('proffesion'))
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
+    db .collection("Users")
+    .doc(localStorage.getItem('user'))
+    .collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .add({

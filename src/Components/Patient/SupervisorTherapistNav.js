@@ -6,18 +6,20 @@ export default function SupervisorTherapistNav() {
     return (
         <>
             <div className="col-6 row justify-content-between">
-                <Link
-                    to="/"
+                <span
+                         onClick={()=>(localStorage.setItem("proffesion","Supervisors"),window.location.reload())}
+                  
                     className="role_choice_link supervisor_choice_link col-4 text-align-right"
                 >
                     Супервізор
-                </Link>
-                <Link
-                    to="/"
+                </span>
+                <span
+                 
+                 onClick={()=>(localStorage.setItem("proffesion","Therapists"),window.location.reload())}
                     className="role_choice_link col-4 text-align-center"
                 >
                     Терапіст
-                </Link>
+                </span>
             </div>
         </>
     )

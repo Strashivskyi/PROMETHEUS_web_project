@@ -220,9 +220,9 @@ function RegistrationPatient({history}) {
             toast.error('Заповніть всі поля!')
         } else {
             const res = await db
-                .collection(localStorage.getItem('proffesion'))
-                .doc(localStorage.getItem('user'))
-                .collection('Patient')
+            .collection("Users")
+            .doc(localStorage.getItem('user'))
+            .collection(localStorage.getItem('proffesion'))
                 .add({
                     Name: name,
                     Diagnos: diagnose,

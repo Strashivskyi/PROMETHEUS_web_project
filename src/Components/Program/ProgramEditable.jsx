@@ -24,9 +24,9 @@ const theme = {
 function RemoveCopiedStatus({protocol}) {
     if (protocol.StatusCopied != null) {
         const db = app.firestore()
-        db.collection('Supervisors')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
+        db.collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection('Supervisors')
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .doc(localStorage.getItem('program'))
@@ -47,9 +47,9 @@ export default function ProgramEditable() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('Supervisors')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
+        .collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection('Supervisors')
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .doc(localStorage.getItem('program'))
@@ -77,9 +77,9 @@ export default function ProgramEditable() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('Supervisors')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
+        .collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection('Supervisors')
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .onSnapshot((snapshot) => {
@@ -674,44 +674,26 @@ export default function ProgramEditable() {
 //  -------
 
 function addInstruction1(instructionInput) {
-    const db = app.firestore()
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({Instructions1: instructionInput})
+    localStorage.setItem("Instructions1", instructionInput)
 }
 
 function addInstruction2(instructionInput) {
-    const db = app.firestore()
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({Instructions2: instructionInput})
+    localStorage.setItem("Instructions2", instructionInput)
+
+    
 }
 
 function addInstruction3(instructionInput) {
-    const db = app.firestore()
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({Instructions3: instructionInput})
+    localStorage.setItem("Instructions3", instructionInput)
+    
 }
 
 function addStimul(stimulInput) {
     const db = app.firestore()
     if (stimulInput != '') {
-        db.collection('Supervisors')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
+        db.collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection('Supervisors')
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .doc(localStorage.getItem('program'))
@@ -721,163 +703,56 @@ function addStimul(stimulInput) {
         toast.error('Неможливо надіслати пустий стимул')
     }
 }
-function addSkill(params) {
-    const db = app.firestore()
 
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({Skill: params})
-    console.log(params)
+function addSkill(params) {
+    localStorage.setItem("Skill", params)
+
 }
 
 function addMethod(params) {
-    const db = app.firestore()
-
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({Method: params})
-    console.log(params)
+    localStorage.setItem("Method", params)
 }
-function addDesirableReaction(params) {
-    const db = app.firestore()
 
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({DesirableReaction: params})
-    console.log(params)
+
+function addDesirableReaction(params) {
+    localStorage.setItem("DesirableReaction", params)
+
 }
 
 function addReductionСriterion(params) {
-    const db = app.firestore()
-
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({ReductionСriterion: params})
-    console.log(params)
+    localStorage.setItem("ReductionСriterion", params)
+ 
 }
 
 function addCriterionIncrease(params) {
-    const db = app.firestore()
-
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({CriterionIncrease: params})
-    console.log(params)
+    localStorage.setItem("CriterionIncrease", params)
+    
 }
+
 
 function setStepDescription(params) {
-    const db = app.firestore()
-
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({StepDescription: params})
-    console.log(params)
+    localStorage.setItem("StepDescription", params)
+   
 }
-function setCorrectionProcedureStep3(params) {
-    const db = app.firestore()
 
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({CorrectionProcedureStep3: params})
-    console.log(params)
-}
-function setCorrectionProcedureStep2(params) {
-    const db = app.firestore()
-
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({CorrectionProcedureStep2: params})
-    console.log(params)
-}
 function setCorrectionProcedureStep1(params) {
-    const db = app.firestore()
-
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({CorrectionProcedureStep1: params})
-    console.log(params)
+    localStorage.setItem("CorrectionProcedureStep1", params)
+    
 }
 
 function addSphereOfDevelopment(sphereOfDevelopment) {
-    const db = app.firestore()
-
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({SphereOfDevelopment: sphereOfDevelopment})
-    console.log(sphereOfDevelopment)
+    localStorage.setItem("SphereOfDevelopment", sphereOfDevelopment)
+  
 }
 
 function addInterval(interval) {
-    const db = app.firestore()
-
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({Interval: interval})
+    localStorage.setItem("Interval", interval)
+   
 }
 
 function addMethodTakingHint(method) {
-    const db = app.firestore()
-
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({MethodTakingHint: method})
+    localStorage.setItem("MethodTakingHint", method)
 }
 function addCriteriongenGenerSkill(generSkill) {
-    const db = app.firestore()
-
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
-        .doc(localStorage.getItem('child'))
-        .collection('Protocols')
-        .doc(localStorage.getItem('program'))
-        .update({CriteriongenGenerSkill: generSkill})
+    localStorage.setItem("CriteriongenGenerSkill",generSkill)
 }

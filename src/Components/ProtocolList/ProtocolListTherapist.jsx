@@ -14,9 +14,9 @@ export default function ProtocolList() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection(localStorage.getItem('proffesion'))
+            .collection("Users")
             .doc(localStorage.getItem('user'))
-            .collection('Patient')
+            .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .onSnapshot((snapshot) => {
@@ -44,31 +44,31 @@ export default function ProtocolList() {
 
     localStorage.setItem('protoID', JSON.stringify(test))
 
-    const [child, setChild] = useState([0])
-    useEffect(() => {
-        const db = app.firestore()
-        const unsubscribe = db
-            .collection(localStorage.getItem('proffesion'))
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
-            .where('Name', '==', localStorage.getItem('childName'))
-            .onSnapshot((snapshot) => {
-                if (snapshot.size) {
-                    setChild(
-                        snapshot.docs.map((doc) => ({
-                            ...doc.data(),
-                            id: doc.id,
-                        }))
-                    )
-                    console.log('Сука')
-                } else {
-                    console.log('Сука1')
-                }
-            })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    // const [child, setChild] = useState([0])
+    // useEffect(() => {
+    //     const db = app.firestore()
+    //     const unsubscribe = db
+    //         .collection(localStorage.getItem('proffesion'))
+    //         .doc(localStorage.getItem('user'))
+    //         .collection('Patient')
+    //         .where('Name', '==', localStorage.getItem('childName'))
+    //         .onSnapshot((snapshot) => {
+    //             if (snapshot.size) {
+    //                 setChild(
+    //                     snapshot.docs.map((doc) => ({
+    //                         ...doc.data(),
+    //                         id: doc.id,
+    //                     }))
+    //                 )
+    //                 console.log('Сука')
+    //             } else {
+    //                 console.log('Сука1')
+    //             }
+    //         })
+    //     return () => {
+    //         unsubscribe()
+    //     }
+    // }, [])
     let protocolsNumber = []
     for (let i = 0; i < protocols.length; i++) {
         protocolsNumber.push(i + 1)

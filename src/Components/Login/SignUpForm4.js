@@ -37,7 +37,7 @@ function SignUpForm4({history}) {
                     await app.auth().currentUser.sendEmailVerification()
 
                     addInputRegistr()
-                    history.push('/')
+                    // history.push('/')
                 } else {
                     toast.error('Будь ласка, перевірте ваш пароль')
                 }
@@ -59,7 +59,7 @@ function SignUpForm4({history}) {
         <div class="container">
             <div class="row justify-content-center">
                 <LoginNavigation class="col-6" />
-                <form className="form-itself col-12 row justify-content-center">
+                <form className="form-itself col-12 row justify-content-center"  onSubmit={handleSignUp}>
                     <div className="col-12 row justify-content-center">
                         <div class="col-10 col-md-7 row input-image">
                             <img
@@ -169,7 +169,7 @@ function SignUpForm4({history}) {
 export default withRouter(SignUpForm4)
 function addInputRegistr() {
     const db = app.firestore()
-    db.collection(localStorage.getItem('proffesion'))
+    db.collection("Users")
         .doc(localStorage.getItem('userEmail'))
         .set({
             Name: localStorage.getItem('Name'),
@@ -181,11 +181,5 @@ function addInputRegistr() {
             Profession: localStorage.getItem('proffesion'),
             PhoneNumber: localStorage.getItem('PhoneNumber'),
             TelegramUserID: '',
-        })
-    db.collection('Users')
-        .doc()
-        .set({
-            Email: localStorage.getItem('userEmail'),
-            Profession: localStorage.getItem('proffesion'),
         })
 }

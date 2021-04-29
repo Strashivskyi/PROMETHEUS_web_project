@@ -174,9 +174,9 @@ function CreateDuplicateProtocol(
     localStorage.setItem('program', protocolId)
     const db = app.firestore()
 
-    db.collection(localStorage.getItem('proffesion'))
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
+    db .collection("Users")
+    .doc(localStorage.getItem('user'))
+    .collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .add({
@@ -201,22 +201,16 @@ function CreateDuplicateProtocol(
             Instructions3: instruction3,
         })
         .then(function (docRef) {
-            db.collection(localStorage.getItem('proffesion'))
-                .doc(localStorage.getItem('user'))
-                .collection('Patient')
+            db .collection("Users")
+            .doc(localStorage.getItem('user'))
+            .collection(localStorage.getItem('proffesion'))
                 .doc(localStorage.getItem('child'))
                 .collection('Protocols')
                 .doc(docRef.id)
                 .collection('CriteriongenGenerSkill')
                 .add({Text: ''})
-            db.collection('User')
-                .doc(localStorage.getItem('user'))
-                .collection('Patient')
-                .doc(localStorage.getItem('child'))
-                .collection('Protocols')
-                .doc(docRef.id)
-                .collection('Stimulus')
-                .add({Name: ''})
+
+           
             console.log('Document written with ID: ', docRef.id)
         })
         .catch(function (error) {
@@ -227,9 +221,9 @@ function CreateDuplicateProtocol(
 }
 function DeleteProtocol(protocolId, protocols) {
     const db = app.firestore()
-    db.collection(localStorage.getItem('proffesion'))
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
+    db.collection("Users")
+    .doc(localStorage.getItem('user'))
+    .collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .doc(protocolId)
@@ -251,9 +245,9 @@ function DeleteProtocol(protocolId, protocols) {
         )}/${localStorage.getItem('child')}`
     ).then((data) => {})
     JSON.parse(localStorage.getItem('therapistID')).map((terapist) => {
-        db.collection('Therapists')
-            .doc(terapist)
-            .collection('Patient')
+        db.collection("Users")
+        .doc(terapist)
+        .collection('Therapists')
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .doc(protocolId)
@@ -264,9 +258,9 @@ function DeleteProtocol(protocolId, protocols) {
 function UpdateActiveStatus(protocolId, valueStatus) {
     const db = app.firestore()
 
-    db.collection(localStorage.getItem('proffesion'))
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
+    db.collection("Users")
+    .doc(localStorage.getItem('user'))
+    .collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .doc(protocolId)

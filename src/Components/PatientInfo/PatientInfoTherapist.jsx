@@ -13,9 +13,9 @@ export default function PatientInfoTherapist() {
         const fetchData = async () => {
             const db = app.firestore()
             const data = await db
-                .collection('Therapists')
-                .doc(localStorage.getItem('user'))
-                .collection('Patient')
+            .collection("Users")
+            .doc(localStorage.getItem('user'))
+            .collection("Therapists")
                 .get()
             setPatients(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
         }

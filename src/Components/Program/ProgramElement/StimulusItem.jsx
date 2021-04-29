@@ -27,9 +27,9 @@ function StimulusItem({name, stimulId}) {
 export default StimulusItem
 function DeleteStimul(stimulId) {
     const db = app.firestore()
-    db.collection(localStorage.getItem('proffesion'))
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
+    db.collection("Users")
+    .doc(localStorage.getItem('user'))
+    .collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .doc(localStorage.getItem('program'))

@@ -22,7 +22,10 @@ const theme = {
 function RemoveCopiedStatus({protocol}) {
     if (protocol.StatusCopied != null) {
         const db = app.firestore()
-        db.collection(localStorage.getItem('proffesion'))
+        db
+        .collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('user'))
             .collection('Patient')
             .doc(localStorage.getItem('child'))
@@ -42,9 +45,9 @@ export default function ProgramOnlyView() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection(localStorage.getItem('proffesion'))
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
+        .collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .doc(localStorage.getItem('program'))
@@ -72,9 +75,9 @@ export default function ProgramOnlyView() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection(localStorage.getItem('proffesion'))
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
+        .collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .onSnapshot((snapshot) => {

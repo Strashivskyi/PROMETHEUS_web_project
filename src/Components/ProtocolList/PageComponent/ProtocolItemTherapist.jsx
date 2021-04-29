@@ -89,9 +89,9 @@ function CheckIsActive({isActive, protocolId}) {
 function UpdateActiveStatus(protocolId, valueStatus) {
     const db = app.firestore()
 
-    db.collection(localStorage.getItem('proffesion'))
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
+    db.collection("Users")
+    .doc(localStorage.getItem('user'))
+    .collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .doc(protocolId)

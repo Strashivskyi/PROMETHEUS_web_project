@@ -21,9 +21,9 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('Supervisors')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
+        .collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection('Supervisors')
             .doc(localStorage.getItem('child'))
             .collection('Therapists')
             .onSnapshot((snapshot) => {
@@ -53,15 +53,15 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('Supervisors')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
+        .collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection('Supervisors')
             .doc(localStorage.getItem('child'))
             .collection('Therapists')
             .onSnapshot((snapshot) => {
-                db.collection('Supervisors')
-                    .doc(localStorage.getItem('user'))
-                    .collection('Patient')
+                 db.collection("Users")
+            .doc(localStorage.getItem('user'))
+            .collection('Supervisors')
                     .doc(localStorage.getItem('child'))
                     .update({Supervisor: localStorage.getItem('user')})
                 if (snapshot.size) {
@@ -86,9 +86,9 @@ export default function PatientInfoUser() {
         const fetchData = async () => {
             const db = app.firestore()
             const data = await db
-                .collection('Supervisors')
-                .doc(localStorage.getItem('user'))
-                .collection('Patient')
+            .collection("Users")
+            .doc(localStorage.getItem('user'))
+            .collection('Supervisors')
                 .get()
             setPatients(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
         }
@@ -108,9 +108,9 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection('Supervisors')
-            .doc(localStorage.getItem('user'))
-            .collection('Patient')
+        .collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection('Supervisors')
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .onSnapshot((snapshot) => {
@@ -419,16 +419,19 @@ function setData() {
 function DeleteTherapist(therapistId) {
     console.log('хуй')
     const db = app.firestore()
-    db.collection('Supervisors')
-        .doc(localStorage.getItem('user'))
-        .collection('Patient')
+    db .collection("Users")
+    .doc(localStorage.getItem('user'))
+    .collection('Supervisors')
         .doc(localStorage.getItem('child'))
         .collection('Therapists')
         .doc(therapistId)
         .delete()
-    db.collection('Therapists')
-        .doc(therapistId)
-        .collection('Patient')
+
+       
+    db
+    .collection("Users")
+    .doc(therapistId)
+    .collection('Therapists')
         .doc(localStorage.getItem('child'))
         .delete()
     toast.success(`Видалено терапіста за електронною поштою: ${therapistId}`)
@@ -437,15 +440,19 @@ function DeleteTherapist(therapistId) {
 function addTherapist(therapistInput) {
     const db = app.firestore()
     if (therapistInput != '') {
-        db.collection('Therapists')
-            .doc(therapistInput)
+        db .collection("Users")
+        .doc(therapistInput)
             .get()
             .then((doc) => {
-                if (doc.exists) {
+if(doc.id==localStorage.getItem('user')){
+    toast.error('Ви не можете добавити самого себе в ролі терапіста!')
+}
+                else if (doc.exists) {
                     console.log('zaebis pashe')
-                    db.collection('Supervisors')
-                        .doc(localStorage.getItem('user'))
-                        .collection('Patient')
+                    db
+                    .collection("Users")
+                    .doc(localStorage.getItem('user'))
+                    .collection('Supervisors')
                         .doc(localStorage.getItem('child'))
                         .collection('Therapists')
                         .doc(therapistInput)
@@ -468,15 +475,16 @@ function addTherapist(therapistInput) {
                     toast.loading(
                         `Відправлено лист на реєстрацію на: ${therapistInput}`
                     )
-                    db.collection('Supervisors')
-                        .doc(localStorage.getItem('user'))
-                        .collection('Patient')
+                    db.collection("Users")
+                    .doc(localStorage.getItem('user'))
+                    .collection('Supervisors')
                         .doc(localStorage.getItem('child'))
                         .collection('Therapists')
                         .doc(therapistInput)
                         .set({Name: 'Очікуємо реєстрації'})
 
-                    db.collection('Therapists')
+                    db
+                        .collection("Users")
                         .doc(therapistInput)
                         .set({Name: 'Очікуємо реєстрації'})
                     fetch(
