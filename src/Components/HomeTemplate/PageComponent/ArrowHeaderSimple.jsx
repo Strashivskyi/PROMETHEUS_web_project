@@ -7,7 +7,7 @@ function ArrowHeaderSimple() {
             <div className="patient_upper_flex_container">
                 <h2 style={{marginLeft: '6rem'}}>
                     <Link
-                        to="/home-template"
+                        to="/vb-mapp"
                         className="patients_link"
                         onClick={() =>
                             localStorage.setItem('templateType', 'private')

@@ -14,7 +14,7 @@ import RenderProgramList from './Components/ProtocolList/ProtocolListBranching'
 import TherapyResult from './Components/TherapyResult/TherapyResult'
 import RegistrationPatient from './Components/RegistrationPatient/RegPatientPage'
 import ProgramTemplate from './Components/ProgramTemplate/ProgramTemplate'
-import HomeTemplate from './Components/HomeTemplate/HomeTemplate'
+import VBMapp from './Components/VBMapp/VBMapp'
 import ProgramTemplatePublic from './Components/ProgramTemplate/ProgramTemplatePublic'
 import ProtocolListTemplate from './Components/HomeTemplate/TemplateProtocolList/ProtocolListTemplate'
 import ProgramEditableTemplate from './Components/HomeTemplate/EditProgramTemplate/ProgramEditableTemplate'
@@ -73,8 +73,8 @@ function App() {
                         />
                         <PrivateRouteToLogin
                             exact
-                            path="/home-template"
-                            component={HomeTemplate}
+                            path="/vb-mapp"
+                            component={VBMapp}
                         />
                         <PrivateRouteToLogin
                             exact

@@ -11,6 +11,9 @@ import toast, {Toaster} from 'react-hot-toast'
 import About from '../VBmap/VBmap'
 
 export default function PatientInfoUser() {
+
+
+
     let [patients, setPatients] = useState([])
 
     let [therapistInput, setTherapistInput] = useState('')
@@ -132,7 +135,7 @@ export default function PatientInfoUser() {
         }
     }, [])
     if (protocols.length == 0) {
-        path = '/program-template'
+        path = '/vb-mapp'
     } else {
         path = '/protocol-list'
     }

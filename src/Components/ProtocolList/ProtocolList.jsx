@@ -7,6 +7,7 @@ import ArrowHeader from './PageComponent/ArrowHeader'
 import Popup from '../ModalWindow/Popup'
 import MobileHeader from '../Header/MobileHeader'
 import {BsPlusCircle} from 'react-icons/bs'
+import {Link} from 'react-router-dom'
 
 export default function ProtocolList() {
     let test = []
@@ -373,19 +374,21 @@ export default function ProtocolList() {
             <MobileHeader />
             <Header />
             <ArrowHeader />
+            <Link to="/vb-mapp">
             <button
                 class="create_template_button btn-background-slide"
-                onClick={togglePopup}
+                // onClick={togglePopup}
             >
-                Зберегти як шаблон
+                Редагувати програму
             </button>
-            <div
+            </Link>
+            {/* <div
                 onClick={() => addProto(protocols.length)}
                 className="add-proto-mobile"
             >
                 <BsPlusCircle />
-            </div>
-            {isOpen && (
+            </div> */}
+            {/* {isOpen && (
                 <Popup
                     protocols={protocols}
                     child={child[0]}
@@ -399,28 +402,28 @@ export default function ProtocolList() {
                     }
                     handleClose={togglePopup}
                 />
-            )}
+            )} */}
             <div className="create_element">
                 {/* <ReactSortable list={protocols} setList={setProtocols}> */}
                 {protocolsNumber.map((protocol) => (
                     <>
                         <div
-                            draggable="true"
-                            onDragStart={(event) => {
-                                dragStartHandler(event, protocols[protocol - 1])
-                            }}
-                            onDragLeave={(event) => {
-                                dragEndHandler(event, protocols[protocol - 1])
-                            }}
-                            onDragEnd={(event) => {
-                                dragEndHandler(event, protocols[protocol - 1])
-                            }}
-                            onDragOver={(event) => {
-                                dragOverHandler(event)
-                            }}
-                            onDrop={(event) => {
-                                dropHandler(event, protocols[protocol - 1])
-                            }}
+                            // draggable="true"
+                            // onDragStart={(event) => {
+                            //     dragStartHandler(event, protocols[protocol - 1])
+                            // }}
+                            // onDragLeave={(event) => {
+                            //     dragEndHandler(event, protocols[protocol - 1])
+                            // }}
+                            // onDragEnd={(event) => {
+                            //     dragEndHandler(event, protocols[protocol - 1])
+                            // }}
+                            // onDragOver={(event) => {
+                            //     dragOverHandler(event)
+                            // }}
+                            // onDrop={(event) => {
+                            //     dropHandler(event, protocols[protocol - 1])
+                            // }}
                         >
                             <ProtocolItem
                                 protocols={protocols}

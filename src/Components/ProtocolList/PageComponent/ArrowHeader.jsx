@@ -67,12 +67,12 @@ function ArrowHeader() {
                 />
                 <h2 style={{color: '#6F6F6F'}}>Програма</h2>
 
-                <div
+                {/* <div
                     onClick={() => addProto(protocols.length)}
                     className="add-proto"
                 >
                     <BsPlusCircle size={50} style={{marginTop: '30px'}} />
-                </div>
+                </div> */}
             </div>
         </>
     )

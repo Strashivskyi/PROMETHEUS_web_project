@@ -16,7 +16,7 @@ export default function ButtonsTemplate() {
     return (
         <>
             <div className="buttons-template">
-                <Link to="/home-template">
+                <Link to="/vb-mapp">
                     <button
                         id="temp-button-prv"
                         className="buttons-template-private"
@@ -28,7 +28,7 @@ export default function ButtonsTemplate() {
                         Мої шаблони
                     </button>
                 </Link>
-                <Link to="/home-template">
+                <Link to="/vb-mapp">
                     <button
                         id="temp-button-pub"
                         className="buttons-template-public"

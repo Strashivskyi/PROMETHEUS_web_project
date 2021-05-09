@@ -1,21 +1,25 @@
-import React, {useState, createRef} from 'react'
+import React, { useState, createRef } from 'react'
 import SimpleHeader from '../Header/SimpleHeader'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Arrow from '../../assets/arrow.png'
 import MenuItem from '@material-ui/core/MenuItem'
-import {Avatar, Button as MuiButton} from '@material-ui/core'
-import {spacing} from '@material-ui/system'
+import { Avatar, Button as MuiButton } from '@material-ui/core'
+import { spacing } from '@material-ui/system'
 import styled from 'styled-components'
-import {makeStyles} from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import app from '../../Firebase/firebase'
 import './RegPatientPage.css'
 import default_avatar from '../../assets/default_avatar.png'
-import Redirect, {withRouter} from 'react-router'
+import Redirect, { withRouter } from 'react-router'
 import MobileHeader from '../Header/MobileHeader'
-import toast, {Toaster} from 'react-hot-toast'
-
+import toast, { Toaster } from 'react-hot-toast'
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 /* -
 ----------------------------
 |  Style components block  |
@@ -87,7 +91,7 @@ const currenciesGenders = [
 //     },
 // ]
 
-function RegistrationPatient({history}) {
+function RegistrationPatient({ history }) {
     const useStyles = makeStyles((theme) => ({
         rootForTitle: {
             '& .MuiTextField-root': {
@@ -206,6 +210,28 @@ function RegistrationPatient({history}) {
     //     console.log(blood)
     // }
 
+    const dataVBMapp = [
+        "Поведінка,Співпраця",
+        "МАНД-ПРОХАННЯ",
+        "ТАКТ-НАЗИВАННЯ",
+        "Поведінка cлухача-розуміння мовлення",
+        "ФКХ-розрізнення по функціях категоріях",
+        "Візуальне сприйняття",
+        "Вокальна Імітація",
+        "інтровербальні навички-відповіді на питання ",
+        "Моторна Імітація",
+        "Гра",
+        "Соціальна поведінка",
+        "Поведінка в групі,Слідування розпорядку",
+        "Крупна моторика",
+        "Дрібна моторика",
+        "Переодягання",
+        "Прийом Їжі",
+        "Гігієна",
+        "Читання",
+        "Письмо",
+        "Математика",
+        "Лінгвістика,Граматика"]
     async function handleSubmit(history) {
         if (
             name == '' ||
@@ -220,9 +246,9 @@ function RegistrationPatient({history}) {
             toast.error('Заповніть всі поля!')
         } else {
             const res = await db
-            .collection("Users")
-            .doc(localStorage.getItem('user'))
-            .collection(localStorage.getItem('proffesion'))
+                .collection("Users")
+                .doc(localStorage.getItem('user'))
+                .collection(localStorage.getItem('proffesion'))
                 .add({
                     Name: name,
                     Diagnos: diagnose,
@@ -237,19 +263,46 @@ function RegistrationPatient({history}) {
                     // BloodType: blood,
                     Image: imageBase64String,
                     Supervisor: localStorage.getItem('user'),
+                }).then((doc) => {
+                    for (let i = 0; i < 21; i++) {
+                            db
+                                .collection("Users")
+                                .doc(localStorage.getItem('user'))
+                                .collection(localStorage.getItem('proffesion'))
+                                .doc(doc.id).collection("VB-MAPP_protocol").doc(dataVBMapp[i]).set({ prior: +(i + 1) })
+
+                        for (let j = 0; j < getRandomInt(10, 26); j++) {
+                            for (let k = 0; k < getRandomInt(1, 5); k++) {
+                                db.collection("Users")
+                                    .doc(localStorage.getItem('user'))
+                                    .collection(localStorage.getItem('proffesion'))
+                                    .doc(doc.id).collection("VB-MAPP_protocol").doc(dataVBMapp[i]).collection("protocols").doc("a"+(j+1)).set({id:"a"+(j+1)})
+                                    db.collection("Users")
+                                    .doc(localStorage.getItem('user'))
+                                    .collection(localStorage.getItem('proffesion'))
+                                    .doc(doc.id).collection("VB-MAPP_protocol").doc(dataVBMapp[i]).collection("protocols").doc("a"+(j+1)).collection("stage").doc().set({ SphereOfDevelopment: dataVBMapp[i] })
+                            }
+                        }
+
+
+                    }
+
+
+
                 })
             history.push('/')
         }
     }
+
     return (
         <div className="general_container">
             <MobileHeader />
             <SimpleHeader />
             <div
                 className="patient_upper_flex_container"
-                style={{marginTop: '10px'}}
+                style={{ marginTop: '10px' }}
             >
-                <h2 style={{marginLeft: '100px'}}>
+                <h2 style={{ marginLeft: '100px' }}>
                     <Link to="/" className="patients_link">
                         Пацієнти
                     </Link>
