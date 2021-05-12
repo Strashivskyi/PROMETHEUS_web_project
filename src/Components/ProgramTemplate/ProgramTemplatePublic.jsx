@@ -10,6 +10,7 @@ import TemplateItem from './PageComponentTemplate/ItemPublic'
 import './ButtonsTemplate'
 import ButtonsTemplate from '../ProgramTemplate/ButtonsTemplate'
 import MobileHeader from '../Header/MobileHeader'
+import TreeArrowHeader from '../ArrowHeader/TreeArrowHeader'
 
 function ProgramTemplate({history}) {
     const [programTemplates, setProgramTemplates] = useState([])
@@ -46,15 +47,12 @@ function ProgramTemplate({history}) {
         <>
             <MobileHeader />
             <Header />
-            <AHeader />
+            <TreeArrowHeader patient={localStorage.getItem("childName")} page={"Програма"}/>
             <div className="choose_create_way">
                 <span className="template_way">Історія програми &nbsp;</span>{' '}
-                {/*<span className="template_way">або &nbsp;</span>{' '}*/}
-                {/*<Link className="new_program_way" to="/protocol-list">*/}
-                {/*    Створити пусту програму*/}
-                {/*</Link>*/}
+              
             </div>
-            <ButtonsTemplate />
+           <br/>
             <div className="template-grid">
                 {someList.map((idEl) => (
                     <TemplateItem

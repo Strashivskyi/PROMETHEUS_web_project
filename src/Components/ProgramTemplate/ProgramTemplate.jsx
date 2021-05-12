@@ -10,16 +10,18 @@ import TemplateItem from './PageComponentTemplate/Item'
 import ButtonsTemplate from '../ProgramTemplate/ButtonsTemplate'
 import './ButtonsTemplate.css'
 import MobileHeader from '../Header/MobileHeader'
+import TreeArrowHeader from '../ArrowHeader/TreeArrowHeader'
 
 function ProgramTemplate({history}) {
     const [programTemplates, setProgramTemplates] = useState([])
 
     useEffect(() => {
         const db = app.firestore()
-        const unsubscribe = db
-            .collection(localStorage.getItem('proffesion'))
-            .doc(localStorage.getItem('user'))
-            .collection('ProgramTemplates')
+        const unsubscribe = db.collection("Users")
+        .doc(localStorage.getItem('user'))
+        .collection("Supervisors")
+        .doc(localStorage.getItem('child'))
+        .collection("History")
             .onSnapshot((snapshot) => {
                 if (snapshot.size) {
                     setProgramTemplates(
@@ -48,24 +50,18 @@ function ProgramTemplate({history}) {
         <>
             <MobileHeader />
             <Header />
-            <AHeader />
+            <TreeArrowHeader patient={localStorage.getItem("childName")} page={"Історія програми"}/>
             <div className="choose_create_way">
                 <span className="template_way">Історія програми &nbsp;</span>{' '}
-                {/*<span className="template_way">або &nbsp;</span>{' '}*/}
-                {/*<Link className="new_program_way" to="/protocol-list">*/}
-                {/*    Створити пусту програму*/}
-                {/*</Link>*/}
             </div>
-            <ButtonsTemplate />
+           <br/>
             <div className="template-grid">
                 {someList.map((idEl) => (
                     <TemplateItem
-                        history={history}
-                        idTemplate={programTemplates[idEl - 1].id}
+                        
                         number={idEl}
-                        diagnos={programTemplates[idEl - 1].Diagnos}
-                        age={programTemplates[idEl - 1].Age}
-                        count={programTemplates[idEl - 1].CountOfProtocol}
+                      date={programTemplates[idEl - 1].Date}
+                      history={history}
                     />
                 ))}
             </div>
