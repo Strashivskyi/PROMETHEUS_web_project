@@ -14,6 +14,7 @@ import RenderProgramList from './Components/ProtocolList/ProtocolListBranching'
 import TherapyResult from './Components/TherapyResult/TherapyResult'
 import RegistrationPatient from './Components/RegistrationPatient/RegPatientPage'
 import ProgramTemplate from './Components/ProgramTemplate/ProgramTemplate'
+import HistoryProtocolList from './Components/ProtocolList/HistoryProtocolList'
 import VBMapp from './Components/VBMapp/VBMapp'
 import ProgramTemplatePublic from './Components/ProgramTemplate/ProgramTemplatePublic'
 import ProtocolListTemplate from './Components/HomeTemplate/TemplateProtocolList/ProtocolListTemplate'
@@ -50,6 +51,11 @@ function App() {
                             exact
                             path="/protocol-list"
                             component={RenderProgramList}
+                        />
+                        <PrivateRouteToLogin
+                            exact
+                            path="/history-protocol-list"
+                            component={HistoryProtocolList}
                         />
                         <PrivateRouteToLogin
                             exact

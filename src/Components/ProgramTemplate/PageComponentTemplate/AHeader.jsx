@@ -37,7 +37,7 @@ function AHeader() {
                         color: 'black',
                     }}
                 />
-                <h2 style={{color: '#6F6F6F'}}>Програма</h2>
+                <h2 style={{color: '#6F6F6F'}}>Історія програми</h2>
             </div>
         </>
     )

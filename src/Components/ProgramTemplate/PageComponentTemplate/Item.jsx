@@ -8,12 +8,12 @@ function TemplateItem({diagnos, age, count, number, idTemplate, history}) {
             <div id="template" className="template_place">
                 <div className="template_program_name">Програма: {number}</div>
                 <div className="grid_display_diagnosis">
-                    <div className="template_diagnos">Діагноз:</div>
-                    <div className="template_diagnos_value">{diagnos}</div>
+                    <div className="template_date">Дата створення/редагування:</div>
+                    <div className="template_date_value">04.01.2021</div>
                 </div>
                 <div className="grid_display_numbers">
-                    <div className="template_age white_back">Вік:</div>
-                    <div className="template_age_value white_back">{age}</div>
+                    {/*<div className="template_age white_back">Вік:</div>*/}
+                    {/*<div className="template_age_value white_back">{age}</div>*/}
                     <div className="template_protocols">
                         Кількість протоколів:
                     </div>
@@ -31,7 +31,7 @@ function TemplateItem({diagnos, age, count, number, idTemplate, history}) {
                             CreateDuplicateTemplate(idTemplate, history)
                         }
                     >
-                        Обрати
+                        переглянути
                     </button>
                 </div>
             </div>
@@ -70,7 +70,7 @@ function CreateDuplicateTemplate(idTemplate, history) {
                 }
             })
     )
-    history.push('/protocol-list')
+    history.push('/history-protocol-list')
 }
 
 function DeleteTemplate(idTemplate) {

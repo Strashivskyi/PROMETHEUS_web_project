@@ -48,11 +48,11 @@ function ProgramTemplate({history}) {
             <Header />
             <AHeader />
             <div className="choose_create_way">
-                <span className="template_way">Обрати шаблон &nbsp;</span>{' '}
-                <span className="template_way">або &nbsp;</span>{' '}
-                <Link className="new_program_way" to="/protocol-list">
-                    Створити пусту програму
-                </Link>
+                <span className="template_way">Історія програми &nbsp;</span>{' '}
+                {/*<span className="template_way">або &nbsp;</span>{' '}*/}
+                {/*<Link className="new_program_way" to="/protocol-list">*/}
+                {/*    Створити пусту програму*/}
+                {/*</Link>*/}
             </div>
             <ButtonsTemplate />
             <div className="template-grid">
@@ -71,3 +71,4 @@ function ProgramTemplate({history}) {
     )
 }
 export default withRouter(ProgramTemplate)
+

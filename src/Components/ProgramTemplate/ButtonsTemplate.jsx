@@ -17,30 +17,30 @@ export default function ButtonsTemplate() {
     return (
         <>
             <div className="buttons-template">
-                <Link to="/program-template">
-                    <button
-                        id="temp-button-prv"
-                        className="buttons-template-private"
-                        onClick={() =>
-                            localStorage.setItem('templateType', 'private')
-                        }
-                        style={{textDecoration: decorPrivate}}
-                    >
-                        Мої шаблони
-                    </button>
-                </Link>
-                <Link to="/public-template">
-                    <button
-                        id="temp-button-pub"
-                        className="buttons-template-public"
-                        onClick={() =>
-                            localStorage.setItem('templateType', 'public')
-                        }
-                        style={{textDecoration: decorPublic}}
-                    >
-                        Загальні шаблони
-                    </button>
-                </Link>
+                {/*<Link to="/program-template">*/}
+                {/*    <button*/}
+                {/*        id="temp-button-prv"*/}
+                {/*        className="buttons-template-private"*/}
+                {/*        onClick={() =>*/}
+                {/*            localStorage.setItem('templateType', 'private')*/}
+                {/*        }*/}
+                {/*        style={{textDecoration: decorPrivate}}*/}
+                {/*    >*/}
+                {/*        Мої шаблони*/}
+                {/*    </button>*/}
+                {/*</Link>*/}
+                {/*<Link to="/public-template">*/}
+                {/*    <button*/}
+                {/*        id="temp-button-pub"*/}
+                {/*        className="buttons-template-public"*/}
+                {/*        onClick={() =>*/}
+                {/*            localStorage.setItem('templateType', 'public')*/}
+                {/*        }*/}
+                {/*        style={{textDecoration: decorPublic}}*/}
+                {/*    >*/}
+                {/*        Загальні шаблони*/}
+                {/*    </button>*/}
+                {/*</Link>*/}
             </div>
         </>
     )

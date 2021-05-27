@@ -6,8 +6,8 @@ function TemplateItem({diagnos, age, count, number, idTemplate, history}) {
             <div id="template" className="template_place">
                 <div className="template_program_name">Програма: {number}</div>
                 <div className="grid_display_diagnosis">
-                    <div className="template_diagnos">Діагноз:</div>
-                    <div className="template_diagnos_value">{diagnos}</div>
+                    <div className="template_date">Діагноз:</div>
+                    <div className="template_date_value">{diagnos}</div>
                 </div>
                 <div className="grid_display_numbers">
                     <div className="template_age white_back">Вік:</div>

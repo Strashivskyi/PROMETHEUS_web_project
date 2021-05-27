@@ -24,9 +24,9 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-        .collection("Users")
-        .doc(localStorage.getItem('user'))
-        .collection('Supervisors')
+            .collection("Users")
+            .doc(localStorage.getItem('user'))
+            .collection('Supervisors')
             .doc(localStorage.getItem('child'))
             .collection('Therapists')
             .onSnapshot((snapshot) => {
@@ -56,15 +56,15 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-        .collection("Users")
-        .doc(localStorage.getItem('user'))
-        .collection('Supervisors')
+            .collection("Users")
+            .doc(localStorage.getItem('user'))
+            .collection('Supervisors')
             .doc(localStorage.getItem('child'))
             .collection('Therapists')
             .onSnapshot((snapshot) => {
-                 db.collection("Users")
-            .doc(localStorage.getItem('user'))
-            .collection('Supervisors')
+                db.collection("Users")
+                    .doc(localStorage.getItem('user'))
+                    .collection('Supervisors')
                     .doc(localStorage.getItem('child'))
                     .update({Supervisor: localStorage.getItem('user')})
                 if (snapshot.size) {
@@ -89,9 +89,9 @@ export default function PatientInfoUser() {
         const fetchData = async () => {
             const db = app.firestore()
             const data = await db
-            .collection("Users")
-            .doc(localStorage.getItem('user'))
-            .collection('Supervisors')
+                .collection("Users")
+                .doc(localStorage.getItem('user'))
+                .collection('Supervisors')
                 .get()
             setPatients(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
         }
@@ -111,9 +111,9 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-        .collection("Users")
-        .doc(localStorage.getItem('user'))
-        .collection('Supervisors')
+            .collection("Users")
+            .doc(localStorage.getItem('user'))
+            .collection('Supervisors')
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .onSnapshot((snapshot) => {
@@ -338,6 +338,15 @@ export default function PatientInfoUser() {
                             </div>
                         </div>
                         <div className="patient_page_buttons">
+                            <Link
+                                to={{
+                                    pathname: '/program-template',
+                                    myCustomProps: {patient},
+                                }}
+                                className="patient_page_buttons_therapy"
+                            >
+                                Історія програми
+                            </Link>
                             <button
                                 onClick={() => uploadGraphsForSevenDaysToDB()}
                                 className="patient_page_button_create_info"
@@ -423,18 +432,18 @@ function DeleteTherapist(therapistId) {
     console.log('хуй')
     const db = app.firestore()
     db .collection("Users")
-    .doc(localStorage.getItem('user'))
-    .collection('Supervisors')
+        .doc(localStorage.getItem('user'))
+        .collection('Supervisors')
         .doc(localStorage.getItem('child'))
         .collection('Therapists')
         .doc(therapistId)
         .delete()
 
-       
+
     db
-    .collection("Users")
-    .doc(therapistId)
-    .collection('Therapists')
+        .collection("Users")
+        .doc(therapistId)
+        .collection('Therapists')
         .doc(localStorage.getItem('child'))
         .delete()
     toast.success(`Видалено терапіста за електронною поштою: ${therapistId}`)
@@ -444,18 +453,18 @@ function addTherapist(therapistInput) {
     const db = app.firestore()
     if (therapistInput != '') {
         db .collection("Users")
-        .doc(therapistInput)
+            .doc(therapistInput)
             .get()
             .then((doc) => {
-if(doc.id==localStorage.getItem('user')){
-    toast.error('Ви не можете добавити самого себе в ролі терапіста!')
-}
+                if(doc.id==localStorage.getItem('user')){
+                    toast.error('Ви не можете добавити самого себе в ролі терапіста!')
+                }
                 else if (doc.exists) {
                     console.log('zaebis pashe')
                     db
-                    .collection("Users")
-                    .doc(localStorage.getItem('user'))
-                    .collection('Supervisors')
+                        .collection("Users")
+                        .doc(localStorage.getItem('user'))
+                        .collection('Supervisors')
                         .doc(localStorage.getItem('child'))
                         .collection('Therapists')
                         .doc(therapistInput)
@@ -479,8 +488,8 @@ if(doc.id==localStorage.getItem('user')){
                         `Відправлено лист на реєстрацію на: ${therapistInput}`
                     )
                     db.collection("Users")
-                    .doc(localStorage.getItem('user'))
-                    .collection('Supervisors')
+                        .doc(localStorage.getItem('user'))
+                        .collection('Supervisors')
                         .doc(localStorage.getItem('child'))
                         .collection('Therapists')
                         .doc(therapistInput)
