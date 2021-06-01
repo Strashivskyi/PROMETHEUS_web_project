@@ -32,7 +32,7 @@
 .download-button:focus {
     border: 3px solid rgb(221, 221, 221);
 }
-
+/* 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     .download-button {
         padding: 5vw 10vw;
@@ -47,8 +47,8 @@
     .list-group-item {
         margin-left: -5vw;
     }
-}
-@media screen and (min-width: 899px) and (max-width: 1919px) {
+} */
+/* @media screen and (min-width: 899px) and (max-width: 1919px) {
     .list-group-item {
         margin-top: 95px;
     }
@@ -62,4 +62,4 @@
     .list-group-item {
         margin-top: 95px;
     }
-}
+} */

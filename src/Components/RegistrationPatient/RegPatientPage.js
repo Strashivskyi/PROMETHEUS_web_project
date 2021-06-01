@@ -96,25 +96,25 @@ function RegistrationPatient({ history }) {
         rootForTitle: {
             '& .MuiTextField-root': {
                 margin: theme.spacing(1),
-                width: '28ch',
+                width: '20ch',
             },
         },
         rootForSubTitle: {
             '& .MuiTextField-root': {
                 margin: theme.spacing(1),
-                width: '15ch',
+                width: '20ch',
             },
         },
         rootForDate: {
             '& .MuiTextField-root': {
                 margin: theme.spacing(1),
-                width: '15ch',
+                width: '20ch',
             },
         },
         root: {
             '& .MuiTextField-root': {
                 margin: theme.spacing(1),
-                width: '25ch',
+                width: '20ch',
             },
         },
     }))
@@ -265,22 +265,22 @@ function RegistrationPatient({ history }) {
                     Supervisor: localStorage.getItem('user'),
                 }).then((doc) => {
                     for (let i = 0; i < 21; i++) {
-                            db
-                                .collection("Users")
-                                .doc(localStorage.getItem('user'))
-                                .collection(localStorage.getItem('proffesion'))
-                                .doc(doc.id).collection("VB-MAPP_protocol").doc(dataVBMapp[i]).set({ prior: +(i + 1) })
+                        db
+                            .collection("Users")
+                            .doc(localStorage.getItem('user'))
+                            .collection(localStorage.getItem('proffesion'))
+                            .doc(doc.id).collection("VB-MAPP_protocol").doc(dataVBMapp[i]).set({ prior: +(i + 1) })
 
                         for (let j = 0; j < getRandomInt(10, 26); j++) {
                             for (let k = 0; k < getRandomInt(1, 5); k++) {
                                 db.collection("Users")
                                     .doc(localStorage.getItem('user'))
                                     .collection(localStorage.getItem('proffesion'))
-                                    .doc(doc.id).collection("VB-MAPP_protocol").doc(dataVBMapp[i]).collection("protocols").doc("a"+(j+1)).set({id:"a"+(j+1)})
-                                    db.collection("Users")
+                                    .doc(doc.id).collection("VB-MAPP_protocol").doc(dataVBMapp[i]).collection("protocols").doc("a" + (j + 1)).set({ id: "a" + (j + 1) })
+                                db.collection("Users")
                                     .doc(localStorage.getItem('user'))
                                     .collection(localStorage.getItem('proffesion'))
-                                    .doc(doc.id).collection("VB-MAPP_protocol").doc(dataVBMapp[i]).collection("protocols").doc("a"+(j+1)).collection("stage").doc().set({ SphereOfDevelopment: dataVBMapp[i] })
+                                    .doc(doc.id).collection("VB-MAPP_protocol").doc(dataVBMapp[i]).collection("protocols").doc("a" + (j + 1)).collection("stage").doc().set({ SphereOfDevelopment: dataVBMapp[i] })
                             }
                         }
 
@@ -320,6 +320,7 @@ function RegistrationPatient({ history }) {
                 <h2
                     style={{
                         color: 'GrayText',
+                        fontSize: '25px',
                     }}
                 >
                     Реєстрація пацієнта
@@ -372,9 +373,13 @@ function RegistrationPatient({ history }) {
                         autoComplete="off"
                     >
                         <div className="patient-title">
-                            <div className="label-area">Ім'я та Прізвище:</div>
+                            <div className="label-area">Ім'я та <br />Прізвище:</div>
 
                             <TextField
+                                style={{
+                                    position: 'relative',
+                                    paddingLeft: '12.5%'
+                                }}
                                 require
                                 className="patient-subtitle-input"
                                 color="secondary"
@@ -392,6 +397,10 @@ function RegistrationPatient({ history }) {
                                 Діагноз:
                             </div>
                             <TextField
+                                style={{
+                                    position: 'relative',
+                                    paddingLeft: '17%'
+                                }}
                                 require
                                 className="patient-subtitle-input"
                                 color="secondary"
@@ -406,6 +415,10 @@ function RegistrationPatient({ history }) {
                                     <div className="label-area">Батьки:</div>
 
                                     <TextField
+                                        style={{
+                                            position: 'relative',
+                                            paddingLeft: '17%'
+                                        }}
                                         color="secondary"
                                         onChange={(event) =>
                                             parentsChange(event)
@@ -415,6 +428,10 @@ function RegistrationPatient({ history }) {
                                 <div className="white-stipe-zebra">
                                     <div className="label-area">Стать:</div>
                                     <TextField
+                                        style={{
+                                            position: 'relative',
+                                            paddingLeft: '20%'
+                                        }}
                                         color="secondary"
                                         select
                                         value={gender}
@@ -435,6 +452,10 @@ function RegistrationPatient({ history }) {
                                 <div className="grey-stripe-zebra">
                                     <div className="label-area">Вік:</div>
                                     <TextField
+                                        style={{
+                                            position: 'relative',
+                                            paddingLeft: '20%'
+                                        }}
                                         className="big_input"
                                         color="secondary"
                                         type="number"
@@ -456,6 +477,10 @@ function RegistrationPatient({ history }) {
                                         Дата народження:
                                     </div>
                                     <TextField
+                                        style={{
+                                            position: 'relative',
+                                            paddingLeft: '20%'
+                                        }}
                                         type="date"
                                         className={classes.textField}
                                         color="secondary"
@@ -473,6 +498,10 @@ function RegistrationPatient({ history }) {
                                 <div className="white-stipe-zebra">
                                     <div className="label-area">Країна:</div>
                                     <TextField
+                                        style={{
+                                            position: 'relative',
+                                            paddingLeft: '20%'
+                                        }}
                                         onChange={(event) =>
                                             countryChange(event)
                                         }
@@ -480,72 +509,12 @@ function RegistrationPatient({ history }) {
                                     />
                                 </div>
                             </div>
-                            {/* <div className="zebra-table-right-part">
-                                <div className="grey-stripe-zebra">
-                                    <div className="label-area">Вага:</div>
-                                    <TextField
-                                        color="secondary"
-                                        type="number"
-                                        InputLabelProps={{
-                                            shrink: true,
-                                        }}
-                                        onChange={(event) =>
-                                            weightChange(event)
-                                        }
-                                        InputProps={{
-                                            endAdornment: (
-                                                <InputAdornment position="start">
-                                                    кг
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                    />
-                                </div> */}
-                            {/* <div className="white-stipe-zebra">
-                                    <div className="label-area">Зріст:</div>
-                                    <TextField
-                                        color="secondary"
-                                        type="number"
-                                        InputLabelProps={{
-                                            shrink: true,
-                                        }}
-                                        onChange={(event) =>
-                                            heightChange(event)
-                                        }
-                                        InputProps={{
-                                            endAdornment: (
-                                                <InputAdornment position="start">
-                                                    см
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                    />
-                                </div> */}
-                            {/* <div className="grey-stripe-zebra">
-                                    <div className="label-area">
-                                        Група крові:
-                                    </div> */}
-                            {/* <TextField
-                                        color="secondary"
-                                        select
-                                        value={blood}
-                                        onChange={(event) => bloodChange(event)}
-                                    >
-                                        {currenciesBlood.map((option) => (
-                                            <MenuItem
-                                                key={option.value}
-                                                value={option.value}
-                                            >
-                                                {option.label}
-                                            </MenuItem>
-                                        ))}
-                                    </TextField> */}
-                            {/* </div> */}
-                            {/* </div> */}
                         </div>
                     </div>
 
-                    <button
+                    <button style={{
+                        margin: '1%',
+                    }}
                         type="submit"
                         className="save_button save_button_add_patient btn-background-slide"
                         onClick={() => handleSubmit(history)}

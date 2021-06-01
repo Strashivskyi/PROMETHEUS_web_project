@@ -6,7 +6,7 @@ import app from '../../Firebase/firebase'
 function SimpleHeader() {
     return (
         <>
-            <div className="header">
+            <div className="header" style={{ margin: '10px' }}>
                 <img
                     src={Logo}
                     onClick={() => app.auth().signOut()}
@@ -19,14 +19,12 @@ function SimpleHeader() {
                     }}
                 />
 
-                <h1
+                <hr
                     style={{
                         border: 'none',
                         borderBottom: ' 1px solid #6F6F6F',
                         position: 'relative',
-                        top: '8.2%',
-                        left: '3.33%',
-                        width: '93.2%',
+                        margin: '2%',
                     }}
                 />
             </div>
