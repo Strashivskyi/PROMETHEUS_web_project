@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Pagination from '@material-ui/lab/Pagination'
-import {List, makeStyles, Divider, Box} from '@material-ui/core'
+import { List, makeStyles, Divider, Box } from '@material-ui/core'
 import app from '../../Firebase/firebase'
 import File from './File'
 import './Pagination.css'
@@ -16,12 +16,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-function PaginationRounded({history}) {
+function PaginationRounded({ history }) {
     const classes = useStyles()
     const [files, setFiles] = useState([])
     const [loading, setLoading] = useState(false)
     const [page, setPage] = useState(1)
-    const [filesPerPage] = useState(2)
+    const [filesPerPage] = useState(4)
 
     console.log('')
     var storageRef = app.storage().ref()
@@ -39,8 +39,8 @@ function PaginationRounded({history}) {
                             .toString()
                             .replace(
                                 'gs://ionkid-abd2f.appspot.com/patients/' +
-                                    localStorage.getItem('child') +
-                                    '/results/',
+                                localStorage.getItem('child') +
+                                '/results/',
                                 ''
                             )
                     })
@@ -61,8 +61,12 @@ function PaginationRounded({history}) {
         <>
             <div
                 className="table-wrapper"
-                style={{position: 'relative', bottom: '5rem'}}
+                style={{ position: 'relative', bottom: '5rem' }}
             >
+                <br />
+                <br />
+                <br />
+                <br />
                 {files
                     .sort((a, b) => (a > b ? -1 : 1))
                     .slice((page - 1) * filesPerPage, page * filesPerPage)
@@ -78,6 +82,7 @@ function PaginationRounded({history}) {
                 {/* 'Divider' protrudes to the left || Need to fix or delete */}
                 {/* <Divider /> */}
             </div>
+
             <Box component="span" className="pagination-box">
                 <Pagination
                     count={Math.ceil(files.length / filesPerPage)}
@@ -90,7 +95,7 @@ function PaginationRounded({history}) {
                     shape="rounded"
                     showFirstButton
                     showLastButton
-                    classes={{ul: classes.paginator}}
+                    classes={{ ul: classes.paginator }}
                 />
             </Box>
         </>
