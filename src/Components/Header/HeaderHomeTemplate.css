@@ -20,3 +20,8 @@
 .main_header_content_container {
     margin-bottom: 0.8em;
 }
+@media only screen and (max-device-width: 992px) {
+    .header_bootstrap {
+        display: none;
+    }
+}
