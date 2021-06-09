@@ -1,22 +1,25 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import './SupervisorTherapistNav.css'
 
 export default function SupervisorTherapistNav() {
     return (
         <>
-            <div className="col-6 row justify-content-between">
+            <div className="col-12 col-md-6 row justify-content-between">
                 <span
-                         onClick={()=>(localStorage.setItem("proffesion","Supervisors"),window.location.reload())}
-                  
-                    className="role_choice_link supervisor_choice_link col-4 text-align-right"
+                    onClick={() => (
+                        localStorage.setItem('proffesion', 'Supervisors'),
+                        window.location.reload()
+                    )}
+                    className="role_choice_link col-6 col-md-4 supervisor_choice_link"
                 >
                     Супервізор
                 </span>
                 <span
-                 
-                 onClick={()=>(localStorage.setItem("proffesion","Therapists"),window.location.reload())}
-                    className="role_choice_link col-4 text-align-center"
+                    onClick={() => (
+                        localStorage.setItem('proffesion', 'Therapists'),
+                        window.location.reload()
+                    )}
+                    className="role_choice_link col-6 col-md-4 therapist_choice_link"
                 >
                     Терапіст
                 </span>
