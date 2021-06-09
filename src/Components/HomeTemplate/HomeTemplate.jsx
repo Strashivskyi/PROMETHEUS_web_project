@@ -30,11 +30,11 @@ function HomeTemplate(params) {
         }
     }, [])
     console.log('БЛЯЯЯЯЯ' + protocols.length)
-    // localStorage.setItem("newTemplateCount",protocols.length)
+
     return (
         <>
             <HeaderHomeTemplate />
-            {/* <ArrowHeader /> */}
+   
             <RenderTemplateType
                 protocols={protocols}
                 type={localStorage.getItem('templateType')}

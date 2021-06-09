@@ -3,9 +3,10 @@ import app from '../../Firebase/firebase'
 import './PatientInfoPage.css'
 import Header from '../Header/Header'
 import MobileHeader from '../Header/MobileHeader'
-import Arrow from '../../assets/arrow.png'
+
 import Kid from '../../assets/default_avatar.png'
 import {Link} from 'react-router-dom'
+import ArrowHeader from '../ArrowHeader/Arrow'
 import Delete from '../../assets/delete.svg'
 import toast, {Toaster} from 'react-hot-toast'
 import About from '../VBmap/VBmap'
@@ -149,29 +150,9 @@ export default function PatientInfoUser() {
                     <>
                         {localStorage.setItem('childName', patient.Name)}
 
-                        <div className="patient_upper_flex_container">
-                            <h2 style={{marginLeft: '4rem'}}>
-                                <Link to="/" className="patients_link">
-                                    Пацієнти
-                                </Link>
-                            </h2>
-                            <img
-                                src={Arrow}
-                                height="20"
-                                style={{
-                                    marginLeft: '30px',
-                                    marginRight: '30px',
-                                    marginTop: '28px',
-                                    color: 'black',
-                                }}
-                            />
-                            <h2
-                                className="patients_link"
-                                style={{color: '#6F6F6F'}}
-                            >
-                                {patient.Name}
-                            </h2>
-                        </div>
+                       
+                            <ArrowHeader patient={patient}/>
+                      
                         <div className="patient_grid_container">
                             <img
                                 src={patient.Image}
