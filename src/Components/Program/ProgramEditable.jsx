@@ -1,25 +1,13 @@
 import ProgramHeader from '../Header/ProgramHeader'
 import './Program.css'
 import './ProgramTest.css'
-import {TextInput} from 'react-native-paper'
 import React, {useEffect, useState} from 'react'
 import app from '../../Firebase/firebase'
 import ArrowHeader from './ProgramElement/ArrowHeader'
 import StimulusItem from './ProgramElement/StimulusItem'
-import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
 import MobileHeader from '../Header/MobileHeader'
 import toast, {Toaster} from 'react-hot-toast'
 
-const theme = {
-    ...DefaultTheme,
-    roundness: 0,
-    colors: {
-        ...DefaultTheme.colors,
-        primary: 'transparent',
-        accent: 'transparent',
-        dark: 'true',
-    },
-}
 
 function RemoveCopiedStatus({protocol}) {
     if (protocol.StatusCopied != null) {
@@ -115,7 +103,6 @@ export default function ProgramEditable() {
         })
     }
     return (
-        <PaperProvider theme={theme}>
             <>
                 <MobileHeader />
                 <ProgramHeader />
@@ -142,14 +129,14 @@ export default function ProgramEditable() {
                                 >
                                     Сфера розвитку:
                                 </div>
-                                <TextInput
+                                
+                                <input 
                                     placeholder="Вказати сферу розвитку..."
-                                    className="element_value"
+                                    className="element_value element_value_input_grey"
                                     multiline="true"
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.SphereOfDevelopment}
-                                    style={{fontSize: '20px'}}
                                     raised
                                     theme={{
                                         colors: {background: '#fcfcfc'},
@@ -160,22 +147,17 @@ export default function ProgramEditable() {
                                 />
 
                                 <div
-                                    style={{marginTop: '1rem'}}
                                     className="element_name"
                                 >
                                     Навик:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати навик..."
-                                    className="element_value"
+                                    className="element_value element_value_input_white"
                                     multiline="true"
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.Skill}
-                                    style={{
-                                        fontSize: '20px',
-                                        marginTop: '1rem',
-                                    }}
                                     raised
                                     theme={{
                                         colors: {background: 'transparent'},
@@ -183,27 +165,18 @@ export default function ProgramEditable() {
                                     onChange={(e) => addSkill(e.target.value)}
                                 />
                                 <div
-                                    className="element_name"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
-                                <div
-                                    className="element_value"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
-                                <div
                                     style={{backgroundColor: '#EEEEEE'}}
                                     className="element_name"
                                 >
                                     Метод:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати метод..."
-                                    className="element_value"
+                                    className="element_value element_value_input_grey"
                                     multiline="true"
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.Method}
-                                    style={{fontSize: '20px'}}
                                     raised
                                     theme={{
                                         colors: {background: '#fcfcfc'},
@@ -212,21 +185,16 @@ export default function ProgramEditable() {
                                 />
                                 <div
                                     className="element_name"
-                                    style={{paddingTop: '1rem'}}
                                 >
                                     Бажана реакція:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати бажану реакцію..."
-                                    className="element_value"
+                                    className="element_value element_value_input_white"
                                     multiline="true"
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.DesirableReaction}
-                                    style={{
-                                        fontSize: '20px',
-                                        paddingTop: '1rem',
-                                    }}
                                     raised
                                     theme={{
                                         colors: {background: 'transparent'},
@@ -235,20 +203,12 @@ export default function ProgramEditable() {
                                         addDesirableReaction(e.target.value)
                                     }
                                 />
-                                <div
-                                    className="element_name"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
-                                <div
-                                    className="element_value"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
                                 <>
                                     <div
-                                        style={{backgroundColor: '#EEEEEE'}}
+                                        style={{backgroundColor: '#EEEEEE', display: 'flex', alignItems: 'center'}}
                                         className="element_name"
                                     >
-                                        Критерій узагальнення навику:{' '}
+                                        Критерій узагальнення навику:
                                     </div>
                                     <div
                                         style={{backgroundColor: '#EEEEEE'}}
@@ -257,16 +217,15 @@ export default function ProgramEditable() {
                                         <div
                                             style={{backgroundColor: '#EEEEEE'}}
                                         >
-                                            <TextInput
+                                            <input
                                                 placeholder="Вказати критерій..."
-                                                className="element_value"
+                                                className="element_value element_value_input_grey"
                                                 multiline="true"
                                                 underlineColor="transparent"
                                                 selectionColor="primary"
                                                 defaultValue={
                                                     protocol.CriteriongenGenerSkill
                                                 }
-                                                style={{fontSize: '20px'}}
                                                 raised
                                                 theme={{
                                                     colors: {
@@ -285,35 +244,16 @@ export default function ProgramEditable() {
 
                                 <div
                                     className="element_name"
-                                    style={{
-                                        minHeight: '1rem',
-                                        backgroundColor: '#EEEEEE',
-                                    }}
-                                ></div>
-                                <div
-                                    className="element_value"
-                                    style={{
-                                        minHeight: '1rem',
-                                        backgroundColor: '#EEEEEE',
-                                    }}
-                                ></div>
-                                <div
-                                    className="element_name"
-                                    style={{paddingTop: '1rem'}}
                                 >
                                     Рівні інтенсивності підказки:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати рівні інтенсивності підказки..."
-                                    className="element_value"
+                                    className="element_value element_value_input_white"
                                     multiline="true"
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.Interval}
-                                    style={{
-                                        fontSize: '20px',
-                                        backgroundColor: 'white',
-                                    }}
                                     raised
                                     theme={{
                                         colors: {backgroundColor: 'white'},
@@ -330,14 +270,13 @@ export default function ProgramEditable() {
                                     Критерій зниження рівня інтенсивності
                                     підказки:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати критерій..."
-                                    className="element_value"
+                                    className="element_value element_value_input_grey"
                                     multiline="true"
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.ReductionСriterion}
-                                    style={{fontSize: '20px'}}
                                     raised
                                     theme={{
                                         colors: {background: '#fcfcfc'},
@@ -346,21 +285,13 @@ export default function ProgramEditable() {
                                         addReductionСriterion(e.target.value)
                                     }
                                 />
-                                <div
-                                    className="element_name"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
-                                <div
-                                    className="element_value"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
                                 <div className="element_name">
                                     Критерій підвищення рівня інтенсивності
                                     підказки:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати критерій..."
-                                    className="element_value"
+                                    className="element_value element_value_input_white"
                                     multiline="true"
                                     underlineColor="transparent"
                                     selectionColor="primary"
@@ -368,37 +299,18 @@ export default function ProgramEditable() {
                                     onChange={(e) =>
                                         addCriterionIncrease(e.target.value)
                                     }
-                                    style={{fontSize: '20px'}}
                                     raised
                                     theme={{
                                         colors: {background: 'transparent'},
                                     }}
                                 />
-                                <div
-                                    className="element_name"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
-                                <div
-                                    className="element_value"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
-                                <div
-                                    style={{
-                                        backgroundColor: '#EEEEEE',
-                                        paddingTop: '1rem',
-                                    }}
-                                    className="element_name"
+                                <div style={{display: 'flex', alignItems: 'center'}}
+                                    className="element_name element_value_input_grey"
                                 >
                                     Спосіб забирання підказки:
                                 </div>
-                                <div
-                                    style={{
-                                        backgroundColor: '#EEEEEE',
-                                        paddingTop: '1rem',
-                                        minWidth: "auto",
-                                        maxWidth: "auto"
-                                    }}
-                                    className="element_value"
+                                <div    
+                                    className="element_value add_stymul_position element_value_input_grey"
                                 >
                                     <select
                                         defaultValue={protocol.MethodTakingHint}
@@ -419,45 +331,25 @@ export default function ProgramEditable() {
                                         </option>
                                     </select>
                                 </div>
-                                <div
-                                    className="element_name"
-                                    style={{
-                                        minHeight: '1rem',
-                                        backgroundColor: '#EEEEEE',
-                                    }}
-                                ></div>
-                                <div
-                                    className="element_value"
-                                    style={{
-                                        minHeight: '1rem',
-                                        backgroundColor: '#EEEEEE',
-                                    }}
-                                ></div>
-                                <div
-                                    className="element_name"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
-                                <div
-                                    className="element_value"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
 
-                                <div className="element_name">
+                                <div className="element_name" style={{display: 'flex', alignItems: 'center'}}>
                                     Стимули до етапів
                                 </div>
                                 <div
                                     className="element_value"
-                                    style={{lineHeight: '18px'}}
+                                    style={{lineHeight: '2rem'}}
                                 >
                                     <ul>
+                                        <li>
                                         {stimulus.map((stimul) => (
                                             <StimulusItem
                                                 name={stimul.Name}
                                                 stimulId={stimul.id}
                                             />
-                                        ))}
-
-                                        <div className="add_stymul_container">
+                                        ))} 
+                                        </li>
+                                        
+                                        <li className="add_stymul_container">
                                             <button
                                                 onClick={() =>
                                                     addStimul(stimulInput)
@@ -466,6 +358,7 @@ export default function ProgramEditable() {
                                             >
                                                 +
                                             </button>
+
                                             <input
                                                 type="text"
                                                 onChange={(event) =>
@@ -477,17 +370,9 @@ export default function ProgramEditable() {
                                                 placeholder="Додати стимул...."
                                                 className="add_stymul_input"
                                             />
-                                        </div>
+                                        </li>
                                     </ul>
                                 </div>
-                                <div
-                                    className="element_name"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
-                                <div
-                                    className="element_value"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
 
                                 <div
                                     className="element_name"
@@ -495,14 +380,13 @@ export default function ProgramEditable() {
                                 >
                                     Опис етапів:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Додати опис етапів..."
-                                    className="element_value"
+                                    className="element_value element_value_input_grey"
                                     multiline="true"
                                     underlineColor="transparent"
                                     selectionColor="primary"
                                     defaultValue={protocol.StepDescription}
-                                    style={{fontSize: '20px'}}
                                     raised
                                     theme={{
                                         colors: {background: '#fcfcfc'},
@@ -512,14 +396,6 @@ export default function ProgramEditable() {
                                     }
                                 />
                                 {/*step 1*/}
-                                <div
-                                    className="element_name"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
-                                <div
-                                    className="element_value"
-                                    style={{minHeight: '1rem'}}
-                                ></div>
 
                                 <div
                                     className="element_name"
@@ -527,9 +403,9 @@ export default function ProgramEditable() {
                                 >
                                     Процедура корекції неправильної відповіді:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати процедуру корекції неправильної відповіді..."
-                                    className="element_value"
+                                    className="element_value element_value_input_white"
                                     multiline="true"
                                     underlineColor="transparent"
                                     selectionColor="primary"
@@ -542,10 +418,6 @@ export default function ProgramEditable() {
                                             event.target.value
                                         )
                                     }
-                                    style={{
-                                        fontSize: '20px',
-                                        backgroundColor: 'white',
-                                    }}
                                     raised
                                     theme={{
                                         colors: {background: 'white'},
@@ -559,9 +431,9 @@ export default function ProgramEditable() {
                                 >
                                     Інструкції до етапу 1:
                                 </div>
-                                    <TextInput
+                                    <input
                                         placeholder="Додати інструкції до етапу..."
-                                        className="element_value"
+                                        className="element_value element_value_input_grey"
                                         multiline="true"
                                         underlineColor="transparent"
                                         selectionColor="primary"
@@ -569,10 +441,6 @@ export default function ProgramEditable() {
                                         onChange={(event) =>
                                             addInstruction1(event.target.value)
                                         }
-                                        style={{
-                                            backgroundColor: '#EEEEEE',
-                                            fontSize: '20px',
-                                        }}
                                         raised
                                         theme={{
                                             colors: {
@@ -586,9 +454,9 @@ export default function ProgramEditable() {
                                 <div className="element_name">
                                     Інструкції до етапу 2 :
                                 </div>
-                                    <TextInput
+                                    <input
                                         placeholder="Додати інструкції до етапу..."
-                                        className="element_value"
+                                        className="element_value element_value_input_white"
                                         multiline="true"
                                         underlineColor="transparent"
                                         selectionColor="primary"
@@ -596,10 +464,6 @@ export default function ProgramEditable() {
                                         onChange={(event) =>
                                             addInstruction2(event.target.value)
                                         }
-                                        style={{
-                                            fontSize: '20px',
-                                            background: 'white',
-                                        }}
                                         raised
                                         theme={{
                                             colors: {
@@ -616,9 +480,9 @@ export default function ProgramEditable() {
                                 >
                                     Інструкції до етапу 3:
                                 </div>
-                                    <TextInput
+                                    <input
                                         placeholder="Додати інструкції до етапу..."
-                                        className="element_value"
+                                        className="element_value element_value_input_grey"
                                         multiline="true"
                                         underlineColor="transparent"
                                         selectionColor="primary"
@@ -626,10 +490,6 @@ export default function ProgramEditable() {
                                         onChange={(event) =>
                                             addInstruction3(event.target.value)
                                         }
-                                        style={{
-                                            backgroundColor: '#EEEEEE',
-                                            fontSize: '20px',
-                                        }}
                                         raised
                                         theme={{
                                             colors: {
@@ -665,7 +525,6 @@ export default function ProgramEditable() {
                     }}
                 />
             </>
-        </PaperProvider>
     )
 }
 

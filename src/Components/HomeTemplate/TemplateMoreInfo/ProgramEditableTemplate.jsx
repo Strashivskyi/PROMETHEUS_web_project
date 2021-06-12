@@ -1,22 +1,11 @@
-import {TextInput} from 'react-native-paper'
 import React, {useEffect, useState} from 'react'
 import app from '../../../Firebase/firebase'
 import StimulusItem from './ProgramElement/StimulusItem'
-import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
 import HeaderHomeTemplate from '../../Header/HeaderHomeTemplate'
 import ArrowHeaderEdit from '../PageComponent/ArrowHeaderEdit'
 import './ProgramTemplate.css'
 import MobileHeader from '../../Header/MobileHeader'
-const theme = {
-    ...DefaultTheme,
-    roundness: 0,
-    colors: {
-        ...DefaultTheme.colors,
-        primary: 'transparent',
-        accent: 'transparent',
-        dark: 'true',
-    },
-}
+
 
 function RemoveCopiedStatus({protocol}) {
     if (protocol.StatusCopied != null) {
@@ -105,7 +94,6 @@ export default function ProgramEditableTemplate() {
     let userEmail = localStorage.getItem('user')
 
     return (
-        <PaperProvider theme={theme}>
             <>
                 <MobileHeader />
                 <HeaderHomeTemplate />
@@ -132,7 +120,7 @@ export default function ProgramEditableTemplate() {
                                 >
                                     Сфера розвитку:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати сферу розвитку..."
                                     className="element_value"
                                     multiline="true"
@@ -155,7 +143,7 @@ export default function ProgramEditableTemplate() {
                                 >
                                     Навик:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати навик..."
                                     className="element_value"
                                     multiline="true"
@@ -186,7 +174,7 @@ export default function ProgramEditableTemplate() {
                                 >
                                     Метод:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати метод..."
                                     className="element_value"
                                     multiline="true"
@@ -206,7 +194,7 @@ export default function ProgramEditableTemplate() {
                                 >
                                     Бажана реакція:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати бажану реакцію..."
                                     className="element_value"
                                     multiline="true"
@@ -247,7 +235,7 @@ export default function ProgramEditableTemplate() {
                                         <div
                                             style={{backgroundColor: '#EEEEEE'}}
                                         >
-                                            <TextInput
+                                            <input
                                                 placeholder="Вказати критерій..."
                                                 className="element_value"
                                                 multiline="true"
@@ -293,7 +281,7 @@ export default function ProgramEditableTemplate() {
                                 >
                                     Рівні інтенсивності підказки:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати рівні інтенсивності підказки..."
                                     className="element_value"
                                     multiline="true"
@@ -320,7 +308,7 @@ export default function ProgramEditableTemplate() {
                                     Критерій зниження рівня інтенсивності
                                     підказки:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати критерій..."
                                     className="element_value"
                                     multiline="true"
@@ -348,7 +336,7 @@ export default function ProgramEditableTemplate() {
                                     Критерій підвищення рівня інтенсивності
                                     підказки:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати критерій..."
                                     className="element_value"
                                     multiline="true"
@@ -484,7 +472,7 @@ export default function ProgramEditableTemplate() {
                                 >
                                     Опис етапів:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Додати опис етапів..."
                                     className="element_value"
                                     multiline="true"
@@ -516,7 +504,7 @@ export default function ProgramEditableTemplate() {
                                 >
                                     Процедура корекції неправильної відповіді:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Вказати процедуру корекції неправильної відповіді..."
                                     className="element_value"
                                     multiline="true"
@@ -548,7 +536,7 @@ export default function ProgramEditableTemplate() {
                                 >
                                     Інструкції до етапу 1:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Додати інструкції до етапу..."
                                     className="element_value"
                                     multiline="true"
@@ -575,7 +563,7 @@ export default function ProgramEditableTemplate() {
                                 <div className="element_name">
                                     Інструкції до етапу 2 :
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Додати інструкції до етапу..."
                                     className="element_value"
                                     multiline="true"
@@ -605,7 +593,7 @@ export default function ProgramEditableTemplate() {
                                 >
                                     Інструкції до етапу 3:
                                 </div>
-                                <TextInput
+                                <input
                                     placeholder="Додати інструкції до етапу..."
                                     className="element_value"
                                     multiline="true"
@@ -633,7 +621,6 @@ export default function ProgramEditableTemplate() {
 
                 <div style={{height: '100px'}}></div>
             </>
-        </PaperProvider>
     )
 }
 

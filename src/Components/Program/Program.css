@@ -1,6 +1,5 @@
 @import url('https://rsms.me/inter/inter.css');
 .select_way {
-    margin-left: 0rem;
     background: #f8fcff;
     border: 2px solid #cce9ff;
     box-sizing: border-box;
@@ -8,14 +7,14 @@
     font-size: 20px;
     line-height: 20px;
     padding-left: 10px;
+    margin: 1rem 0rem 1rem 0rem;
 }
 .add_stymul_container {
     display: flex;
     flex-direction: row;
     height: 40px;
-    margin-top: 20px;
+    margin: 1rem 0rem 1rem 0rem;
     gap: 5px;
-    margin-left: -40px;
 }
 .add_stymul_input {
     width: 300px;
@@ -50,6 +49,11 @@
     border: 1px solid #eee;
     height: 40px;
     width: 40px;
+}
+.add_stymul_position {
+    padding: 1rem 0rem 1rem 0rem;
+    min-width: auto;
+    max-width: auto;
 }
 .program_upper_flex_container {
     display: flex;
@@ -88,8 +92,7 @@
     font-weight: bold;
     font-size: 20px;
     line-height: 40px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 1rem 0px;
 }
 
 .element_value {
@@ -98,6 +101,18 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 40px;
+    padding: 1rem 0px;
+}
+
+.element_value_input_white {
+    border: none;
+    font-size: 20px;
+}
+
+.element_value_input_grey {
+    font-size: 20px;
+    border: none;
+    background-color: rgb(238, 238, 238);
 }
 
 .stymul_grid_container {

@@ -5,19 +5,8 @@ import MobileHeader from '../Header/MobileHeader'
 
 import ArrowHeader from './ProgramElement/ArrowHeader'
 
-import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
 import './Program.css'
 
-const theme = {
-    ...DefaultTheme,
-    roundness: 0,
-    colors: {
-        ...DefaultTheme.colors,
-        primary: 'transparent',
-        accent: 'transparent',
-        dark: 'true',
-    },
-}
 
 function RemoveCopiedStatus({protocol}) {
     if (protocol.StatusCopied != null) {
@@ -104,7 +93,6 @@ export default function ProgramOnlyView() {
     )
 
     return (
-        <PaperProvider theme={theme}>
             <>
                 <MobileHeader />
                 <ProgramHeader />
@@ -475,7 +463,6 @@ export default function ProgramOnlyView() {
                 </ul>
                 <div style={{height: '100px'}}></div>
             </>
-        </PaperProvider>
     )
 }
 

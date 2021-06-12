@@ -3,19 +3,8 @@ import app from '../../../Firebase/firebase'
 
 import ArrowHeaderTemplate from './ArrowHeaderTemplate'
 import HeaderHomeTemplate from '../../Header/HeaderHomeTemplate'
-import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper'
 import MobileHeader from '../../Header/MobileHeader'
 
-const theme = {
-    ...DefaultTheme,
-    roundness: 0,
-    colors: {
-        ...DefaultTheme.colors,
-        primary: 'transparent',
-        accent: 'transparent',
-        dark: 'true',
-    },
-}
 
 // MAIN COMPONENT
 
@@ -56,7 +45,6 @@ export default function ProgramTemplateViewPublic() {
     )
 
     return (
-        <PaperProvider theme={theme}>
             <>
                 <MobileHeader />
                 <HeaderHomeTemplate />
@@ -428,7 +416,6 @@ export default function ProgramTemplateViewPublic() {
                 </ul>
                 <div style={{height: '100px'}}></div>
             </>
-        </PaperProvider>
     )
 }
 
