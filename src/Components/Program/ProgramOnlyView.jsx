@@ -6,6 +6,7 @@ import MobileHeader from '../Header/MobileHeader'
 import ArrowHeader from './ProgramElement/ArrowHeader'
 
 import './Program.css'
+import TreeArrowHeader from '../ArrowHeader/TreeArrowHeader'
 
 
 function RemoveCopiedStatus({protocol}) {
@@ -96,7 +97,7 @@ export default function ProgramOnlyView() {
             <>
                 <MobileHeader />
                 <ProgramHeader />
-                <ArrowHeader />
+                <TreeArrowHeader patient={localStorage.getItem("childName")} page={"Програма"}/>
                 <ul style={{position: 'relative', right: '4%'}}>
                     {protocols.map((protocol) => (
                         <div className="program_big_flex_container">

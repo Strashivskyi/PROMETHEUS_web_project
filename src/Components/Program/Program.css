@@ -51,7 +51,7 @@
     width: 40px;
 }
 .add_stymul_position {
-    padding: 1rem 0rem 1rem 0rem;
+    padding: 1rem 0px;
     min-width: auto;
     max-width: auto;
 }

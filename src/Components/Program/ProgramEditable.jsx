@@ -3,7 +3,7 @@ import './Program.css'
 import './ProgramTest.css'
 import React, {useEffect, useState} from 'react'
 import app from '../../Firebase/firebase'
-import ArrowHeader from './ProgramElement/ArrowHeader'
+import TreeArrowHeader from '../ArrowHeader/TreeArrowHeader'
 import StimulusItem from './ProgramElement/StimulusItem'
 import MobileHeader from '../Header/MobileHeader'
 import toast, {Toaster} from 'react-hot-toast'
@@ -106,7 +106,7 @@ export default function ProgramEditable() {
             <>
                 <MobileHeader />
                 <ProgramHeader />
-                <ArrowHeader />
+                <TreeArrowHeader patient={localStorage.getItem("childName")} page={"Програма"}/>
                 <ul style={{position: 'relative', right: '4%'}}>
                     {protocols.map((protocol) => (
                         <div className="program_big_flex_container">

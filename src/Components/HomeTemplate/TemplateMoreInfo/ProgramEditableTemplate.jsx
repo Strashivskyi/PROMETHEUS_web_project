@@ -6,7 +6,6 @@ import ArrowHeaderEdit from '../PageComponent/ArrowHeaderEdit'
 import './ProgramTemplate.css'
 import MobileHeader from '../../Header/MobileHeader'
 
-
 function RemoveCopiedStatus({protocol}) {
     if (protocol.StatusCopied != null) {
         const db = app

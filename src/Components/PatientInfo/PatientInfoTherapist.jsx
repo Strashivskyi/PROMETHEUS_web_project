@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import app from '../../Firebase/firebase'
 import './PatientInfoPage.css'
 import Header from '../Header/Header'
 import MobileHeader from '../Header/MobileHeader'
-import Arrow from '../../assets/arrow.png'
-import Kid from '../../assets/default_avatar.png'
-import {Link} from 'react-router-dom'
+import ArrowHeader from '../ArrowHeader/Arrow'
+import { Link } from 'react-router-dom'
 
 export default function PatientInfoTherapist() {
     let [patients, setPatients] = useState([])
@@ -13,11 +12,11 @@ export default function PatientInfoTherapist() {
         const fetchData = async () => {
             const db = app.firestore()
             const data = await db
-            .collection("Users")
-            .doc(localStorage.getItem('user'))
-            .collection("Therapists")
+                .collection("Users")
+                .doc(localStorage.getItem('user'))
+                .collection("Therapists")
                 .get()
-            setPatients(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+            setPatients(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
         fetchData()
     }, [])
@@ -39,29 +38,8 @@ export default function PatientInfoTherapist() {
                         <>
                             {localStorage.setItem('childName', patient.Name)}
 
-                            <div className="patient_upper_flex_container">
-                                <h2 style={{marginLeft: '4rem'}}>
-                                    <Link to="/" className="patients_link">
-                                        Пацієнти
-                                    </Link>
-                                </h2>
-                                <img
-                                    src={Arrow}
-                                    height="20"
-                                    style={{
-                                        marginLeft: '30px',
-                                        marginRight: '30px',
-                                        marginTop: '28px',
-                                        color: 'black',
-                                    }}
-                                />
-                                <h2
-                                    className="patients_link"
-                                    style={{color: '#6F6F6F'}}
-                                >
-                                    {patient.Name}
-                                </h2>
-                            </div>
+                            <ArrowHeader patient={patient}/>
+             
                             <div className="patient_grid_container">
                                 <img
                                     src={patient.Image}
@@ -81,13 +59,13 @@ export default function PatientInfoTherapist() {
                                         <h7 className="">
                                             Діагноз: &nbsp;&nbsp;&nbsp;&nbsp;
                                         </h7>
-                                        <div style={{color: '#6F6F6F'}}>
+                                        <div style={{ color: '#6F6F6F' }}>
                                             {patient.Diagnos}
                                         </div>
                                     </div>
                                     <div
                                         className="zebra_rows_flex_container"
-                                        style={{backgroundColor: '#EEEEEE'}}
+                                        style={{ backgroundColor: '#EEEEEE' }}
                                     >
                                         <div>Батьки:</div>
                                         <div className="zebra_rows_flex_container_value">
@@ -102,7 +80,7 @@ export default function PatientInfoTherapist() {
                                     </div>
                                     <div
                                         className="zebra_rows_flex_container"
-                                        style={{backgroundColor: '#EEEEEE'}}
+                                        style={{ backgroundColor: '#EEEEEE' }}
                                     >
                                         <div>Вік:</div>
                                         <div className="zebra_rows_flex_container_value">
@@ -117,7 +95,7 @@ export default function PatientInfoTherapist() {
                                     </div>
                                     <div
                                         className="zebra_rows_flex_container"
-                                        style={{backgroundColor: '#EEEEEE'}}
+                                        style={{ backgroundColor: '#EEEEEE' }}
                                     >
                                         <div>Місто:</div>
                                         <div className="zebra_rows_flex_container_value">
@@ -212,7 +190,7 @@ export default function PatientInfoTherapist() {
                                 <Link
                                     to={{
                                         pathname: '/patient/result_of_therapy',
-                                        myCustomProps: {patient},
+                                        myCustomProps: { patient },
                                     }}
                                     className="patient_page_buttons_therapy"
                                 >

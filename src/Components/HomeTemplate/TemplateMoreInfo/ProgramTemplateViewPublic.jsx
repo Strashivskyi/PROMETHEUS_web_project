@@ -5,7 +5,6 @@ import ArrowHeaderTemplate from './ArrowHeaderTemplate'
 import HeaderHomeTemplate from '../../Header/HeaderHomeTemplate'
 import MobileHeader from '../../Header/MobileHeader'
 
-
 // MAIN COMPONENT
 
 export default function ProgramTemplateViewPublic() {

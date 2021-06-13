@@ -1,12 +1,12 @@
 import React from 'react'
 import app from '../../../../Firebase/firebase'
-import {TextInput} from 'react-native-paper'
+
 function Step3({Instructions3}) {
     return (
         <>
             <div className="element_name">Інструкції до етапу:</div>
             <div className="element_value">
-                <TextInput
+                <input
                     className="element_value"
                     multiline="true"
                     underlineColor="transparent"

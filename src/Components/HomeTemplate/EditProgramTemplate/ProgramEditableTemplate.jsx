@@ -45,7 +45,7 @@ export default function ProgramEditableTemplate() {
                     )
                     console.log('Сука ')
                 } else {
-                    console.log('Сука1')
+                    console.log('Хуета ребята')
                 }
             })
         return () => {
@@ -88,7 +88,6 @@ export default function ProgramEditableTemplate() {
     let userEmail = localStorage.getItem('user')
 
     return (
-        
             <>
                 <MobileHeader />
                 <ProgramHeader />
@@ -429,7 +428,7 @@ export default function ProgramEditableTemplate() {
                                             />
                                         ))}
 
-                                        <div className="add_stymul_container">
+                                        <div className="add_stymul_container"> 
                                             <button
                                                 onClick={() =>
                                                     addStimul(stimulInput)
