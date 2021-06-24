@@ -80,25 +80,22 @@
     align-items: center;
 }
 
-.create_template_button {
+.create_template_button_t {
     background: transparent;
     color: #ef4f59;
     border: 1px solid #ef4f59;
     cursor: pointer;
-    margin-left: 1000px;
-    margin-right: 30px;
-    margin-top: -45px;
     font-family: Inter;
-    font-weight: 500;
-    line-height: 12px;
-    font-size: 22px;
-    width: 270px;
-    height: 40px;
-    position: absolute;
+    font-size: 15px;
+    height: 3rem;
+    border-radius: 4px;
+    text-decoration: none;
+
+    align-items: center;
+    justify-content: center;
 }
-.create_template_button.btn-background-slide::before {
+.create_template_button_t.btn-background-slide::before {
     content: '';
-    position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
@@ -110,16 +107,16 @@
     transform-origin: center;
 }
 
-.create_template_button.btn-background-slide:hover::before {
+.create_template_button_t.btn-background-slide:hover::before {
     transform: scaleX(1);
 }
 
-.create_template_button.btn-background-slide {
+.create_template_button_t.btn-background-slide {
     transition: color 300ms ease-in-out;
     z-index: 1;
 }
 
-.create_template_button.btn-background-slide:hover {
+.create_template_button_t.btn-background-slide:hover {
     color: white;
 }
 .go_icon {
@@ -162,17 +159,11 @@
         margin-left: 80vw;
         transform: scale(2);
     }
-    .create_template_button {
+    .create_template_button_t {
         background: transparent;
         color: #ef4f59;
-        padding: 0.5em 1em;
-        margin-left: 9vw;
-        margin-right: 0px;
-        margin-top: 5vw;
-        font-size: 4vw;
-        width: 50%;
-        height: 9vw;
-        position: relative;
+        font-size: 15px;
+        margin-bottom: 2em;
     }
     .go_icon {
         position: relative;
@@ -201,6 +192,9 @@
         width: 97%;
         height: 9vw;
         background-color: #eeeeee;
+    }
+    .link-protocol {
+        text-decoration: none;
     }
     .icon {
         cursor: pointer;
@@ -264,6 +258,7 @@
         padding-left: 10%;
         padding-top: 2%;
     }
+
     @media only screen and (min-device-width: 480px) and (max-device-width: 800px) {
         .add-proto-mobile {
             margin-top: 0vw;
@@ -279,44 +274,31 @@
 }
 
 @media screen and (min-width: 1300px) {
-    .create_template_button {
+    .create_template_button_t {
         background: transparent;
         color: #ef4f59;
-        padding: 0.5em 1em;
+        /* padding: 0.5em 1em; */
         border: 1px solid #ef4f59;
         cursor: pointer;
-        margin-left: 800px;
-        margin-right: 30px;
-        margin-top: -65px;
         font-family: Inter;
-        font-weight: 500;
-        line-height: 22px;
-        font-size: 22px;
-        width: 200px;
-        height: 60px;
-        position: absolute;
+        font-size: 15px;
     }
     .add-proto {
         top: 7.5rem;
     }
 }
 @media screen and (min-width: 1920px) {
-    .create_template_button {
+    .create_template_button_t {
         background: transparent;
         color: #ef4f59;
-        padding: 0.5em 1em;
+        /* padding: 0.5em 1em; */
         border: 1px solid #ef4f59;
         cursor: pointer;
-        margin-left: 1300px;
-        margin-right: 20px;
-        margin-top: -65px;
+
         font-family: Inter;
         font-weight: 500;
         line-height: 22px;
-        font-size: 22px;
-        width: 300px;
-        height: 60px;
-        position: absolute;
+        font-size: 15px;
     }
     .add-proto {
         margin-top: 2.5rem;
@@ -330,14 +312,17 @@
     .create_element {
         margin-top: 90px;
     }
-    .create_template_button {
-        margin-left: 200px;
-        margin-top: 5px;
-    }
+
     @media screen and (min-width: 1000px) and (max-width: 1300px) {
         .edit_icon {
             width: 1.3vw;
             height: 1.3vw;
         }
+    }
+}
+
+@media only screen and (min-device-width: 0px) and (max-device-width: 768px) {
+    .tree-arrow-header {
+        display: none;
     }
 }

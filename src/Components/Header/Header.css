@@ -1,6 +1,7 @@
 .header {
     display: flex;
-    margin: 0.5% 0 0 0;
+    margin-top: 1%;
+    margin-bottom: 2%;
     flex-direction: column;
 }
 .search {

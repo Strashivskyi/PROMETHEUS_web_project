@@ -12,15 +12,21 @@ function TherapyResult({history}) {
         <>
             <MobileHeader />
             <Header />
-            
-          <TreeArrowHeader patient={localStorage.getItem("childName")} page={"Результати терапії"}/>
-            <div className="container_file">
-                <p class="choose-file-title">
-                    Натисніть на файл, щоб завантажити його
-                </p>
-                <br />
-                <br />
-                <PaginationRounded history={history} />
+            <div className="container">
+                <div className="row terapy-top">
+                    <TreeArrowHeader
+                        patient={localStorage.getItem('childName')}
+                        page={'Результати терапії'}
+                    />
+                    <div className="container_file">
+                        <p class="choose-file-title">
+                            Натисніть на файл, щоб завантажити його
+                        </p>
+                        <br />
+                        <br />
+                        <PaginationRounded history={history} />
+                    </div>
+                </div>
             </div>
         </>
     )

@@ -17,11 +17,12 @@ function ProgramTemplate({history}) {
 
     useEffect(() => {
         const db = app.firestore()
-        const unsubscribe = db.collection("Users")
-        .doc(localStorage.getItem('user'))
-        .collection("Supervisors")
-        .doc(localStorage.getItem('child'))
-        .collection("History")
+        const unsubscribe = db
+            .collection('Users')
+            .doc(localStorage.getItem('user'))
+            .collection('Supervisors')
+            .doc(localStorage.getItem('child'))
+            .collection('History')
             .onSnapshot((snapshot) => {
                 if (snapshot.size) {
                     setProgramTemplates(
@@ -50,20 +51,28 @@ function ProgramTemplate({history}) {
         <>
             <MobileHeader />
             <Header />
-            <TreeArrowHeader patient={localStorage.getItem("childName")} page={"Історія програми"}/>
-            <div className="choose_create_way">
-                <span className="template_way">Історія програми &nbsp;</span>{' '}
-            </div>
-           <br/>
-            <div className="template-grid">
-                {someList.map((idEl) => (
-                    <TemplateItem
-                        
-                        number={idEl}
-                      date={programTemplates[idEl - 1].Date}
-                      history={history}
+            <div className="container">
+                <div className="row template-top">
+                    <TreeArrowHeader
+                        patient={localStorage.getItem('childName')}
+                        page={'Історія програми'}
                     />
-                ))}
+                    <div className="choose_create_way">
+                        <span className="template_way">
+                            Історія програми &nbsp;
+                        </span>{' '}
+                    </div>
+                    <br />
+                    <div className="template-grid">
+                        {someList.map((idEl) => (
+                            <TemplateItem
+                                number={idEl}
+                                date={programTemplates[idEl - 1].Date}
+                                history={history}
+                            />
+                        ))}
+                    </div>
+                </div>
             </div>
         </>
     )

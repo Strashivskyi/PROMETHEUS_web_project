@@ -117,8 +117,8 @@
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 15px;
+
     text-align: center;
     gap: 50px;
 }
@@ -129,8 +129,8 @@
     border: none;
     color: white;
     padding: 0.5em 0.75em;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 15px;
+    border-radius: 4px;
 }
 
 .patient_page_button_create_info:hover {
@@ -146,8 +146,8 @@
     background-color: #48535f;
     color: white;
     padding: 0.5em 0.75em;
-    /*text-decoration: none;
-    min-width: 200px; */
+    text-decoration: none;
+    border-radius: 4px;
 }
 
 .patient_page_buttons_therapy:hover {
@@ -169,6 +169,8 @@
     background-color: #48535f;
     color: white;
     padding: 0.5em 0.75em;
+    text-decoration: none;
+    border-radius: 4px;
 }
 
 .patient_page_buttons_program:hover {
@@ -285,8 +287,8 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        font-size: 20px;
-        font-weight: 600;
+        font-size: 15px;
+
         justify-content: center;
         gap: 2.5vh;
         width: 70vw;
