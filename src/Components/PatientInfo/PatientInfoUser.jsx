@@ -13,8 +13,6 @@ import About from '../VBmap/VBmap'
 
 export default function PatientInfoUser() {
 
-
-
     let [patients, setPatients] = useState([])
 
     let [therapistInput, setTherapistInput] = useState('')
@@ -22,6 +20,7 @@ export default function PatientInfoUser() {
     let test = []
 
     const [terapists, setTerapists] = useState([])
+
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db

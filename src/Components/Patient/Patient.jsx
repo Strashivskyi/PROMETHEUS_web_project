@@ -1,5 +1,5 @@
 import app from '../../Firebase/firebase'
-import PatientItem from '../PatientItem/PatientItem'
+import PatientItem from '../PatientItem/PatientItem.jsx'
 import React from 'react'
 import HeaderHomeTemplate from '../Header/HeaderHomeTemplate'
 import './Patients.css'
@@ -8,6 +8,7 @@ import SupervisorTherapistNav from './SupervisorTherapistNav'
 import {Link} from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import {BsPlusCircle} from 'react-icons/bs'
+
 function Patient() {
     let [patients, setPatients] = useState([])
     const [inputSearch, setInputSearch] = useState('')
@@ -28,41 +29,46 @@ function Patient() {
     localStorage.setItem('templateType', 'private')
     localStorage.setItem('homeType', 'home')
 
- 
 
     return (
         <div className="container">
-            <HeaderHomeTemplate className="row" />
+            <HeaderHomeTemplate className="row"/>
             <MobileHeader/>
 
             <div className="row">
-                <div className="col-3" />
-                <SupervisorTherapistNav className="col-4 col-md-6 row" />
-                <div className="col-1 col-md-2" />
-             
-                    <BranchingItem />
-                
+                <div className="col-3"/>
+                <SupervisorTherapistNav className="col-4 col-md-6 row"/>
+                <div className="col-1 col-md-2"/>
+
+                <BranchingItem/>
+
             </div>
-            <div className="row">
-                <div className="col-6 patient_number">
+
+                <div className="patient_number">
                     Кількість пацієнтів: {patients.length}
                 </div>
+
+            <div className="row d-flex justify-content-start">
+                {/*<div className="col-md-3" style={{backgroundColor: '#ccc'}}>*/}
+                    <PatientItem patients={patients}/>
+                {/*</div>*/}
             </div>
-            <PatientItem patients={patients} />
+
         </div>
     )
 }
 
 export default Patient
+
 function BranchingItem() {
     if (localStorage.getItem('proffesion') == 'Supervisors') {
         return (
             <>
-               <Link
+                <Link
                     to="/patient_registration"
                     className="col-2 col-md-1 place_right_horizontal"
                 >
-                <BsPlusCircle size={50} className="plus_button" />
+                    <BsPlusCircle size={50} className="plus_button"/>
                 </Link>
             </>
         )
