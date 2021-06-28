@@ -142,113 +142,37 @@ export default function PatientInfoUser() {
     localStorage.setItem('childData', JSON.stringify(patients[0]))
     return (
         <div>
-            <MobileHeader />
-            <Header />
-            <ul className="no_left">
+            <MobileHeader/>
+            <Header/>
+            {/*<ul className="no_left">*/}
                 {patients.map((patient) => (
                     <>
                         {localStorage.setItem('childName', patient.Name)}
 
-                       
-                            <ArrowHeader patient={patient}/>
-                      
-                        <div className="patient_grid_container">
-                            <img
-                                src={patient.Image}
-                                height="200"
-                                className="mobile_child_image"
-                            />
-                            <img
-                                src={patient.Image}
-                                height="270"
-                                className="child_image"
-                            />
-                            <div className="column_outer_flex_container">
-                                <div className="kid_name">{patient.Name} </div>
-                                <div className="diagnosis_flex_container">
-                                    <h7 className="">
-                                        Діагноз: &nbsp;&nbsp;&nbsp;&nbsp;
-                                    </h7>
-                                    <div style={{color: '#6F6F6F'}}>
-                                        {patient.Diagnos}
-                                    </div>
+                        <ArrowHeader patient={patient}/>
+
+                        <div className="container">
+
+                            <div className="row ">
+                                <div className="col-md-4">
+                                    <img className="child_image" src={patient.Image}/>
                                 </div>
-                                <div
-                                    className="zebra_rows_flex_container"
-                                    style={{backgroundColor: '#EEEEEE'}}
-                                >
-                                    <div>Батьки:</div>
-                                    <div className="zebra_rows_flex_container_value">
-                                        {patient.Parents}
-                                    </div>
+
+                                <div className="col-md-8 kid_info">
+                                    <h5>{patient.Name} </h5>
+                                    <h6>Діагноз: <span>{patient.Diagnos}</span></h6>
+                                    <p className="grey_bg">Батьки:<span>{patient.Parents}</span></p>
+                                    <p>Стать:<span>{patient.Gender}</span></p>
+                                    <p className="grey_bg">Вік:<span>{patient.Age} років</span></p>
+                                    <p>Дата народження:<span>{patient.BirthDate}</span></p>
+                                    <p className="grey_bg">Адреса:<span>{`${patient.City}, ${patient.Country}`}</span></p>
                                 </div>
-                                <div className="zebra_rows_flex_container">
-                                    <div>Стать:</div>
-                                    <div className="zebra_rows_flex_container_value">
-                                        {patient.Gender}
-                                    </div>
-                                </div>
-                                <div
-                                    className="zebra_rows_flex_container"
-                                    style={{backgroundColor: '#EEEEEE'}}
-                                >
-                                    <div>Вік:</div>
-                                    <div className="zebra_rows_flex_container_value">
-                                        {patient.Age} років
-                                    </div>
-                                </div>
-                                <div className="zebra_rows_flex_container">
-                                    <div>Дата народження:</div>
-                                    <div className="zebra_rows_flex_container_value">
-                                        {patient.BirthDate}
-                                    </div>
-                                </div>
-                                <div
-                                    className="zebra_rows_flex_container"
-                                    style={{backgroundColor: '#EEEEEE'}}
-                                >
-                                    <div>Місто:</div>
-                                    <div className="zebra_rows_flex_container_value">
-                                        {patient.City}
-                                    </div>
-                                </div>
-                                <div className="zebra_rows_flex_container">
-                                    <div>Країна:</div>
-                                    <div className="zebra_rows_flex_container_value">
-                                        {patient.Country}
-                                    </div>
-                                </div>
-                                <div
-                                    className="zebra_rows_flex_container"
-                                    style={{backgroundColor: '#EEEEEE'}}
-                                >
-                                    <div>
-                                        Рівень оцінки вербальних навичок
-                                        (VB-MAPP):
-                                    </div>
-                                    <div className="zebra_rows_flex_container_value">
-                                        <About />
-                                    </div>
-                                </div>
-                                {/* 
-                                <div className="zebra_rows_flex_container">
-                                    <div>Зріст:</div>
-                                    <div className="zebra_rows_flex_container_value">
-                                        {patient.KidHeight} см
-                                    </div>
-                                </div>
-                                <div
-                                    className="zebra_rows_flex_container"
-                                    style={{ backgroundColor: '#EEEEEE' }}
-                                >
-                                    <div>Група крові:</div>
-                                    <div className="zebra_rows_flex_container_value">
-                                        {patient.BloodType}
-                                    </div> */}
-                                {/* </div> */}
                             </div>
+
+
+
                             {/* second column */}
-                            <div className="second_column_outer_flex_container">
+                            <div className="row">
                                 <div
                                     className="zebra_rows_flex_container"
                                     style={{
@@ -273,7 +197,7 @@ export default function PatientInfoUser() {
                                                                         '0px',
                                                                 }}
                                                             >
-                                                                ({therapist.id})
+                                                                ({`${therapist.id} 3456`})
                                                             </div>
                                                         </div>
                                                         <div className="icon_place_therapist">
@@ -378,7 +302,7 @@ export default function PatientInfoUser() {
                         />
                     </>
                 ))}
-            </ul>
+
         </div>
     )
 }
@@ -411,7 +335,7 @@ function setData() {
 function DeleteTherapist(therapistId) {
     console.log('хуй')
     const db = app.firestore()
-    db .collection("Users")
+    db.collection("Users")
         .doc(localStorage.getItem('user'))
         .collection('Supervisors')
         .doc(localStorage.getItem('child'))
@@ -432,14 +356,13 @@ function DeleteTherapist(therapistId) {
 function addTherapist(therapistInput) {
     const db = app.firestore()
     if (therapistInput != '') {
-        db .collection("Users")
+        db.collection("Users")
             .doc(therapistInput)
             .get()
             .then((doc) => {
-                if(doc.id==localStorage.getItem('user')){
+                if (doc.id == localStorage.getItem('user')) {
                     toast.error('Ви не можете добавити самого себе в ролі терапіста!')
-                }
-                else if (doc.exists) {
+                } else if (doc.exists) {
                     console.log('zaebis pashe')
                     db
                         .collection("Users")
@@ -462,7 +385,8 @@ function addTherapist(therapistInput) {
                         }/${localStorage.getItem(
                             'childName'
                         )}/${therapistInput}`
-                    ).then((data) => {})
+                    ).then((data) => {
+                    })
                 } else {
                     toast.loading(
                         `Відправлено лист на реєстрацію на: ${therapistInput}`
@@ -487,7 +411,8 @@ function addTherapist(therapistInput) {
                         }/${localStorage.getItem(
                             'childName'
                         )}/${therapistInput}`
-                    ).then((data) => {})
+                    ).then((data) => {
+                    })
                 }
             })
             .catch((error) => {

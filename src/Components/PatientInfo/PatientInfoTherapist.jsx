@@ -57,7 +57,7 @@ export default function PatientInfoTherapist() {
                                     </div>
                                     <div className="diagnosis_flex_container">
                                         <h7 className="">
-                                            Діагноз: &nbsp;&nbsp;&nbsp;&nbsp;
+                                            Діагноз1ііі:
                                         </h7>
                                         <div style={{color: '#6F6F6F'}}>
                                             {patient.Diagnos}

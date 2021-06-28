@@ -11,12 +11,12 @@ import './SignUp.css'
 function SignUp() {
     return (
         <>
-            <div class="container">
-                <div class="row justify-content-center">
+            <div className="container">
+                <div className="row justify-content-center">
                     <img
                         src={Logo}
                         alt="big logo"
-                        class="signup_logo col-8 col-md-5"
+                        className="signup_logo col-8 col-md-5"
                     />
                 </div>
                 <div className="row  justify-content-center">
@@ -24,7 +24,7 @@ function SignUp() {
                         Реєстрація
                     </span>
                 </div>
-                <div class="row justify-content-center">
+                <div className="row justify-content-center">
                     <div className="col-12 col-md-8 col-xl-6 row signup-form justify-content-center">
                         <div className="col-12 row sign-up-cont justify-content-center">
                             <HashRouter className="col-12 row">

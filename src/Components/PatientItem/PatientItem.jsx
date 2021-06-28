@@ -5,6 +5,9 @@ import './PatientItem.css'
 import './../Authentification/SignIn2.css'
 
 function PatientItem({patients}) {
+console.log(patients.keys())
+//     let kk = patients["0"].BirthDate
+//     console.log(kk)
 
     return (
         <>
@@ -23,7 +26,7 @@ function PatientItem({patients}) {
                                 className="patient_image"
                                 alt="kid name"
                             />
-
+                        {/*<p>{patient?.BirthDate}</p>*/}
                         <h5 className="patient_name text-align-center">
                             {patient.Name}
                         </h5>
