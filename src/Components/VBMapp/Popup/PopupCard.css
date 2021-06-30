@@ -1,0 +1,62 @@
+.popup-card {
+    width: 16rem;
+    height: 16rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.popup-card-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.protocol-cell {
+    width: 100%;
+}
+
+.popup-card-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: 500;
+    padding: 10px 0 10px 0;
+}
+
+.popup-protocol-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: grey;
+}
+
+.popup-link {
+    color: grey;
+    padding: 0 0 10px 0;
+}
+
+.popup-link-title {
+    padding: 10px 0 10px 0;
+}
+
+.popup-card-status {
+    display: flex;
+    align-items: center;
+}
+
+.popup-status-choice {
+    width: '100%';
+    margin: 0 0 0 10px;
+}
+
+.open-protocol-btn {
+    border: 1px solid #ef4f59;
+    padding: 1rem;
+    margin: 10px 0 0 0;
+    color: #ef4f59;
+    text-decoration: none;
+}
