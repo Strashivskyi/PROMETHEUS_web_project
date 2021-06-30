@@ -7,20 +7,20 @@
 .program-main-block {
     width: auto;
     display: flex;
-    flex-direction: row;
 }
 
 .under-block-stage {
     width: 100%;
-    align-self: baseline;
-    border: 0 1px 0 0 solid black;
+    display: flex;
 }
 
 .under-block {
-    width: 100%;
     height: 2rem;
-    align-self: baseline;
     border: 1px solid black;
+}
+
+.under-block:hover {
+    border-color: #ef4f59;
 }
 
 .go-to-program {
