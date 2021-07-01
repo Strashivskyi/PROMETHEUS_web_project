@@ -12,7 +12,6 @@ import toast, {Toaster} from 'react-hot-toast'
 import About from '../VBmap/VBmap'
 
 export default function PatientInfoUser() {
-
     let [patients, setPatients] = useState([])
 
     let [therapistInput, setTherapistInput] = useState('')
@@ -24,7 +23,7 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection("Users")
+            .collection('Users')
             .doc(localStorage.getItem('user'))
             .collection('Supervisors')
             .doc(localStorage.getItem('child'))
@@ -56,13 +55,13 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection("Users")
+            .collection('Users')
             .doc(localStorage.getItem('user'))
             .collection('Supervisors')
             .doc(localStorage.getItem('child'))
             .collection('Therapists')
             .onSnapshot((snapshot) => {
-                db.collection("Users")
+                db.collection('Users')
                     .doc(localStorage.getItem('user'))
                     .collection('Supervisors')
                     .doc(localStorage.getItem('child'))
@@ -89,7 +88,7 @@ export default function PatientInfoUser() {
         const fetchData = async () => {
             const db = app.firestore()
             const data = await db
-                .collection("Users")
+                .collection('Users')
                 .doc(localStorage.getItem('user'))
                 .collection('Supervisors')
                 .get()
@@ -111,7 +110,7 @@ export default function PatientInfoUser() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-            .collection("Users")
+            .collection('Users')
             .doc(localStorage.getItem('user'))
             .collection('Supervisors')
             .doc(localStorage.getItem('child'))
@@ -142,167 +141,164 @@ export default function PatientInfoUser() {
     localStorage.setItem('childData', JSON.stringify(patients[0]))
     return (
         <div>
-            <MobileHeader/>
-            <Header/>
+            <MobileHeader />
+            <Header />
             {/*<ul className="no_left">*/}
-                {patients.map((patient) => (
-                    <>
-                        {localStorage.setItem('childName', patient.Name)}
+            {patients.map((patient) => (
+                <>
+                    {localStorage.setItem('childName', patient.Name)}
 
-                        <ArrowHeader patient={patient}/>
+                    <ArrowHeader patient={patient} />
 
-                        <div className="container">
-
-                            <div className="row ">
-                                <div className="col-md-4">
-                                    <img className="child_image" src={patient.Image}/>
-                                </div>
-
-                                <div className="col-md-8 kid_info">
-                                    <h5>{patient.Name} </h5>
-                                    <h6>Діагноз: <span>{patient.Diagnos}</span></h6>
-                                    <p className="grey_bg">Батьки:<span>{patient.Parents}</span></p>
-                                    <p>Стать:<span>{patient.Gender}</span></p>
-                                    <p className="grey_bg">Вік:<span>{patient.Age} років</span></p>
-                                    <p>Дата народження:<span>{patient.BirthDate}</span></p>
-                                    <p className="grey_bg">Адреса:<span>{`${patient.City}, ${patient.Country}`}</span></p>
-                                </div>
+                    <div className="container">
+                        <div className="row kid_info_row">
+                            <div className="col-md-4 col-sm-3">
+                                <img
+                                    className="child_image"
+                                    src={patient.Image}
+                                />
                             </div>
 
-
-
-                            {/* second column */}
-                            <div className="row">
-                                <div
-                                    className="zebra_rows_flex_container"
-                                    style={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                    }}
-                                >
-                                    <div>Терапевти:</div>
-                                    <div className="therapist_info">
-                                        {/* <ReactSortable list={protocols} setList={setProtocols}> */}
-                                        {therapists
-                                            .sort((a, b) => +a.id - +b.id)
-                                            .map((therapist) => (
-                                                <>
-                                                    <div className="therapist_container">
-                                                        <div>
-                                                            {therapist.Name}
-                                                            <div
-                                                                className="zebra_rows_flex_container_value"
-                                                                style={{
-                                                                    marginTop:
-                                                                        '0px',
-                                                                }}
-                                                            >
-                                                                ({`${therapist.id} 3456`})
-                                                            </div>
-                                                        </div>
-                                                        <div className="icon_place_therapist">
-                                                            <img
-                                                                className="icon_patient"
-                                                                onClick={() =>
-                                                                    DeleteTherapist(
-                                                                        therapist.id
-                                                                    )
-                                                                }
-                                                                src={Delete}
-                                                                width="8px"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </>
-                                            ))}
-                                    </div>
-
-                                    <div className="add_therapist_container">
-                                        <button
-                                            onClick={() =>
-                                                addTherapist(therapistInput)
-                                            }
-                                            className="add_therapist_button"
-                                        >
-                                            +
-                                        </button>
-                                        <input
-                                            type="text"
-                                            onChange={(event) =>
-                                                setTherapistInput(
-                                                    event.target.value
-                                                )
-                                            }
-                                            name="name"
-                                            placeholder="Додати за поштою...."
-                                            className="add_therapist_input"
-                                        />
-                                    </div>
-                                </div>
+                            <div className="kid_info col-md-8 col-sm-9">
+                                <h5>{patient.Name} </h5>
+                                <h6>
+                                    Діагноз: <span>{patient.Diagnos}</span>
+                                </h6>
+                                <p className="grey_bg">
+                                    Батьки:<span>{patient.Parents}</span>
+                                </p>
+                                <p>
+                                    Стать:<span>{patient.Gender}</span>
+                                </p>
+                                <p className="grey_bg">
+                                    Вік:<span>{patient.Age} років</span>
+                                </p>
+                                <p>
+                                    Дата народження:
+                                    <span>{patient.BirthDate}</span>
+                                </p>
+                                <p className="grey_bg">
+                                    Адреса:
+                                    <span>{`${patient.City}, ${patient.Country}`}</span>
+                                </p>
                             </div>
                         </div>
-                        <div className="patient_page_buttons">
-                            <Link
-                                to={{
-                                    pathname: '/program-template',
-                                    myCustomProps: {patient},
-                                }}
-                                className="patient_page_buttons_therapy"
-                            >
-                                Історія програми
-                            </Link>
+
+                        <div className="therapist_title_name">Терапевти:</div>
+                        <div className="therapist_info">
+                            {/* <ReactSortable list={protocols} setList={setProtocols}> */}
+                            {therapists
+                                .sort((a, b) => +a.id - +b.id)
+                                .map((therapist) => (
+                                    <>
+                                        <div className="therapist_container">
+                                            <div>
+                                                {therapist.Name}
+                                                <div
+                                                    className="zebra_rows_flex_container_value"
+                                                    style={{
+                                                        marginTop: '0px',
+                                                    }}
+                                                >
+                                                    ({`${therapist.id}`})
+                                                </div>
+                                            </div>
+                                            <div className="icon_place_therapist">
+                                                <img
+                                                    className="icon_patient"
+                                                    onClick={() =>
+                                                        DeleteTherapist(
+                                                            therapist.id
+                                                        )
+                                                    }
+                                                    src={Delete}
+                                                    width="8px"
+                                                />
+                                            </div>
+                                        </div>
+                                    </>
+                                ))}
+                        </div>
+
+                        <div className="add_therapist_container">
                             <button
-                                onClick={() => uploadGraphsForSevenDaysToDB()}
-                                className="patient_page_button_create_info"
+                                onClick={() => addTherapist(therapistInput)}
+                                className="add_therapist_button"
                             >
-                                Згенерувати звіт за останні 7 днів
+                                +
                             </button>
-                            <Link
-                                to={{
-                                    pathname: '/patient/result_of_therapy',
-                                    myCustomProps: {patient},
-                                }}
-                                className="patient_page_buttons_therapy"
-                            >
-                                Результати терапії
-                            </Link>
-                            <Link
-                                to={path}
-                                onClick={() => setData()}
-                                className="patient_page_buttons_program"
-                            >
-                                Програма
-                            </Link>
+                            <input
+                                type="text"
+                                onChange={(event) =>
+                                    setTherapistInput(event.target.value)
+                                }
+                                name="name"
+                                placeholder="Додати за поштою...."
+                                className="add_therapist_input"
+                            />
                         </div>
-                        <Toaster
-                            position="bottom-top"
-                            reverseOrder={false}
-                            toastOptions={{
-                                style: {
-                                    minWidth: '350px',
-                                    minHeight: '60px',
-                                    paddingLeft: '20px',
-                                },
-                                success: {
-                                    minWidth: '600px',
-                                    minHeight: '120px',
-                                    duration: 5000,
-                                },
-                                loading: {
-                                    minWidth: '600px',
-                                    minHeight: '120px',
-                                    duration: 5000,
-                                    icon: '✉️',
-                                },
-                                error: {
-                                    duration: 5000,
-                                    icon: '⚠️',
-                                },
+                    </div>
+                    <div className="patient_page_buttons">
+                        <Link
+                            to={{
+                                pathname: '/program-template',
+                                myCustomProps: {patient},
                             }}
-                        />
-                    </>
-                ))}
-
+                            className="patient_page_buttons_therapy"
+                        >
+                            Історія програми
+                        </Link>
+                        <button
+                            onClick={() => uploadGraphsForSevenDaysToDB()}
+                            className="patient_page_button_create_info"
+                        >
+                            Згенерувати звіт за останні 7 днів
+                        </button>
+                        <Link
+                            to={{
+                                pathname: '/patient/result_of_therapy',
+                                myCustomProps: {patient},
+                            }}
+                            className="patient_page_buttons_therapy"
+                        >
+                            Результати терапії
+                        </Link>
+                        <Link
+                            to={path}
+                            onClick={() => setData()}
+                            className="patient_page_buttons_program"
+                        >
+                            Програма
+                        </Link>
+                    </div>
+                    <Toaster
+                        position="bottom-top"
+                        reverseOrder={false}
+                        toastOptions={{
+                            style: {
+                                minWidth: '350px',
+                                minHeight: '60px',
+                                paddingLeft: '20px',
+                            },
+                            success: {
+                                minWidth: '600px',
+                                minHeight: '120px',
+                                duration: 5000,
+                            },
+                            loading: {
+                                minWidth: '600px',
+                                minHeight: '120px',
+                                duration: 5000,
+                                icon: '✉️',
+                            },
+                            error: {
+                                duration: 5000,
+                                icon: '⚠️',
+                            },
+                        }}
+                    />
+                </>
+            ))}
         </div>
     )
 }
@@ -335,7 +331,7 @@ function setData() {
 function DeleteTherapist(therapistId) {
     console.log('хуй')
     const db = app.firestore()
-    db.collection("Users")
+    db.collection('Users')
         .doc(localStorage.getItem('user'))
         .collection('Supervisors')
         .doc(localStorage.getItem('child'))
@@ -343,9 +339,7 @@ function DeleteTherapist(therapistId) {
         .doc(therapistId)
         .delete()
 
-
-    db
-        .collection("Users")
+    db.collection('Users')
         .doc(therapistId)
         .collection('Therapists')
         .doc(localStorage.getItem('child'))
@@ -356,16 +350,17 @@ function DeleteTherapist(therapistId) {
 function addTherapist(therapistInput) {
     const db = app.firestore()
     if (therapistInput != '') {
-        db.collection("Users")
+        db.collection('Users')
             .doc(therapistInput)
             .get()
             .then((doc) => {
                 if (doc.id == localStorage.getItem('user')) {
-                    toast.error('Ви не можете добавити самого себе в ролі терапіста!')
+                    toast.error(
+                        'Ви не можете добавити самого себе в ролі терапіста!'
+                    )
                 } else if (doc.exists) {
                     console.log('zaebis pashe')
-                    db
-                        .collection("Users")
+                    db.collection('Users')
                         .doc(localStorage.getItem('user'))
                         .collection('Supervisors')
                         .doc(localStorage.getItem('child'))
@@ -385,13 +380,12 @@ function addTherapist(therapistInput) {
                         }/${localStorage.getItem(
                             'childName'
                         )}/${therapistInput}`
-                    ).then((data) => {
-                    })
+                    ).then((data) => {})
                 } else {
                     toast.loading(
                         `Відправлено лист на реєстрацію на: ${therapistInput}`
                     )
-                    db.collection("Users")
+                    db.collection('Users')
                         .doc(localStorage.getItem('user'))
                         .collection('Supervisors')
                         .doc(localStorage.getItem('child'))
@@ -399,8 +393,7 @@ function addTherapist(therapistInput) {
                         .doc(therapistInput)
                         .set({Name: 'Очікуємо реєстрації'})
 
-                    db
-                        .collection("Users")
+                    db.collection('Users')
                         .doc(therapistInput)
                         .set({Name: 'Очікуємо реєстрації'})
                     fetch(
@@ -411,8 +404,7 @@ function addTherapist(therapistInput) {
                         }/${localStorage.getItem(
                             'childName'
                         )}/${therapistInput}`
-                    ).then((data) => {
-                    })
+                    ).then((data) => {})
                 }
             })
             .catch((error) => {

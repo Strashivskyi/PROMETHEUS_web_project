@@ -12,9 +12,9 @@ export default function PatientInfoTherapist() {
         const fetchData = async () => {
             const db = app.firestore()
             const data = await db
-                .collection("Users")
+                .collection('Users')
                 .doc(localStorage.getItem('user'))
-                .collection("Therapists")
+                .collection('Therapists')
                 .get()
             setPatients(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
         }
@@ -29,8 +29,8 @@ export default function PatientInfoTherapist() {
 
     return (
         <>
-            <MobileHeader/>
-            <Header/>
+            <MobileHeader />
+            <Header />
             <div>
                 {/* className="grey_back" */}
                 <ul>
@@ -38,30 +38,32 @@ export default function PatientInfoTherapist() {
                         <>
                             {localStorage.setItem('childName', patient.Name)}
 
-                            <ArrowHeader patient={patient}/>
+                            <ArrowHeader patient={patient} />
 
                             <div className="patient_grid_container">
                                 <img
                                     src={patient.Image}
                                     height="200"
                                     className="mobile_child_image"
+                                    alt="img"
                                 />
                                 <img
                                     src={patient.Image}
                                     height="270"
                                     className="child_image"
+                                    alt="img"
                                 />
                                 <div className="column_outer_flex_container">
                                     <div className="kid_name">
-                                        {patient.Name}{' '}
+                                        {patient.Name}
                                     </div>
                                     <div className="diagnosis_flex_container">
-                                        <h7 className="">
-                                            Діагноз1ііі:
-                                        </h7>
-                                        <div style={{color: '#6F6F6F'}}>
+                                        <p className="">
+                                            Причина звернення:&nbsp;
+                                        </p>
+                                        <p style={{color: '#6F6F6F'}}>
                                             {patient.Diagnos}
-                                        </div>
+                                        </p>
                                     </div>
                                     <div
                                         className="zebra_rows_flex_container"
