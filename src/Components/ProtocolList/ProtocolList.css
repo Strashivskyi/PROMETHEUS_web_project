@@ -36,7 +36,7 @@
     width: 18.5%;
     align-self: center;
     justify-content: space-around;
-    height: 1.75rem;
+    align-items: center;
     display: flex;
     flex-direction: row;
 }
@@ -179,11 +179,9 @@
     }
     .edit_icon {
         position: relative;
-        top: 3vw;
         transform: scale(3);
-        width: 10vw;
-        height: 10vw;
-        margin-top: 30px;
+        width: 15px;
+        height: 15px;
     }
 
     .icon_place {
@@ -198,13 +196,11 @@
     }
     .icon {
         cursor: pointer;
-        margin: 7vw;
+        margin: auto;
         margin-top: 0;
-        padding-top: 3vw;
-        padding-bottom: 6vw;
         margin-bottom: 0;
-        width: 3vw;
-        height: 3vw;
+        width: 15px;
+        height: 15px;
     }
     .control-panel {
         display: flex;
