@@ -40,6 +40,7 @@ export default function PatientInfoTherapist() {
 
                             <ArrowHeader patient={patient} />
 
+
                             <div className="patient_grid_container">
                                 <div className="center_mob_image">
                                     <img
