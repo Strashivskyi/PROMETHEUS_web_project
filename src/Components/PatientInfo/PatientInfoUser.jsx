@@ -238,19 +238,20 @@ export default function PatientInfoUser() {
                             />
                         </div>
                     </div>
+                    <br />
                     <div className="patient_page_buttons">
                         <Link
                             to={{
                                 pathname: '/program-template',
                                 myCustomProps: {patient},
                             }}
-                            className="patient_page_buttons_therapy"
+                            className="patient_page_buttons_therapy btn_centering"
                         >
                             Історія програми
                         </Link>
                         <button
                             onClick={() => uploadGraphsForSevenDaysToDB()}
-                            className="patient_page_button_create_info"
+                            className="patient_page_button_create_info btn_centering"
                         >
                             Згенерувати звіт за останні 7 днів
                         </button>
@@ -259,14 +260,14 @@ export default function PatientInfoUser() {
                                 pathname: '/patient/result_of_therapy',
                                 myCustomProps: {patient},
                             }}
-                            className="patient_page_buttons_therapy"
+                            className="patient_page_buttons_therapy btn_centering"
                         >
                             Результати терапії
                         </Link>
                         <Link
                             to={path}
                             onClick={() => setData()}
-                            className="patient_page_buttons_program"
+                            className="patient_page_buttons_program btn_centering"
                         >
                             Програма
                         </Link>

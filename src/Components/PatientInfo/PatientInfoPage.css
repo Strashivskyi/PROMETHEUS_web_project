@@ -230,13 +230,12 @@
 
 .child_image {
     display: initial;
-    margin-top: 80px;
 }
 .mobile_child_image {
     display: none;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
     .add_therapist_input {
         width: 70%;
         border: 1px solid #eee;
@@ -343,75 +342,40 @@
         min-width: 70vw;
         max-width: 70vw;
     }
-    @media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
-        .therapist_container {
-            font-size: 3vw;
-        }
-        .icon_place_therapist {
-            width: 50%;
-            height: 20%;
-            background-color: transparent;
-        }
-    }
-    @media only screen and (min-device-width: 500px) and (max-device-width: 800px) {
-        .diagnosis_flex_container {
-            font-size: 5vw;
-        }
-        .mobile_child_image {
-            display: none;
-        }
-        .child_image {
-            display: initial;
-            margin-top: 20px;
-        }
-
-        .kid_name {
-            margin-top: 3vw;
-        }
-
-        .zebra_rows_flex_container {
-            display: grid;
-            grid-template-columns: 40% auto;
-            font-size: 5vw;
-            padding-left: 10px;
-            line-height: 8vw;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            min-width: 75vw;
-            max-width: 75vw;
-        }
-    }
 }
-@media screen and (min-width: 1300px) {
-    .patient_grid_container {
-        display: grid;
-        grid-gap: 5vw;
-        gap: 5vw;
-        margin-right: 70px;
-        margin-left: 8rem;
-        margin-top: 1rem;
-    }
-}
-@media screen and (min-width: 800px) and (max-width: 1000px) {
-    .patient_grid_container {
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+    .kid_info_row {
+        display: flex;
         flex-direction: column;
-        grid-template-columns: none;
+        align-items: center;
     }
-    .second_column_outer_flex_container {
-        margin-top: 5px;
+    .center_mob_image {
+        display: flex;
+        justify-content: center;
+    }
+    .patient_page_buttons {
+        display: flex;
+        font-family: 'Inter', cursive;
+        width: 50%;
+        margin: auto;
+    }
+    .btn_centering {
+        display: flex;
+        align-items: center;
     }
 }
-@media screen and (min-width: 1001px) and (max-width: 1300px) {
-    .patient_grid_container {
-        flex-direction: column;
-        grid-template-columns: none;
-    }
-    .second_column_outer_flex_container {
-        margin-top: 5px;
-        margin-right: 400px;
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .kid_info h5 {
+        margin-left: 65px;
     }
 
-    .column_outer_flex_container {
-        margin-right: 120px;
+    .kid_info h6 {
+        margin: 20px 0 20px 65px;
+    }
+
+    .kid_info p {
+        margin-left: 65px;
     }
 }

@@ -41,12 +41,14 @@ export default function PatientInfoTherapist() {
                             <ArrowHeader patient={patient} />
 
                             <div className="patient_grid_container">
-                                <img
-                                    src={patient.Image}
-                                    height="200"
-                                    className="mobile_child_image"
-                                    alt="img"
-                                />
+                                <div className="center_mob_image">
+                                    <img
+                                        src={patient.Image}
+                                        height="200"
+                                        className="mobile_child_image"
+                                        alt="img"
+                                    />
+                                </div>
                                 <img
                                     src={patient.Image}
                                     height="270"
@@ -58,9 +60,7 @@ export default function PatientInfoTherapist() {
                                         {patient.Name}
                                     </div>
                                     <div className="diagnosis_flex_container">
-                                        <p className="">
-                                            Причина звернення:&nbsp;
-                                        </p>
+                                        <p className="">Діагноз:&nbsp;</p>
                                         <p style={{color: '#6F6F6F'}}>
                                             {patient.Diagnos}
                                         </p>
@@ -135,7 +135,7 @@ export default function PatientInfoTherapist() {
                                     </div>
                                 </div> */}
                                 </div>
-
+                                <br />
                                 <div className="second_column_outer_flex_container">
                                     <div
                                         className="zebra_rows_flex_container"
@@ -194,7 +194,7 @@ export default function PatientInfoTherapist() {
                                         pathname: '/patient/result_of_therapy',
                                         myCustomProps: {patient},
                                     }}
-                                    className="patient_page_buttons_therapy"
+                                    className="patient_page_buttons_therapy btn_centering"
                                 >
                                     Результати терапії
                                 </Link>
@@ -203,7 +203,7 @@ export default function PatientInfoTherapist() {
                                     onClick={() =>
                                         localStorage.setItem('program', 'ok')
                                     }
-                                    className="patient_page_buttons_program"
+                                    className="patient_page_buttons_program btn_centering"
                                 >
                                     Програма
                                 </Link>
