@@ -7,8 +7,13 @@
     margin-bottom: -40px;
     display: initial;
 }
-@media only screen and (min-device-width: 992px) {
+@media only screen and (min-device-width: 801px) {
     .logo_new_container {
         display: none;
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
+    .logo_new_container {
+        margin-bottom: 4%;
     }
 }

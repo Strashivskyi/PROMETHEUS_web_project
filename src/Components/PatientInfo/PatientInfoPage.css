@@ -1,4 +1,4 @@
-/*@import url('https://rsms.me/inter/inter.css');*/
+@import url('https://rsms.me/inter/inter.css');
 @import url(//db.onlinewebfonts.com/c/4b62ecafef4891c98fcd1e473603fd2a?family=BUIS);
 
 .grey_bg {
@@ -37,7 +37,6 @@
     font-size: 21px;
 }
 
-/* !======================================= */
 .icon_patient {
     cursor: pointer;
     margin: 0.5rem;
@@ -45,19 +44,16 @@
     height: 1rem;
     background-color: transparent !important;
 }
-
 .icon_patient:hover {
     transform: scale(1.2);
     transition: 0.1s;
 }
-
 .therapist_container {
     font-size: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-
 .add_therapist_container {
     display: flex;
     flex-direction: row;
@@ -65,38 +61,31 @@
     margin-top: 20px;
     gap: 5px;
 }
-
 .add_therapist_input {
     width: 300px;
     border: 1px solid #eee;
     padding-left: 10px;
     font-size: 20px;
 }
-
 .add_therapist_input::placeholder {
     color: #48535f;
 }
-
 .add_therapist_input::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: #48535f;
 }
-
 .add_therapist_input::-moz-placeholder {
     /* Firefox 19+ */
     color: #48535f;
 }
-
 .add_therapist_input:-ms-input-placeholder {
     /* IE 10+ */
     color: #48535f;
 }
-
 .add_therapist_input:-moz-placeholder {
     /* Firefox 18- */
     color: #48535f;
 }
-
 .add_therapist_button {
     font-size: 24px;
     font-weight: 600;
@@ -119,7 +108,6 @@
 .add_therapist_button:hover {
     background-color: #eeeeee;
 }
-
 .patients_link {
     color: #222222;
     text-decoration: none;
@@ -130,14 +118,19 @@
     display: flex;
     flex-direction: column;
 }
-
+.kid_name {
+    font-family: 'Inter', cursive;
+    font-weight: 500;
+    line-height: 44px;
+    font-weight: 500;
+    font-size: 36px;
+}
 .diagnosis_flex_container {
     display: flex;
     flex-direction: row;
     font-size: 24px;
     line-height: 85px;
 }
-
 .zebra_rows_flex_container {
     display: grid;
     grid-template-columns: 210px auto;
@@ -146,7 +139,6 @@
     margin-left: -15px;
     line-height: 40px;
 }
-
 .zebra_rows_flex_container_value {
     color: #666666;
 }
@@ -156,24 +148,25 @@
     flex-direction: column;
     margin-top: 128px;
 }
-
 .patient_page_buttons {
+    font-family: 'Inter', cursive;
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 15px;
+
     text-align: center;
     gap: 50px;
 }
 
 .patient_page_button_create_info {
+    font-family: 'Inter', cursive;
     background-color: #48535f;
     border: none;
     color: white;
     padding: 0.5em 0.75em;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 15px;
+    border-radius: 4px;
 }
 
 .patient_page_button_create_info:hover {
@@ -189,8 +182,8 @@
     background-color: #48535f;
     color: white;
     padding: 0.5em 0.75em;
-    /*text-decoration: none;
-    min-width: 200px; */
+    text-decoration: none;
+    border-radius: 4px;
 }
 
 .patient_page_buttons_therapy:hover {
@@ -208,11 +201,12 @@
     transform: scale(1.07);
     transition: 0.4s;
 }
-
 .patient_page_buttons_program {
     background-color: #48535f;
     color: white;
     padding: 0.5em 0.75em;
+    text-decoration: none;
+    border-radius: 4px;
 }
 
 .patient_page_buttons_program:hover {
@@ -222,7 +216,6 @@
     transform: scale(1.07);
     transition: 0.4s;
 }
-
 .patient_page_buttons_program:active {
     color: white;
     background: #36404b;
@@ -230,17 +223,15 @@
     transform: scale(1.07);
     transition: 0.4s;
 }
-
 .viewmore_patient {
     color: white;
     text-decoration: none;
 }
 
 .child_image {
-    width: 100%;
-    /*margin-top: 80px;*/
+    display: initial;
+    margin-top: 80px;
 }
-
 .mobile_child_image {
     display: none;
 }
@@ -252,17 +243,14 @@
         padding-left: 10px;
         font-size: 15px;
     }
-
     .no_left {
         margin-left: -8vw;
     }
-
     .icon_place_therapist {
         width: 97%;
         height: 35%;
         background-color: transparent;
     }
-
     .second_column_outer_flex_container {
         display: flex;
         flex-direction: column;
@@ -282,7 +270,6 @@
     .therapist_info {
         margin-left: -60vw;
     }
-
     .patient_grid_container {
         display: flex;
         flex-direction: column;
@@ -298,36 +285,31 @@
         background-color: #eeeeee;
         height: 200vh;
     }
-
     .diagnosis_flex_container {
         font-size: 5vw;
         margin-left: -1vw;
     }
-
     .berrier {
         height: 100px;
     }
-
     .mobile_child_image {
         display: initial;
         max-width: 100vw;
         max-height: 100vw;
     }
-
     .column_outer_flex_container {
         display: initial;
         margin-left: 0vw;
         margin-right: 0vw;
         padding-bottom: 50px;
     }
-
     .kid_name {
         font-size: 8vw;
         line-height: 11vw;
     }
 
     .child_image {
-        /*display: none;*/
+        display: none;
     }
 
     .grey_back {
@@ -341,8 +323,8 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        font-size: 20px;
-        font-weight: 600;
+        font-size: 15px;
+
         justify-content: center;
         gap: 2.5vh;
         width: 70vw;
@@ -361,12 +343,10 @@
         min-width: 70vw;
         max-width: 70vw;
     }
-
     @media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
         .therapist_container {
             font-size: 3vw;
         }
-
         .icon_place_therapist {
             width: 50%;
             height: 20%;
@@ -377,14 +357,12 @@
         .diagnosis_flex_container {
             font-size: 5vw;
         }
-
         .mobile_child_image {
             display: none;
         }
-
         .child_image {
-            /*display: initial;*/
-            /*margin-top: 20px;*/
+            display: initial;
+            margin-top: 20px;
         }
 
         .kid_name {
@@ -404,7 +382,6 @@
         }
     }
 }
-
 @media screen and (min-width: 1300px) {
     .patient_grid_container {
         display: grid;
@@ -415,24 +392,20 @@
         margin-top: 1rem;
     }
 }
-
 @media screen and (min-width: 800px) and (max-width: 1000px) {
     .patient_grid_container {
         flex-direction: column;
         grid-template-columns: none;
     }
-
     .second_column_outer_flex_container {
         margin-top: 5px;
     }
 }
-
 @media screen and (min-width: 1001px) and (max-width: 1300px) {
     .patient_grid_container {
         flex-direction: column;
         grid-template-columns: none;
     }
-
     .second_column_outer_flex_container {
         margin-top: 5px;
         margin-right: 400px;

@@ -1,44 +1,34 @@
 import {Link} from 'react-router-dom'
 import Arrow from '../../assets/arrow.png'
-function TreeArrowHeader({ patient, page }) {
+import './ArrowHeader.css'
+function TreeArrowHeader({patient, page}) {
     return (
-        <> <div className="patient_upper_flex_container" style={{ width: "35rem", justifyContent: "space-around", margin: '1% 0 1% 3.4%' }}>
-            < h2>
-                <Link to="/" className="patients_link">
-                    Пацієнти
-                                </Link>
-            </h2>
+        <>
+            {' '}
+            <Link to="/" className="patients_link_second arrow-header col-auto">
+                Пацієнти
+            </Link>
             <img
                 src={Arrow}
-                height="25"
-
+                height="18"
+                className="arrow-header col-auto"
+                alt="img"
             />
-            <h2
-                className="patients_link"
-
+            <Link
+                to="/patient"
+                className="patients_link_second arrow-header col-auto"
             >
-                <Link to="/patient" className="patients_link">
-                    {patient}
-                </Link>
-
-            </h2>
-
+                {patient}
+            </Link>
             <img
                 src={Arrow}
-                height="25"
-
+                height="18"
+                className="arrow-header col-auto"
+                alt="img"
             />
-            <h2
-                className="patients_link"
-                style={{ color: '#6F6F6F' }}
-            >
-              
-                    {page}
-               
-
-            </h2>
-
-        </div>
+            <div className="patients_link_second patients_link_grey arrow-header col-auto">
+                {page}
+            </div>
         </>
     )
 }

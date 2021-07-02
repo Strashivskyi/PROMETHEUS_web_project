@@ -18,9 +18,9 @@ export default function ProtocolList() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-        .collection("Users")
-        .doc(localStorage.getItem('user'))
-        .collection(localStorage.getItem('proffesion'))
+            .collection('Users')
+            .doc(localStorage.getItem('user'))
+            .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .onSnapshot((snapshot) => {
@@ -29,18 +29,17 @@ export default function ProtocolList() {
                         snapshot.docs.map((doc) => {
                             console.log('UPD', doc.data())
                             listTest.map((terapist) => {
-                                
-                                db.collection("Users")
-                                .doc(terapist)
-                                .collection('Therapists')
+                                db.collection('Users')
+                                    .doc(terapist)
+                                    .collection('Therapists')
                                     .doc(localStorage.getItem('child'))
                                     .collection('Protocols')
                                     .doc(doc.id)
                                     .set(doc.data())
 
-                                db.collection("Users")
-                                .doc(terapist)
-                                .collection('Therapists')
+                                db.collection('Users')
+                                    .doc(terapist)
+                                    .collection('Therapists')
                                     .doc(localStorage.getItem('child'))
                                     .set(
                                         JSON.parse(
@@ -66,17 +65,17 @@ export default function ProtocolList() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-        .collection("Users")
-        .doc(localStorage.getItem('user'))
-        .collection(localStorage.getItem('proffesion'))
+            .collection('Users')
+            .doc(localStorage.getItem('user'))
+            .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .onSnapshot((snapshot) => {
                 if (snapshot.size) {
                     snapshot.docs.map((doc) => {
-                        db.collection("Users")
-                        .doc(localStorage.getItem('user'))
-                        .collection(localStorage.getItem('proffesion'))
+                        db.collection('Users')
+                            .doc(localStorage.getItem('user'))
+                            .collection(localStorage.getItem('proffesion'))
                             .doc(localStorage.getItem('child'))
                             .collection('Protocols')
                             .doc(doc.id)
@@ -86,9 +85,9 @@ export default function ProtocolList() {
                                     setStimulusToTerapists(
                                         snapshot.docs.map((docStim) => {
                                             listTest.map((terapist) => {
-                                                db.collection("Users")
-                                                .doc(terapist)
-                                                .collection('Therapists')
+                                                db.collection('Users')
+                                                    .doc(terapist)
+                                                    .collection('Therapists')
                                                     .doc(
                                                         localStorage.getItem(
                                                             'child'
@@ -122,9 +121,9 @@ export default function ProtocolList() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-        .collection("Users")
-        .doc(localStorage.getItem('user'))
-        .collection(localStorage.getItem('proffesion'))
+            .collection('Users')
+            .doc(localStorage.getItem('user'))
+            .collection(localStorage.getItem('proffesion'))
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .onSnapshot((snapshot) => {
@@ -199,9 +198,9 @@ export default function ProtocolList() {
     useEffect(() => {
         const db = app.firestore()
         const unsubscribe = db
-        .collection("Users")
-        .doc(localStorage.getItem('user'))
-        .collection(localStorage.getItem('proffesion'))
+            .collection('Users')
+            .doc(localStorage.getItem('user'))
+            .collection(localStorage.getItem('proffesion'))
             .where('Name', '==', localStorage.getItem('childName'))
             .onSnapshot((snapshot) => {
                 if (snapshot.size) {
@@ -247,25 +246,22 @@ export default function ProtocolList() {
         console.log('DROP' + protocol.ProtocolId)
         setProtocols(
             protocols.map((proto) => {
-               
-
                 if (proto.ProtocolId == protocol.ProtocolId) {
-                    db.collection("Users")
-                    .doc(localStorage.getItem('user'))
-                    .collection(localStorage.getItem('proffesion'))
+                    db.collection('Users')
+                        .doc(localStorage.getItem('user'))
+                        .collection(localStorage.getItem('proffesion'))
                         .doc(localStorage.getItem('child'))
                         .collection('Protocols')
                         .doc(currrentProtocoll.id)
                         .update({ProtocolId: protocol.ProtocolId})
-                    db.collection("Users")
-                    .doc(localStorage.getItem('user'))
-                    .collection(localStorage.getItem('proffesion'))
+                    db.collection('Users')
+                        .doc(localStorage.getItem('user'))
+                        .collection(localStorage.getItem('proffesion'))
                         .doc(localStorage.getItem('child'))
                         .collection('Protocols')
                         .doc(protocol.id)
                         .update({ProtocolId: currrentProtocoll.ProtocolId})
                 }
-               
 
                 return proto
             })
@@ -287,14 +283,17 @@ export default function ProtocolList() {
         <>
             <MobileHeader />
             <Header />
-            <TreeArrowHeader patient={localStorage.getItem("childName")} page={"Програма"}/>
+            <TreeArrowHeader
+                patient={localStorage.getItem('childName')}
+                page={'Програма'}
+            />
             <Link to="/vb-mapp">
-            <button
-                class="create_template_button btn-background-slide"
-                // onClick={togglePopup}
-            >
-                Редагувати програму
-            </button>
+                <button
+                    class="create_template_button btn-background-slide"
+                    // onClick={togglePopup}
+                >
+                    Редагувати програму
+                </button>
             </Link>
             {/* <div
                 onClick={() => addProto(protocols.length)}
@@ -322,22 +321,22 @@ export default function ProtocolList() {
                 {protocolsNumber.map((protocol) => (
                     <>
                         <div
-                            // draggable="true"
-                            // onDragStart={(event) => {
-                            //     dragStartHandler(event, protocols[protocol - 1])
-                            // }}
-                            // onDragLeave={(event) => {
-                            //     dragEndHandler(event, protocols[protocol - 1])
-                            // }}
-                            // onDragEnd={(event) => {
-                            //     dragEndHandler(event, protocols[protocol - 1])
-                            // }}
-                            // onDragOver={(event) => {
-                            //     dragOverHandler(event)
-                            // }}
-                            // onDrop={(event) => {
-                            //     dropHandler(event, protocols[protocol - 1])
-                            // }}
+                        // draggable="true"
+                        // onDragStart={(event) => {
+                        //     dragStartHandler(event, protocols[protocol - 1])
+                        // }}
+                        // onDragLeave={(event) => {
+                        //     dragEndHandler(event, protocols[protocol - 1])
+                        // }}
+                        // onDragEnd={(event) => {
+                        //     dragEndHandler(event, protocols[protocol - 1])
+                        // }}
+                        // onDragOver={(event) => {
+                        //     dragOverHandler(event)
+                        // }}
+                        // onDrop={(event) => {
+                        //     dropHandler(event, protocols[protocol - 1])
+                        // }}
                         >
                             <ProtocolItem
                                 protocols={protocols}
@@ -409,10 +408,10 @@ export default function ProtocolList() {
 
 function addProto(length) {
     const db = app.firestore()
-    console.log("QQQQQQQQQQQQQQQQQQQQQQ")
-    db.collection("Users")
-    .doc(localStorage.getItem('user'))
-    .collection(localStorage.getItem('proffesion'))
+    console.log('QQQQQQQQQQQQQQQQQQQQQQ')
+    db.collection('Users')
+        .doc(localStorage.getItem('user'))
+        .collection(localStorage.getItem('proffesion'))
         .doc(localStorage.getItem('child'))
         .collection('Protocols')
         .add({

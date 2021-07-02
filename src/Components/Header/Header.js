@@ -12,52 +12,56 @@ function signOut() {
 function Header() {
     return (
         <>
-            <div className="header">
-                <div style={{width: '93.2%', alignSelf: 'center'}}>
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            justifyContent: 'space-between',
-                        }}
-                    >
-                        <img
-                            src={Logo}
-                            width="14.7%"
+            <div class="container">
+                <div className="header">
+                    <div style={{width: '100%', alignSelf: 'center'}}>
+                        <div
                             style={{
-                                position: 'relative',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'space-between',
                             }}
-                            className="logo_hover"
-                        />
-                        <PatientTemplateSwitch />
+                        >
+                            <img
+                                src={Logo}
+                                width="14.7%"
+                                style={{
+                                    position: 'relative',
+                                }}
+                                className="logo_hover"
+                                alt="img"
+                            />
+                            <PatientTemplateSwitch />
 
-                        <input
-                            className="search"
-                            type="text"
-                            name="search"
-                            placeholder="Пошук.."
-                        />
+                            <input
+                                className="search"
+                                type="text"
+                                name="search"
+                                placeholder="Пошук.."
+                            />
 
-                        <img
-                            src={SignOut}
-                            onClick={() => signOut()}
-                            className="sign_out_button_header"
-                            width="4%"
+                            <img
+                                src={SignOut}
+                                onClick={() => signOut()}
+                                className="sign_out_button_header"
+                                width="4%"
+                                style={{
+                                    cursor: 'pointer',
+                                    position: 'relative',
+                                    marginLeft: '10%',
+                                }}
+                                alt="img"
+                            />
+                        </div>
+
+                        <h1
                             style={{
-                                cursor: 'pointer',
-                                position: 'relative',
-                                marginLeft: '10%',
+                                border: 'none',
+                                borderBottom: ' 1px solid #6F6F6F',
+                                alignSelf: 'center',
                             }}
                         />
                     </div>
-
-                    <h1
-                        style={{
-                            border: 'none',
-                            borderBottom: ' 1px solid #6F6F6F',
-                            alignSelf: 'center',
-                        }}
-                    />
                 </div>
             </div>
         </>

@@ -1,18 +1,13 @@
-.create_template_button {
+/* .create_template_button {
     background: transparent;
     color: #ef4f59;
     border: 1px solid #ef4f59;
     cursor: pointer;
-    margin-right: 30px;
-    margin-top: -45px;
     font-family: Inter;
     font-weight: 500;
     line-height: 12px;
-    font-size: 22px;
-    width: 20%;
-    height: 40px;
-    position: absolute;
-}
+    font-size: 15px;
+} */
 .create_template_button.btn-background-slide::before {
     content: '';
     position: absolute;
@@ -44,14 +39,7 @@
     .create_template_button {
         background: transparent;
         color: #ef4f59;
-        padding: 0.5em 1em;
-        margin-left: 9vw;
-        margin-right: 0px;
-        margin-top: 5vw;
-        font-size: 4vw;
-        width: 50%;
-        height: 9vw;
-        position: relative;
+        font-size: 15px;
     }
     .create_element {
         margin-right: 0px;
@@ -62,11 +50,5 @@
     }
     .add-proto {
         display: none;
-    }
-}
-@media only screen and (min-device-width: 800px) and (max-device-width: 1300px) {
-    .create_template_button {
-        margin-left: 200px;
-        margin-top: 5px;
     }
 }
