@@ -283,124 +283,115 @@ export default function ProtocolList() {
         <>
             <MobileHeader />
             <Header />
-            <TreeArrowHeader
-                patient={localStorage.getItem('childName')}
-                page={'Програма'}
-            />
-            <Link to="/vb-mapp">
-                <button
-                    class="create_template_button btn-background-slide"
-                    // onClick={togglePopup}
-                >
-                    Редагувати програму
-                </button>
-            </Link>
-            {/* <div
-                onClick={() => addProto(protocols.length)}
-                className="add-proto-mobile"
-            >
-                <BsPlusCircle />
-            </div> */}
-            {/* {isOpen && (
-                <Popup
-                    protocols={protocols}
-                    child={child[0]}
-                    content={
+            <div class="container">
+                <div class="row top-tree ">
+                    <TreeArrowHeader
+                        patient={localStorage.getItem('childName')}
+                        page={'Програма'}
+                        class="tree-arrow-header col-md-5 row "
+                    />
+                    <div className="col-1 col-md-2"></div>
+                    <Link
+                        to="/vb-mapp"
+                        class="link-protocol create_template_button_t btn-background-slide col-10 col-md-4 row "
+                    >
+                        Редагувати програму
+                        {/* <button
+                            class="create_template_button btn-background-slide col-md-3"
+                            // onClick={togglePopup}
+                        ></button> */}
+                    </Link>
+                </div>
+                <div className="create_element">
+                    {/* <ReactSortable list={protocols} setList={setProtocols}> */}
+                    {protocolsNumber.map((protocol) => (
                         <>
-                            <b className="text_modul">
-                                Будь ласка, оберіть тип даного шаблону:
-                            </b>
-                            <div className="button_modul"></div>
+                            <div
+                            // draggable="true"
+                            // onDragStart={(event) => {
+                            //     dragStartHandler(event, protocols[protocol - 1])
+                            // }}
+                            // onDragLeave={(event) => {
+                            //     dragEndHandler(event, protocols[protocol - 1])
+                            // }}
+                            // onDragEnd={(event) => {
+                            //     dragEndHandler(event, protocols[protocol - 1])
+                            // }}
+                            // onDragOver={(event) => {
+                            //     dragOverHandler(event)
+                            // }}
+                            // onDrop={(event) => {
+                            //     dropHandler(event, protocols[protocol - 1])
+                            // }}
+                            >
+                                <ProtocolItem
+                                    protocols={protocols}
+                                    number={protocol}
+                                    protocolId={protocols[protocol - 1].id}
+                                    protocolName={
+                                        protocols[protocol - 1].ProtocolId
+                                    }
+                                    sphereOfDevelopment={
+                                        protocols[protocol - 1]
+                                            .SphereOfDevelopment
+                                    }
+                                    length={protocols.length}
+                                    skill={protocols[protocol - 1].Skill}
+                                    statusCopied={
+                                        protocols[protocol - 1].StatusCopied
+                                    }
+                                    isActive={protocols[protocol - 1].IsActive}
+                                    interval={protocols[protocol - 1].Interval}
+                                    correctionProcedureStep1={
+                                        protocols[protocol - 1]
+                                            .CorrectionProcedureStep1
+                                    }
+                                    correctionProcedureStep2={
+                                        protocols[protocol - 1]
+                                            .CorrectionProcedureStep2
+                                    }
+                                    correctionProcedureStep3={
+                                        protocols[protocol - 1]
+                                            .CorrectionProcedureStep3
+                                    }
+                                    criterionIncrease={
+                                        protocols[protocol - 1]
+                                            .CriterionIncrease
+                                    }
+                                    desirableReaction={
+                                        protocols[protocol - 1]
+                                            .DesirableReaction
+                                    }
+                                    method={protocols[protocol - 1].Method}
+                                    methodTakingHint={
+                                        protocols[protocol - 1].MethodTakingHint
+                                    }
+                                    reductionСriterion={
+                                        protocols[protocol - 1]
+                                            .ReductionСriterion
+                                    }
+                                    stepDescription={
+                                        protocols[protocol - 1].StepDescription
+                                    }
+                                    CriteriongenGenerSkill={
+                                        protocols[protocol - 1]
+                                            .CriteriongenGenerSkill
+                                    }
+                                    instruction1={
+                                        protocols[protocol - 1].Instructions1
+                                    }
+                                    instruction2={
+                                        protocols[protocol - 1].Instructions2
+                                    }
+                                    instruction3={
+                                        protocols[protocol - 1].Instructions3
+                                    }
+                                />
+                            </div>
                         </>
-                    }
-                    handleClose={togglePopup}
-                />
-            )} */}
-            <div className="create_element">
-                {/* <ReactSortable list={protocols} setList={setProtocols}> */}
-                {protocolsNumber.map((protocol) => (
-                    <>
-                        <div
-                        // draggable="true"
-                        // onDragStart={(event) => {
-                        //     dragStartHandler(event, protocols[protocol - 1])
-                        // }}
-                        // onDragLeave={(event) => {
-                        //     dragEndHandler(event, protocols[protocol - 1])
-                        // }}
-                        // onDragEnd={(event) => {
-                        //     dragEndHandler(event, protocols[protocol - 1])
-                        // }}
-                        // onDragOver={(event) => {
-                        //     dragOverHandler(event)
-                        // }}
-                        // onDrop={(event) => {
-                        //     dropHandler(event, protocols[protocol - 1])
-                        // }}
-                        >
-                            <ProtocolItem
-                                protocols={protocols}
-                                number={protocol}
-                                protocolId={protocols[protocol - 1].id}
-                                protocolName={
-                                    protocols[protocol - 1].ProtocolId
-                                }
-                                sphereOfDevelopment={
-                                    protocols[protocol - 1].SphereOfDevelopment
-                                }
-                                length={protocols.length}
-                                skill={protocols[protocol - 1].Skill}
-                                statusCopied={
-                                    protocols[protocol - 1].StatusCopied
-                                }
-                                isActive={protocols[protocol - 1].IsActive}
-                                interval={protocols[protocol - 1].Interval}
-                                correctionProcedureStep1={
-                                    protocols[protocol - 1]
-                                        .CorrectionProcedureStep1
-                                }
-                                correctionProcedureStep2={
-                                    protocols[protocol - 1]
-                                        .CorrectionProcedureStep2
-                                }
-                                correctionProcedureStep3={
-                                    protocols[protocol - 1]
-                                        .CorrectionProcedureStep3
-                                }
-                                criterionIncrease={
-                                    protocols[protocol - 1].CriterionIncrease
-                                }
-                                desirableReaction={
-                                    protocols[protocol - 1].DesirableReaction
-                                }
-                                method={protocols[protocol - 1].Method}
-                                methodTakingHint={
-                                    protocols[protocol - 1].MethodTakingHint
-                                }
-                                reductionСriterion={
-                                    protocols[protocol - 1].ReductionСriterion
-                                }
-                                stepDescription={
-                                    protocols[protocol - 1].StepDescription
-                                }
-                                CriteriongenGenerSkill={
-                                    protocols[protocol - 1]
-                                        .CriteriongenGenerSkill
-                                }
-                                instruction1={
-                                    protocols[protocol - 1].Instructions1
-                                }
-                                instruction2={
-                                    protocols[protocol - 1].Instructions2
-                                }
-                                instruction3={
-                                    protocols[protocol - 1].Instructions3
-                                }
-                            />
-                        </div>
-                    </>
-                ))}
-                {/* </ReactSortable> */}
+                    ))}
+                    {/* </ReactSortable> */}
+                </div>
             </div>
         </>
     )
