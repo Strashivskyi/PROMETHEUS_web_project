@@ -32,3 +32,4 @@ api/firebase/__pycache__/__init__.cpython-38.pyc
 api/firebase/__pycache__/firebase_secret.cpython-38.pyc
 api/firebase/__pycache__/pyrebase.cpython-38.pyc
 api/firebase/__pycache__/storage_controller.cpython-38.pyc
+.eslintcache
