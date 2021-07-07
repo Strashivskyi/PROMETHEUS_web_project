@@ -77,7 +77,7 @@ function StageElement({id, idStage}) {
                         on="hover"
                         mouseEnterDelay={500}
                         mouseLeaveDelay={100}
-                        position={['top center', 'bottom right', 'bottom left']}
+                        position={['top center']}
                         keepTooltipInside=".program-main-block"
                         nested
                     >

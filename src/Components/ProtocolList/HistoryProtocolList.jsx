@@ -49,7 +49,7 @@ export default function HistoryProtocolList() {
         <>
             <MobileHeader />
             <Header />
-            <TreeArrowHeader patient={localStorage.getItem("childName")} page={"Програма"}/>
+            <TreeArrowHeader  page={[localStorage.getItem('childName'),'Історія']}/>
             <div className="create_element">
                 {protocolsNumber.map((protocol) => (
                     <>

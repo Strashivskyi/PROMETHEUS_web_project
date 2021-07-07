@@ -1,22 +1,26 @@
 import Arrow from '../../assets/arrow.png'
-import {Link} from 'react-router-dom'
-import './ArrowHeader.css'
-function ArrowHeader({patient}) {
+import { Link } from 'react-router-dom'
+function ArrowHeader({ patient }) {
     return (
-        <>
-            {' '}
-            <div className=" container arrow-header">
-                <div className="row">
-                    <Link to="/" className="patients_link_second col-auto">
-                        Пацієнти
-                    </Link>
+        <> <div className="patient_upper_flex_container" style={{ width: "22rem", justifyContent: "space-around", margin: '1% 0 1% 3%' }}>
+            < h2>
+                <Link to="/" className="patients_link">
+                    Пацієнти
+                                </Link>
+            </h2>
+            <img
+                src={Arrow}
+                height="25"
 
-                    <img src={Arrow} height="18" className="col-auto" />
-                    <div className="patients_link_second patients_link_grey col-auto">
-                        {patient.Name}
-                    </div>
-                </div>
-            </div>
+            />
+            <h2
+                className="patients_link"
+                style={{ color: '#6F6F6F' }}
+            >
+                {patient.Name}
+            </h2>
+
+        </div>
         </>
     )
 }

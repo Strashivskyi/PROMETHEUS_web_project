@@ -6,7 +6,7 @@ import MobileHeader from '../Header/MobileHeader'
 
 import Kid from '../../assets/default_avatar.png'
 import {Link} from 'react-router-dom'
-import ArrowHeader from '../ArrowHeader/Arrow'
+import TreeArrowHeader from '../ArrowHeader/TreeArrowHeader'
 import Delete from '../../assets/delete.svg'
 import toast, {Toaster} from 'react-hot-toast'
 import About from '../VBmap/VBmap'
@@ -148,7 +148,10 @@ export default function PatientInfoUser() {
                 <>
                     {localStorage.setItem('childName', patient.Name)}
 
-                    <ArrowHeader patient={patient} />
+                    <TreeArrowHeader
+                         page={[localStorage.getItem('childName')]}
+                      
+                    />
 
                     <div className="container">
                         <div className="row kid_info_row">

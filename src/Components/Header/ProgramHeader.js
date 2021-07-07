@@ -133,7 +133,7 @@ function ProgramHeader() {
     return (
         <>
             <div className="header">
-                <div style={{width: '93.2%', alignSelf: 'center'}}>
+                <div style={{width: '100%', alignSelf: 'center'}}>
                     <div
                         style={{
                             display: 'flex',

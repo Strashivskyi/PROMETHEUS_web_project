@@ -12,110 +12,6 @@ import TreeArrowHeader from '../ArrowHeader/TreeArrowHeader'
 
 export default function ProtocolList() {
     let test = []
-    const [protocolsToTerapists, setProtocolsToTerapists] = useState([])
-    let listTest = JSON.parse(localStorage.getItem('therapistID'))
-    console.log(listTest[0])
-    useEffect(() => {
-        const db = app.firestore()
-        const unsubscribe = db
-            .collection('Users')
-            .doc(localStorage.getItem('user'))
-            .collection(localStorage.getItem('proffesion'))
-            .doc(localStorage.getItem('child'))
-            .collection('Protocols')
-            .onSnapshot((snapshot) => {
-                if (snapshot.size) {
-                    setProtocolsToTerapists(
-                        snapshot.docs.map((doc) => {
-                            console.log('UPD', doc.data())
-                            listTest.map((terapist) => {
-                                db.collection('Users')
-                                    .doc(terapist)
-                                    .collection('Therapists')
-                                    .doc(localStorage.getItem('child'))
-                                    .collection('Protocols')
-                                    .doc(doc.id)
-                                    .set(doc.data())
-
-                                db.collection('Users')
-                                    .doc(terapist)
-                                    .collection('Therapists')
-                                    .doc(localStorage.getItem('child'))
-                                    .set(
-                                        JSON.parse(
-                                            localStorage.getItem('childData')
-                                        )
-                                    )
-                            })
-                        })
-                    )
-                    console.log('Сука')
-                } else {
-                    console.log('Сука1')
-                }
-            })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
-
-    const [stimulusToTerapists, setStimulusToTerapists] = useState([])
-
-    console.log(listTest[0])
-    useEffect(() => {
-        const db = app.firestore()
-        const unsubscribe = db
-            .collection('Users')
-            .doc(localStorage.getItem('user'))
-            .collection(localStorage.getItem('proffesion'))
-            .doc(localStorage.getItem('child'))
-            .collection('Protocols')
-            .onSnapshot((snapshot) => {
-                if (snapshot.size) {
-                    snapshot.docs.map((doc) => {
-                        db.collection('Users')
-                            .doc(localStorage.getItem('user'))
-                            .collection(localStorage.getItem('proffesion'))
-                            .doc(localStorage.getItem('child'))
-                            .collection('Protocols')
-                            .doc(doc.id)
-                            .collection('Stimulus')
-                            .onSnapshot((snapshot) => {
-                                if (snapshot.size) {
-                                    setStimulusToTerapists(
-                                        snapshot.docs.map((docStim) => {
-                                            listTest.map((terapist) => {
-                                                db.collection('Users')
-                                                    .doc(terapist)
-                                                    .collection('Therapists')
-                                                    .doc(
-                                                        localStorage.getItem(
-                                                            'child'
-                                                        )
-                                                    )
-                                                    .collection('Protocols')
-                                                    .doc(doc.id)
-                                                    .collection('Stimulus')
-                                                    .doc(docStim.id)
-                                                    .set(docStim.data())
-                                            })
-                                        })
-                                    )
-                                } else {
-                                    console.log('Сука1')
-                                }
-                            })
-                    })
-
-                    console.log('Сука')
-                } else {
-                    console.log('Сука1')
-                }
-            })
-        return () => {
-            unsubscribe()
-        }
-    }, [])
 
     const [protocols, setProtocols] = useState([])
     useEffect(() => {
@@ -220,57 +116,8 @@ export default function ProtocolList() {
         }
     }, [])
 
-    const [isOpen, setIsOpen] = useState(false)
-
-    const togglePopup = () => {
-        setIsOpen(!isOpen)
-    }
-
-    const [currrentProtocoll, setcurrrentProtocoll] = useState(null)
-    function dragStartHandler(event, protocol) {
-        console.log('DRAG' + protocol.ProtocolId)
-        setcurrrentProtocoll(protocol)
-    }
-    function dragEndHandler(event, protocol) {
-        event.target.style.border = 'none'
-    }
-    function dragOverHandler(event) {
-        event.preventDefault()
-        event.target.style.border = 'solid 3px #c9c9c9'
-    }
-
-    function dropHandler(event, protocol) {
-        const db = app.firestore()
-        event.preventDefault()
-        event.target.style.border = 'none'
-        console.log('DROP' + protocol.ProtocolId)
-        setProtocols(
-            protocols.map((proto) => {
-                if (proto.ProtocolId == protocol.ProtocolId) {
-                    db.collection('Users')
-                        .doc(localStorage.getItem('user'))
-                        .collection(localStorage.getItem('proffesion'))
-                        .doc(localStorage.getItem('child'))
-                        .collection('Protocols')
-                        .doc(currrentProtocoll.id)
-                        .update({ProtocolId: protocol.ProtocolId})
-                    db.collection('Users')
-                        .doc(localStorage.getItem('user'))
-                        .collection(localStorage.getItem('proffesion'))
-                        .doc(localStorage.getItem('child'))
-                        .collection('Protocols')
-                        .doc(protocol.id)
-                        .update({ProtocolId: currrentProtocoll.ProtocolId})
-                }
-
-                return proto
-            })
-        )
-
         // fetch(`https://john-steck-api.herokuapp.com/priority_correction/priority_correction/${localStorage.getItem('user')}/${localStorage.getItem('child')}`).then((data) => {
-
-        // })
-    }
+    
 
     protocols.sort((a, b) => +a.ProtocolId - +b.ProtocolId)
 
@@ -286,8 +133,7 @@ export default function ProtocolList() {
             <div class="container">
                 <div class="row top-tree ">
                     <TreeArrowHeader
-                        patient={localStorage.getItem('childName')}
-                        page={'Програма'}
+                        page={[localStorage.getItem('childName'),'Програма']}
                         class="tree-arrow-header col-md-5 row "
                     />
                     <div className="col-1 col-md-2"></div>

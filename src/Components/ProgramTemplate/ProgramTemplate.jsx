@@ -54,8 +54,8 @@ function ProgramTemplate({history}) {
             <div className="container">
                 <div className="row template-top">
                     <TreeArrowHeader
-                        patient={localStorage.getItem('childName')}
-                        page={'Історія програми'}
+                         page={[localStorage.getItem('childName'),'Історія програми']}
+                        
                     />
                     <div className="choose_create_way">
                         <span className="template_way">

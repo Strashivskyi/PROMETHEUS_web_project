@@ -16,8 +16,8 @@ export default function ProtocolList() {
         const db = app.firestore()
         const unsubscribe = db
             .collection("Users")
-            .doc(localStorage.getItem('user'))
-            .collection(localStorage.getItem('proffesion'))
+            .doc(localStorage.getItem('Supervisor'))
+            .collection("Supervisors")
             .doc(localStorage.getItem('child'))
             .collection('Protocols')
             .onSnapshot((snapshot) => {
@@ -80,7 +80,7 @@ export default function ProtocolList() {
         <>
             <MobileHeader />
             <Header />
-            <TreeArrowHeader patient={localStorage.getItem("childName")} page={"Програма"}/>
+            <TreeArrowHeader  page={[localStorage.getItem('childName'),'Програма']}/>
 
             {protocolsNumber.map((protocol) => (
                 <ProtocolItemTherapist

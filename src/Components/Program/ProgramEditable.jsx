@@ -101,17 +101,22 @@ export default function ProgramEditable() {
             setFileGenerated(data.status) // 200
         })
     }
+    
     return (
         <>
             <MobileHeader />
+            <div style={{margin: '0% 2% 0 2%'}}>
             <ProgramHeader />
-            <div className="container">
-                <div className="row edit-top">
-                    <TreeArrowHeader
-                        patient={localStorage.getItem('childName')}
-                        page={'Програма'}
-                        className="col-md-5 row"
+            <TreeArrowHeader
+                        page={[localStorage.getItem('childName'),'Програма']}
+                        
+                       
                     />
+            </div>
+            
+            <div >
+                <div className="row edit-top">
+                   
                     <ul style={{position: 'relative', right: '4%'}}>
                         {protocols.map((protocol) => (
                             <div className="program_big_flex_container">

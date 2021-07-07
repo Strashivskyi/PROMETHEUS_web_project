@@ -47,7 +47,7 @@ function ProgramTemplate({history}) {
         <>
             <MobileHeader />
             <Header />
-            <TreeArrowHeader patient={localStorage.getItem("childName")} page={"Програма"}/>
+            <TreeArrowHeader  page={[localStorage.getItem('childName'),'Програма']}/>
             <div className="choose_create_way">
                 <span className="template_way">Історія програми &nbsp;</span>{' '}
               

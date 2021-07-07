@@ -15,8 +15,8 @@ function TherapyResult({history}) {
             <div className="container">
                 <div className="row terapy-top">
                     <TreeArrowHeader
-                        patient={localStorage.getItem('childName')}
-                        page={'Результати терапії'}
+                         page={[localStorage.getItem('childName'),'Результати терапії']}
+                      
                     />
                     <div className="container_file">
                         <p class="choose-file-title">

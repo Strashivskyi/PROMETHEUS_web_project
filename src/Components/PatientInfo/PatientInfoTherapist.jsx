@@ -3,7 +3,7 @@ import app from '../../Firebase/firebase'
 import './PatientInfoPage.css'
 import Header from '../Header/Header'
 import MobileHeader from '../Header/MobileHeader'
-import ArrowHeader from '../ArrowHeader/Arrow'
+import TreeArrowHeader from '../ArrowHeader/TreeArrowHeader'
 import {Link} from 'react-router-dom'
 
 export default function PatientInfoTherapist() {
@@ -37,10 +37,13 @@ export default function PatientInfoTherapist() {
                     {patients.map((patient) => (
                         <>
                             {localStorage.setItem('childName', patient.Name)}
+                            {localStorage.setItem('Supervisor', patient.Supervisor)}
 
-                            <ArrowHeader patient={patient} />
-
-
+                          
+                            <TreeArrowHeader
+                         page={[localStorage.getItem('childName')]}
+                      
+                    />
                             <div className="patient_grid_container">
                                 <div className="center_mob_image">
                                     <img
